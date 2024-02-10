@@ -4,8 +4,9 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gap/gap.dart';
 import 'package:knockknock/core/shared/widgets/custom_app_bar.dart';
 
-import '../../../../core/utils/app_colors.dart';
-import '../../../../core/shared/widgets/service_item.dart';
+import '../../../../../core/shared/widgets/service_item.dart';
+import '../../../../../core/utils/app_colors.dart';
+
 
 class HomeView extends StatelessWidget {
   const HomeView({super.key});

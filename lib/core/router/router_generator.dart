@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:knockknock/core/router/router.dart';
-import 'package:knockknock/features/main/home/presentation/home_view.dart';
+import 'package:knockknock/features/main/home/presentation/pages/home_view.dart';
 
 import '../../features/auth/change_pass/presentation/pages/change_pass_confirmation.dart';
 import '../../features/auth/change_pass/presentation/pages/change_pass_view.dart';
