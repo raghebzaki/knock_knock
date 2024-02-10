@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:knockknock/features/home/presentation/pages/home_view.dart';
 
 import 'core/shared/cubits/internet_checker_cubit.dart';
 
@@ -20,9 +21,7 @@ class _MainViewState extends State<MainView> {
           create: (context) => InternetCubit(),
         ),
       ],
-      child: Scaffold(
-        body: Container(),
-      ),
+      child: HomeView(),
     );
   }
 }
