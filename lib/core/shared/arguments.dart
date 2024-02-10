@@ -1,4 +1,3 @@
-import 'package:geocoding/geocoding.dart';
 
 class VerifyAccountArgs {
   final String email;

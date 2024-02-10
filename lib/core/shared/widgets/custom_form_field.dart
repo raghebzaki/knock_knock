@@ -5,7 +5,6 @@ import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../config/themes/app_text_styles.dart';
-import '../../utils/app_colors.dart';
 import '../../utils/dimensions.dart';
 
 class CustomFormField extends StatelessWidget {
@@ -77,28 +76,8 @@ class CustomFormField extends StatelessWidget {
             horizontal: Dimensions.p10.w,
             vertical: Dimensions.p10.h,
           ),
-          enabledBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(
-              borderRadius,
-            ),
-            borderSide: BorderSide(
-              width: 1,
-              color: enabledBorderColor,
-            ),
-          ),
-          focusedBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(
-              borderRadius,
-            ),
-            borderSide: BorderSide(
-              width: 1,
-              color: focusedBorderColor,
-            ),
-          ),
-          labelStyle: const TextStyle(
-            color: AppColors.textColorSecondary,
-          ),
-          hintStyle: CustomTextStyle.kFormFieldTextStyle.copyWith(color: AppColors.textColorSecondary,)
+          labelStyle: CustomTextStyle.kFormFieldTextStyle,
+          hintStyle: CustomTextStyle.kFormFieldTextStyle
       ),
     );
   }
