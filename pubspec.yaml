@@ -95,6 +95,7 @@ dependencies:
   auto_height_grid_view: ^1.0.0
   roundcheckbox: ^2.0.5
   auto_size_text: ^3.0.0
+  rxdart: ^0.27.7 # RxDart is an implementation of the popular reactiveX api for asynchronous programming, leveraging the native Dart Streams api
 
   # Flutter plugin for adapting screen and font size.
   flutter_screenutil: ^5.9.0

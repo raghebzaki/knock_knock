@@ -1,6 +1,8 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+import 'package:rxdart/rxdart.dart';
+
 import '../../domain/entities/verify_account_entity.dart';
 import '../../domain/use_cases/resend_code_usecase.dart';
 import '../../domain/use_cases/verify_account_usecase.dart';
@@ -59,4 +61,23 @@ class VerifyAccountCubit extends Cubit<VerifyAccountStates> {
       },
     );
   }
+
+  var pinCtrl = BehaviorSubject<String>();
+
+  Stream<String> get pinStream => pinCtrl.stream;
+
+  validateCode(String code) {
+    if (code.isEmpty) {
+      pinCtrl.sink.addError("Verification code can't empty");
+    } else {
+      pinCtrl.sink.add(code);
+    }
+  }
+
+  Stream<bool> get validatePinBtnStream => Rx.combineLatest(
+        [
+          pinStream,
+        ],
+        (values) => true,
+      );
 }

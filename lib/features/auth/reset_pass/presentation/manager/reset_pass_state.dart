@@ -1,4 +1,4 @@
-part of 'verify_account_cubit.dart';
+part of 'reset_pass_cubit.dart';
 
 @freezed
 class ResetPassStates with _$ResetPassStates {

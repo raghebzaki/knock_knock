@@ -29,7 +29,7 @@ import '../../features/auth/reset_pass/data/repositories/reset_pass_repo_impl.da
 import '../../features/auth/reset_pass/domain/repositories/reset_pass_repo.dart';
 import '../../features/auth/reset_pass/domain/use_cases/resend_code_usecase.dart';
 import '../../features/auth/reset_pass/domain/use_cases/reset_pass_usecase.dart';
-import '../../features/auth/reset_pass/presentation/manager/verify_account_cubit.dart';
+import '../../features/auth/reset_pass/presentation/manager/reset_pass_cubit.dart';
 import '../../features/auth/verify_account/data/data_sources/resend_code_service.dart';
 import '../../features/auth/verify_account/data/data_sources/verify_account_service.dart';
 import '../../features/auth/verify_account/data/repositories/verify_account_repo_impl.dart';

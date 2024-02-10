@@ -50,31 +50,11 @@ class S {
     return Localizations.of<S>(context, S);
   }
 
-  /// `bad request. try again later`
-  String get bad_request_error {
-    return Intl.message(
-      'bad request. try again later',
-      name: 'bad_request_error',
-      desc: '',
-      args: [],
-    );
-  }
-
   /// `Buyer`
   String get buyer {
     return Intl.message(
       'Buyer',
       name: 'buyer',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `cache error, try again later`
-  String get cache_error {
-    return Intl.message(
-      'cache error, try again later',
-      name: 'cache_error',
       desc: '',
       args: [],
     );
@@ -110,16 +90,6 @@ class S {
     );
   }
 
-  /// `conflict found, try again later`
-  String get conflict_error {
-    return Intl.message(
-      'conflict found, try again later',
-      name: 'conflict_error',
-      desc: '',
-      args: [],
-    );
-  }
-
   /// `Customer Support`
   String get cs {
     return Intl.message(
@@ -130,111 +100,11 @@ class S {
     );
   }
 
-  /// `some thing went wrong, try again later`
-  String get default_error {
-    return Intl.message(
-      'some thing went wrong, try again later',
-      name: 'default_error',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `success with not content`
-  String get no_content {
-    return Intl.message(
-      'success with not content',
-      name: 'no_content',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `Please check your internet connection`
-  String get no_internet_error {
-    return Intl.message(
-      'Please check your internet connection',
-      name: 'no_internet_error',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `url not found, try again later`
-  String get not_found_error {
-    return Intl.message(
-      'url not found, try again later',
-      name: 'not_found_error',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `forbidden request. try again later`
-  String get forbidden_error {
-    return Intl.message(
-      'forbidden request. try again later',
-      name: 'forbidden_error',
-      desc: '',
-      args: [],
-    );
-  }
-
   /// `Have a problem?`
   String get have_problem {
     return Intl.message(
       'Have a problem?',
       name: 'have_problem',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `some thing went wrong, try again later`
-  String get internal_server_error {
-    return Intl.message(
-      'some thing went wrong, try again later',
-      name: 'internal_server_error',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `time out, try again late`
-  String get timeout_error {
-    return Intl.message(
-      'time out, try again late',
-      name: 'timeout_error',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `user unauthorized, try again later`
-  String get unauthorized_error {
-    return Intl.message(
-      'user unauthorized, try again later',
-      name: 'unauthorized_error',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `some thing went wrong, try again later`
-  String get unknown_error {
-    return Intl.message(
-      'some thing went wrong, try again later',
-      name: 'unknown_error',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `unprocessable data, check it and try again`
-  String get unprocessable_content_error {
-    return Intl.message(
-      'unprocessable data, check it and try again',
-      name: 'unprocessable_content_error',
       desc: '',
       args: [],
     );
@@ -260,11 +130,211 @@ class S {
     );
   }
 
+  /// `success`
+  String get success {
+    return Intl.message(
+      'success',
+      name: 'success',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `bad request. try again later`
+  String get bad_request_error {
+    return Intl.message(
+      'bad request. try again later',
+      name: 'bad_request_error',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `success with not content`
+  String get no_content {
+    return Intl.message(
+      'success with not content',
+      name: 'no_content',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Choose an option to continue`
+  String get multiple_choices {
+    return Intl.message(
+      'Choose an option to continue',
+      name: 'multiple_choices',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `This URL is no longer available`
+  String get moved_permanently {
+    return Intl.message(
+      'This URL is no longer available',
+      name: 'moved_permanently',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `forbidden request. try again later`
+  String get forbidden_error {
+    return Intl.message(
+      'forbidden request. try again later',
+      name: 'forbidden_error',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `user unauthorized, try again later`
+  String get unauthorized_error {
+    return Intl.message(
+      'user unauthorized, try again later',
+      name: 'unauthorized_error',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Payment Required`
+  String get payment_required {
+    return Intl.message(
+      'Payment Required',
+      name: 'payment_required',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `unprocessable data, check it and try again`
+  String get unprocessable_content_error {
+    return Intl.message(
+      'unprocessable data, check it and try again',
+      name: 'unprocessable_content_error',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Invalid data, please try again`
+  String get bad_gateway {
+    return Intl.message(
+      'Invalid data, please try again',
+      name: 'bad_gateway',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Server is under maintenance`
+  String get service_unavailable {
+    return Intl.message(
+      'Server is under maintenance',
+      name: 'service_unavailable',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `url not found, try again later`
+  String get not_found_error {
+    return Intl.message(
+      'url not found, try again later',
+      name: 'not_found_error',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `conflict found, try again later`
+  String get conflict_error {
+    return Intl.message(
+      'conflict found, try again later',
+      name: 'conflict_error',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `some thing went wrong, try again later`
+  String get internal_server_error {
+    return Intl.message(
+      'some thing went wrong, try again later',
+      name: 'internal_server_error',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `some thing went wrong, try again later`
+  String get unknown_error {
+    return Intl.message(
+      'some thing went wrong, try again later',
+      name: 'unknown_error',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `time out, try again late`
+  String get timeout_error {
+    return Intl.message(
+      'time out, try again late',
+      name: 'timeout_error',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `some thing went wrong, try again later`
+  String get default_error {
+    return Intl.message(
+      'some thing went wrong, try again later',
+      name: 'default_error',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `cache error, try again later`
+  String get cache_error {
+    return Intl.message(
+      'cache error, try again later',
+      name: 'cache_error',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Please check your internet connection`
+  String get no_internet_error {
+    return Intl.message(
+      'Please check your internet connection',
+      name: 'no_internet_error',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Unsupported, please try Again later`
+  String get method_not_allowed_error {
+    return Intl.message(
+      'Unsupported, please try Again later',
+      name: 'method_not_allowed_error',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Login Successful`
-  String get login_successful {
+  String get loginSuccessful {
     return Intl.message(
       'Login Successful',
-      name: 'login_successful',
+      name: 'loginSuccessful',
       desc: '',
       args: [],
     );
@@ -291,20 +361,20 @@ class S {
   }
 
   /// `Please enter your email`
-  String get plz_enter_email {
+  String get plzEnterYourEmail {
     return Intl.message(
       'Please enter your email',
-      name: 'plz_enter_email',
+      name: 'plzEnterYourEmail',
       desc: '',
       args: [],
     );
   }
 
   /// `Please enter a valid email`
-  String get enter_valid_email {
+  String get plzEnterValidEmail {
     return Intl.message(
       'Please enter a valid email',
-      name: 'enter_valid_email',
+      name: 'plzEnterValidEmail',
       desc: '',
       args: [],
     );
@@ -321,40 +391,40 @@ class S {
   }
 
   /// `Password Confirmation`
-  String get pass_confirm {
+  String get passConfirm {
     return Intl.message(
       'Password Confirmation',
-      name: 'pass_confirm',
+      name: 'passConfirm',
       desc: '',
       args: [],
     );
   }
 
   /// `Forgot Pass`
-  String get forgot_pass {
+  String get forgotPass {
     return Intl.message(
       'Forgot Pass',
-      name: 'forgot_pass',
+      name: 'forgotPass',
       desc: '',
       args: [],
     );
   }
 
   /// `Don't have an account?`
-  String get do_not_have_account {
+  String get doNotHaveAccount {
     return Intl.message(
       'Don\'t have an account?',
-      name: 'do_not_have_account',
+      name: 'doNotHaveAccount',
       desc: '',
       args: [],
     );
   }
 
   /// `Register Now`
-  String get register_now {
+  String get registerNow {
     return Intl.message(
       'Register Now',
-      name: 'register_now',
+      name: 'registerNow',
       desc: '',
       args: [],
     );
@@ -380,11 +450,31 @@ class S {
     );
   }
 
-  /// `first name required`
-  String get firstNameRequired {
+  /// `First Name can't be empty`
+  String get firstNameCantBeEmpty {
     return Intl.message(
-      'first name required',
-      name: 'firstNameRequired',
+      'First Name can\'t be empty',
+      name: 'firstNameCantBeEmpty',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Last Name can't be empty`
+  String get lastNameCantBeEmpty {
+    return Intl.message(
+      'Last Name can\'t be empty',
+      name: 'lastNameCantBeEmpty',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Please enter a valid phone number`
+  String get pleaseEnterAValidPhoneNumber {
+    return Intl.message(
+      'Please enter a valid phone number',
+      name: 'pleaseEnterAValidPhoneNumber',
       desc: '',
       args: [],
     );
@@ -400,21 +490,11 @@ class S {
     );
   }
 
-  /// `first name required`
-  String get lastNameRequired {
-    return Intl.message(
-      'first name required',
-      name: 'lastNameRequired',
-      desc: '',
-      args: [],
-    );
-  }
-
   /// `Phone Number`
-  String get phone_no {
+  String get phoneNumber {
     return Intl.message(
       'Phone Number',
-      name: 'phone_no',
+      name: 'phoneNumber',
       desc: '',
       args: [],
     );
@@ -425,16 +505,6 @@ class S {
     return Intl.message(
       'Phone',
       name: 'phone',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `phone number required`
-  String get phoneNumberRequired {
-    return Intl.message(
-      'phone number required',
-      name: 'phoneNumberRequired',
       desc: '',
       args: [],
     );
@@ -451,50 +521,50 @@ class S {
   }
 
   /// `Password must be entered`
-  String get password_required {
+  String get passwordCaNotBeEmpty {
     return Intl.message(
       'Password must be entered',
-      name: 'password_required',
+      name: 'passwordCaNotBeEmpty',
       desc: '',
       args: [],
     );
   }
 
   /// `Password must be 8 chars at least`
-  String get pass_short {
+  String get passwordTooShort {
     return Intl.message(
       'Password must be 8 chars at least',
-      name: 'pass_short',
+      name: 'passwordTooShort',
       desc: '',
       args: [],
     );
   }
 
   /// `Registered Successfully`
-  String get register_success {
+  String get registeredSuccessfully {
     return Intl.message(
       'Registered Successfully',
-      name: 'register_success',
+      name: 'registeredSuccessfully',
       desc: '',
       args: [],
     );
   }
 
   /// `Password confirmation can't be empty`
-  String get pass_confrirm_required {
+  String get passConfirmCantBeEmpty {
     return Intl.message(
       'Password confirmation can\'t be empty',
-      name: 'pass_confrirm_required',
+      name: 'passConfirmCantBeEmpty',
       desc: '',
       args: [],
     );
   }
 
   /// `Passwords doesn't match`
-  String get pass_dont_match {
+  String get passwordsDoesNotMatch {
     return Intl.message(
       'Passwords doesn\'t match',
-      name: 'pass_dont_match',
+      name: 'passwordsDoesNotMatch',
       desc: '',
       args: [],
     );
@@ -531,40 +601,50 @@ class S {
   }
 
   /// `send code`
-  String get send_code {
+  String get sendCode {
     return Intl.message(
       'send code',
-      name: 'send_code',
+      name: 'sendCode',
       desc: '',
       args: [],
     );
   }
 
   /// `Verify Code`
-  String get verify_code {
+  String get verificationCode {
     return Intl.message(
       'Verify Code',
-      name: 'verify_code',
+      name: 'verificationCode',
       desc: '',
       args: [],
     );
   }
 
   /// `Verification Code sent to your phone`
-  String get verify_code_sent {
+  String get verificationCodeSent {
     return Intl.message(
       'Verification Code sent to your phone',
-      name: 'verify_code_sent',
+      name: 'verificationCodeSent',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Verification code can't empty`
+  String get verificationCodeCantEmpty {
+    return Intl.message(
+      'Verification code can\'t empty',
+      name: 'verificationCodeCantEmpty',
       desc: '',
       args: [],
     );
   }
 
   /// `phone used`
-  String get email_used {
+  String get phoneAlreadyUsed {
     return Intl.message(
       'phone used',
-      name: 'email_used',
+      name: 'phoneAlreadyUsed',
       desc: '',
       args: [],
     );
@@ -591,10 +671,10 @@ class S {
   }
 
   /// `OTP sent to`
-  String get otp_sent {
+  String get otpSentTo {
     return Intl.message(
       'OTP sent to',
-      name: 'otp_sent',
+      name: 'otpSentTo',
       desc: '',
       args: [],
     );
@@ -611,40 +691,40 @@ class S {
   }
 
   /// `phone is wrong, check phone & try again`
-  String get email_wrong {
+  String get wrongPhoneCheckAgain {
     return Intl.message(
       'phone is wrong, check phone & try again',
-      name: 'email_wrong',
+      name: 'wrongPhoneCheckAgain',
       desc: '',
       args: [],
     );
   }
 
   /// `Password Changed Successfully`
-  String get pass_change_success {
+  String get passwordChangedSuccessfully {
     return Intl.message(
       'Password Changed Successfully',
-      name: 'pass_change_success',
+      name: 'passwordChangedSuccessfully',
       desc: '',
       args: [],
     );
   }
 
   /// `Enter your new password below`
-  String get enter_pass_below {
+  String get enterYourNewPassword {
     return Intl.message(
       'Enter your new password below',
-      name: 'enter_pass_below',
+      name: 'enterYourNewPassword',
       desc: '',
       args: [],
     );
   }
 
   /// `Failed to change password`
-  String get failed_change_pass {
+  String get failedToChangePassword {
     return Intl.message(
       'Failed to change password',
-      name: 'failed_change_pass',
+      name: 'failedToChangePassword',
       desc: '',
       args: [],
     );
@@ -745,16 +825,6 @@ class S {
     return Intl.message(
       'Skip',
       name: 'skip',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `success`
-  String get success {
-    return Intl.message(
-      'success',
-      name: 'success',
       desc: '',
       args: [],
     );

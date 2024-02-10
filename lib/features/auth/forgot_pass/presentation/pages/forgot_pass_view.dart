@@ -38,21 +38,21 @@ class _ForgotPassViewState extends State<ForgotPassView> {
             success: (state) {
               if (state.statusCode == 1) {
                 context.defaultSnackBar(
-                  "${S.of(context).otp_sent} ${forgotPassCubit.emailCtrl.text}",
+                  "${S.of(context).otpSentTo} ${forgotPassCubit.phoneCtrl.value}",
                 );
                 context.pushNamed(
                   resetPassPageRoute,
                   arguments: ResetPassArgs(
-                    email: forgotPassCubit.emailCtrl.text.isNullOrEmpty(),
+                    email: forgotPassCubit.phoneCtrl.value.isNullOrEmpty(),
                   ),
                 );
               } else {
-                context
-                    .defaultSnackBar(S.of(context).email_wrong);
+                context.defaultSnackBar(S.of(context).wrongPhoneCheckAgain);
               }
             },
             error: (errCode, err) {
-              context.defaultSnackBar("${S.of(context).err_code}: $errCode, $err");
+              context
+                  .defaultSnackBar("${S.of(context).err_code}: $errCode, $err");
             },
             orElse: () {
               return null;
@@ -88,48 +88,58 @@ class _ForgotPassViewState extends State<ForgotPassView> {
                               style: CustomTextStyle.kTextStyleF24,
                             ),
                             Gap(20.h),
-
-                            CustomFormField(
-                              ctrl: forgotPassCubit.emailCtrl,
-                              label: S.current.phone_no,
-                              isObscure: false,
-                              validator: (value) {
-                                if (forgotPassCubit.emailCtrl.text.isEmpty) {
-                                  return S.current.phoneNumberRequired;
-                                }  else {
-                                  return null;
-                                }
-                              },
-                            ),
+                            StreamBuilder(
+                                stream: forgotPassCubit.phoneStream,
+                                builder: (context, snapshot) {
+                                  return CustomFormField(
+                                    label: S.current.phoneNumber,
+                                    isObscure: false,
+                                    onChange: (phone) {
+                                      forgotPassCubit.validatePhone(phone);
+                                    },
+                                  );
+                                }),
                           ],
                         ),
-                        ConditionalBuilder(
-                          condition: state is! Loading,
-                          builder: (BuildContext context) {
-                            return CustomBtn(
-                              label: S.current.send_code,
-                              onPressed: () {
-                                context.pushNamed(resetPassPageRoute,arguments: ResetPassArgs(email: forgotPassCubit.emailCtrl.text));
-                                // if (formKey.currentState!.validate()) {
-                                //   forgotPassCubit.userForgotPass(
-                                //     ForgetPassEntity(
-                                //       email: forgotPassCubit.emailCtrl.text,
-                                //     ),
-                                //   );
-                                // }
-                              },
-                              fgColor: Colors.white,
-                              isUpperCase: true,
-                            );
-                          },
-                          fallback: (BuildContext context) {
-                            return const Center(
-                              child: CircularProgressIndicator(
-                                color: AppColors.secondary,
-                              ),
-                            );
-                          },
-                        ),
+                        StreamBuilder(
+                            stream: forgotPassCubit.validateForgotPassBtn,
+                            builder: (context, snapshot) {
+                              return ConditionalBuilder(
+                                condition: state is! Loading,
+                                builder: (BuildContext context) {
+                                  return CustomBtn(
+                                    label: S.current.sendCode,
+                                    onPressed: snapshot.hasData
+                                        ? () {
+                                            context.pushNamed(
+                                              resetPassPageRoute,
+                                              arguments: ResetPassArgs(
+                                                email: forgotPassCubit
+                                                    .phoneCtrl.value,
+                                              ),
+                                            );
+                                            // if (formKey.currentState!.validate()) {
+                                            //   forgotPassCubit.userForgotPass(
+                                            //     ForgetPassEntity(
+                                            //       email: forgotPassCubit.emailCtrl.text,
+                                            //     ),
+                                            //   );
+                                            // }
+                                          }
+                                        : null,
+                                    fgColor: Colors.white,
+                                    isUpperCase: true,
+                                  );
+                                },
+                                fallback: (BuildContext context) {
+                                  return const Center(
+                                    child: CircularProgressIndicator(
+                                      color: AppColors.secondary,
+                                    ),
+                                  );
+                                },
+                              );
+                            }),
                       ],
                     ),
                   ),

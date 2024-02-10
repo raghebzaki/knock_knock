@@ -26,6 +26,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Forget Password"),
         "alreadyHaveAnAccount":
             MessageLookupByLibrary.simpleMessage("already have an account?"),
+        "bad_gateway": MessageLookupByLibrary.simpleMessage(
+            "Invalid data, please try again"),
         "bad_request_error": MessageLookupByLibrary.simpleMessage(
             "bad request. try again later"),
         "buyer": MessageLookupByLibrary.simpleMessage("Buyer"),
@@ -41,39 +43,40 @@ class MessageLookup extends MessageLookupByLibrary {
         "cs": MessageLookupByLibrary.simpleMessage("Customer Support"),
         "default_error": MessageLookupByLibrary.simpleMessage(
             "some thing went wrong, try again later"),
-        "do_not_have_account":
+        "doNotHaveAccount":
             MessageLookupByLibrary.simpleMessage("Don\'t have an account?"),
         "email": MessageLookupByLibrary.simpleMessage("Email"),
-        "email_used": MessageLookupByLibrary.simpleMessage("phone used"),
-        "email_wrong": MessageLookupByLibrary.simpleMessage(
-            "phone is wrong, check phone & try again"),
-        "enter_pass_below": MessageLookupByLibrary.simpleMessage(
+        "enterYourNewPassword": MessageLookupByLibrary.simpleMessage(
             "Enter your new password below"),
-        "enter_valid_email":
-            MessageLookupByLibrary.simpleMessage("Please enter a valid email"),
         "err_code": MessageLookupByLibrary.simpleMessage("Error Code"),
         "error_occurred":
             MessageLookupByLibrary.simpleMessage("error_occurred"),
+        "failedToChangePassword":
+            MessageLookupByLibrary.simpleMessage("Failed to change password"),
         "failedToCheckOtp":
             MessageLookupByLibrary.simpleMessage("failed to checkOtp"),
-        "failed_change_pass":
-            MessageLookupByLibrary.simpleMessage("Failed to change password"),
         "finish": MessageLookupByLibrary.simpleMessage("Finish"),
         "firstName": MessageLookupByLibrary.simpleMessage("first name"),
-        "firstNameRequired":
-            MessageLookupByLibrary.simpleMessage("first name required"),
+        "firstNameCantBeEmpty":
+            MessageLookupByLibrary.simpleMessage("First Name can\'t be empty"),
         "forbidden_error": MessageLookupByLibrary.simpleMessage(
             "forbidden request. try again later"),
-        "forgot_pass": MessageLookupByLibrary.simpleMessage("Forgot Pass"),
+        "forgotPass": MessageLookupByLibrary.simpleMessage("Forgot Pass"),
         "have_problem": MessageLookupByLibrary.simpleMessage("Have a problem?"),
         "internal_server_error": MessageLookupByLibrary.simpleMessage(
             "some thing went wrong, try again later"),
         "lastName": MessageLookupByLibrary.simpleMessage("last name"),
-        "lastNameRequired":
-            MessageLookupByLibrary.simpleMessage("first name required"),
+        "lastNameCantBeEmpty":
+            MessageLookupByLibrary.simpleMessage("Last Name can\'t be empty"),
         "login": MessageLookupByLibrary.simpleMessage("Login"),
-        "login_successful":
+        "loginSuccessful":
             MessageLookupByLibrary.simpleMessage("Login Successful"),
+        "method_not_allowed_error": MessageLookupByLibrary.simpleMessage(
+            "Unsupported, please try Again later"),
+        "moved_permanently": MessageLookupByLibrary.simpleMessage(
+            "This URL is no longer available"),
+        "multiple_choices": MessageLookupByLibrary.simpleMessage(
+            "Choose an option to continue"),
         "next": MessageLookupByLibrary.simpleMessage("Next"),
         "no_content":
             MessageLookupByLibrary.simpleMessage("success with not content"),
@@ -93,33 +96,40 @@ class MessageLookup extends MessageLookupByLibrary {
         "onboard_3_des": MessageLookupByLibrary.simpleMessage(
             "Hurry to purchase your embroidered and distinctive clothing "),
         "otpIsCorrect": MessageLookupByLibrary.simpleMessage("otp is correct"),
-        "otp_sent": MessageLookupByLibrary.simpleMessage("OTP sent to"),
+        "otpSentTo": MessageLookupByLibrary.simpleMessage("OTP sent to"),
         "pass": MessageLookupByLibrary.simpleMessage("Password"),
-        "pass_change_success": MessageLookupByLibrary.simpleMessage(
-            "Password Changed Successfully"),
-        "pass_confirm":
+        "passConfirm":
             MessageLookupByLibrary.simpleMessage("Password Confirmation"),
-        "pass_confrirm_required": MessageLookupByLibrary.simpleMessage(
+        "passConfirmCantBeEmpty": MessageLookupByLibrary.simpleMessage(
             "Password confirmation can\'t be empty"),
-        "pass_dont_match":
-            MessageLookupByLibrary.simpleMessage("Passwords doesn\'t match"),
-        "pass_short": MessageLookupByLibrary.simpleMessage(
-            "Password must be 8 chars at least"),
-        "password_required":
+        "passwordCaNotBeEmpty":
             MessageLookupByLibrary.simpleMessage("Password must be entered"),
+        "passwordChangedSuccessfully": MessageLookupByLibrary.simpleMessage(
+            "Password Changed Successfully"),
+        "passwordTooShort": MessageLookupByLibrary.simpleMessage(
+            "Password must be 8 chars at least"),
+        "passwordsDoesNotMatch":
+            MessageLookupByLibrary.simpleMessage("Passwords doesn\'t match"),
+        "payment_required":
+            MessageLookupByLibrary.simpleMessage("Payment Required"),
         "phone": MessageLookupByLibrary.simpleMessage("Phone"),
-        "phoneNumberRequired":
-            MessageLookupByLibrary.simpleMessage("phone number required"),
-        "phone_no": MessageLookupByLibrary.simpleMessage("Phone Number"),
-        "plz_enter_email":
+        "phoneAlreadyUsed": MessageLookupByLibrary.simpleMessage("phone used"),
+        "phoneNumber": MessageLookupByLibrary.simpleMessage("Phone Number"),
+        "pleaseEnterAValidPhoneNumber": MessageLookupByLibrary.simpleMessage(
+            "Please enter a valid phone number"),
+        "plzEnterValidEmail":
+            MessageLookupByLibrary.simpleMessage("Please enter a valid email"),
+        "plzEnterYourEmail":
             MessageLookupByLibrary.simpleMessage("Please enter your email"),
         "register": MessageLookupByLibrary.simpleMessage("Register"),
-        "register_now": MessageLookupByLibrary.simpleMessage("Register Now"),
-        "register_success":
+        "registerNow": MessageLookupByLibrary.simpleMessage("Register Now"),
+        "registeredSuccessfully":
             MessageLookupByLibrary.simpleMessage("Registered Successfully"),
         "seller": MessageLookupByLibrary.simpleMessage("Seller"),
         "sendAgain": MessageLookupByLibrary.simpleMessage("send again"),
-        "send_code": MessageLookupByLibrary.simpleMessage("send code"),
+        "sendCode": MessageLookupByLibrary.simpleMessage("send code"),
+        "service_unavailable":
+            MessageLookupByLibrary.simpleMessage("Server is under maintenance"),
         "skip": MessageLookupByLibrary.simpleMessage("Skip"),
         "success": MessageLookupByLibrary.simpleMessage("success"),
         "timeout_error":
@@ -130,10 +140,14 @@ class MessageLookup extends MessageLookupByLibrary {
             "some thing went wrong, try again later"),
         "unprocessable_content_error": MessageLookupByLibrary.simpleMessage(
             "unprocessable data, check it and try again"),
+        "verificationCode": MessageLookupByLibrary.simpleMessage("Verify Code"),
+        "verificationCodeCantEmpty": MessageLookupByLibrary.simpleMessage(
+            "Verification code can\'t empty"),
+        "verificationCodeSent": MessageLookupByLibrary.simpleMessage(
+            "Verification Code sent to your phone"),
         "verify": MessageLookupByLibrary.simpleMessage("verify"),
         "verifyAccount": MessageLookupByLibrary.simpleMessage("Verify Account"),
-        "verify_code": MessageLookupByLibrary.simpleMessage("Verify Code"),
-        "verify_code_sent": MessageLookupByLibrary.simpleMessage(
-            "Verification Code sent to your phone")
+        "wrongPhoneCheckAgain": MessageLookupByLibrary.simpleMessage(
+            "phone is wrong, check phone & try again")
       };
 }

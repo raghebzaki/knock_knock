@@ -5,7 +5,7 @@ import 'package:gap/gap.dart';
 import 'package:knockknock/core/shared/widgets/custom_app_bar.dart';
 import 'package:knockknock/core/shared/widgets/product_item.dart';
 import 'package:knockknock/core/utils/extensions.dart';
-import 'package:knockknock/features/main/home/presentation/pages/ads_item.dart';
+import 'package:knockknock/features/main/home/presentation/widgets/ads_item.dart';
 
 import '../../../../../core/shared/widgets/service_item.dart';
 import '../../../../../core/utils/app_colors.dart';

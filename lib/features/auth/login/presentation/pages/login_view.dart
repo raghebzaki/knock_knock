@@ -5,7 +5,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gap/gap.dart';
 import 'package:knockknock/core/utils/extensions.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
-import 'package:pinput/pinput.dart';
 
 import '../../../../../config/themes/app_text_styles.dart';
 import '../../../../../core/dependency_injection/di.dart' as di;
@@ -41,23 +40,23 @@ class _LoginViewState extends State<LoginView> {
           state.maybeWhen(
             success: (state) async {
               if (state!.status == 1) {
-                context.defaultSnackBar(S.of(context).login_successful);
+                context.defaultSnackBar(S.of(context).loginSuccessful);
                 var email =
-                    CacheHelper.setData("email", loginCubit.emailCtrl.text);
+                    CacheHelper.setData("email", loginCubit.phoneCtrl.value);
                 var pass =
-                    CacheHelper.setData("pass", loginCubit.passCtrl.text);
+                    CacheHelper.setData("pass", loginCubit.passCtrl.value);
                 debugPrint("$email, $pass");
-                  context.pushNamed(bottomNavBarPageRoute);
+                context.pushNamed(bottomNavBarPageRoute);
                 // UpdateFcmTokenService.updateUserToken(UserData.id!);
               } else if (state.status == 0) {
                 if (state.msg ==
                     "Active your account first verification code sent to your email !") {
                   // await resendCodeUseCase(email.ifEmpty());
-                  loginCubit.resendCode(loginCubit.emailCtrl.text);
+                  loginCubit.resendCode(loginCubit.phoneCtrl.value);
                   context.pushNamed(
                     verifyAccountPageRoute,
                     arguments:
-                        VerifyAccountArgs(email: loginCubit.emailCtrl.text),
+                        VerifyAccountArgs(email: loginCubit.phoneCtrl.value),
                   );
                 }
                 context.defaultSnackBar(state.msg.isNullOrEmpty());
@@ -76,141 +75,167 @@ class _LoginViewState extends State<LoginView> {
         builder: (context, state) {
           LoginCubit loginCubit = LoginCubit.get(context);
           return Scaffold(
-            body: Form(
-              key: formKey,
-              child: SafeArea(
-                child: Padding(
-                  padding: const EdgeInsets.all(
-                    Dimensions.p16,
-                  ),
-                  child: SingleChildScrollView(
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          children: [
-                            Gap(80.h),
-                            Image.asset(
-                              AppImages.appLogo,
-                              height: 100.h,
-                              width: 450.w,
-                            ),
-                            Gap(5.h),
-
-                          ],
-                        ),
-
-                        Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              S.current.login,
-                              style: CustomTextStyle.kTextStyleF24,
-                            ),
-                            Gap(20.h),
-                            CustomFormField(
-                              ctrl: loginCubit.emailCtrl,
-                              hint: S.current.phone_no,
-                              isObscure: false,
-                              validator: (value) {
-                                if (loginCubit.emailCtrl.text.isEmpty) {
-                                  return S.of(context).phoneNumberRequired;
-                                }  else {
-                                  return null;
-                                }
-                              },
-                            ),
-                            Gap(10.h),
-
-                            CustomFormField(
-                              ctrl: loginCubit.passCtrl,
-                              hint: S.current.pass,
-                              isObscure: password,
-                              sufIcon: GestureDetector(
-                                onTap: () {
-                                  setState(() {
-                                    password = !password;
-                                  });
-                                },
-                                child: password
-                                    ? Icon(MdiIcons.eye)
-                                    : Icon(MdiIcons.eyeOff),
-                              ),
-                              validator: (value) {
-                                if (loginCubit.passCtrl.text.isEmpty) {
-                                  return S.of(context).password_required;
-                                } else if (loginCubit.passCtrl.length < 8) {
-                                  return S.of(context).pass_short;
-                                } else {
-                                  return null;
-                                }
-                              },
-                            ),
-                            Gap(15.h),
-                          ],
-                        ),
-                        Align(
-                          alignment: Alignment.centerRight,
-                          child: GestureDetector(
-                            onTap: () {
-                              context.pushNamed(forgotPassPageRoute);
-                            },
-                            child: Text(
-                              S.current.forgot_pass,
-                              style: CustomTextStyle.kTextStyleF16,
-                            ),
+            body: SafeArea(
+              child: Padding(
+                padding: const EdgeInsets.all(
+                  Dimensions.p16,
+                ),
+                child: SingleChildScrollView(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          Gap(80.h),
+                          Image.asset(
+                            AppImages.appLogo,
+                            height: 100.h,
+                            width: 450.w,
+                          ),
+                          Gap(5.h),
+                        ],
+                      ),
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            S.current.login,
+                            style: CustomTextStyle.kTextStyleF24,
+                          ),
+                          Gap(20.h),
+                          StreamBuilder(
+                              stream: loginCubit.phoneStream,
+                              builder: (context, snapshot) {
+                                return Column(
+                                  children: [
+                                    CustomFormField(
+                                      hint: S.current.phoneNumber,
+                                      isObscure: false,
+                                      onChange: (phone) {
+                                        loginCubit.validatePhone(phone);
+                                      },
+                                    ),
+                                    snapshot.hasError
+                                        ? Align(
+                                            alignment: Alignment.centerLeft,
+                                            child: Text(
+                                              snapshot.error.toString(),
+                                              style: TextStyle(
+                                                color: AppColors.errorColor,
+                                              ),
+                                            ),
+                                          )
+                                        : Gap(5.h),
+                                  ],
+                                );
+                              }),
+                          Gap(10.h),
+                          StreamBuilder(
+                              stream: loginCubit.passStream,
+                              builder: (context, snapshot) {
+                                return Column(
+                                  children: [
+                                    CustomFormField(
+                                      hint: S.current.pass,
+                                      isObscure: password,
+                                      sufIcon: GestureDetector(
+                                        onTap: () {
+                                          setState(() {
+                                            password = !password;
+                                          });
+                                        },
+                                        child: password
+                                            ? Icon(MdiIcons.eye)
+                                            : Icon(MdiIcons.eyeOff),
+                                      ),
+                                      onChange: (pass) {
+                                        loginCubit.validatePass(pass);
+                                      },
+                                    ),
+                                    snapshot.hasError
+                                        ? Align(
+                                      alignment: Alignment.centerLeft,
+                                      child: Text(
+                                        snapshot.error.toString(),
+                                        style: TextStyle(
+                                          color: AppColors.errorColor,
+                                        ),
+                                      ),
+                                    )
+                                        : Gap(5.h),
+                                  ],
+                                );
+                              }),
+                          Gap(15.h),
+                        ],
+                      ),
+                      Align(
+                        alignment: Alignment.centerRight,
+                        child: GestureDetector(
+                          onTap: () {
+                            context.pushNamed(forgotPassPageRoute);
+                          },
+                          child: Text(
+                            S.current.forgotPass,
+                            style: CustomTextStyle.kTextStyleF16,
                           ),
                         ),
-                        Gap(25.h),
-                        ConditionalBuilder(
-                            condition: state is! Loading,
-                            builder: (BuildContext context) {
-                              return CustomBtn(
-                                label: S.current.login,
-                                onPressed: () {
-                                  context.pushNamed(homePageRoute);
-                                  // if (formKey.currentState!.validate()) {
-                                  //   loginCubit.userLogin(LoginEntity(
-                                  //       userName: loginCubit.emailCtrl.text,
-                                  //       pass: loginCubit.passCtrl.text,
-                                  //     ),);
-                                  // }
+                      ),
+                      Gap(25.h),
+                      StreamBuilder(
+                          stream: loginCubit.validBtnStream,
+                          builder: (context, snapshot) {
+                            return ConditionalBuilder(
+                                condition: state is! Loading,
+                                builder: (BuildContext context) {
+                                  return CustomBtn(
+                                    label: S.current.login,
+                                    onPressed: snapshot.hasData
+                                        ? () {
+                                            context.pushNamed(homePageRoute);
+                                            // if (formKey.currentState!.validate()) {
+                                            //   loginCubit.userLogin(LoginEntity(
+                                            //       userName: loginCubit.emailCtrl.text,
+                                            //       pass: loginCubit.passCtrl.text,
+                                            //     ),);
+                                            // }
+                                          }
+                                        : null,
+                                    fgColor: Colors.white,
+                                    isUpperCase: true,
+                                  );
                                 },
-                                fgColor: Colors.white,
-                                isUpperCase: true,
-                              );
+                                fallback: (BuildContext context) {
+                                  return const Center(
+                                    child: CircularProgressIndicator(
+                                      color: AppColors.secondary,
+                                    ),
+                                  );
+                                });
+                          }),
+                      Gap(15.h),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text(
+                            S.current.doNotHaveAccount,
+                            style: CustomTextStyle.kTextStyleF16,
+                          ),
+                          TextButton(
+                            onPressed: () {
+                              context.pushNamed(registerPageRoute);
                             },
-                            fallback: (BuildContext context) {
-                              return const Center(
-                                child: CircularProgressIndicator(
-                                  color: AppColors.secondary,
-                                ),
-                              );
-                            }),
-                        Gap(15.h),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Text(
-                              S.current.do_not_have_account,
-                              style: CustomTextStyle.kTextStyleF16,
+                            child: Text(
+                              S.current.registerNow,
+                              style: CustomTextStyle.kTextStyleF16w600,
                             ),
-                            TextButton(
-                              onPressed: () {
-                                context.pushNamed(registerPageRoute);
-                              },
-                              child: Text(
-                                S.current.register_now,
-                                style: CustomTextStyle.kTextStyleF16w600,
-                              ),
-                            ),
-                          ],
-                        )
-                      ],
-                    ),
+                          ),
+                        ],
+                      )
+                    ],
                   ),
                 ),
               ),

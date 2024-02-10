@@ -26,11 +26,13 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("نسيت كلمة المرور"),
         "alreadyHaveAnAccount":
             MessageLookupByLibrary.simpleMessage("لديك بالفعل حساب؟"),
+        "bad_gateway": MessageLookupByLibrary.simpleMessage(
+            "بيانات غير صالحة، يرجى المحاولة مرة أخرى"),
         "bad_request_error": MessageLookupByLibrary.simpleMessage(
             "طلب غير صالح. حاول مرة أخرى لاحقًا"),
         "buyer": MessageLookupByLibrary.simpleMessage("مشتري"),
         "cache_error": MessageLookupByLibrary.simpleMessage(
-            "خطأ في التخزين المؤقت، حاول مرة أخرى لاحقًا"),
+            "خطأ في ذاكرة التخزين المؤقت , حاول مرة أخرى لاحقًا"),
         "change_pass":
             MessageLookupByLibrary.simpleMessage("تغيير كلمة المرور"),
         "change_your_pass": MessageLookupByLibrary.simpleMessage(
@@ -38,91 +40,101 @@ class MessageLookup extends MessageLookupByLibrary {
         "check_your_mail": MessageLookupByLibrary.simpleMessage(
             "يرجى التحقق من رقم الهاتف لتأمين حسابك"),
         "conflict_error": MessageLookupByLibrary.simpleMessage(
-            "تم العثور على تضارب، حاول مرة أخرى لاحقًا"),
+            "تم العثور على تعارض , حاول مرة أخرى لاحقًا"),
         "cs": MessageLookupByLibrary.simpleMessage("خدمة العملاء"),
         "default_error": MessageLookupByLibrary.simpleMessage(
-            "حدث خطأ ما، حاول مرة أخرى لاحقًا"),
-        "do_not_have_account":
+            "حدث خطأ ما , حاول مرة أخرى لاحقًا"),
+        "doNotHaveAccount":
             MessageLookupByLibrary.simpleMessage("ليس لديك حساب؟"),
         "email": MessageLookupByLibrary.simpleMessage("البريد الإلكتروني"),
-        "email_used": MessageLookupByLibrary.simpleMessage("الهاتف مستخدم"),
-        "email_wrong": MessageLookupByLibrary.simpleMessage(
-            "الهاتف غير صحيح، قم بالتحقق من الهاتف وحاول مرة أخرى"),
-        "enter_pass_below": MessageLookupByLibrary.simpleMessage(
+        "enterYourNewPassword": MessageLookupByLibrary.simpleMessage(
             "أدخل كلمة المرور الجديدة أدناه"),
-        "enter_valid_email":
-            MessageLookupByLibrary.simpleMessage("يرجى إدخال رقم هاتف صالح"),
         "err_code": MessageLookupByLibrary.simpleMessage("رمز الخطأ"),
         "error_occurred": MessageLookupByLibrary.simpleMessage("حدث خطأ!"),
+        "failedToChangePassword":
+            MessageLookupByLibrary.simpleMessage("فشل تغيير كلمة المرور"),
         "failedToCheckOtp":
             MessageLookupByLibrary.simpleMessage("فشل في التحقق من الرمز"),
-        "failed_change_pass":
-            MessageLookupByLibrary.simpleMessage("فشل تغيير كلمة المرور"),
         "finish": MessageLookupByLibrary.simpleMessage("انتهاء"),
         "firstName": MessageLookupByLibrary.simpleMessage("الاسم الأول"),
-        "firstNameRequired":
-            MessageLookupByLibrary.simpleMessage("الاسم الأول مطلوب"),
+        "firstNameCantBeEmpty": MessageLookupByLibrary.simpleMessage(
+            "لا يمكن ترك الاسم الأول فارغًا"),
         "forbidden_error": MessageLookupByLibrary.simpleMessage(
             "طلب محظور. حاول مرة أخرى لاحقًا"),
-        "forgot_pass": MessageLookupByLibrary.simpleMessage("نسيت كلمة المرور"),
+        "forgotPass": MessageLookupByLibrary.simpleMessage("نسيت كلمة المرور"),
         "have_problem": MessageLookupByLibrary.simpleMessage("هل لديك مشكلة؟"),
         "internal_server_error": MessageLookupByLibrary.simpleMessage(
-            "حدث خطأ ما، حاول مرة أخرى لاحقًا"),
+            "حدث خطأ ما , حاول مرة أخرى لاحقًا"),
         "lastName": MessageLookupByLibrary.simpleMessage("الاسم الأخير"),
-        "lastNameRequired":
-            MessageLookupByLibrary.simpleMessage("الاسم الأخير مطلوب"),
+        "lastNameCantBeEmpty": MessageLookupByLibrary.simpleMessage(
+            "لا يمكن ترك اسم العائلة فارغًا"),
         "login": MessageLookupByLibrary.simpleMessage("تسجيل الدخول"),
-        "login_successful":
+        "loginSuccessful":
             MessageLookupByLibrary.simpleMessage("تم تسجيل الدخول بنجاح"),
+        "method_not_allowed_error": MessageLookupByLibrary.simpleMessage(
+            "غير مدعوم، يرجى المحاولة مرة أخرى لاحقًا"),
+        "moved_permanently":
+            MessageLookupByLibrary.simpleMessage("هذا الرابط لم يعد متاحًا"),
+        "multiple_choices":
+            MessageLookupByLibrary.simpleMessage("اختر خيارًا للمتابعة"),
         "next": MessageLookupByLibrary.simpleMessage("التالي"),
         "no_content": MessageLookupByLibrary.simpleMessage("نجاح بدون محتوى"),
         "no_internet_error": MessageLookupByLibrary.simpleMessage(
-            "يرجى التحقق من اتصال الإنترنت الخاص بك"),
+            "يُرجى التحقق من اتصالك بالإنترنت"),
         "not_found_error": MessageLookupByLibrary.simpleMessage(
-            "الرابط غير موجود، حاول مرة أخرى لاحقًا"),
+            "url غير موجود , حاول مرة أخرى لاحقًا"),
         "onboard_1": MessageLookupByLibrary.simpleMessage("معرض الملابس"),
         "onboard_1_des": MessageLookupByLibrary.simpleMessage(
             "نقدم مجموعة متنوعة من المقاسات والأنماط، مم"),
         "otpIsCorrect": MessageLookupByLibrary.simpleMessage("رمز التحقق صحيح"),
-        "otp_sent":
+        "otpSentTo":
             MessageLookupByLibrary.simpleMessage("تم إرسال رمز التحقق إلى"),
         "pass": MessageLookupByLibrary.simpleMessage("كلمة المرور"),
-        "pass_change_success":
-            MessageLookupByLibrary.simpleMessage("تم تغيير كلمة المرور بنجاح"),
-        "pass_confirm":
-            MessageLookupByLibrary.simpleMessage("تأكيد كلمة المرور"),
-        "pass_confrirm_required": MessageLookupByLibrary.simpleMessage(
+        "passConfirmCantBeEmpty": MessageLookupByLibrary.simpleMessage(
             "تأكيد كلمة المرور لا يمكن أن يكون فارغًا"),
-        "pass_dont_match":
-            MessageLookupByLibrary.simpleMessage("كلمات المرور غير متطابقة"),
-        "pass_short": MessageLookupByLibrary.simpleMessage(
-            "يجب أن تكون كلمة المرور على الأقل 8 أحرف"),
-        "password_required":
+        "passwordCaNotBeEmpty":
             MessageLookupByLibrary.simpleMessage("يجب إدخال كلمة المرور"),
+        "passwordChangedSuccessfully":
+            MessageLookupByLibrary.simpleMessage("تم تغيير كلمة المرور بنجاح"),
+        "passwordTooShort": MessageLookupByLibrary.simpleMessage(
+            "يجب أن تكون كلمة المرور على الأقل 8 أحرف"),
+        "passwordsDoesNotMatch":
+            MessageLookupByLibrary.simpleMessage("كلمات المرور غير متطابقة"),
+        "payment_required": MessageLookupByLibrary.simpleMessage("الدفع مطلوب"),
         "phone": MessageLookupByLibrary.simpleMessage("الهاتف"),
-        "phoneNumberRequired":
-            MessageLookupByLibrary.simpleMessage("رقم الهاتف مطلوب"),
-        "phone_no": MessageLookupByLibrary.simpleMessage("رقم الجوال"),
-        "plz_enter_email":
+        "phoneAlreadyUsed":
+            MessageLookupByLibrary.simpleMessage("الهاتف مستخدم"),
+        "phoneNumber": MessageLookupByLibrary.simpleMessage("رقم الجوال"),
+        "pleaseEnterAValidPhoneNumber":
+            MessageLookupByLibrary.simpleMessage("يرجى إدخال رقم هاتف صالح"),
+        "plzEnterValidEmail":
+            MessageLookupByLibrary.simpleMessage("يرجى إدخال رقم هاتف صالح"),
+        "plzEnterYourEmail":
             MessageLookupByLibrary.simpleMessage("يرجى إدخال رقم الهاتف"),
         "register": MessageLookupByLibrary.simpleMessage("تسجيل"),
-        "register_now": MessageLookupByLibrary.simpleMessage("سجل الآن"),
-        "register_success":
+        "registerNow": MessageLookupByLibrary.simpleMessage("سجل الآن"),
+        "registeredSuccessfully":
             MessageLookupByLibrary.simpleMessage("تم التسجيل بنجاح"),
         "sendAgain": MessageLookupByLibrary.simpleMessage("إرسال مرة أخرى"),
-        "send_code": MessageLookupByLibrary.simpleMessage("إرسال الرمز"),
+        "sendCode": MessageLookupByLibrary.simpleMessage("إرسال الرمز"),
+        "service_unavailable":
+            MessageLookupByLibrary.simpleMessage("الخادم قيد الصيانة"),
+        "success": MessageLookupByLibrary.simpleMessage("تم بنجاح"),
         "timeout_error": MessageLookupByLibrary.simpleMessage(
-            "انتهاء الوقت، حاول مرة أخرى في وقت لاحق"),
+            "انتهت المهلة , حاول مرة أخرى لاحقًا"),
         "unauthorized_error": MessageLookupByLibrary.simpleMessage(
-            "المستخدم غير مصرح له، حاول مرة أخرى لاحقًا"),
+            "المستخدم غير مصرح له، جرب مرة أخرى في وقت لاحق"),
         "unknown_error": MessageLookupByLibrary.simpleMessage(
-            "حدث خطأ ما، حاول مرة أخرى لاحقًا"),
-        "unprocessable_content_error": MessageLookupByLibrary.simpleMessage(
-            "البيانات غير قابلة للمعالجة، قم بالتحقق وحاول مرة أخرى"),
+            "حدث خطأ ما , حاول مرة أخرى لاحقًا"),
+        "verificationCode":
+            MessageLookupByLibrary.simpleMessage("التحقق من الرمز"),
+        "verificationCodeCantEmpty": MessageLookupByLibrary.simpleMessage(
+            "لا يمكن ترك رمز التحقق فارغًا"),
+        "verificationCodeSent": MessageLookupByLibrary.simpleMessage(
+            "تم إرسال رمز التحقق إلى هاتفك"),
         "verify": MessageLookupByLibrary.simpleMessage("تحقق"),
         "verifyAccount": MessageLookupByLibrary.simpleMessage("تحقق من الحساب"),
-        "verify_code": MessageLookupByLibrary.simpleMessage("التحقق من الرمز"),
-        "verify_code_sent": MessageLookupByLibrary.simpleMessage(
-            "تم إرسال رمز التحقق إلى هاتفك")
+        "wrongPhoneCheckAgain": MessageLookupByLibrary.simpleMessage(
+            "الهاتف غير صحيح، قم بالتحقق من الهاتف وحاول مرة أخرى")
       };
 }

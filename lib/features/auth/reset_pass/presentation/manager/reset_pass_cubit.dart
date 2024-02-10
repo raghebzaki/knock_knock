@@ -1,13 +1,15 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:knockknock/features/auth/reset_pass/domain/use_cases/reset_pass_usecase.dart';
+import 'package:rxdart/rxdart.dart';
 
+import '../../../../../generated/l10n.dart';
 import '../../domain/entities/reset_entity.dart';
 import '../../domain/use_cases/resend_code_usecase.dart';
 
-part 'verify_account_state.dart';
+part 'reset_pass_state.dart';
 
-part 'verify_account_cubit.freezed.dart';
+part 'reset_pass_cubit.freezed.dart';
 
 class ResetPassCubit extends Cubit<ResetPassStates> {
   ResetPassCubit({
@@ -59,4 +61,25 @@ class ResetPassCubit extends Cubit<ResetPassStates> {
       },
     );
   }
+
+  var pinCtrl = BehaviorSubject<String>();
+
+
+  Stream<String> get pinStream => pinCtrl.stream;
+
+  validateCode(String code) {
+    if (code.isEmpty) {
+      pinCtrl.sink.addError(S.current.verificationCodeCantEmpty);
+    } else {
+      pinCtrl.sink.add(code);
+    }
+  }
+
+  Stream<bool> get validatePinBtnStream => Rx.combineLatest(
+    [
+      pinStream,
+    ],
+        (values) => true,
+  );
+
 }

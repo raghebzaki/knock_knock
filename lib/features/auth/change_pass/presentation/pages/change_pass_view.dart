@@ -5,7 +5,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gap/gap.dart';
 import 'package:knockknock/core/utils/extensions.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
-import 'package:pinput/pinput.dart';
 
 import '../../../../../config/themes/app_text_styles.dart';
 import '../../../../../core/dependency_injection/di.dart' as di;
@@ -41,14 +40,15 @@ class _ChangePassViewState extends State<ChangePassView> {
           state.maybeWhen(
             success: (state) {
               if (state.status == 1) {
-                context.defaultSnackBar(S.of(context).pass_change_success);
+                context.defaultSnackBar(S.of(context).passwordChangedSuccessfully);
                 context.pushNamed(changePassConfirmationPageRoute);
               } else {
-                context.defaultSnackBar(S.of(context).failed_change_pass);
+                context.defaultSnackBar(S.of(context).failedToChangePassword);
               }
             },
             error: (errCode, err) {
-              context.defaultSnackBar("${S.of(context).failed_change_pass}: $errCode, $err");
+              context.defaultSnackBar(
+                  "${S.of(context).failedToChangePassword}: $errCode, $err");
             },
             orElse: () {
               return null;
@@ -81,87 +81,117 @@ class _ChangePassViewState extends State<ChangePassView> {
                           style: CustomTextStyle.kTextStyleF24,
                         ),
                         Gap(20.h),
-                        CustomFormField(
-                          ctrl: changePassCubit.passCtrl,
-                          label: S.current.pass,
-                          isObscure: password,
-                          sufIcon: GestureDetector(
-                            onTap: () {
-                              setState(() {
-                                password = !password;
-                              });
-                            },
-                            child: password
-                                ? Icon(MdiIcons.eye)
-                                : Icon(MdiIcons.eyeOff),
-                          ),
-                          validator: (value) {
-                            if (changePassCubit.passCtrl.text.isEmpty) {
-                              return S.current.password_required;
-                            } else if (changePassCubit.passCtrl.length < 8) {
-                              return S.current.pass_short;
-                            } else {
-                              return null;
-                            }
-                          },
-                        ),
+                        StreamBuilder(
+                            stream: changePassCubit.passStream,
+                            builder: (context, snapshot) {
+                              return Column(
+                                children: [
+                                  CustomFormField(
+                                    hint: S.current.pass,
+                                    isObscure: password,
+                                    sufIcon: GestureDetector(
+                                      onTap: () {
+                                        setState(() {
+                                          password = !password;
+                                        });
+                                      },
+                                      child: password
+                                          ? Icon(MdiIcons.eye)
+                                          : Icon(MdiIcons.eyeOff),
+                                    ),
+                                    onChange: (pass) {
+                                      changePassCubit.validatePass(pass);
+                                    },
+                                  ),
+                                  snapshot.hasError
+                                      ? Align(
+                                          alignment: Alignment.centerLeft,
+                                          child: Text(
+                                            snapshot.error.toString(),
+                                            style: const TextStyle(
+                                              color: AppColors.errorColor,
+                                            ),
+                                          ),
+                                        )
+                                      : Gap(5.h),
+                                ],
+                              );
+                            }),
                         Gap(10.h),
-                        CustomFormField(
-                          ctrl: changePassCubit.passConfirmCtrl,
-                          label: S.current.pass_confirm,
-                          isObscure: passwordConfirmation,
-                          sufIcon: GestureDetector(
-                            onTap: () {
-                              setState(() {
-                                passwordConfirmation = !passwordConfirmation;
-                              });
-                            },
-                            child: passwordConfirmation
-                                ? Icon(MdiIcons.eye)
-                                : Icon(MdiIcons.eyeOff),
-                          ),
-                          validator: (value) {
-                            if (changePassCubit.passConfirmCtrl.text.isEmpty) {
-                              return S.current.pass_confrirm_required;
-                            } else if (changePassCubit.passConfirmCtrl.text !=
-                                changePassCubit.passCtrl.text) {
-                              return S.current.pass_dont_match;
-                            } else {
-                              return null;
-                            }
-                          },
-                        ),
+                        StreamBuilder(
+                            stream: changePassCubit.passConfirmStream,
+                            builder: (context, snapshot) {
+                              return Column(
+                                children: [
+                                  CustomFormField(
+                                    hint: S.current.passConfirm,
+                                    isObscure: passwordConfirmation,
+                                    sufIcon: GestureDetector(
+                                      onTap: () {
+                                        setState(() {
+                                          passwordConfirmation =
+                                              !passwordConfirmation;
+                                        });
+                                      },
+                                      child: passwordConfirmation
+                                          ? Icon(MdiIcons.eye)
+                                          : Icon(MdiIcons.eyeOff),
+                                    ),
+                                    onChange: (passConfirm) {
+                                      changePassCubit
+                                          .validatePassConfirm(passConfirm);
+                                    },
+                                  ),
+                                  snapshot.hasError
+                                      ? Align(
+                                          alignment: Alignment.centerLeft,
+                                          child: Text(
+                                            snapshot.error.toString(),
+                                            style: const TextStyle(
+                                              color: AppColors.errorColor,
+                                            ),
+                                          ),
+                                        )
+                                      : Gap(5.h),
+                                ],
+                              );
+                            }),
                         Gap(20.h),
-                        ConditionalBuilder(
-                          condition: state is! Loading,
-                          builder: (BuildContext context) {
-                            return CustomBtn(
-                              label: S.current.change_pass,
-                              onPressed: () {
-                                context.pushNamed(loginPageRoute);
+                        StreamBuilder(
+                          stream: changePassCubit.validateChangePassBtnStream,
+                          builder: (context, snapshot) {
+                            return ConditionalBuilder(
+                              condition: state is! Loading,
+                              builder: (BuildContext context) {
+                                return CustomBtn(
+                                  label: S.current.change_pass,
+                                  onPressed: snapshot.hasData ? () {
+                                    context.pushNamed(loginPageRoute);
 
-                                // if (formKey.currentState!.validate()) {
-                                //   changePassCubit.userChangePass(
-                                //     ChangePassEntity(
-                                //       email: widget.email,
-                                //       pass: changePassCubit.passCtrl.text,
-                                //       confirmPass:
-                                //           changePassCubit.passConfirmCtrl.text,
-                                //     ),
-                                //   );
-                                // }
+                                    // if (formKey.currentState!.validate()) {
+                                    //   changePassCubit.userChangePass(
+                                    //     ChangePassEntity(
+                                    //       email: widget.email,
+                                    //       pass: changePassCubit.passCtrl.text,
+                                    //       confirmPass:
+                                    //           changePassCubit.passConfirmCtrl.text,
+                                    //     ),
+                                    //   );
+                                    // }
+                                  } : null,
+                                  fgColor: Colors.white,
+                                  isUpperCase: true,
+                                );
                               },
-                              fgColor: Colors.white,
-                              isUpperCase: true,
+                              fallback: (BuildContext context) {
+                                return const Center(
+                                  child: CircularProgressIndicator(
+                                    color: AppColors.secondary,
+                                   ),
+                                );
+                              },
                             );
-                          },
-                          fallback: (BuildContext context) {
-                            return const Center(
-                              child: CircularProgressIndicator(
-                                color: AppColors.secondary,
-                              ),
-                            );
-                          },
+                          }
                         ),
                       ],
                     ),

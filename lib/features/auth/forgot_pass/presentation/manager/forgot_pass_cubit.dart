@@ -1,7 +1,10 @@
-import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:knockknock/core/utils/extensions.dart';
+import 'package:rxdart/rxdart.dart';
 
+import '../../../../../generated/l10n.dart';
 import '../../domain/entities/forget_pass_entity.dart';
 import '../../domain/use_cases/forget_pass_usecase.dart';
 
@@ -13,7 +16,7 @@ class ForgotPassCubit extends Cubit<ForgotPassStates> {
   ForgotPassCubit({required this.forgotPassUseCase})
       : super(const ForgotPassStates.initial());
 
-  static ForgotPassCubit get(context) => BlocProvider.of(context);
+  static ForgotPassCubit get(BuildContext context) => BlocProvider.of(context);
 
   final ForgotPassUseCase forgotPassUseCase;
 
@@ -38,5 +41,24 @@ class ForgotPassCubit extends Cubit<ForgotPassStates> {
     );
   }
 
-  TextEditingController emailCtrl = TextEditingController();
+  var phoneCtrl = BehaviorSubject<String>();
+
+  Stream<String> get phoneStream => phoneCtrl.stream;
+
+  validatePhone(String phone) {
+    if (phone.isEmpty) {
+      phoneCtrl.sink.addError(S.current.pleaseEnterAValidPhoneNumber);
+    } else if (!phone.isPhone()) {
+      phoneCtrl.sink.addError(S.current.wrongPhoneCheckAgain);
+    } else {
+      phoneCtrl.sink.add(phone);
+    }
+  }
+
+  Stream<bool> get validateForgotPassBtn => Rx.combineLatest(
+        [
+          phoneStream
+        ],
+        (values) => true,
+      );
 }

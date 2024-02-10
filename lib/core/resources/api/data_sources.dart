@@ -1,4 +1,3 @@
-
 import 'package:knockknock/core/resources/api/responses.dart';
 
 import 'failure_class.dart';
@@ -9,10 +8,16 @@ import 'failure_class.dart';
 enum DataSource {
   success,
   noContent,
+  multipleChoices,
+  movedPermanently,
   badRequest,
   forbidden,
   unauthorized,
+  paymentRequired,
   notFound,
+  methodNotAllowed,
+  badGateway,
+  serviceUnavailable,
   internalServerError,
   connectionTimeout,
   cancel,
@@ -37,6 +42,16 @@ extension DataSourceExtension on DataSource {
           ResponseCode.noContent,
           ResponseMessage.noContent,
         );
+      case DataSource.multipleChoices:
+        return Failure(
+          ResponseCode.multipleChoices,
+          ResponseMessage.multipleChoices,
+        );
+      case DataSource.movedPermanently:
+        return Failure(
+          ResponseCode.movedPermanently,
+          ResponseMessage.movedPermanently,
+        );
       case DataSource.badRequest:
         return Failure(
           ResponseCode.badRequest,
@@ -52,10 +67,30 @@ extension DataSourceExtension on DataSource {
           ResponseCode.unauthorized,
           ResponseMessage.unauthorized,
         );
+      case DataSource.paymentRequired:
+        return Failure(
+          ResponseCode.paymentRequired,
+          ResponseMessage.paymentRequired,
+        );
       case DataSource.notFound:
         return Failure(
           ResponseCode.notFound,
           ResponseMessage.notFound,
+        );
+      case DataSource.methodNotAllowed:
+        return Failure(
+          ResponseCode.methodNotAllowed,
+          ResponseMessage.methodNotAllowed,
+        );
+      case DataSource.badGateway:
+        return Failure(
+          ResponseCode.badGateway,
+          ResponseMessage.badGateway,
+        );
+      case DataSource.serviceUnavailable:
+        return Failure(
+          ResponseCode.serviceUnavailable,
+          ResponseMessage.serviceUnavailable,
         );
       case DataSource.internalServerError:
         return Failure(
