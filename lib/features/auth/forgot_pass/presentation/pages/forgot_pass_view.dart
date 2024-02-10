@@ -76,71 +76,30 @@ class _ForgotPassViewState extends State<ForgotPassView> {
                         Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Center(
-                              child: Image.asset(
-                                AppImages.appLogo,
-                                height: 180.h,
-                                width: 180.w,
-                              ),
-                            ),
-                            Gap(40.h),
-                            Text(
-                              S.current.forgot_pass,
-                              style: CustomTextStyle.kTextStyleF20.copyWith(
-                                color: AppColors.black80,
-                              ),
-                            ),
-                            Gap(5.h),
-                            Text(
-                              S.current.enter_email,
-                              style: CustomTextStyle.kTextStyleF12.copyWith(
-                                color: AppColors.black60,
-                              ),
-                            ),
                             Gap(60.h),
-                            Text(
-                              S.current.email,
-                              style: CustomTextStyle.kTextStyleF12,
+                            Image.asset(
+                              AppImages.appLogo,
+                              height: 100.h,
+                              width: 450.w,
                             ),
-                            Gap(5.h),
+                            Gap(20.h),
+                            Text(
+                              S.current.ForgetPassword,
+                              style: CustomTextStyle.kTextStyleF24,
+                            ),
+                            Gap(20.h),
+
                             CustomFormField(
                               ctrl: forgotPassCubit.emailCtrl,
-                              preIcon: Image.asset(AppImages.appLogo),
-                              label: S.current.email,
+                              label: S.current.phone_no,
                               isObscure: false,
                               validator: (value) {
                                 if (forgotPassCubit.emailCtrl.text.isEmpty) {
-                                  return S.current.plz_enter_email;
-                                } else if (!forgotPassCubit.emailCtrl.text
-                                    .isEmail()) {
-                                  return S.current.enter_valid_email;
-                                } else {
+                                  return S.current.phoneNumberRequired;
+                                }  else {
                                   return null;
                                 }
                               },
-                            ),
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.end,
-                              children: [
-                                Text(
-                                  S.current.remember_pass,
-                                  style: CustomTextStyle.kTextStyleF16.copyWith(
-                                    color: AppColors.black60,
-                                  ),
-                                ),
-                                TextButton(
-                                  onPressed: () {
-                                    context.pushNamed(loginPageRoute);
-                                  },
-                                  child: Text(
-                                    S.current.login_now,
-                                    style:
-                                        CustomTextStyle.kTextStyleF16.copyWith(
-                                      color: AppColors.black80,
-                                    ),
-                                  ),
-                                ),
-                              ],
                             ),
                           ],
                         ),
@@ -150,7 +109,7 @@ class _ForgotPassViewState extends State<ForgotPassView> {
                             return CustomBtn(
                               label: S.current.send_code,
                               onPressed: () {
-                                context.pushNamed(resetPassPageRoute);
+                                context.pushNamed(resetPassPageRoute,arguments: ResetPassArgs(email: forgotPassCubit.emailCtrl.text));
                                 // if (formKey.currentState!.validate()) {
                                 //   forgotPassCubit.userForgotPass(
                                 //     ForgetPassEntity(

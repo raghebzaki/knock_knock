@@ -2,7 +2,6 @@ import 'package:conditional_builder_null_safety/conditional_builder_null_safety.
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_timer_countdown/flutter_timer_countdown.dart';
 import 'package:gap/gap.dart';
 import 'package:knockknock/core/router/router.dart';
 import 'package:knockknock/core/shared/arguments.dart';
@@ -12,11 +11,11 @@ import 'package:pinput/pinput.dart';
 
 import '../../../../../config/themes/app_text_styles.dart';
 import '../../../../../core/dependency_injection/di.dart' as di;
+import '../../../../../core/shared/widgets/custom_button.dart';
 import '../../../../../core/utils/app_colors.dart';
 import '../../../../../core/utils/app_images.dart';
 import '../../../../../core/utils/dimensions.dart';
 import '../../../../../generated/l10n.dart';
-import '../../domain/entities/reset_entity.dart';
 
 class ResetPassView extends StatefulWidget {
   final String email;
@@ -64,7 +63,7 @@ class _ResetPassViewState extends State<ResetPassView> {
           );
         },
         builder: (context, state) {
-          ResetPassCubit resetPassCubit = ResetPassCubit.get(context);
+          // ResetPassCubit resetPassCubit = ResetPassCubit.get(context);
           return Scaffold(
             body: SafeArea(
               child: Padding(
@@ -75,34 +74,28 @@ class _ResetPassViewState extends State<ResetPassView> {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Gap(90.h),
-                      Text(
-                        S.current.verify_code,
-                        style: CustomTextStyle.kTextStyleF20.copyWith(
-                          color: AppColors.black80,
-                        ),
+                      Gap(60.h),
+                      Image.asset(
+                        AppImages.appLogo,
+                        height: 100.h,
+                        width: 450.w,
                       ),
+                      Gap(20.h),
                       Text(
-                        S.current.verify_code_sent,
-                        style: CustomTextStyle.kTextStyleF16.copyWith(
-                          color: AppColors.black60,
-                        ),
+                        S.current.verifyAccount,
+                        style: CustomTextStyle.kTextStyleF24,
                       ),
+                      Gap(20.h),
                       Padding(
-                        padding: EdgeInsets.symmetric(vertical: Dimensions.p30.h),
+                        padding:
+                        EdgeInsets.symmetric(vertical: Dimensions.p30.h),
                         child: Pinput(
                           controller: pinCtrl,
                           onChanged: (value) {
                             // UserData.otp = value;
                           },
                           closeKeyboardWhenCompleted: false,
-                          onSubmitted: (value) {
-                            resetPassCubit.verifyUserAccount(ResetPassEntity(
-                              email: widget.email,
-                              otp: int.parse(pinCtrl.text),
-                            ));
-                          },
-                          length: 6,
+                          length: 4,
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                           crossAxisAlignment: CrossAxisAlignment.center,
                           focusNode: FocusNode(),
@@ -110,16 +103,14 @@ class _ResetPassViewState extends State<ResetPassView> {
                           defaultPinTheme: PinTheme(
                             height: 60.h,
                             width: 60.w,
-                            decoration: BoxDecoration(
-                              shape: BoxShape.rectangle,
+                            decoration: const BoxDecoration(
                               color: AppColors.primary,
-                              border: Border.all(
-                                color: AppColors.secondary,
-                                width: 1,
-                                style: BorderStyle.solid,
-                              ),
-                              borderRadius: BorderRadius.circular(
-                                Dimensions.r20,
+                              border: BorderDirectional(
+                                bottom: BorderSide(
+                                  color: AppColors.secondary,
+                                  width: 2,
+                                  style: BorderStyle.solid,
+                                ),
                               ),
                             ),
                             textStyle: CustomTextStyle.kPinTextStyle,
@@ -127,63 +118,42 @@ class _ResetPassViewState extends State<ResetPassView> {
                         ),
                       ),
                       ConditionalBuilder(
-                        condition: timer == true,
+                        condition: state is! Loading,
                         builder: (BuildContext context) {
-                          return TextButton(
-                            onPressed: () {
-                              setState(() {
-                                timer = !timer;
-                              });
-                              // context.pushNamed(resetPassPageRoute);
-                              resetPassCubit.resendCode(widget.email);
-                            },
-                            child: Center(
-                              child: Text(
-                                S.current.resend_code,
-                                style: CustomTextStyle.kTextStyleF14,
-                              ),
-                            ),
-                          );
-                        },
-                        fallback: (BuildContext context) {
                           return Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
                             children: [
-                              SizedBox(
-                                height: 20.h,
-                                width: 20.h,
-                                child: const CircularProgressIndicator(
-                                  color: AppColors.secondary,
+                              Expanded(
+                                child: CustomBtn(
+                                  bgColor: AppColors.secondary,
+                                  fgColor: AppColors.primary,
+                                  onPressed: () {
+                                    // resetPassCubit.verifyUserAccount(
+                                    //   ResetPassEntity(
+                                    //     email: widget.email,
+                                    //     otp: int.parse(pinCtrl.text),
+                                    //   ),
+                                    // );
+                                    context.pushNamed(changePassPageRoute,arguments:ChangePassArgs(email: widget.email));
+                                  },
+                                  label: S.current.verify,
                                 ),
                               ),
-                              Gap(10.w),
-                              TimerCountdown(
-                                format: CountDownTimerFormat.minutesSeconds,
-                                enableDescriptions: false,
-                                spacerWidth: 0,
-                                timeTextStyle: CustomTextStyle.kTextStyleF14,
-                                endTime: DateTime.now().add(
-                                  const Duration(
-                                    minutes: 1,
-                                    seconds: 1,
-                                  ),
+                              Gap(5.w),
+                              Expanded(
+                                child: CustomBtn(
+                                  bgColor: AppColors.primary,
+                                  fgColor: AppColors.secondary,
+                                  onPressed: () {
+                                    // resetPassCubit.resendCode(widget.email);
+                                  },
+                                  label: S.current.sendAgain,
                                 ),
-                                onEnd: () {
-                                  setState(() {
-                                    timer = !timer;
-                                  });
-                                },
                               ),
                             ],
                           );
                         },
-                      ),
-                      Gap(35.h),
-                      Center(
-                        child: Image.asset(
-                          AppImages.appLogo,
-                          height: 250.h,
-                          width: 250.w,
+                        fallback: (BuildContext context) => const Center(
+                          child: CircularProgressIndicator(),
                         ),
                       ),
                     ],

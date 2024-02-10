@@ -82,7 +82,7 @@ class CustomTextStyle {
 
   static TextStyle kTextStyleF24 = TextStyle(
     fontSize: Dimensions.f24,
-    fontWeight: FontWeight.w600, //? Regular
+    fontWeight: FontWeight.w400, //? Regular
     fontFamily: AppConstants.mainFontFamily,
     color: AppColors.secondary,
   );
@@ -140,6 +140,6 @@ class CustomTextStyle {
   static TextStyle kPinTextStyle = TextStyle(
     fontSize: Dimensions.f24,
     fontWeight: FontWeight.w400,
-    color: const Color(0xFF757575),
+    color: AppColors.secondaryLight,
   );
 }
