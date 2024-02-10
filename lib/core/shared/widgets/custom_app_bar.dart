@@ -3,6 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:gap/gap.dart';
 import 'package:get/get.dart';
+import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 
 import '../../../config/themes/app_text_styles.dart';
 import '../../utils/app_colors.dart';
@@ -24,7 +25,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: PreferredSize(
-        preferredSize: Size.fromHeight(56.0.h), // here the desired height
+        preferredSize: Size.fromHeight(200.h), // here the desired height
         child: Container(
           decoration: const BoxDecoration(
             color: AppColors.primary,
@@ -44,7 +45,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
               ),
               Gap(8.h),
               AppBar(
-                centerTitle: true,
+                // centerTitle: true,
                 backgroundColor: Colors.white,
                 elevation: 0,
                 leading: Row(
@@ -59,9 +60,41 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
                 title: Text(
                   title,
                   style: CustomTextStyle.kTextStyleF16,
-                  textAlign: TextAlign.center,
+                  // textAlign: TextAlign.center,
                 ),
+                actions: const [
+                  CircleAvatar(
+                    radius: Dimensions.r50,
+                    backgroundColor: AppColors.secondary,
+                  )
+                ],
               ),
+              Gap(20.h),
+              Container(
+                padding: const EdgeInsets.all(Dimensions.p12),
+                decoration: BoxDecoration(
+                  border: Border.all(
+                    color: AppColors.secondary,
+                  ),
+                  borderRadius: BorderRadius.circular(
+                    Dimensions.r12,
+                  ),
+                ),
+                child: Row(
+                  children: [
+                    Icon(
+                      MdiIcons.magnify,
+                      color: AppColors.secondary,
+                    ),
+                    Text(
+                      "Search For",
+                      style: CustomTextStyle.kTextStyleF12.copyWith(
+                        fontWeight: FontWeight.w300,
+                      ),
+                    ),
+                  ],
+                ),
+              )
             ],
           ).paddingAll(Dimensions.p24),
         ),
