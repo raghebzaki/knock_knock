@@ -65,6 +65,12 @@ class _RegisterViewState extends State<RegisterView> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
+                        Image.asset(
+                          AppImages.appLogo,
+                          height: 100.h,
+                          width: 450.w,
+                        ),
+                        Gap(5.h),
                         Text(
                           S.current.register,
                           style: CustomTextStyle.kTextStyleF24,
