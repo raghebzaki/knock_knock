@@ -69,28 +69,20 @@ class _ChangePassViewState extends State<ChangePassView> {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Gap(90.h),
-                        Text(
-                          S.current.change_your_pass,
-                          style: CustomTextStyle.kTextStyleF20.copyWith(
-                            color: AppColors.black80,
-                          ),
+                        Gap(60.h),
+                        Image.asset(
+                          AppImages.appLogo,
+                          height: 100.h,
+                          width: 450.w,
                         ),
+                        Gap(20.h),
                         Text(
-                          S.current.enter_pass_below,
-                          style: CustomTextStyle.kTextStyleF16.copyWith(
-                            color: AppColors.black60,
-                          ),
+                          S.current.change_pass,
+                          style: CustomTextStyle.kTextStyleF24,
                         ),
-                        Gap(55.h),
-                        Text(
-                          S.current.pass,
-                          style: CustomTextStyle.kTextStyleF12,
-                        ),
-                        Gap(5.h),
+                        Gap(20.h),
                         CustomFormField(
                           ctrl: changePassCubit.passCtrl,
-                          preIcon: Image.asset(AppImages.appLogo),
                           label: S.current.pass,
                           isObscure: password,
                           sufIcon: GestureDetector(
@@ -114,14 +106,8 @@ class _ChangePassViewState extends State<ChangePassView> {
                           },
                         ),
                         Gap(10.h),
-                        Text(
-                          S.current.pass_confirm,
-                          style: CustomTextStyle.kTextStyleF12,
-                        ),
-                        Gap(5.h),
                         CustomFormField(
                           ctrl: changePassCubit.passConfirmCtrl,
-                          preIcon: Image.asset(AppImages.appLogo),
                           label: S.current.pass_confirm,
                           isObscure: passwordConfirmation,
                           sufIcon: GestureDetector(
@@ -146,14 +132,6 @@ class _ChangePassViewState extends State<ChangePassView> {
                           },
                         ),
                         Gap(20.h),
-                        Center(
-                          child: Image.asset(
-                            AppImages.appLogo,
-                            height: 250.h,
-                            width: 250.w,
-                          ),
-                        ),
-                        Gap(15.h),
                         ConditionalBuilder(
                           condition: state is! Loading,
                           builder: (BuildContext context) {

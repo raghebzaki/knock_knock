@@ -2,7 +2,6 @@ import 'package:conditional_builder_null_safety/conditional_builder_null_safety.
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:gap/gap.dart';
 import 'package:knockknock/core/dependency_injection/di.dart' as di;
 import 'package:knockknock/core/shared/widgets/custom_button.dart';
@@ -65,61 +64,72 @@ class _RegisterViewState extends State<RegisterView> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
+                        Gap(60.h),
                         Image.asset(
                           AppImages.appLogo,
                           height: 100.h,
                           width: 450.w,
                         ),
-                        Gap(5.h),
-                        Text(
-                          S.current.register,
-                          style: CustomTextStyle.kTextStyleF24,
-                        ),
+                        Gap(20.h),
+
                         Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text(
-                              S.current.full_name,
-                              style: CustomTextStyle.kTextStyleF12,
+                              S.current.register,
+                              style: CustomTextStyle.kTextStyleF24,
                             ),
-                            Gap(5.h),
+                            Gap(20.h),
+                            Row(
+                              children: [
+                                Expanded(
+                                  child: CustomFormField(
+                                    ctrl: registerCubit.firstNameCtrl,
+                                    hint: S.current.firstName,
+                                    isObscure: false,
+                                    validator: (value) {
+                                      if (registerCubit.firstNameCtrl.text.isEmpty) {
+                                        return S.current.firstNameRequired;
+                                      } else {
+                                        return null;
+                                      }
+                                    },
+                                  ),
+                                ),
+                                Gap(5.w),
+                                Expanded(
+                                  child: CustomFormField(
+                                    ctrl: registerCubit.lastNameCtrl,
+                                    hint: S.current.lastName,
+                                    isObscure: false,
+                                    validator: (value) {
+                                      if (registerCubit.lastNameCtrl.text.isEmpty) {
+                                        return S.current.lastNameRequired;
+                                      } else {
+                                        return null;
+                                      }
+                                    },
+                                  ),
+                                ),
+                              ],
+                            ),
+                            Gap(10.h),
                             CustomFormField(
-                              ctrl: registerCubit.userNameCtrl,
-                              preIcon: Image.asset(AppImages.appLogo),
-                              hint: S.current.full_name,
+                              ctrl: registerCubit.phoneCtrl,
+                              hint: S.current.phone_no,
                               isObscure: false,
                               validator: (value) {
-                                if (registerCubit.userNameCtrl.text.isEmpty) {
-                                  return S.current.user_name_required;
-                                } else {
+                                if (registerCubit
+                                    .phoneCtrl.text.isEmpty) {
+                                  return S.current.phoneNumberRequired;
+                                }  else {
                                   return null;
                                 }
                               },
                             ),
                             Gap(10.h),
-                            Text(
-                              S.current.email,
-                              style: CustomTextStyle.kTextStyleF12,
-                            ),
-                            Gap(5.h),
-                            CustomFormField(
-                              ctrl: registerCubit.emailCtrl,
-                              preIcon: Image.asset(AppImages.appLogo),
-                              hint: S.current.email,
-                              isObscure: false,
-                              validator: (value) {
-                                return registerCubit.emailValid;
-                              },
-                            ),
-                            Gap(10.h),
-                            Text(
-                              S.current.pass,
-                              style: CustomTextStyle.kTextStyleF12,
-                            ),
-                            Gap(5.h),
                             CustomFormField(
                               ctrl: registerCubit.passCtrl,
-                              preIcon: Image.asset(AppImages.appLogo),
                               hint: S.current.pass,
                               isObscure: password,
                               sufIcon: GestureDetector(
@@ -143,14 +153,8 @@ class _RegisterViewState extends State<RegisterView> {
                               },
                             ),
                             Gap(10.h),
-                            Text(
-                              S.current.pass_confirm,
-                              style: CustomTextStyle.kTextStyleF12,
-                            ),
-                            Gap(5.h),
                             CustomFormField(
                               ctrl: registerCubit.passConfirmCtrl,
-                              preIcon: Image.asset(AppImages.appLogo),
                               hint: S.current.pass_confirm,
                               isObscure: passwordConfirmation,
                               sufIcon: GestureDetector(
@@ -176,114 +180,6 @@ class _RegisterViewState extends State<RegisterView> {
                                 }
                               },
                             ),
-                            Gap(15.h),
-                            Row(
-                              children: [
-                                Expanded(
-                                  child: GestureDetector(
-                                    onTap: () {
-                                      setState(() {
-                                        isCustomer = true;
-                                      });
-                                    },
-                                    child: Container(
-                                      padding:
-                                          const EdgeInsets.all(Dimensions.p8),
-                                      decoration: BoxDecoration(
-                                        border: Border.all(
-                                          color: isCustomer
-                                              ? AppColors.secondary
-                                              : AppColors.textColorGrey,
-                                          width: 2,
-                                          style: BorderStyle.solid,
-                                        ),
-                                        borderRadius: BorderRadius.circular(
-                                          Dimensions.r8,
-                                        ),
-                                      ),
-                                      child: Column(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.start,
-                                        children: [
-                                          Align(
-                                            alignment: Alignment.topLeft,
-                                            child: Text(
-                                              S.current.buyer,
-                                              style: CustomTextStyle
-                                                  .kTextStyleF16
-                                                  .copyWith(
-                                                color: AppColors.black60,
-                                              ),
-                                            ),
-                                          ),
-                                          Gap(20.h),
-                                          Align(
-                                            alignment: Alignment.bottomRight,
-                                            child: SvgPicture.asset(
-                                              AppImages.appLogo,
-                                              height: 72.h,
-                                              width: 70.w,
-                                            ),
-                                          ),
-                                        ],
-                                      ),
-                                    ),
-                                  ),
-                                ),
-                                Gap(10.w),
-                                Expanded(
-                                  child: GestureDetector(
-                                    onTap: () {
-                                      setState(() {
-                                        isCustomer = false;
-                                      });
-                                    },
-                                    child: Container(
-                                      padding:
-                                          const EdgeInsets.all(Dimensions.p8),
-                                      decoration: BoxDecoration(
-                                        border: Border.all(
-                                          color: isCustomer
-                                              ? AppColors.textColorGrey
-                                              : AppColors.secondary,
-                                          width: 2,
-                                          style: BorderStyle.solid,
-                                        ),
-                                        borderRadius: BorderRadius.circular(
-                                          Dimensions.r8,
-                                        ),
-                                      ),
-                                      child: Column(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.start,
-                                        children: [
-                                          Align(
-                                            alignment: Alignment.topLeft,
-                                            child: Text(
-                                              S.current.seller,
-                                              style: CustomTextStyle
-                                                  .kTextStyleF16
-                                                  .copyWith(
-                                                color: AppColors.black60,
-                                              ),
-                                            ),
-                                          ),
-                                          Gap(20.h),
-                                          Align(
-                                            alignment: Alignment.bottomRight,
-                                            child: Image.asset(
-                                              AppImages.appLogo,
-                                              height: 72.h,
-                                              width: 70.w,
-                                            ),
-                                          ),
-                                        ],
-                                      ),
-                                    ),
-                                  ),
-                                ),
-                              ],
-                            ),
                             Gap(20.h),
                             ConditionalBuilder(
                                 condition: state is! Loading,
@@ -291,9 +187,7 @@ class _RegisterViewState extends State<RegisterView> {
                                   return CustomBtn(
                                     label: S.current.register,
                                     onPressed: () async {
-                                      context.pushNamed(verifyAccountPageRoute,arguments: VerifyAccountArgs(email: registerCubit.emailCtrl.text));
-                                      registerCubit.validateEmail(
-                                          registerCubit.emailCtrl.text);
+                                      context.pushNamed(verifyAccountPageRoute,arguments: VerifyAccountArgs(email: registerCubit.firstNameCtrl.text));
                                       // if (formKey.currentState!.validate()) {
                                       //   registerCubit.userRegister(
                                       //       RegisterEntity(
@@ -322,6 +216,25 @@ class _RegisterViewState extends State<RegisterView> {
                                     ),
                                   );
                                 }),
+                            Gap(15.h),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Text(
+                                  S.current.alreadyHaveAnAccount,
+                                  style: CustomTextStyle.kTextStyleF16,
+                                ),
+                                TextButton(
+                                  onPressed: () {
+                                    context.pushNamed(loginPageRoute);
+                                  },
+                                  child: Text(
+                                    S.current.login,
+                                    style: CustomTextStyle.kTextStyleF16w600,
+                                  ),
+                                ),
+                              ],
+                            )
                           ],
                         ),
                       ],

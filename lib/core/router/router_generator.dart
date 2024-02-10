@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:knockknock/core/router/router.dart';
 import 'package:knockknock/features/main/home/presentation/pages/home_view.dart';
 
-import '../../features/auth/change_pass/presentation/pages/change_pass_confirmation.dart';
 import '../../features/auth/change_pass/presentation/pages/change_pass_view.dart';
 import '../../features/auth/forgot_pass/presentation/pages/forgot_pass_view.dart';
 import '../../features/auth/login/presentation/pages/login_view.dart';
@@ -58,10 +57,6 @@ class AppRouters {
           builder: (BuildContext context) => ChangePassView(
             email: args.email,
           ),
-        );
-      case changePassConfirmationPageRoute:
-        return MaterialPageRoute(
-          builder: (BuildContext context) => const ChangePassConfirmationView(),
         );
 
         /// main

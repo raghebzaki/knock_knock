@@ -5,7 +5,6 @@ import 'package:knockknock/core/router/router.dart';
 import 'package:knockknock/core/utils/extensions.dart';
 
 import '../../../../../core/shared/arguments.dart';
-import '../../../../../generated/l10n.dart';
 import '../../domain/entities/register_entity.dart';
 import '../../domain/use_cases/check_registered_email_usecase.dart';
 import '../../domain/use_cases/register_usecase.dart';
@@ -43,7 +42,7 @@ class RegisterCubit extends Cubit<RegisterState> {
           context.pushNamed(
             verifyAccountPageRoute,
             arguments: VerifyAccountArgs(
-              email: emailCtrl.text,
+              email: firstNameCtrl.text,
             ),
           );
           context.defaultSnackBar("Registered Successfully");
@@ -55,47 +54,13 @@ class RegisterCubit extends Cubit<RegisterState> {
     );
   }
 
-  Future<String> checkEmail(String email) async {
-    emit(const RegisterState.loading());
-    final checkEmail = await checkRegisteredEmailUseCase(email);
-    var res;
 
-    checkEmail.fold(
-      (l) => {
-        emit(
-          RegisterState.error(
-            l.code.toString(),
-            l.message,
-          ),
-        ),
-      },
-      (r) => {
-        emit(
-          RegisterState.checkEmailSuccess(r!),
-        ),
-        res = r
-      },
-    );
-    return res;
-  }
 
-  var emailResponse;
-  String? emailValid;
 
-  validateEmail(String email) async {
-    if (email.isEmpty) {
-      emailResponse = S.current.plz_enter_email;
-    } else if (!email.isEmail()) {
-      emailResponse = S.current.enter_valid_email;
-    } else {
-      emailResponse = await checkEmail(email);
-    }
-    emailValid = emailResponse;
-    emit(const RegisterState.validEmail());
-  }
 
-  TextEditingController emailCtrl = TextEditingController();
-  TextEditingController userNameCtrl = TextEditingController();
+  TextEditingController firstNameCtrl = TextEditingController();
+  TextEditingController lastNameCtrl = TextEditingController();
+  TextEditingController phoneCtrl = TextEditingController();
   TextEditingController passCtrl = TextEditingController();
   TextEditingController passConfirmCtrl = TextEditingController();
 }

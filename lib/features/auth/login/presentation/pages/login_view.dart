@@ -113,15 +113,12 @@ class _LoginViewState extends State<LoginView> {
                             Gap(20.h),
                             CustomFormField(
                               ctrl: loginCubit.emailCtrl,
-                              hint: S.current.email,
+                              hint: S.current.phone_no,
                               isObscure: false,
                               validator: (value) {
                                 if (loginCubit.emailCtrl.text.isEmpty) {
-                                  return S.of(context).plz_enter_email;
-                                } else if (!loginCubit.emailCtrl.text
-                                    .isEmail()) {
-                                  return S.of(context).enter_valid_email;
-                                } else {
+                                  return S.of(context).phoneNumberRequired;
+                                }  else {
                                   return null;
                                 }
                               },
