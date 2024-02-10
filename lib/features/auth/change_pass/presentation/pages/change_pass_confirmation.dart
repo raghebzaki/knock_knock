@@ -27,7 +27,7 @@ class ChangePassConfirmationView extends StatelessWidget {
               Gap(20.h),
               Center(
                 child: Image.asset(
-                  AppImages.confirmationImg,
+                  AppImages.appLogo,
                   height: 250.h,
                   width: 250.h,
                 ),

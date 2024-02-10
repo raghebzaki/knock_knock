@@ -181,7 +181,7 @@ class _ResetPassViewState extends State<ResetPassView> {
                       Gap(35.h),
                       Center(
                         child: Image.asset(
-                          AppImages.resetPassImg,
+                          AppImages.appLogo,
                           height: 250.h,
                           width: 250.w,
                         ),

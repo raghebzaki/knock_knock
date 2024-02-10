@@ -85,7 +85,7 @@ class _RegisterViewState extends State<RegisterView> {
                             Gap(5.h),
                             CustomFormField(
                               ctrl: registerCubit.userNameCtrl,
-                              preIcon: Image.asset(AppImages.profileImg),
+                              preIcon: Image.asset(AppImages.appLogo),
                               hint: S.current.full_name,
                               isObscure: false,
                               validator: (value) {
@@ -104,7 +104,7 @@ class _RegisterViewState extends State<RegisterView> {
                             Gap(5.h),
                             CustomFormField(
                               ctrl: registerCubit.emailCtrl,
-                              preIcon: Image.asset(AppImages.emailImg),
+                              preIcon: Image.asset(AppImages.appLogo),
                               hint: S.current.email,
                               isObscure: false,
                               validator: (value) {
@@ -119,7 +119,7 @@ class _RegisterViewState extends State<RegisterView> {
                             Gap(5.h),
                             CustomFormField(
                               ctrl: registerCubit.passCtrl,
-                              preIcon: Image.asset(AppImages.lockImg),
+                              preIcon: Image.asset(AppImages.appLogo),
                               hint: S.current.pass,
                               isObscure: password,
                               sufIcon: GestureDetector(
@@ -150,7 +150,7 @@ class _RegisterViewState extends State<RegisterView> {
                             Gap(5.h),
                             CustomFormField(
                               ctrl: registerCubit.passConfirmCtrl,
-                              preIcon: Image.asset(AppImages.lockImg),
+                              preIcon: Image.asset(AppImages.appLogo),
                               hint: S.current.pass_confirm,
                               isObscure: passwordConfirmation,
                               sufIcon: GestureDetector(
@@ -220,7 +220,7 @@ class _RegisterViewState extends State<RegisterView> {
                                           Align(
                                             alignment: Alignment.bottomRight,
                                             child: SvgPicture.asset(
-                                              AppImages.buyerSvg,
+                                              AppImages.appLogo,
                                               height: 72.h,
                                               width: 70.w,
                                             ),
@@ -272,7 +272,7 @@ class _RegisterViewState extends State<RegisterView> {
                                           Align(
                                             alignment: Alignment.bottomRight,
                                             child: Image.asset(
-                                              AppImages.sellerImg,
+                                              AppImages.appLogo,
                                               height: 72.h,
                                               width: 70.w,
                                             ),

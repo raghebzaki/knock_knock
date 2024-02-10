@@ -45,7 +45,7 @@ class OnBoardingViewState extends State<OnBoardingView> {
                     Padding(
                       padding: EdgeInsets.symmetric(vertical: 20.h),
                       child: Image.asset(
-                        AppImages.onboarding1Img,
+                        AppImages.appLogo,
                         height: 300.h,
                         width: 300.w,
                       ),
@@ -72,7 +72,7 @@ class OnBoardingViewState extends State<OnBoardingView> {
                     Padding(
                       padding: EdgeInsets.symmetric(vertical: 20.h),
                       child: Image.asset(
-                        AppImages.onboarding2Img,
+                        AppImages.appLogo,
                         height: 300.h,
                         width: 300.w,
                       ),
@@ -99,7 +99,7 @@ class OnBoardingViewState extends State<OnBoardingView> {
                     Padding(
                       padding: EdgeInsets.symmetric(vertical: 20.h),
                       child: Image.asset(
-                        AppImages.onboarding3Img,
+                        AppImages.appLogo,
                         height: 300.h,
                         width: 300.w,
                       ),

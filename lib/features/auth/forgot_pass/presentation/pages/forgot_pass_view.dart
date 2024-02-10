@@ -78,7 +78,7 @@ class _ForgotPassViewState extends State<ForgotPassView> {
                           children: [
                             Center(
                               child: Image.asset(
-                                AppImages.forgotPassImg,
+                                AppImages.appLogo,
                                 height: 180.h,
                                 width: 180.w,
                               ),
@@ -105,7 +105,7 @@ class _ForgotPassViewState extends State<ForgotPassView> {
                             Gap(5.h),
                             CustomFormField(
                               ctrl: forgotPassCubit.emailCtrl,
-                              preIcon: Image.asset(AppImages.emailImg),
+                              preIcon: Image.asset(AppImages.appLogo),
                               label: S.current.email,
                               isObscure: false,
                               validator: (value) {

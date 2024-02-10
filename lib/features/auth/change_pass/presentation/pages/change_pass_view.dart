@@ -90,7 +90,7 @@ class _ChangePassViewState extends State<ChangePassView> {
                         Gap(5.h),
                         CustomFormField(
                           ctrl: changePassCubit.passCtrl,
-                          preIcon: Image.asset(AppImages.lockImg),
+                          preIcon: Image.asset(AppImages.appLogo),
                           label: S.current.pass,
                           isObscure: password,
                           sufIcon: GestureDetector(
@@ -121,7 +121,7 @@ class _ChangePassViewState extends State<ChangePassView> {
                         Gap(5.h),
                         CustomFormField(
                           ctrl: changePassCubit.passConfirmCtrl,
-                          preIcon: Image.asset(AppImages.lockImg),
+                          preIcon: Image.asset(AppImages.appLogo),
                           label: S.current.pass_confirm,
                           isObscure: passwordConfirmation,
                           sufIcon: GestureDetector(
@@ -148,7 +148,7 @@ class _ChangePassViewState extends State<ChangePassView> {
                         Gap(20.h),
                         Center(
                           child: Image.asset(
-                            AppImages.changePassImg,
+                            AppImages.appLogo,
                             height: 250.h,
                             width: 250.w,
                           ),
