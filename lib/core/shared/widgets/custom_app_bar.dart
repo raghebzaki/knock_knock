@@ -95,7 +95,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
                       color: AppColors.secondary,
                     ),
                     Text(
-                      "Search For",
+                      S.of(context).searchFor,
                       style: CustomTextStyle.kTextStyleF12.copyWith(
                         fontWeight: FontWeight.w300,
                       ),

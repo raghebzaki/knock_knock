@@ -85,5 +85,33 @@
   "finish": "انتهاء",
   "next": "التالي",
   "onboard_1": "معرض الملابس",
-  "onboard_1_des": "نقدم مجموعة متنوعة من المقاسات والأنماط، مم"
+  "onboard_1_des": "نقدم مجموعة متنوعة من المقاسات والأنماط، مم",
+
+  "@appBar": {},
+  "goodMorning": "صباح الخير",
+  "searchFor": "البحث عن",
+
+
+  "@home": {},
+  "services": "الخدمات",
+  "products": "المنتجات",
+  "seeMore": "رؤية المزيد",
+
+  "@productsDetails": {},
+  "availability": "التوفر:",
+  "sku": "رمز المخزون:",
+  "selectDateAndTimeOfDelivery": "اختر تاريخ ووقت التسليم",
+  "deliveryDate": "تاريخ التسليم",
+  "deliveryTime": "وقت التسليم",
+  "addToCart": "أضف إلى السلة",
+
+  "@serviceDetails": {},
+  "details": "تفاصيل",
+  "selectDateAndTimeYouLikeUsToStart": "اختر تاريخ ووقت تفضلنا أن نبدأ",
+  "whatDateWouldYouLikeUsToStart": "أي تاريخ تفضل أن نبدأ؟",
+  "whatTimeWouldYouLikeUsToStart": "أي وقت تفضل أن نبدأ؟",
+  "freeCancellationUntil12HoursBeforeTheStartOfYour": "إلغاء مجاني حتى 12 ساعة قبل بداية الحجز",
+  "anySpecificInstructions": "هل هناك تعليمات محددة؟",
+  "add": "إضافة",
+  "Aed": "د.إ"
 }

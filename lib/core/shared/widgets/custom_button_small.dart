@@ -8,7 +8,7 @@ import '../../../config/themes/app_text_styles.dart';
 import '../../utils/app_colors.dart';
 import '../../utils/dimensions.dart';
 
-class CustomBtn extends StatelessWidget {
+class CustomBtnSmall extends StatelessWidget {
   final String? label;
   final VoidCallback? onPressed;
   final bool isUpperCase;
@@ -17,7 +17,7 @@ class CustomBtn extends StatelessWidget {
   Color? fgColor;
 
 
-  CustomBtn({
+  CustomBtnSmall({
     super.key,
     this.label,
     this.onPressed,
@@ -35,8 +35,8 @@ class CustomBtn extends StatelessWidget {
         onPressed: onPressed,
         style: ElevatedButton.styleFrom(
           padding: EdgeInsets.symmetric(
-            horizontal: Dimensions.p10.w,
-            vertical: Dimensions.p10.h,
+            horizontal: Dimensions.p5.w,
+            vertical: Dimensions.p5.h,
           ),
           minimumSize: Size(
             double.infinity,
@@ -46,14 +46,14 @@ class CustomBtn extends StatelessWidget {
             borderRadius: BorderRadius.circular(
               Dimensions.r10,
             ),
+
           ),
           backgroundColor: bgColor,
           foregroundColor: fgColor,
         ),
         child: Text(
           isUpperCase ? label.isNullOrEmpty().toUpperCase() : label.isNullOrEmpty(),
-          style: CustomTextStyle.kBtnTextStyle,
-          textAlign: TextAlign.center,
+          style: CustomTextStyle.kTextStyleF16White,
         ),
       ),
     );

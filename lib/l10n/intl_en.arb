@@ -98,9 +98,30 @@
 
   "@appBar": {},
   "goodMorning": "Good Morning",
+  "searchFor": "Search For",
+
 
   "@home": {},
   "services": "Services",
   "products": "Products",
-  "seeMore": "see more"
+  "seeMore": "see more",
+
+
+  "@productsDetails": {},
+  "availability": "Availability:",
+  "sku": "SKU:",
+  "selectDateAndTimeOfDelivery": "Select date and time of delivery",
+  "deliveryDate": "Delivery Date",
+  "deliveryTime": "Delivery Time",
+  "addToCart": "add to cart",
+
+  "@serviceDetails": {},
+  "details": "Details",
+  "selectDateAndTimeYouLikeUsToStart": "Select date and time you like us to start",
+  "whatDateWouldYouLikeUsToStart": "What Date would you like us to start?",
+  "whatTimeWouldYouLikeUsToStart": "What time would you like us to start?",
+  "freeCancellationUntil12HoursBeforeTheStartOfYour": "free cancellation until 12 hours before the start of your booking",
+  "anySpecificInstructions": "Any Specific instructions?",
+  "add": "Add",
+  "Aed": "AED"
 }

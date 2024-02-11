@@ -22,10 +22,16 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+        "Aed": MessageLookupByLibrary.simpleMessage("د.إ"),
         "ForgetPassword":
             MessageLookupByLibrary.simpleMessage("نسيت كلمة المرور"),
+        "add": MessageLookupByLibrary.simpleMessage("إضافة"),
+        "addToCart": MessageLookupByLibrary.simpleMessage("أضف إلى السلة"),
         "alreadyHaveAnAccount":
             MessageLookupByLibrary.simpleMessage("لديك بالفعل حساب؟"),
+        "anySpecificInstructions":
+            MessageLookupByLibrary.simpleMessage("هل هناك تعليمات محددة؟"),
+        "availability": MessageLookupByLibrary.simpleMessage("التوفر:"),
         "bad_gateway": MessageLookupByLibrary.simpleMessage(
             "بيانات غير صالحة، يرجى المحاولة مرة أخرى"),
         "bad_request_error": MessageLookupByLibrary.simpleMessage(
@@ -44,6 +50,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "cs": MessageLookupByLibrary.simpleMessage("خدمة العملاء"),
         "default_error": MessageLookupByLibrary.simpleMessage(
             "حدث خطأ ما , حاول مرة أخرى لاحقًا"),
+        "deliveryDate": MessageLookupByLibrary.simpleMessage("تاريخ التسليم"),
+        "deliveryTime": MessageLookupByLibrary.simpleMessage("وقت التسليم"),
+        "details": MessageLookupByLibrary.simpleMessage("تفاصيل"),
         "doNotHaveAccount":
             MessageLookupByLibrary.simpleMessage("ليس لديك حساب؟"),
         "email": MessageLookupByLibrary.simpleMessage("البريد الإلكتروني"),
@@ -62,6 +71,10 @@ class MessageLookup extends MessageLookupByLibrary {
         "forbidden_error": MessageLookupByLibrary.simpleMessage(
             "طلب محظور. حاول مرة أخرى لاحقًا"),
         "forgotPass": MessageLookupByLibrary.simpleMessage("نسيت كلمة المرور"),
+        "freeCancellationUntil12HoursBeforeTheStartOfYour":
+            MessageLookupByLibrary.simpleMessage(
+                "إلغاء مجاني حتى 12 ساعة قبل بداية الحجز"),
+        "goodMorning": MessageLookupByLibrary.simpleMessage("صباح الخير"),
         "have_problem": MessageLookupByLibrary.simpleMessage("هل لديك مشكلة؟"),
         "internal_server_error": MessageLookupByLibrary.simpleMessage(
             "حدث خطأ ما , حاول مرة أخرى لاحقًا"),
@@ -111,14 +124,24 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("يرجى إدخال رقم هاتف صالح"),
         "plzEnterYourEmail":
             MessageLookupByLibrary.simpleMessage("يرجى إدخال رقم الهاتف"),
+        "products": MessageLookupByLibrary.simpleMessage("المنتجات"),
         "register": MessageLookupByLibrary.simpleMessage("تسجيل"),
         "registerNow": MessageLookupByLibrary.simpleMessage("سجل الآن"),
         "registeredSuccessfully":
             MessageLookupByLibrary.simpleMessage("تم التسجيل بنجاح"),
+        "searchFor": MessageLookupByLibrary.simpleMessage("البحث عن"),
+        "seeMore": MessageLookupByLibrary.simpleMessage("رؤية المزيد"),
+        "selectDateAndTimeOfDelivery":
+            MessageLookupByLibrary.simpleMessage("اختر تاريخ ووقت التسليم"),
+        "selectDateAndTimeYouLikeUsToStart":
+            MessageLookupByLibrary.simpleMessage(
+                "اختر تاريخ ووقت تفضلنا أن نبدأ"),
         "sendAgain": MessageLookupByLibrary.simpleMessage("إرسال مرة أخرى"),
         "sendCode": MessageLookupByLibrary.simpleMessage("إرسال الرمز"),
         "service_unavailable":
             MessageLookupByLibrary.simpleMessage("الخادم قيد الصيانة"),
+        "services": MessageLookupByLibrary.simpleMessage("الخدمات"),
+        "sku": MessageLookupByLibrary.simpleMessage("رمز المخزون:"),
         "success": MessageLookupByLibrary.simpleMessage("تم بنجاح"),
         "timeout_error": MessageLookupByLibrary.simpleMessage(
             "انتهت المهلة , حاول مرة أخرى لاحقًا"),
@@ -134,6 +157,10 @@ class MessageLookup extends MessageLookupByLibrary {
             "تم إرسال رمز التحقق إلى هاتفك"),
         "verify": MessageLookupByLibrary.simpleMessage("تحقق"),
         "verifyAccount": MessageLookupByLibrary.simpleMessage("تحقق من الحساب"),
+        "whatDateWouldYouLikeUsToStart":
+            MessageLookupByLibrary.simpleMessage("أي تاريخ تفضل أن نبدأ؟"),
+        "whatTimeWouldYouLikeUsToStart":
+            MessageLookupByLibrary.simpleMessage("أي وقت تفضل أن نبدأ؟"),
         "wrongPhoneCheckAgain": MessageLookupByLibrary.simpleMessage(
             "الهاتف غير صحيح، قم بالتحقق من الهاتف وحاول مرة أخرى")
       };

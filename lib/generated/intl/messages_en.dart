@@ -22,10 +22,16 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+        "Aed": MessageLookupByLibrary.simpleMessage("AED"),
         "ForgetPassword":
             MessageLookupByLibrary.simpleMessage("Forget Password"),
+        "add": MessageLookupByLibrary.simpleMessage("Add"),
+        "addToCart": MessageLookupByLibrary.simpleMessage("add to cart"),
         "alreadyHaveAnAccount":
             MessageLookupByLibrary.simpleMessage("already have an account?"),
+        "anySpecificInstructions":
+            MessageLookupByLibrary.simpleMessage("Any Specific instructions?"),
+        "availability": MessageLookupByLibrary.simpleMessage("Availability:"),
         "bad_gateway": MessageLookupByLibrary.simpleMessage(
             "Invalid data, please try again"),
         "bad_request_error": MessageLookupByLibrary.simpleMessage(
@@ -43,6 +49,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "cs": MessageLookupByLibrary.simpleMessage("Customer Support"),
         "default_error": MessageLookupByLibrary.simpleMessage(
             "some thing went wrong, try again later"),
+        "deliveryDate": MessageLookupByLibrary.simpleMessage("Delivery Date"),
+        "deliveryTime": MessageLookupByLibrary.simpleMessage("Delivery Time"),
+        "details": MessageLookupByLibrary.simpleMessage("Details"),
         "doNotHaveAccount":
             MessageLookupByLibrary.simpleMessage("Don\'t have an account?"),
         "email": MessageLookupByLibrary.simpleMessage("Email"),
@@ -62,6 +71,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "forbidden_error": MessageLookupByLibrary.simpleMessage(
             "forbidden request. try again later"),
         "forgotPass": MessageLookupByLibrary.simpleMessage("Forgot Pass"),
+        "freeCancellationUntil12HoursBeforeTheStartOfYour":
+            MessageLookupByLibrary.simpleMessage(
+                "free cancellation until 12 hours before the start of your booking"),
         "goodMorning": MessageLookupByLibrary.simpleMessage("Good Morning"),
         "have_problem": MessageLookupByLibrary.simpleMessage("Have a problem?"),
         "internal_server_error": MessageLookupByLibrary.simpleMessage(
@@ -127,7 +139,13 @@ class MessageLookup extends MessageLookupByLibrary {
         "registerNow": MessageLookupByLibrary.simpleMessage("Register Now"),
         "registeredSuccessfully":
             MessageLookupByLibrary.simpleMessage("Registered Successfully"),
+        "searchFor": MessageLookupByLibrary.simpleMessage("Search For"),
         "seeMore": MessageLookupByLibrary.simpleMessage("see more"),
+        "selectDateAndTimeOfDelivery": MessageLookupByLibrary.simpleMessage(
+            "Select date and time of delivery"),
+        "selectDateAndTimeYouLikeUsToStart":
+            MessageLookupByLibrary.simpleMessage(
+                "Select date and time you like us to start"),
         "seller": MessageLookupByLibrary.simpleMessage("Seller"),
         "sendAgain": MessageLookupByLibrary.simpleMessage("send again"),
         "sendCode": MessageLookupByLibrary.simpleMessage("send code"),
@@ -135,6 +153,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Server is under maintenance"),
         "services": MessageLookupByLibrary.simpleMessage("Services"),
         "skip": MessageLookupByLibrary.simpleMessage("Skip"),
+        "sku": MessageLookupByLibrary.simpleMessage("SKU:"),
         "success": MessageLookupByLibrary.simpleMessage("success"),
         "timeout_error":
             MessageLookupByLibrary.simpleMessage("time out, try again late"),
@@ -151,6 +170,10 @@ class MessageLookup extends MessageLookupByLibrary {
             "Verification Code sent to your phone"),
         "verify": MessageLookupByLibrary.simpleMessage("verify"),
         "verifyAccount": MessageLookupByLibrary.simpleMessage("Verify Account"),
+        "whatDateWouldYouLikeUsToStart": MessageLookupByLibrary.simpleMessage(
+            "What Date would you like us to start?"),
+        "whatTimeWouldYouLikeUsToStart": MessageLookupByLibrary.simpleMessage(
+            "What time would you like us to start?"),
         "wrongPhoneCheckAgain": MessageLookupByLibrary.simpleMessage(
             "phone is wrong, check phone & try again")
       };

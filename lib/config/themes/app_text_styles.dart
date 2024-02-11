@@ -58,6 +58,23 @@ class CustomTextStyle {
     fontFamily: AppConstants.mainFontFamily,
     color: AppColors.secondary,
   );
+  static TextStyle kTextStyleF16White = TextStyle(
+    fontSize: Dimensions.f16,
+    fontWeight: FontWeight.w400, //? Regular
+    fontFamily: AppConstants.mainFontFamily,
+    color: AppColors.primary,
+  );
+  static TextStyle kTextStyleF16Black = TextStyle(
+    fontSize: Dimensions.f16,
+    fontWeight: FontWeight.w600, //? Regular
+    fontFamily: AppConstants.mainFontFamily,
+    color: Colors.black,
+  );  static TextStyle kTextStyleF16BlackW300 = TextStyle(
+    fontSize: Dimensions.f16,
+    fontWeight: FontWeight.w300, //? Regular
+    fontFamily: AppConstants.mainFontFamily,
+    color: Colors.black,
+  );
   static TextStyle kTextStyleF16w600= TextStyle(
     fontSize: Dimensions.f16,
     fontWeight: FontWeight.w600, //? Regular
@@ -70,6 +87,12 @@ class CustomTextStyle {
     fontWeight: FontWeight.w400, //? Regular
     fontFamily: AppConstants.mainFontFamily,
     color: AppColors.secondary,
+  );
+  static TextStyle kTextStyleF18Black = TextStyle(
+    fontSize: Dimensions.f18,
+    fontWeight: FontWeight.w500, //? Regular
+    fontFamily: AppConstants.mainFontFamily,
+    color: Colors.black,
   );
 
   static TextStyle kTextStyleF20 = TextStyle(
@@ -90,6 +113,13 @@ class CustomTextStyle {
     fontWeight: FontWeight.w400, //? Regular
     fontFamily: AppConstants.mainFontFamily,
     color: AppColors.secondary,
+  );
+
+  static TextStyle kTextStyleF22Black = TextStyle(
+    fontSize: Dimensions.f22,
+    fontWeight: FontWeight.w500, //? Regular
+    fontFamily: AppConstants.mainFontFamily,
+    color: Colors.black,
   );
 
   static TextStyle kTextStyleF24 = TextStyle(

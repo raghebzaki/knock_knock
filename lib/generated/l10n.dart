@@ -840,6 +840,16 @@ class S {
     );
   }
 
+  /// `Search For`
+  String get searchFor {
+    return Intl.message(
+      'Search For',
+      name: 'searchFor',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Services`
   String get services {
     return Intl.message(
@@ -865,6 +875,146 @@ class S {
     return Intl.message(
       'see more',
       name: 'seeMore',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Availability:`
+  String get availability {
+    return Intl.message(
+      'Availability:',
+      name: 'availability',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `SKU:`
+  String get sku {
+    return Intl.message(
+      'SKU:',
+      name: 'sku',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Select date and time of delivery`
+  String get selectDateAndTimeOfDelivery {
+    return Intl.message(
+      'Select date and time of delivery',
+      name: 'selectDateAndTimeOfDelivery',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Delivery Date`
+  String get deliveryDate {
+    return Intl.message(
+      'Delivery Date',
+      name: 'deliveryDate',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Delivery Time`
+  String get deliveryTime {
+    return Intl.message(
+      'Delivery Time',
+      name: 'deliveryTime',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `add to cart`
+  String get addToCart {
+    return Intl.message(
+      'add to cart',
+      name: 'addToCart',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Details`
+  String get details {
+    return Intl.message(
+      'Details',
+      name: 'details',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Select date and time you like us to start`
+  String get selectDateAndTimeYouLikeUsToStart {
+    return Intl.message(
+      'Select date and time you like us to start',
+      name: 'selectDateAndTimeYouLikeUsToStart',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `What Date would you like us to start?`
+  String get whatDateWouldYouLikeUsToStart {
+    return Intl.message(
+      'What Date would you like us to start?',
+      name: 'whatDateWouldYouLikeUsToStart',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `What time would you like us to start?`
+  String get whatTimeWouldYouLikeUsToStart {
+    return Intl.message(
+      'What time would you like us to start?',
+      name: 'whatTimeWouldYouLikeUsToStart',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `free cancellation until 12 hours before the start of your booking`
+  String get freeCancellationUntil12HoursBeforeTheStartOfYour {
+    return Intl.message(
+      'free cancellation until 12 hours before the start of your booking',
+      name: 'freeCancellationUntil12HoursBeforeTheStartOfYour',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Any Specific instructions?`
+  String get anySpecificInstructions {
+    return Intl.message(
+      'Any Specific instructions?',
+      name: 'anySpecificInstructions',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Add`
+  String get add {
+    return Intl.message(
+      'Add',
+      name: 'add',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `AED`
+  String get Aed {
+    return Intl.message(
+      'AED',
+      name: 'Aed',
       desc: '',
       args: [],
     );
