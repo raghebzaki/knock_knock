@@ -12,6 +12,7 @@ import 'package:material_design_icons_flutter/material_design_icons_flutter.dart
 import '../../../../../core/shared/widgets/custom_app_bar.dart';
 import '../../../../../core/utils/app_images.dart';
 import '../../../../../generated/l10n.dart';
+import '../../../../bottom_nav_bar.dart';
 
 class ProductsDetailsView extends StatefulWidget {
   const ProductsDetailsView({super.key});
@@ -29,6 +30,7 @@ class _ProductsDetailsViewState extends State<ProductsDetailsView> {
 
     return Scaffold(
       appBar: const CustomAppBar(),
+      bottomNavigationBar: const BottomNavForAllScreenView(),
       body: Padding(
         padding: EdgeInsets.symmetric(horizontal: 16.0.w, vertical: 10.h),
         child: SingleChildScrollView(

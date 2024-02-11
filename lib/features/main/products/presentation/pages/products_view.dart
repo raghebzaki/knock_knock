@@ -4,6 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gap/gap.dart';
 import 'package:knockknock/core/shared/widgets/custom_app_bar.dart';
 import 'package:knockknock/core/shared/widgets/product_item.dart';
+import 'package:knockknock/features/bottom_nav_bar.dart';
 
 import '../../../../../config/themes/app_text_styles.dart';
 import '../../../../../core/utils/app_colors.dart';
@@ -16,6 +17,7 @@ class ProductsView extends StatelessWidget {
   Widget build(BuildContext context) {
     return  Scaffold(
       appBar: const CustomAppBar(),
+      bottomNavigationBar: const BottomNavForAllScreenView(),
       body: SingleChildScrollView(
         child: Column(
           children: [

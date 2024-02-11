@@ -13,6 +13,7 @@ import '../../../../../config/themes/app_text_styles.dart';
 import '../../../../../core/shared/widgets/date_widget.dart';
 import '../../../../../core/shared/widgets/time_widget.dart';
 import '../../../../../generated/l10n.dart';
+import '../../../../bottom_nav_bar.dart';
 
 class ServicesDetailsView extends StatefulWidget {
   const ServicesDetailsView({super.key});
@@ -33,6 +34,7 @@ class _ServicesDetailsViewState extends State<ServicesDetailsView> {
 
     return Scaffold(
       appBar: const CustomAppBar(),
+      bottomNavigationBar: const BottomNavForAllScreenView(),
       body: Padding(
         padding: EdgeInsets.symmetric(horizontal: 16.0.w, vertical: 10.h),
         child: SingleChildScrollView(

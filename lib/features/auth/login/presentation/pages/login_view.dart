@@ -191,7 +191,7 @@ class _LoginViewState extends State<LoginView> {
                             return CustomBtn(
                               label: S.current.login,
                               onPressed:  () {
-                                context.pushNamed(homePageRoute);
+                                context.pushNamed(bottomNavBarPageRoute);
                                 //   loginCubit.userLogin(LoginEntity(
                                 //       userName: loginCubit.emailCtrl.text,
                                 //       pass: loginCubit.passCtrl.text,

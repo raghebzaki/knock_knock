@@ -8,6 +8,7 @@ import '../../../../../config/themes/app_text_styles.dart';
 import '../../../../../core/shared/widgets/service_item.dart';
 import '../../../../../core/utils/app_colors.dart';
 import '../../../../../generated/l10n.dart';
+import '../../../../bottom_nav_bar.dart';
 
 class ServicesView extends StatelessWidget {
   const ServicesView({super.key});
@@ -16,6 +17,7 @@ class ServicesView extends StatelessWidget {
   Widget build(BuildContext context) {
     return  Scaffold(
       appBar: const CustomAppBar(),
+      bottomNavigationBar: const BottomNavForAllScreenView(),
       body: SingleChildScrollView(
         child: Column(
           children: [

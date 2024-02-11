@@ -12,6 +12,7 @@ import '../../features/auth/login/presentation/pages/login_view.dart';
 import '../../features/auth/register/presentation/pages/register_view.dart';
 import '../../features/auth/reset_pass/presentation/pages/reset_pass_view.dart';
 import '../../features/auth/verify_account/presentation/pages/verify_account_view.dart';
+import '../../features/bottom_nav_bar.dart';
 import '../../features/on_boarding/presentation/pages/on_boarding_view.dart';
 import '../../main_view.dart';
 import '../shared/arguments.dart';
@@ -64,7 +65,11 @@ class AppRouters {
         );
 
         /// main
-      case homePageRoute:
+      case bottomNavBarPageRoute:
+        return MaterialPageRoute(
+          builder: (BuildContext context) => const BottomNavBarView(index: 0,),
+        ); 
+        case homePageRoute:
         return MaterialPageRoute(
           builder: (BuildContext context) => const HomeView(),
         );
