@@ -9,3 +9,7 @@ const String changePassPageRoute = '/changePass';
 const String changePassConfirmationPageRoute = '/changePassConfirmation';
 const String bottomNavBarPageRoute = '/bottomNavBar';
 const String homePageRoute = '/home';
+const String productsPageRoute = '/products';
+const String productsDetailsPageRoute = '/productsDetails';
+const String servicesPageRoute = '/services';
+const String servicesDetailsPageRoute = '/servicesDetails';

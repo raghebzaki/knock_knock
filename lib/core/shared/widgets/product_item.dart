@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gap/gap.dart';
 import 'package:get/get.dart';
+import 'package:knockknock/core/router/router.dart';
 import 'package:knockknock/core/utils/extensions.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 
@@ -96,7 +97,9 @@ class ProductItem extends StatelessWidget {
                 ),
                 Gap(12.h),
                 GestureDetector(
-                  onTap: () {},
+                  onTap: () {
+                    context.pushNamed(productsDetailsPageRoute);
+                  },
                   child: Container(
                     width: context.queryWidth.w,
                     height: 32.h,

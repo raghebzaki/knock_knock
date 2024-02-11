@@ -62,6 +62,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "forbidden_error": MessageLookupByLibrary.simpleMessage(
             "forbidden request. try again later"),
         "forgotPass": MessageLookupByLibrary.simpleMessage("Forgot Pass"),
+        "goodMorning": MessageLookupByLibrary.simpleMessage("Good Morning"),
         "have_problem": MessageLookupByLibrary.simpleMessage("Have a problem?"),
         "internal_server_error": MessageLookupByLibrary.simpleMessage(
             "some thing went wrong, try again later"),
@@ -118,18 +119,21 @@ class MessageLookup extends MessageLookupByLibrary {
         "pleaseEnterAValidPhoneNumber": MessageLookupByLibrary.simpleMessage(
             "Please enter a valid phone number"),
         "plzEnterValidEmail":
-            MessageLookupByLibrary.simpleMessage("Please enter a valid email"),
+            MessageLookupByLibrary.simpleMessage("Please enter a valid phone"),
         "plzEnterYourEmail":
-            MessageLookupByLibrary.simpleMessage("Please enter your email"),
+            MessageLookupByLibrary.simpleMessage("Please enter your phone"),
+        "products": MessageLookupByLibrary.simpleMessage("Products"),
         "register": MessageLookupByLibrary.simpleMessage("Register"),
         "registerNow": MessageLookupByLibrary.simpleMessage("Register Now"),
         "registeredSuccessfully":
             MessageLookupByLibrary.simpleMessage("Registered Successfully"),
+        "seeMore": MessageLookupByLibrary.simpleMessage("see more"),
         "seller": MessageLookupByLibrary.simpleMessage("Seller"),
         "sendAgain": MessageLookupByLibrary.simpleMessage("send again"),
         "sendCode": MessageLookupByLibrary.simpleMessage("send code"),
         "service_unavailable":
             MessageLookupByLibrary.simpleMessage("Server is under maintenance"),
+        "services": MessageLookupByLibrary.simpleMessage("Services"),
         "skip": MessageLookupByLibrary.simpleMessage("Skip"),
         "success": MessageLookupByLibrary.simpleMessage("success"),
         "timeout_error":

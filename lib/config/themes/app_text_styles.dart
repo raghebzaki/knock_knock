@@ -24,6 +24,12 @@ class CustomTextStyle {
     fontFamily: AppConstants.mainFontFamily,
     color: AppColors.secondary,
   );
+  static TextStyle kTextStyleF12Black = TextStyle(
+    fontSize: Dimensions.f12,
+    fontWeight: FontWeight.w500, //? Regular
+    fontFamily: AppConstants.mainFontFamily,
+    color: Colors.black,
+  );
 
   static TextStyle kTextStyleF14 =  TextStyle(
     color: Colors.black.withOpacity(0.6000000238418579),
@@ -71,6 +77,12 @@ class CustomTextStyle {
     fontWeight: FontWeight.w400, //? Regular
     fontFamily: AppConstants.mainFontFamily,
     color: AppColors.secondary,
+  );
+  static TextStyle kTextStyleF20Black = TextStyle(
+    fontSize: Dimensions.f20,
+    fontWeight: FontWeight.w500, //? Regular
+    fontFamily: AppConstants.mainFontFamily,
+    color: Colors.black,
   );
 
   static TextStyle kTextStyleF22 = TextStyle(

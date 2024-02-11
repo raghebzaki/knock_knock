@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:knockknock/core/router/router.dart';
 import 'package:knockknock/features/main/home/presentation/pages/home_view.dart';
+import 'package:knockknock/features/main/products/presentation/pages/products_view.dart';
+import 'package:knockknock/features/main/products_details/presentation/pages/products_details_view.dart';
+import 'package:knockknock/features/main/services/presentation/pages/services_view.dart';
+import 'package:knockknock/features/main/services_details/presentation/pages/services_details_view.dart';
 
 import '../../features/auth/change_pass/presentation/pages/change_pass_view.dart';
 import '../../features/auth/forgot_pass/presentation/pages/forgot_pass_view.dart';
@@ -60,9 +64,25 @@ class AppRouters {
         );
 
         /// main
-        case homePageRoute:
+      case homePageRoute:
         return MaterialPageRoute(
           builder: (BuildContext context) => const HomeView(),
+        );
+        case productsPageRoute:
+        return MaterialPageRoute(
+          builder: (BuildContext context) => const ProductsView(),
+        );
+        case productsDetailsPageRoute:
+        return MaterialPageRoute(
+          builder: (BuildContext context) => const ProductsDetailsView(),
+        );
+            case servicesPageRoute:
+        return MaterialPageRoute(
+          builder: (BuildContext context) => const ServicesView(),
+        );
+        case servicesDetailsPageRoute:
+        return MaterialPageRoute(
+          builder: (BuildContext context) => const ServicesDetailsView(),
         );
       default:
         return MaterialPageRoute(

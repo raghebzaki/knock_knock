@@ -34,8 +34,8 @@
   "loginSuccessful": "Login Successful",
   "login": "Login",
   "email": "Email",
-  "plzEnterYourEmail": "Please enter your email",
-  "plzEnterValidEmail": "Please enter a valid email",
+  "plzEnterYourEmail": "Please enter your phone",
+  "plzEnterValidEmail": "Please enter a valid phone",
   "pass": "Password",
   "passConfirm": "Password Confirmation",
   "forgotPass": "Forgot Pass",
@@ -92,5 +92,15 @@
   "onboard_3": "Shop Online",
   "onboard_3_des": "Hurry to purchase your embroidered and distinctive clothing ",
   "seller": "Seller",
-  "skip": "Skip"
+  "skip": "Skip",
+
+
+
+  "@appBar": {},
+  "goodMorning": "Good Morning",
+
+  "@home": {},
+  "services": "Services",
+  "products": "Products",
+  "seeMore": "see more"
 }

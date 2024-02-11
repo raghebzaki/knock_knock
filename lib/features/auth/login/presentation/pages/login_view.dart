@@ -123,7 +123,7 @@ class _LoginViewState extends State<LoginView> {
                                             alignment: Alignment.centerLeft,
                                             child: Text(
                                               snapshot.error.toString(),
-                                              style: TextStyle(
+                                              style: const TextStyle(
                                                 color: AppColors.errorColor,
                                               ),
                                             ),
@@ -160,7 +160,7 @@ class _LoginViewState extends State<LoginView> {
                                       alignment: Alignment.centerLeft,
                                       child: Text(
                                         snapshot.error.toString(),
-                                        style: TextStyle(
+                                        style: const TextStyle(
                                           color: AppColors.errorColor,
                                         ),
                                       ),
@@ -185,37 +185,60 @@ class _LoginViewState extends State<LoginView> {
                         ),
                       ),
                       Gap(25.h),
-                      StreamBuilder(
-                          stream: loginCubit.validBtnStream,
-                          builder: (context, snapshot) {
-                            return ConditionalBuilder(
-                                condition: state is! Loading,
-                                builder: (BuildContext context) {
-                                  return CustomBtn(
-                                    label: S.current.login,
-                                    onPressed: snapshot.hasData
-                                        ? () {
-                                            context.pushNamed(homePageRoute);
-                                            // if (formKey.currentState!.validate()) {
-                                            //   loginCubit.userLogin(LoginEntity(
-                                            //       userName: loginCubit.emailCtrl.text,
-                                            //       pass: loginCubit.passCtrl.text,
-                                            //     ),);
-                                            // }
-                                          }
-                                        : null,
-                                    fgColor: Colors.white,
-                                    isUpperCase: true,
-                                  );
-                                },
-                                fallback: (BuildContext context) {
-                                  return const Center(
-                                    child: CircularProgressIndicator(
-                                      color: AppColors.secondary,
-                                    ),
-                                  );
-                                });
+                      ConditionalBuilder(
+                          condition: state is! Loading,
+                          builder: (BuildContext context) {
+                            return CustomBtn(
+                              label: S.current.login,
+                              onPressed:  () {
+                                context.pushNamed(homePageRoute);
+                                //   loginCubit.userLogin(LoginEntity(
+                                //       userName: loginCubit.emailCtrl.text,
+                                //       pass: loginCubit.passCtrl.text,
+                                //     ),);
+                              },
+                              fgColor: Colors.white,
+                              isUpperCase: true,
+                            );
+                          },
+                          fallback: (BuildContext context) {
+                            return const Center(
+                              child: CircularProgressIndicator(
+                                color: AppColors.secondary,
+                              ),
+                            );
                           }),
+                      // StreamBuilder(
+                      //     stream: loginCubit.validBtnStream,
+                      //     builder: (context, snapshot) {
+                      //       return ConditionalBuilder(
+                      //           condition: state is! Loading,
+                      //           builder: (BuildContext context) {
+                      //             return CustomBtn(
+                      //               label: S.current.login,
+                      //               onPressed: snapshot.hasData
+                      //                   ? () {
+                      //                       context.pushNamed(homePageRoute);
+                      //                       // if (formKey.currentState!.validate()) {
+                      //                       //   loginCubit.userLogin(LoginEntity(
+                      //                       //       userName: loginCubit.emailCtrl.text,
+                      //                       //       pass: loginCubit.passCtrl.text,
+                      //                       //     ),);
+                      //                       // }
+                      //                     }
+                      //                   : null,
+                      //               fgColor: Colors.white,
+                      //               isUpperCase: true,
+                      //             );
+                      //           },
+                      //           fallback: (BuildContext context) {
+                      //             return const Center(
+                      //               child: CircularProgressIndicator(
+                      //                 color: AppColors.secondary,
+                      //               ),
+                      //             );
+                      //           });
+                      //     }),
                       Gap(15.h),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,

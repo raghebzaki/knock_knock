@@ -360,20 +360,20 @@ class S {
     );
   }
 
-  /// `Please enter your email`
+  /// `Please enter your phone`
   String get plzEnterYourEmail {
     return Intl.message(
-      'Please enter your email',
+      'Please enter your phone',
       name: 'plzEnterYourEmail',
       desc: '',
       args: [],
     );
   }
 
-  /// `Please enter a valid email`
+  /// `Please enter a valid phone`
   String get plzEnterValidEmail {
     return Intl.message(
-      'Please enter a valid email',
+      'Please enter a valid phone',
       name: 'plzEnterValidEmail',
       desc: '',
       args: [],
@@ -825,6 +825,46 @@ class S {
     return Intl.message(
       'Skip',
       name: 'skip',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Good Morning`
+  String get goodMorning {
+    return Intl.message(
+      'Good Morning',
+      name: 'goodMorning',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Services`
+  String get services {
+    return Intl.message(
+      'Services',
+      name: 'services',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Products`
+  String get products {
+    return Intl.message(
+      'Products',
+      name: 'products',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `see more`
+  String get seeMore {
+    return Intl.message(
+      'see more',
+      name: 'seeMore',
       desc: '',
       args: [],
     );

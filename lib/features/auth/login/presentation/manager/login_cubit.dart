@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:knockknock/core/utils/extensions.dart';
 import 'package:knockknock/features/auth/verify_account/domain/use_cases/resend_code_usecase.dart';
 
 import 'package:rxdart/rxdart.dart';
@@ -84,8 +83,6 @@ class LoginCubit extends Cubit<LoginStates> {
 validatePhone(String phone) {
   if (phone.isEmpty) {
     phoneCtrl.sink.addError(S.current.plzEnterYourEmail);
-  } else if (!phone.isPhone()) {
-    phoneCtrl.sink.addError(S.current.plzEnterValidEmail);
   } else {
     phoneCtrl.sink.add(phone);
   }
@@ -93,9 +90,9 @@ validatePhone(String phone) {
 
 validatePass(String pass) {
   if (pass.isEmpty) {
-    passCtrl.sink.addError(S.current.passConfirmCantBeEmpty);
+    passCtrl.sink.addError(S.current.passwordCaNotBeEmpty);
   } else if (pass.length < 8) {
-    passCtrl.sink.addError(S.current.passwordsDoesNotMatch);
+    passCtrl.sink.addError(S.current.passwordTooShort);
   } else {
     passCtrl.sink.add(pass);
   }

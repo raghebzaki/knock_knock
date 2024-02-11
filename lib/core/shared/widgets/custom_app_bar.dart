@@ -4,18 +4,18 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:gap/gap.dart';
 import 'package:get/get.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
+import 'package:badges/badges.dart' as badges;
 
 import '../../../config/themes/app_text_styles.dart';
+import '../../../generated/l10n.dart';
 import '../../utils/app_colors.dart';
 import '../../utils/app_images.dart';
 import '../../utils/dimensions.dart';
 
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
-  final String title;
 
   const CustomAppBar({
     super.key,
-    required this.title,
   });
 
   @override
@@ -40,32 +40,40 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
                     width: 25.h,
                   ),
                   Gap(5.w),
-                  const Text("Good Morning"),
+                   Text(S.current.goodMorning),
                 ],
               ),
               Gap(8.h),
               AppBar(
-                // centerTitle: true,
+
+                titleSpacing: 0,
                 backgroundColor: Colors.white,
                 elevation: 0,
-                leading: Row(
+                automaticallyImplyLeading: false,
+                title:Row(
                   children: [
                     SvgPicture.asset(
                       AppImages.pinSvg,
                       height: 32.h,
                       width: 25.h,
                     ),
+                    Gap(5.w),
+                    Text(
+                      "Abu Dhabi",
+                      style: CustomTextStyle.kTextStyleF16,
+                      // textAlign: TextAlign.center,
+                    ),
                   ],
                 ),
-                title: Text(
-                  title,
-                  style: CustomTextStyle.kTextStyleF16,
-                  // textAlign: TextAlign.center,
-                ),
-                actions: const [
+                centerTitle: false,
+                actions:  [
                   CircleAvatar(
-                    radius: Dimensions.r50,
+                    radius: 50.sp,
                     backgroundColor: AppColors.secondary,
+                    child: badges.Badge(
+                      badgeContent: Text('3',style: CustomTextStyle.kTextStyleF14,),
+                      child: const Icon(Icons.shopping_cart,color: Colors.white,size: 40,),
+                    ),
                   )
                 ],
               ),
@@ -96,7 +104,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
                 ),
               )
             ],
-          ).paddingAll(Dimensions.p24),
+          ).paddingSymmetric(horizontal: Dimensions.p24,vertical: Dimensions.p10),
         ),
       ),
     );
