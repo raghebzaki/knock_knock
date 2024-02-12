@@ -129,6 +129,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "registerNow": MessageLookupByLibrary.simpleMessage("سجل الآن"),
         "registeredSuccessfully":
             MessageLookupByLibrary.simpleMessage("تم التسجيل بنجاح"),
+        "rememberMe": MessageLookupByLibrary.simpleMessage("تذكرني"),
         "searchFor": MessageLookupByLibrary.simpleMessage("البحث عن"),
         "seeMore": MessageLookupByLibrary.simpleMessage("رؤية المزيد"),
         "selectDateAndTimeOfDelivery":

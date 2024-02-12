@@ -29,6 +29,8 @@ class LoginView extends StatefulWidget {
 class _LoginViewState extends State<LoginView> {
   GlobalKey<FormState> formKey = GlobalKey();
   bool password = true;
+  bool rememberMe = false;
+
 
   @override
   Widget build(BuildContext context) {
@@ -172,17 +174,33 @@ class _LoginViewState extends State<LoginView> {
                           Gap(15.h),
                         ],
                       ),
-                      Align(
-                        alignment: Alignment.centerRight,
-                        child: GestureDetector(
-                          onTap: () {
-                            context.pushNamed(forgotPassPageRoute);
-                          },
-                          child: Text(
-                            S.current.forgotPass,
-                            style: CustomTextStyle.kTextStyleF16,
+                      Row(
+                        children: [
+                          Row(
+                            children: [
+                              Checkbox(
+                                value: rememberMe,
+                                onChanged: (value) {
+                                  setState(() {
+                                    rememberMe = !rememberMe;
+                                  });
+                                },
+                              ),
+                              Text(S.of(context).rememberMe,
+                                  style: CustomTextStyle.kTextStyleF16),
+                            ],
                           ),
-                        ),
+                          const Spacer(),
+                          GestureDetector(
+                            onTap: () {
+                              context.pushNamed(forgotPassPageRoute);
+                            },
+                            child: Text(
+                              S.current.forgotPass,
+                              style: CustomTextStyle.kTextStyleF16,
+                            ),
+                          ),
+                        ],
                       ),
                       Gap(25.h),
                       ConditionalBuilder(

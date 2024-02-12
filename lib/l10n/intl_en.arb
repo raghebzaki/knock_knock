@@ -41,6 +41,8 @@
   "forgotPass": "Forgot Pass",
   "doNotHaveAccount": "Don't have an account?",
   "registerNow": "Register Now",
+  "rememberMe": "Remember Me",
+
 
   "@register": {},
   "register": "Register",
@@ -123,5 +125,45 @@
   "freeCancellationUntil12HoursBeforeTheStartOfYour": "free cancellation until 12 hours before the start of your booking",
   "anySpecificInstructions": "Any Specific instructions?",
   "add": "Add",
-  "Aed": "AED"
+  "Aed": "AED",
+
+
+
+  "my_orders": "My Orders",
+
+
+
+  "@profile": {},
+  "profile": "Profile",
+  "editProfile": "Edit profile",
+  "myOrders": "My orders",
+
+  "@editProfile": {},
+  "deleteAccount": "Delete account",
+  "accountUpdatedSuccessfully": "Account updated successfully",
+  "accountDeletedSuccessfully": "account deleted successfully",
+  "updateAccount": "update account",
+
+
+
+  "@setting": {},
+  "settings": "Settings",
+  "language": "Language",
+  "termsAndConditions": "Terms and Conditions",
+  "change_language": "choose language",
+  "privacy_policy": "Privacy Policy",
+  "yourMessageSentSuccessfully": "Your message sent successfully",
+  "contactUs": "Contact Us",
+  "address": "Address",
+  "message": "Message",
+  "yourMessage": "Your Message",
+  "send": "send",
+
+  "@orders": {},
+  "pending": "Pending",
+  "shipped": "Shipped",
+  "processing": "Processing",
+  "shipped_status": "shipped",
+  "done_status": "completed",
+  "cancelled_status": "cancelled"
 }

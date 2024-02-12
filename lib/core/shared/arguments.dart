@@ -1,4 +1,6 @@
 
+import 'entities/order_entity.dart';
+
 class VerifyAccountArgs {
   final String email;
 
@@ -15,4 +17,12 @@ class ChangePassArgs {
   final String email;
 
   ChangePassArgs({required this.email});
+}
+
+
+class OrderDetailsArgs {
+  final OrderEntity orderDetails;
+
+  OrderDetailsArgs({required this.orderDetails});
+
 }

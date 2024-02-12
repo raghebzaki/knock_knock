@@ -1,6 +1,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:knockknock/features/main/products/presentation/pages/products_view.dart';
+import 'package:knockknock/features/main/profile/presentation/pages/profile_view.dart';
 
 import '../../core/utils/app_colors.dart';
 import '../../core/utils/app_images.dart';
@@ -20,7 +21,7 @@ class _BottomNavBarViewState extends State<BottomNavBarView> {
     const HomeView(),
     const ProductsView(),
     const HomeView(),
-    const HomeView(),
+    const ProfileView(),
   ];
   @override
   void initState() {
@@ -98,7 +99,7 @@ class _BottomNavForAllScreenViewState extends State<BottomNavForAllScreenView> {
     const HomeView(),
     const ProductsView(),
     const HomeView(),
-    const HomeView(),
+    const ProfileView(),
   ];
 
 

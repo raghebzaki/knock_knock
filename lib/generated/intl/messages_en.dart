@@ -25,8 +25,13 @@ class MessageLookup extends MessageLookupByLibrary {
         "Aed": MessageLookupByLibrary.simpleMessage("AED"),
         "ForgetPassword":
             MessageLookupByLibrary.simpleMessage("Forget Password"),
+        "accountDeletedSuccessfully": MessageLookupByLibrary.simpleMessage(
+            "account deleted successfully"),
+        "accountUpdatedSuccessfully": MessageLookupByLibrary.simpleMessage(
+            "Account updated successfully"),
         "add": MessageLookupByLibrary.simpleMessage("Add"),
         "addToCart": MessageLookupByLibrary.simpleMessage("add to cart"),
+        "address": MessageLookupByLibrary.simpleMessage("Address"),
         "alreadyHaveAnAccount":
             MessageLookupByLibrary.simpleMessage("already have an account?"),
         "anySpecificInstructions":
@@ -39,6 +44,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "buyer": MessageLookupByLibrary.simpleMessage("Buyer"),
         "cache_error": MessageLookupByLibrary.simpleMessage(
             "cache error, try again later"),
+        "cancelled_status": MessageLookupByLibrary.simpleMessage("cancelled"),
+        "change_language":
+            MessageLookupByLibrary.simpleMessage("choose language"),
         "change_pass": MessageLookupByLibrary.simpleMessage("Change Password"),
         "change_your_pass":
             MessageLookupByLibrary.simpleMessage("Change your password"),
@@ -46,14 +54,18 @@ class MessageLookup extends MessageLookupByLibrary {
             "Please check your email to secure your account"),
         "conflict_error": MessageLookupByLibrary.simpleMessage(
             "conflict found, try again later"),
+        "contactUs": MessageLookupByLibrary.simpleMessage("Contact Us"),
         "cs": MessageLookupByLibrary.simpleMessage("Customer Support"),
         "default_error": MessageLookupByLibrary.simpleMessage(
             "some thing went wrong, try again later"),
+        "deleteAccount": MessageLookupByLibrary.simpleMessage("Delete account"),
         "deliveryDate": MessageLookupByLibrary.simpleMessage("Delivery Date"),
         "deliveryTime": MessageLookupByLibrary.simpleMessage("Delivery Time"),
         "details": MessageLookupByLibrary.simpleMessage("Details"),
         "doNotHaveAccount":
             MessageLookupByLibrary.simpleMessage("Don\'t have an account?"),
+        "done_status": MessageLookupByLibrary.simpleMessage("completed"),
+        "editProfile": MessageLookupByLibrary.simpleMessage("Edit profile"),
         "email": MessageLookupByLibrary.simpleMessage("Email"),
         "enterYourNewPassword": MessageLookupByLibrary.simpleMessage(
             "Enter your new password below"),
@@ -78,18 +90,22 @@ class MessageLookup extends MessageLookupByLibrary {
         "have_problem": MessageLookupByLibrary.simpleMessage("Have a problem?"),
         "internal_server_error": MessageLookupByLibrary.simpleMessage(
             "some thing went wrong, try again later"),
+        "language": MessageLookupByLibrary.simpleMessage("Language"),
         "lastName": MessageLookupByLibrary.simpleMessage("last name"),
         "lastNameCantBeEmpty":
             MessageLookupByLibrary.simpleMessage("Last Name can\'t be empty"),
         "login": MessageLookupByLibrary.simpleMessage("Login"),
         "loginSuccessful":
             MessageLookupByLibrary.simpleMessage("Login Successful"),
+        "message": MessageLookupByLibrary.simpleMessage("Message"),
         "method_not_allowed_error": MessageLookupByLibrary.simpleMessage(
             "Unsupported, please try Again later"),
         "moved_permanently": MessageLookupByLibrary.simpleMessage(
             "This URL is no longer available"),
         "multiple_choices": MessageLookupByLibrary.simpleMessage(
             "Choose an option to continue"),
+        "myOrders": MessageLookupByLibrary.simpleMessage("My orders"),
+        "my_orders": MessageLookupByLibrary.simpleMessage("My Orders"),
         "next": MessageLookupByLibrary.simpleMessage("Next"),
         "no_content":
             MessageLookupByLibrary.simpleMessage("success with not content"),
@@ -125,6 +141,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Passwords doesn\'t match"),
         "payment_required":
             MessageLookupByLibrary.simpleMessage("Payment Required"),
+        "pending": MessageLookupByLibrary.simpleMessage("Pending"),
         "phone": MessageLookupByLibrary.simpleMessage("Phone"),
         "phoneAlreadyUsed": MessageLookupByLibrary.simpleMessage("phone used"),
         "phoneNumber": MessageLookupByLibrary.simpleMessage("Phone Number"),
@@ -134,11 +151,16 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Please enter a valid phone"),
         "plzEnterYourEmail":
             MessageLookupByLibrary.simpleMessage("Please enter your phone"),
+        "privacy_policy":
+            MessageLookupByLibrary.simpleMessage("Privacy Policy"),
+        "processing": MessageLookupByLibrary.simpleMessage("Processing"),
         "products": MessageLookupByLibrary.simpleMessage("Products"),
+        "profile": MessageLookupByLibrary.simpleMessage("Profile"),
         "register": MessageLookupByLibrary.simpleMessage("Register"),
         "registerNow": MessageLookupByLibrary.simpleMessage("Register Now"),
         "registeredSuccessfully":
             MessageLookupByLibrary.simpleMessage("Registered Successfully"),
+        "rememberMe": MessageLookupByLibrary.simpleMessage("Remember Me"),
         "searchFor": MessageLookupByLibrary.simpleMessage("Search For"),
         "seeMore": MessageLookupByLibrary.simpleMessage("see more"),
         "selectDateAndTimeOfDelivery": MessageLookupByLibrary.simpleMessage(
@@ -147,14 +169,20 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage(
                 "Select date and time you like us to start"),
         "seller": MessageLookupByLibrary.simpleMessage("Seller"),
+        "send": MessageLookupByLibrary.simpleMessage("send"),
         "sendAgain": MessageLookupByLibrary.simpleMessage("send again"),
         "sendCode": MessageLookupByLibrary.simpleMessage("send code"),
         "service_unavailable":
             MessageLookupByLibrary.simpleMessage("Server is under maintenance"),
         "services": MessageLookupByLibrary.simpleMessage("Services"),
+        "settings": MessageLookupByLibrary.simpleMessage("Settings"),
+        "shipped": MessageLookupByLibrary.simpleMessage("Shipped"),
+        "shipped_status": MessageLookupByLibrary.simpleMessage("shipped"),
         "skip": MessageLookupByLibrary.simpleMessage("Skip"),
         "sku": MessageLookupByLibrary.simpleMessage("SKU:"),
         "success": MessageLookupByLibrary.simpleMessage("success"),
+        "termsAndConditions":
+            MessageLookupByLibrary.simpleMessage("Terms and Conditions"),
         "timeout_error":
             MessageLookupByLibrary.simpleMessage("time out, try again late"),
         "unauthorized_error": MessageLookupByLibrary.simpleMessage(
@@ -163,6 +191,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "some thing went wrong, try again later"),
         "unprocessable_content_error": MessageLookupByLibrary.simpleMessage(
             "unprocessable data, check it and try again"),
+        "updateAccount": MessageLookupByLibrary.simpleMessage("update account"),
         "verificationCode": MessageLookupByLibrary.simpleMessage("Verify Code"),
         "verificationCodeCantEmpty": MessageLookupByLibrary.simpleMessage(
             "Verification code can\'t empty"),
@@ -175,6 +204,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "whatTimeWouldYouLikeUsToStart": MessageLookupByLibrary.simpleMessage(
             "What time would you like us to start?"),
         "wrongPhoneCheckAgain": MessageLookupByLibrary.simpleMessage(
-            "phone is wrong, check phone & try again")
+            "phone is wrong, check phone & try again"),
+        "yourMessage": MessageLookupByLibrary.simpleMessage("Your Message"),
+        "yourMessageSentSuccessfully": MessageLookupByLibrary.simpleMessage(
+            "Your message sent successfully")
       };
 }

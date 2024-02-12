@@ -3,8 +3,13 @@ import 'package:knockknock/core/router/router.dart';
 import 'package:knockknock/features/main/home/presentation/pages/home_view.dart';
 import 'package:knockknock/features/main/products/presentation/pages/products_view.dart';
 import 'package:knockknock/features/main/products_details/presentation/pages/products_details_view.dart';
+import 'package:knockknock/features/main/profile/presentation/pages/profile_view.dart';
 import 'package:knockknock/features/main/services/presentation/pages/services_view.dart';
 import 'package:knockknock/features/main/services_details/presentation/pages/services_details_view.dart';
+import 'package:knockknock/features/orders/my_orders/presentation/pages/my_orders.dart';
+import 'package:knockknock/features/profile/contact_us/presentation/pages/contact_us_view.dart';
+import 'package:knockknock/features/profile/edit_profile/presentation/pages/edit_profile_view.dart';
+import 'package:knockknock/features/profile/settings/presentation/pages/settings_view.dart';
 
 import '../../features/auth/change_pass/presentation/pages/change_pass_view.dart';
 import '../../features/auth/forgot_pass/presentation/pages/forgot_pass_view.dart';
@@ -14,6 +19,7 @@ import '../../features/auth/reset_pass/presentation/pages/reset_pass_view.dart';
 import '../../features/auth/verify_account/presentation/pages/verify_account_view.dart';
 import '../../features/bottom_nav_bar.dart';
 import '../../features/on_boarding/presentation/pages/on_boarding_view.dart';
+import '../../features/orders/order_details/presentation/pages/order_details_view.dart';
 import '../../main_view.dart';
 import '../shared/arguments.dart';
 
@@ -88,6 +94,35 @@ class AppRouters {
         case servicesDetailsPageRoute:
         return MaterialPageRoute(
           builder: (BuildContext context) => const ServicesDetailsView(),
+        );
+
+        /// profile
+      case profilePageRoute:
+        return MaterialPageRoute(
+          builder: (BuildContext context) => const ProfileView(),
+        );
+      case contactUsPageRoute:
+        return MaterialPageRoute(
+          builder: (BuildContext context) => const ContactUsView(),
+        );
+      case settingsPageRoute:
+        return MaterialPageRoute(
+          builder: (BuildContext context) => const SettingsView(),
+        );
+      case editProfilePageRoute:
+        return MaterialPageRoute(
+          builder: (BuildContext context) => const EditProfileView(),
+        );
+        ///orders
+      case myOrdersPageRoute:
+        return MaterialPageRoute(
+          builder: (BuildContext context) => const MyOrdersView(),
+        );
+      case orderDetailsPageRoute:
+        final args = settings.arguments as OrderDetailsArgs;
+        return MaterialPageRoute(
+          builder: (BuildContext context) =>
+              OrderDetailsView(orderDetails: args.orderDetails),
         );
       default:
         return MaterialPageRoute(

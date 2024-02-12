@@ -13,3 +13,12 @@ const String productsPageRoute = '/products';
 const String productsDetailsPageRoute = '/productsDetails';
 const String servicesPageRoute = '/services';
 const String servicesDetailsPageRoute = '/servicesDetails';
+///profile
+const String profilePageRoute = '/profile';
+const String contactUsPageRoute = '/contactUs';
+const String settingsPageRoute = '/settings';
+const String editProfilePageRoute = '/editProfile';
+
+///orders
+const String myOrdersPageRoute = '/myOrders';
+const String orderDetailsPageRoute = '/orderDetails';

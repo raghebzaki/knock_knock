@@ -42,6 +42,8 @@
   "forgotPass": "نسيت كلمة المرور",
   "doNotHaveAccount": "ليس لديك حساب؟",
   "registerNow": "سجل الآن",
+  "rememberMe": "تذكرني",
+
 
   "@register": {},
   "register": "تسجيل",

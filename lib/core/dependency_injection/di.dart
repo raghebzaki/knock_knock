@@ -1,4 +1,7 @@
 import 'package:get_it/get_it.dart';
+import 'package:knockknock/features/profile/edit_profile/domain/use_cases/delete_account_use_case.dart';
+import 'package:knockknock/features/profile/edit_profile/domain/use_cases/edit_account_use_case.dart';
+import 'package:knockknock/features/profile/edit_profile/presentation/manager/edit_profile_cubit.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../features/auth/change_pass/data/data_sources/change_pass_service.dart';
@@ -37,6 +40,19 @@ import '../../features/auth/verify_account/domain/repositories/verify_account_re
 import '../../features/auth/verify_account/domain/use_cases/resend_code_usecase.dart';
 import '../../features/auth/verify_account/domain/use_cases/verify_account_usecase.dart';
 import '../../features/auth/verify_account/presentation/manager/verify_account_cubit.dart';
+import '../../features/orders/my_orders/data/data_sources/my_orders_service.dart';
+import '../../features/orders/my_orders/data/repositories/my_orders_repo_impl.dart';
+import '../../features/orders/my_orders/domain/repositories/my_orders_repo.dart';
+import '../../features/orders/my_orders/domain/use_cases/my_orders_usecase.dart';
+import '../../features/orders/my_orders/presentation/manager/my_orders_cubit.dart';
+import '../../features/profile/contact_us/data/data_sources/contact_us_service.dart';
+import '../../features/profile/contact_us/data/repositories/contact_us_repo_impl.dart';
+import '../../features/profile/contact_us/domain/repositories/contact_us_repo.dart';
+import '../../features/profile/contact_us/domain/use_cases/contact_us_use_case.dart';
+import '../../features/profile/contact_us/presentation/manager/contact_us_cubit.dart';
+import '../../features/profile/edit_profile/data/data_sources/edit_profile_service.dart';
+import '../../features/profile/edit_profile/data/repositories/edit_profile_repo_impl.dart';
+import '../../features/profile/edit_profile/domain/repositories/edit_profile_repo.dart';
 
 final di = GetIt.instance;
 
@@ -96,6 +112,26 @@ Future<void> init() async {
   di.registerLazySingleton<VerifyResendCodeService>(
       () => VerifyResendCodeServiceImpl());
 
+  ///profile
+  /// Edit profile
+  di.registerFactory(() =>
+      EditProfileCubit(editProfileUseCase: di(),deleteAccountUseCase: di()));
+  di.registerLazySingleton(() => EditProfileUseCase(di()));
+  di.registerLazySingleton(() => DeleteAccountUseCase( di()));
+  di.registerLazySingleton<EditProfileRepo>(() => EditProfileRepoImpl(di(),));
+  di.registerLazySingleton<EditProfileService>(() => EditProfileServiceImpl());
+  /// contact us
+  di.registerFactory(() => ContactUsCubit(contactUsUseCase: di()));
+  di.registerLazySingleton(() => ContactUsUseCase(di()));
+  di.registerLazySingleton<ContactUsRepo>(() => ContactUsRepoImpl(di(),));
+  di.registerLazySingleton<ContactUsService>(() => ContactUsServiceImpl());
+
+  /// order
+  /// my orders
+  di.registerFactory(() => MyOrdersCubit(myOrdersUseCase: di()));
+  di.registerLazySingleton(() => MyOrdersUseCase(myOrdersRepo: di()));
+  di.registerLazySingleton<MyOrdersRepo>(() => MyOrdersRepoImpl(myOrdersService: di(),));
+  di.registerLazySingleton<MyOrdersService>(() => MyOrdersServiceImpl());
 
   /// external
   final sharedPrefs = await SharedPreferences.getInstance();
