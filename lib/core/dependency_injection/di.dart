@@ -1,4 +1,5 @@
 import 'package:get_it/get_it.dart';
+import 'package:knockknock/features/orders/track_order/domain/use_cases/cancel_order_usecase.dart';
 import 'package:knockknock/features/profile/edit_profile/domain/use_cases/delete_account_use_case.dart';
 import 'package:knockknock/features/profile/edit_profile/domain/use_cases/edit_account_use_case.dart';
 import 'package:knockknock/features/profile/edit_profile/presentation/manager/edit_profile_cubit.dart';
@@ -45,6 +46,14 @@ import '../../features/orders/my_orders/data/repositories/my_orders_repo_impl.da
 import '../../features/orders/my_orders/domain/repositories/my_orders_repo.dart';
 import '../../features/orders/my_orders/domain/use_cases/my_orders_usecase.dart';
 import '../../features/orders/my_orders/presentation/manager/my_orders_cubit.dart';
+import '../../features/orders/track_order/data/data_sources/cancel_order_service.dart';
+import '../../features/orders/track_order/data/data_sources/track_order_service.dart';
+import '../../features/orders/track_order/data/repositories/cancel_order_repo_impl.dart';
+import '../../features/orders/track_order/data/repositories/track_order_repo_impl.dart';
+import '../../features/orders/track_order/domain/repositories/cancel_order_repo.dart';
+import '../../features/orders/track_order/domain/repositories/track_order_repo.dart';
+import '../../features/orders/track_order/domain/use_cases/track_order_usecase.dart';
+import '../../features/orders/track_order/presentation/manager/track_order_cubit.dart';
 import '../../features/profile/contact_us/data/data_sources/contact_us_service.dart';
 import '../../features/profile/contact_us/data/repositories/contact_us_repo_impl.dart';
 import '../../features/profile/contact_us/domain/repositories/contact_us_repo.dart';
@@ -132,6 +141,15 @@ Future<void> init() async {
   di.registerLazySingleton(() => MyOrdersUseCase(myOrdersRepo: di()));
   di.registerLazySingleton<MyOrdersRepo>(() => MyOrdersRepoImpl(myOrdersService: di(),));
   di.registerLazySingleton<MyOrdersService>(() => MyOrdersServiceImpl());
+
+  /// track order and cancel order
+  di.registerFactory(() => TrackOrderCubit(trackOrderUseCase: di(),cancelOrderUseCase: di()));
+  di.registerLazySingleton(() => TrackOrderUseCase(trackOrderRepo: di()));
+  di.registerLazySingleton(() => CancelOrderUseCase(cancelOrderRepo: di()));
+  di.registerLazySingleton<TrackOrderRepo>(() => TrackOrderRepoImpl(trackOrderService: di(),));
+  di.registerLazySingleton<TrackOrderService>(() => TrackOrderServiceImpl());
+  di.registerLazySingleton<CancelOrderRepo>(() => CancelOrderRepoImpl(cancelOrderService: di(),));
+  di.registerLazySingleton<CancelOrderService>(() => CancelOrderServiceImpl());
 
   /// external
   final sharedPrefs = await SharedPreferences.getInstance();

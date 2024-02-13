@@ -22,3 +22,4 @@ const String editProfilePageRoute = '/editProfile';
 ///orders
 const String myOrdersPageRoute = '/myOrders';
 const String orderDetailsPageRoute = '/orderDetails';
+const String trackOrderPageRoute = '/trackOrder';

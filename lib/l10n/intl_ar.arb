@@ -115,5 +115,54 @@
   "freeCancellationUntil12HoursBeforeTheStartOfYour": "إلغاء مجاني حتى 12 ساعة قبل بداية الحجز",
   "anySpecificInstructions": "هل هناك تعليمات محددة؟",
   "add": "إضافة",
-  "Aed": "د.إ"
+  "Aed": "د.إ",
+
+  "@profile": {},
+  "profile": "الملف الشخصي",
+  "my_orders": "طلباتي",
+  "editProfile": "تعديل الملف الشخصي",
+  "myOrders": "طلباتي",
+
+  "@editProfile": {},
+  "deleteAccount": "حذف الحساب",
+  "accountUpdatedSuccessfully": "تم تحديث الحساب بنجاح",
+  "accountDeletedSuccessfully": "تم حذف الحساب بنجاح",
+  "updateAccount": "تحديث الحساب",
+
+
+
+  "@setting": {},
+  "settings": "الإعدادات",
+  "language": "اللغة",
+  "termsAndConditions": "الشروط والأحكام",
+  "change_language": "اختيار اللغة",
+  "privacy_policy": "سياسة الخصوصية",
+  "yourMessageSentSuccessfully": "تم إرسال رسالتك بنجاح",
+  "contactUs": "اتصل بنا",
+  "address": "العنوان",
+  "message": "الرسالة",
+  "yourMessage": "رسالتك",
+  "send": "إرسال",
+
+  "@orders": {},
+  "pending": "قيد الانتظار",
+  "shipped": "تم الشحن",
+  "processing": "قيد المعالجة",
+  "shipped_status": "تم الشحن",
+  "done_status": "تم الاكتمال",
+  "cancelled_status": "تم الإلغاء",
+
+
+
+  "@cart": {},
+  "cart": "السلة",
+  "total": "الإجمالي",
+  "subTotal": "المجموع الفرعي",
+  "deliveryFee": "رسوم التوصيل",
+  "tax": "الضريبة",
+  "completePayment": "إتمام الدفع",
+  "yourCartIsEmpty": "Your cart is empty"
+
+
+
 }

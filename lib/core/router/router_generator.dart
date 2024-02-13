@@ -7,6 +7,7 @@ import 'package:knockknock/features/main/profile/presentation/pages/profile_view
 import 'package:knockknock/features/main/services/presentation/pages/services_view.dart';
 import 'package:knockknock/features/main/services_details/presentation/pages/services_details_view.dart';
 import 'package:knockknock/features/orders/my_orders/presentation/pages/my_orders.dart';
+import 'package:knockknock/features/orders/track_order/presentation/pages/track_order_view.dart';
 import 'package:knockknock/features/profile/contact_us/presentation/pages/contact_us_view.dart';
 import 'package:knockknock/features/profile/edit_profile/presentation/pages/edit_profile_view.dart';
 import 'package:knockknock/features/profile/settings/presentation/pages/settings_view.dart';
@@ -123,6 +124,12 @@ class AppRouters {
         return MaterialPageRoute(
           builder: (BuildContext context) =>
               OrderDetailsView(orderDetails: args.orderDetails),
+        );
+        case trackOrderPageRoute:
+        final args = settings.arguments as OrderDetailsArgs;
+        return MaterialPageRoute(
+          builder: (BuildContext context) =>
+              TrackOrderView(orderDetails: args.orderDetails),
         );
       default:
         return MaterialPageRoute(

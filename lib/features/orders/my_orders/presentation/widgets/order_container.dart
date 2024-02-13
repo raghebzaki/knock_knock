@@ -44,6 +44,15 @@ class OrderContainer extends StatelessWidget {
         padding: const EdgeInsets.all(Dimensions.p20),
         decoration: const BoxDecoration(
           color: Colors.white,
+          borderRadius: BorderRadius.all(Radius.circular(10)),
+          boxShadow:  [
+            BoxShadow(
+              color: AppColors.textColorGrey,
+              blurRadius: 10,
+              offset: Offset(2, 2),
+              spreadRadius: 0,
+            )
+          ],
         ),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.end,

@@ -44,7 +44,10 @@ class MessageLookup extends MessageLookupByLibrary {
         "buyer": MessageLookupByLibrary.simpleMessage("Buyer"),
         "cache_error": MessageLookupByLibrary.simpleMessage(
             "cache error, try again later"),
+        "cancelAlert": MessageLookupByLibrary.simpleMessage("cancel alert"),
+        "cancelOrder": MessageLookupByLibrary.simpleMessage("cancel order"),
         "cancelled_status": MessageLookupByLibrary.simpleMessage("cancelled"),
+        "cart": MessageLookupByLibrary.simpleMessage("cart"),
         "change_language":
             MessageLookupByLibrary.simpleMessage("choose language"),
         "change_pass": MessageLookupByLibrary.simpleMessage("Change Password"),
@@ -52,6 +55,9 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Change your password"),
         "check_your_mail": MessageLookupByLibrary.simpleMessage(
             "Please check your email to secure your account"),
+        "close": MessageLookupByLibrary.simpleMessage("close"),
+        "completePayment":
+            MessageLookupByLibrary.simpleMessage("Complete payment"),
         "conflict_error": MessageLookupByLibrary.simpleMessage(
             "conflict found, try again later"),
         "contactUs": MessageLookupByLibrary.simpleMessage("Contact Us"),
@@ -60,6 +66,9 @@ class MessageLookup extends MessageLookupByLibrary {
             "some thing went wrong, try again later"),
         "deleteAccount": MessageLookupByLibrary.simpleMessage("Delete account"),
         "deliveryDate": MessageLookupByLibrary.simpleMessage("Delivery Date"),
+        "deliveryFee": MessageLookupByLibrary.simpleMessage("delivery fee"),
+        "deliveryRequestAccepted":
+            MessageLookupByLibrary.simpleMessage("Delivery request accepted"),
         "deliveryTime": MessageLookupByLibrary.simpleMessage("Delivery Time"),
         "details": MessageLookupByLibrary.simpleMessage("Details"),
         "doNotHaveAccount":
@@ -72,6 +81,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "err_code": MessageLookupByLibrary.simpleMessage("Error Code"),
         "error_occurred":
             MessageLookupByLibrary.simpleMessage("error_occurred"),
+        "estimatedTimeOfArrivalEta": MessageLookupByLibrary.simpleMessage(
+            "Estimated time of arrival (ETA)"),
         "failedToChangePassword":
             MessageLookupByLibrary.simpleMessage("Failed to change password"),
         "failedToCheckOtp":
@@ -124,6 +135,11 @@ class MessageLookup extends MessageLookupByLibrary {
         "onboard_3": MessageLookupByLibrary.simpleMessage("Shop Online"),
         "onboard_3_des": MessageLookupByLibrary.simpleMessage(
             "Hurry to purchase your embroidered and distinctive clothing "),
+        "orderNumber": MessageLookupByLibrary.simpleMessage("order number "),
+        "orderPreparation":
+            MessageLookupByLibrary.simpleMessage("Order preparation"),
+        "orderSuccessfullyDelivered": MessageLookupByLibrary.simpleMessage(
+            "Order successfully delivered"),
         "otpIsCorrect": MessageLookupByLibrary.simpleMessage("otp is correct"),
         "otpSentTo": MessageLookupByLibrary.simpleMessage("OTP sent to"),
         "pass": MessageLookupByLibrary.simpleMessage("Password"),
@@ -142,6 +158,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "payment_required":
             MessageLookupByLibrary.simpleMessage("Payment Required"),
         "pending": MessageLookupByLibrary.simpleMessage("Pending"),
+        "pendingAccessTo":
+            MessageLookupByLibrary.simpleMessage("Pending access to"),
         "phone": MessageLookupByLibrary.simpleMessage("Phone"),
         "phoneAlreadyUsed": MessageLookupByLibrary.simpleMessage("phone used"),
         "phoneNumber": MessageLookupByLibrary.simpleMessage("Phone Number"),
@@ -156,6 +174,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "processing": MessageLookupByLibrary.simpleMessage("Processing"),
         "products": MessageLookupByLibrary.simpleMessage("Products"),
         "profile": MessageLookupByLibrary.simpleMessage("Profile"),
+        "quantity": MessageLookupByLibrary.simpleMessage("quantity"),
         "register": MessageLookupByLibrary.simpleMessage("Register"),
         "registerNow": MessageLookupByLibrary.simpleMessage("Register Now"),
         "registeredSuccessfully":
@@ -180,11 +199,17 @@ class MessageLookup extends MessageLookupByLibrary {
         "shipped_status": MessageLookupByLibrary.simpleMessage("shipped"),
         "skip": MessageLookupByLibrary.simpleMessage("Skip"),
         "sku": MessageLookupByLibrary.simpleMessage("SKU:"),
+        "subTotal": MessageLookupByLibrary.simpleMessage("sub total"),
         "success": MessageLookupByLibrary.simpleMessage("success"),
+        "tax": MessageLookupByLibrary.simpleMessage("tax"),
         "termsAndConditions":
             MessageLookupByLibrary.simpleMessage("Terms and Conditions"),
+        "theExecutedOrder":
+            MessageLookupByLibrary.simpleMessage("The executed order"),
         "timeout_error":
             MessageLookupByLibrary.simpleMessage("time out, try again late"),
+        "total": MessageLookupByLibrary.simpleMessage("total"),
+        "trackOrder": MessageLookupByLibrary.simpleMessage("track order"),
         "unauthorized_error": MessageLookupByLibrary.simpleMessage(
             "user unauthorized, try again later"),
         "unknown_error": MessageLookupByLibrary.simpleMessage(
@@ -205,8 +230,13 @@ class MessageLookup extends MessageLookupByLibrary {
             "What time would you like us to start?"),
         "wrongPhoneCheckAgain": MessageLookupByLibrary.simpleMessage(
             "phone is wrong, check phone & try again"),
+        "yes": MessageLookupByLibrary.simpleMessage("yes"),
+        "yourCartIsEmpty":
+            MessageLookupByLibrary.simpleMessage("Your cart is empty"),
         "yourMessage": MessageLookupByLibrary.simpleMessage("Your Message"),
         "yourMessageSentSuccessfully": MessageLookupByLibrary.simpleMessage(
-            "Your message sent successfully")
+            "Your message sent successfully"),
+        "yourOrderIsReadyForDelivery": MessageLookupByLibrary.simpleMessage(
+            "Your order is ready for delivery")
       };
 }

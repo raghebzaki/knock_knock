@@ -129,12 +129,12 @@
 
 
 
-  "my_orders": "My Orders",
 
 
 
   "@profile": {},
   "profile": "Profile",
+  "my_orders": "My Orders",
   "editProfile": "Edit profile",
   "myOrders": "My orders",
 
@@ -165,5 +165,33 @@
   "processing": "Processing",
   "shipped_status": "shipped",
   "done_status": "completed",
-  "cancelled_status": "cancelled"
+  "cancelled_status": "cancelled",
+
+  "@orderDetails": {},
+  "orderNumber":"order number ",
+  "pendingAccessTo": "Pending access to",
+  "trackOrder": "track order",
+  "theExecutedOrder": "The executed order",
+  "quantity": "quantity",
+
+  "@trackOrder": {},
+
+
+  "@cart": {},
+  "cart": "cart",
+  "total": "total",
+  "subTotal": "sub total",
+  "deliveryFee": "delivery fee",
+  "tax": "tax",
+  "completePayment": "Complete payment",
+  "yourCartIsEmpty": "Your cart is empty",
+  "estimatedTimeOfArrivalEta": "Estimated time of arrival (ETA)",
+  "cancelAlert": "cancel alert",
+  "yes": "yes",
+  "close": "close",
+  "cancelOrder": "cancel order",
+  "deliveryRequestAccepted": "Delivery request accepted",
+  "orderPreparation": "Order preparation",
+  "yourOrderIsReadyForDelivery": "Your order is ready for delivery",
+  "orderSuccessfullyDelivered": "Order successfully delivered"
 }

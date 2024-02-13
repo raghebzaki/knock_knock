@@ -1030,21 +1030,21 @@ class S {
     );
   }
 
-  /// `My Orders`
-  String get my_orders {
-    return Intl.message(
-      'My Orders',
-      name: 'my_orders',
-      desc: '',
-      args: [],
-    );
-  }
-
   /// `Profile`
   String get profile {
     return Intl.message(
       'Profile',
       name: 'profile',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `My Orders`
+  String get my_orders {
+    return Intl.message(
+      'My Orders',
+      name: 'my_orders',
       desc: '',
       args: [],
     );
@@ -1275,6 +1275,216 @@ class S {
     return Intl.message(
       'cancelled',
       name: 'cancelled_status',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `order number `
+  String get orderNumber {
+    return Intl.message(
+      'order number ',
+      name: 'orderNumber',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Pending access to`
+  String get pendingAccessTo {
+    return Intl.message(
+      'Pending access to',
+      name: 'pendingAccessTo',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `track order`
+  String get trackOrder {
+    return Intl.message(
+      'track order',
+      name: 'trackOrder',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `The executed order`
+  String get theExecutedOrder {
+    return Intl.message(
+      'The executed order',
+      name: 'theExecutedOrder',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `quantity`
+  String get quantity {
+    return Intl.message(
+      'quantity',
+      name: 'quantity',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `cart`
+  String get cart {
+    return Intl.message(
+      'cart',
+      name: 'cart',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `total`
+  String get total {
+    return Intl.message(
+      'total',
+      name: 'total',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `sub total`
+  String get subTotal {
+    return Intl.message(
+      'sub total',
+      name: 'subTotal',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `delivery fee`
+  String get deliveryFee {
+    return Intl.message(
+      'delivery fee',
+      name: 'deliveryFee',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `tax`
+  String get tax {
+    return Intl.message(
+      'tax',
+      name: 'tax',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Complete payment`
+  String get completePayment {
+    return Intl.message(
+      'Complete payment',
+      name: 'completePayment',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Your cart is empty`
+  String get yourCartIsEmpty {
+    return Intl.message(
+      'Your cart is empty',
+      name: 'yourCartIsEmpty',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Estimated time of arrival (ETA)`
+  String get estimatedTimeOfArrivalEta {
+    return Intl.message(
+      'Estimated time of arrival (ETA)',
+      name: 'estimatedTimeOfArrivalEta',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `cancel alert`
+  String get cancelAlert {
+    return Intl.message(
+      'cancel alert',
+      name: 'cancelAlert',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `yes`
+  String get yes {
+    return Intl.message(
+      'yes',
+      name: 'yes',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `close`
+  String get close {
+    return Intl.message(
+      'close',
+      name: 'close',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `cancel order`
+  String get cancelOrder {
+    return Intl.message(
+      'cancel order',
+      name: 'cancelOrder',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Delivery request accepted`
+  String get deliveryRequestAccepted {
+    return Intl.message(
+      'Delivery request accepted',
+      name: 'deliveryRequestAccepted',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Order preparation`
+  String get orderPreparation {
+    return Intl.message(
+      'Order preparation',
+      name: 'orderPreparation',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Your order is ready for delivery`
+  String get yourOrderIsReadyForDelivery {
+    return Intl.message(
+      'Your order is ready for delivery',
+      name: 'yourOrderIsReadyForDelivery',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Order successfully delivered`
+  String get orderSuccessfullyDelivered {
+    return Intl.message(
+      'Order successfully delivered',
+      name: 'orderSuccessfullyDelivered',
       desc: '',
       args: [],
     );

@@ -45,14 +45,14 @@ class _MyOrdersViewState extends State<MyOrdersView> {
               title: Text(S.of(context).my_orders),
             ),
             body: SafeArea(
-              child: Padding(
-                padding: const EdgeInsets.all(
-                  Dimensions.p16,
-                ),
-                child: Column(
-                  children: [
-                    Gap(20.h),
-                    SingleChildScrollView(
+              child: Column(
+                children: [
+                  Gap(20.h),
+                  Padding(
+                    padding: const EdgeInsets.all(
+                      Dimensions.p16,
+                    ),
+                    child: SingleChildScrollView(
                       scrollDirection: Axis.horizontal,
                       child: Row(
                         // mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -264,34 +264,34 @@ class _MyOrdersViewState extends State<MyOrdersView> {
                         ],
                       ),
                     ),
-                    Gap(20.h),
-                    Expanded(
-                      child: ListView.builder(
-                        scrollDirection: Axis.vertical,
-                        shrinkWrap: true,
-                        physics: const BouncingScrollPhysics(),
-                        itemCount: 5,
-                        itemBuilder: (ctx, index) {
-                          return const Padding(
-                              padding:
-                              EdgeInsets.symmetric(vertical: Dimensions.p8),
-                              child: OrderContainer(
-                                orderEntity:OrderEntity(
-                                  date: "20-10-2023",
-                                  userId: 5,
-                                  userName: 'name',
-                                  tax: 10,
-                                  price: 20,
-                                  totalPrice: 30,
-                                  status: 0,
-                                  orderNumber: "hjkfgfhjkkk"
-                                ),
-                              ));
-                        },
-                      ),
-                    )
-                  ],
-                ),
+                  ),
+                  Gap(20.h),
+                  Expanded(
+                    child: ListView.builder(
+                      scrollDirection: Axis.vertical,
+                      shrinkWrap: true,
+                      physics: const BouncingScrollPhysics(),
+                      itemCount: 5,
+                      itemBuilder: (ctx, index) {
+                        return  Container(
+                            margin:
+                            const EdgeInsets.symmetric(vertical: Dimensions.p8,horizontal: Dimensions.p16),
+                            child: const OrderContainer(
+                              orderEntity:OrderEntity(
+                                date: "20-10-2023",
+                                userId: 5,
+                                userName: 'name',
+                                tax: 10,
+                                price: 20,
+                                totalPrice: 30,
+                                status: 0,
+                                orderNumber: "hjkfgfhjkkk"
+                              ),
+                            ));
+                      },
+                    ),
+                  )
+                ],
               ),
             ),
           );
