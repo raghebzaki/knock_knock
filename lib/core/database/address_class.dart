@@ -1,4 +1,5 @@
 import 'package:equatable/equatable.dart';
+import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:uuid/uuid.dart';
 
@@ -22,6 +23,10 @@ class Address extends Equatable {
   final String? code;
   @HiveField(7)
   final String? phone;
+  @HiveField(8)
+  final LatLng? latitude;
+  @HiveField(9)
+  final LatLng? longitude;
 
   Address({
     this.address,
@@ -31,6 +36,8 @@ class Address extends Equatable {
     this.city,
     this.code,
     this.phone,
+    this.latitude,
+    this.longitude,
   }) : id = const Uuid().v4();
 
   @override
@@ -43,5 +50,7 @@ class Address extends Equatable {
         city,
         code,
         phone,
+        latitude,
+        longitude,
       ];
 }

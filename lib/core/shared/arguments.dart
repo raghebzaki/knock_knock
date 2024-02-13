@@ -1,4 +1,6 @@
 
+import 'package:geocoding/geocoding.dart';
+
 import 'entities/order_entity.dart';
 
 class VerifyAccountArgs {
@@ -25,4 +27,10 @@ class OrderDetailsArgs {
 
   OrderDetailsArgs({required this.orderDetails});
 
+}
+
+class AddressArgs {
+  final Placemark address;
+
+  AddressArgs({required this.address});
 }

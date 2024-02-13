@@ -30,6 +30,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "accountUpdatedSuccessfully":
             MessageLookupByLibrary.simpleMessage("تم تحديث الحساب بنجاح"),
         "add": MessageLookupByLibrary.simpleMessage("إضافة"),
+        "addAddress": MessageLookupByLibrary.simpleMessage("إضافة العنوان"),
+        "addNewAddress":
+            MessageLookupByLibrary.simpleMessage("إضافة عنوان جديد"),
         "addToCart": MessageLookupByLibrary.simpleMessage("أضف إلى السلة"),
         "address": MessageLookupByLibrary.simpleMessage("العنوان"),
         "alreadyHaveAnAccount":
@@ -42,6 +45,9 @@ class MessageLookup extends MessageLookupByLibrary {
             "بيانات غير صالحة، يرجى المحاولة مرة أخرى"),
         "bad_request_error": MessageLookupByLibrary.simpleMessage(
             "طلب غير صالح. حاول مرة أخرى لاحقًا"),
+        "buildingNo": MessageLookupByLibrary.simpleMessage("رقم المبنى"),
+        "buildingNoCantBeEmpty": MessageLookupByLibrary.simpleMessage(
+            "رقم المبنى لا يمكن أن يكون فارغًا"),
         "buyer": MessageLookupByLibrary.simpleMessage("مشتري"),
         "cache_error": MessageLookupByLibrary.simpleMessage(
             "خطأ في ذاكرة التخزين المؤقت , حاول مرة أخرى لاحقًا"),
@@ -57,6 +63,8 @@ class MessageLookup extends MessageLookupByLibrary {
             "قم بتغيير كلمة المرور الخاصة بك"),
         "check_your_mail": MessageLookupByLibrary.simpleMessage(
             "يرجى التحقق من رقم الهاتف لتأمين حسابك"),
+        "chooseAddress": MessageLookupByLibrary.simpleMessage("اختر العنوان"),
+        "city": MessageLookupByLibrary.simpleMessage("المدينة"),
         "close": MessageLookupByLibrary.simpleMessage("إغلاق"),
         "completePayment": MessageLookupByLibrary.simpleMessage("إتمام الدفع"),
         "conflict_error": MessageLookupByLibrary.simpleMessage(
@@ -92,6 +100,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "firstName": MessageLookupByLibrary.simpleMessage("الاسم الأول"),
         "firstNameCantBeEmpty": MessageLookupByLibrary.simpleMessage(
             "لا يمكن ترك الاسم الأول فارغًا"),
+        "flatNo": MessageLookupByLibrary.simpleMessage("رقم الشقة"),
+        "flatNoCantBeEmpty": MessageLookupByLibrary.simpleMessage(
+            "رقم الشقة لا يمكن أن يكون فارغًا"),
         "forbidden_error": MessageLookupByLibrary.simpleMessage(
             "طلب محظور. حاول مرة أخرى لاحقًا"),
         "forgotPass": MessageLookupByLibrary.simpleMessage("نسيت كلمة المرور"),
@@ -118,6 +129,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("اختر خيارًا للمتابعة"),
         "myOrders": MessageLookupByLibrary.simpleMessage("طلباتي"),
         "my_orders": MessageLookupByLibrary.simpleMessage("طلباتي"),
+        "newAddress": MessageLookupByLibrary.simpleMessage("عنوان جديد"),
         "next": MessageLookupByLibrary.simpleMessage("التالي"),
         "no_content": MessageLookupByLibrary.simpleMessage("نجاح بدون محتوى"),
         "no_internet_error": MessageLookupByLibrary.simpleMessage(
@@ -152,6 +164,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "phone": MessageLookupByLibrary.simpleMessage("الهاتف"),
         "phoneAlreadyUsed":
             MessageLookupByLibrary.simpleMessage("الهاتف مستخدم"),
+        "phoneNoCantBeEmpty": MessageLookupByLibrary.simpleMessage(
+            "رقم الهاتف لا يمكن أن يكون فارغًا"),
         "phoneNumber": MessageLookupByLibrary.simpleMessage("رقم الجوال"),
         "pleaseEnterAValidPhoneNumber":
             MessageLookupByLibrary.simpleMessage("يرجى إدخال رقم هاتف صالح"),
@@ -159,6 +173,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("يرجى إدخال رقم هاتف صالح"),
         "plzEnterYourEmail":
             MessageLookupByLibrary.simpleMessage("يرجى إدخال رقم الهاتف"),
+        "postalCode": MessageLookupByLibrary.simpleMessage("الرمز البريدي"),
         "privacy_policy":
             MessageLookupByLibrary.simpleMessage("سياسة الخصوصية"),
         "processing": MessageLookupByLibrary.simpleMessage("قيد المعالجة"),
@@ -170,6 +185,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "registeredSuccessfully":
             MessageLookupByLibrary.simpleMessage("تم التسجيل بنجاح"),
         "rememberMe": MessageLookupByLibrary.simpleMessage("تذكرني"),
+        "savedAddresses":
+            MessageLookupByLibrary.simpleMessage("العناوين المحفوظة"),
         "searchFor": MessageLookupByLibrary.simpleMessage("البحث عن"),
         "seeMore": MessageLookupByLibrary.simpleMessage("رؤية المزيد"),
         "selectDateAndTimeOfDelivery":
@@ -187,6 +204,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "shipped": MessageLookupByLibrary.simpleMessage("تم الشحن"),
         "shipped_status": MessageLookupByLibrary.simpleMessage("تم الشحن"),
         "sku": MessageLookupByLibrary.simpleMessage("رمز المخزون:"),
+        "state": MessageLookupByLibrary.simpleMessage("المنطقة"),
         "subTotal": MessageLookupByLibrary.simpleMessage("المجموع الفرعي"),
         "success": MessageLookupByLibrary.simpleMessage("تم بنجاح"),
         "tax": MessageLookupByLibrary.simpleMessage("الضريبة"),

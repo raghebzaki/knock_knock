@@ -30,6 +30,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "accountUpdatedSuccessfully": MessageLookupByLibrary.simpleMessage(
             "Account updated successfully"),
         "add": MessageLookupByLibrary.simpleMessage("Add"),
+        "addAddress": MessageLookupByLibrary.simpleMessage("Add Address"),
+        "addNewAddress":
+            MessageLookupByLibrary.simpleMessage("Add New Address"),
         "addToCart": MessageLookupByLibrary.simpleMessage("add to cart"),
         "address": MessageLookupByLibrary.simpleMessage("Address"),
         "alreadyHaveAnAccount":
@@ -42,6 +45,9 @@ class MessageLookup extends MessageLookupByLibrary {
             "Invalid data, please try again"),
         "bad_request_error": MessageLookupByLibrary.simpleMessage(
             "bad request. try again later"),
+        "buildingNo": MessageLookupByLibrary.simpleMessage("Building No."),
+        "buildingNoCantBeEmpty": MessageLookupByLibrary.simpleMessage(
+            "Building No. can\'t be empty"),
         "buyer": MessageLookupByLibrary.simpleMessage("Buyer"),
         "cache_error": MessageLookupByLibrary.simpleMessage(
             "cache error, try again later"),
@@ -57,6 +63,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Change your password"),
         "check_your_mail": MessageLookupByLibrary.simpleMessage(
             "Please check your email to secure your account"),
+        "chooseAddress": MessageLookupByLibrary.simpleMessage("Choose Address"),
+        "city": MessageLookupByLibrary.simpleMessage("City"),
         "close": MessageLookupByLibrary.simpleMessage("close"),
         "completePayment":
             MessageLookupByLibrary.simpleMessage("Complete payment"),
@@ -93,6 +101,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "firstName": MessageLookupByLibrary.simpleMessage("first name"),
         "firstNameCantBeEmpty":
             MessageLookupByLibrary.simpleMessage("First Name can\'t be empty"),
+        "flatNo": MessageLookupByLibrary.simpleMessage("Flat No."),
+        "flatNoCantBeEmpty":
+            MessageLookupByLibrary.simpleMessage("Flat No. can\'t be empty"),
         "forbidden_error": MessageLookupByLibrary.simpleMessage(
             "forbidden request. try again later"),
         "forgotPass": MessageLookupByLibrary.simpleMessage("Forgot Pass"),
@@ -119,6 +130,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "Choose an option to continue"),
         "myOrders": MessageLookupByLibrary.simpleMessage("My orders"),
         "my_orders": MessageLookupByLibrary.simpleMessage("My Orders"),
+        "newAddress": MessageLookupByLibrary.simpleMessage("New Address"),
         "next": MessageLookupByLibrary.simpleMessage("Next"),
         "no_content":
             MessageLookupByLibrary.simpleMessage("success with not content"),
@@ -164,6 +176,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Pending access to"),
         "phone": MessageLookupByLibrary.simpleMessage("Phone"),
         "phoneAlreadyUsed": MessageLookupByLibrary.simpleMessage("phone used"),
+        "phoneNoCantBeEmpty":
+            MessageLookupByLibrary.simpleMessage("Phone No. can\'t be empty"),
         "phoneNumber": MessageLookupByLibrary.simpleMessage("Phone Number"),
         "pleaseEnterAValidPhoneNumber": MessageLookupByLibrary.simpleMessage(
             "Please enter a valid phone number"),
@@ -171,6 +185,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Please enter a valid phone"),
         "plzEnterYourEmail":
             MessageLookupByLibrary.simpleMessage("Please enter your phone"),
+        "postalCode": MessageLookupByLibrary.simpleMessage("Postal Code"),
         "privacy_policy":
             MessageLookupByLibrary.simpleMessage("Privacy Policy"),
         "processing": MessageLookupByLibrary.simpleMessage("Processing"),
@@ -182,6 +197,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "registeredSuccessfully":
             MessageLookupByLibrary.simpleMessage("Registered Successfully"),
         "rememberMe": MessageLookupByLibrary.simpleMessage("Remember Me"),
+        "savedAddresses":
+            MessageLookupByLibrary.simpleMessage("Saved Addresses"),
         "searchFor": MessageLookupByLibrary.simpleMessage("Search For"),
         "seeMore": MessageLookupByLibrary.simpleMessage("see more"),
         "selectDateAndTimeOfDelivery": MessageLookupByLibrary.simpleMessage(
@@ -201,6 +218,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "shipped_status": MessageLookupByLibrary.simpleMessage("shipped"),
         "skip": MessageLookupByLibrary.simpleMessage("Skip"),
         "sku": MessageLookupByLibrary.simpleMessage("SKU:"),
+        "state": MessageLookupByLibrary.simpleMessage("State"),
         "subTotal": MessageLookupByLibrary.simpleMessage("sub total"),
         "success": MessageLookupByLibrary.simpleMessage("success"),
         "tax": MessageLookupByLibrary.simpleMessage("tax"),

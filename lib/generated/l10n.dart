@@ -1499,6 +1499,136 @@ class S {
       args: [],
     );
   }
+
+  /// `Choose Address`
+  String get chooseAddress {
+    return Intl.message(
+      'Choose Address',
+      name: 'chooseAddress',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Building No.`
+  String get buildingNo {
+    return Intl.message(
+      'Building No.',
+      name: 'buildingNo',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Building No. can't be empty`
+  String get buildingNoCantBeEmpty {
+    return Intl.message(
+      'Building No. can\'t be empty',
+      name: 'buildingNoCantBeEmpty',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Flat No.`
+  String get flatNo {
+    return Intl.message(
+      'Flat No.',
+      name: 'flatNo',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Flat No. can't be empty`
+  String get flatNoCantBeEmpty {
+    return Intl.message(
+      'Flat No. can\'t be empty',
+      name: 'flatNoCantBeEmpty',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Phone No. can't be empty`
+  String get phoneNoCantBeEmpty {
+    return Intl.message(
+      'Phone No. can\'t be empty',
+      name: 'phoneNoCantBeEmpty',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `State`
+  String get state {
+    return Intl.message(
+      'State',
+      name: 'state',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `City`
+  String get city {
+    return Intl.message(
+      'City',
+      name: 'city',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Add Address`
+  String get addAddress {
+    return Intl.message(
+      'Add Address',
+      name: 'addAddress',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Postal Code`
+  String get postalCode {
+    return Intl.message(
+      'Postal Code',
+      name: 'postalCode',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Add New Address`
+  String get addNewAddress {
+    return Intl.message(
+      'Add New Address',
+      name: 'addNewAddress',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `New Address`
+  String get newAddress {
+    return Intl.message(
+      'New Address',
+      name: 'newAddress',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Saved Addresses`
+  String get savedAddresses {
+    return Intl.message(
+      'Saved Addresses',
+      name: 'savedAddresses',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

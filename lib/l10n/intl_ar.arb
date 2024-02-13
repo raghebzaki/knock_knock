@@ -180,8 +180,23 @@
   "deliveryFee": "رسوم التوصيل",
   "tax": "الضريبة",
   "completePayment": "إتمام الدفع",
-  "yourCartIsEmpty": "Your cart is empty"
+  "yourCartIsEmpty": "Your cart is empty",
 
-
+  "@_AddNewAddress": {},
+  "@_Map": {},
+  "@_SavedAddresses": {},
+  "chooseAddress": "اختر العنوان",
+  "buildingNo": "رقم المبنى",
+  "buildingNoCantBeEmpty": "رقم المبنى لا يمكن أن يكون فارغًا",
+  "flatNo": "رقم الشقة",
+  "flatNoCantBeEmpty": "رقم الشقة لا يمكن أن يكون فارغًا",
+  "phoneNoCantBeEmpty": "رقم الهاتف لا يمكن أن يكون فارغًا",
+  "state": "المنطقة",
+  "city": "المدينة",
+  "addAddress": "إضافة العنوان",
+  "postalCode": "الرمز البريدي",
+  "addNewAddress": "إضافة عنوان جديد",
+  "newAddress": "عنوان جديد",
+  "savedAddresses": "العناوين المحفوظة"
 
 }

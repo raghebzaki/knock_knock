@@ -52,7 +52,7 @@ class _LoginViewState extends State<LoginView> {
                 // UpdateFcmTokenService.updateUserToken(UserData.id!);
               } else if (state.status == 0) {
                 if (state.msg ==
-                    "Active your account first verification code sent to your email !") {
+                    "Active your account first verification postalCode sent to your email !") {
                   // await resendCodeUseCase(email.ifEmpty());
                   loginCubit.resendCode(loginCubit.phoneCtrl.value);
                   context.pushNamed(

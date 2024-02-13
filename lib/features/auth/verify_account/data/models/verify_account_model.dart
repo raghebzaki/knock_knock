@@ -18,7 +18,7 @@ class VerifyAccountModel extends VerifyAccountEntity {
   static Map<String, dynamic> toJson(VerifyAccountEntity verifyAccountEntity) {
     return {
       'email': verifyAccountEntity.email,
-      'code': verifyAccountEntity.otp,
+      'postalCode': verifyAccountEntity.otp,
     };
   }
 }

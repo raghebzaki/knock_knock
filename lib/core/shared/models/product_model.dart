@@ -33,7 +33,7 @@ class ProductModel extends ProductEntity {
       subCategoryId: json["sub_category_id"],
       descriptionAr: json["description_ar"],
       descriptionEn: json["description_en"],
-      code: json["code"],
+      code: json["postalCode"],
       price: json["price"],
       discountPercent: json["discount_percentage"] ?? 0,
       priceAfterDiscount: json["price_after_discount"],

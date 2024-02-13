@@ -194,5 +194,22 @@
   "deliveryFee": "delivery fee",
   "tax": "tax",
   "completePayment": "Complete payment",
-  "yourCartIsEmpty": "Your cart is empty"
+  "yourCartIsEmpty": "Your cart is empty",
+
+  "@_AddNewAddress": {},
+  "@_Map": {},
+  "@_SavedAddresses": {},
+  "chooseAddress": "Choose Address",
+  "buildingNo": "Building No.",
+  "buildingNoCantBeEmpty": "Building No. can't be empty",
+  "flatNo": "Flat No.",
+  "flatNoCantBeEmpty": "Flat No. can't be empty",
+  "phoneNoCantBeEmpty": "Phone No. can't be empty",
+  "state": "State",
+  "city": "City",
+  "addAddress": "Add Address",
+  "postalCode": "Postal Code",
+  "addNewAddress": "Add New Address",
+  "newAddress": "New Address",
+  "savedAddresses": "Saved Addresses"
 }

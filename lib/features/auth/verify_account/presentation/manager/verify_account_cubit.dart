@@ -68,7 +68,7 @@ class VerifyAccountCubit extends Cubit<VerifyAccountStates> {
 
   validateCode(String code) {
     if (code.isEmpty) {
-      pinCtrl.sink.addError("Verification code can't empty");
+      pinCtrl.sink.addError("Verification postalCode can't empty");
     } else {
       pinCtrl.sink.add(code);
     }
