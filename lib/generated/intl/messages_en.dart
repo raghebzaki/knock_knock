@@ -34,6 +34,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "address": MessageLookupByLibrary.simpleMessage("Address"),
         "alreadyHaveAnAccount":
             MessageLookupByLibrary.simpleMessage("already have an account?"),
+        "amount": MessageLookupByLibrary.simpleMessage("Amount"),
         "anySpecificInstructions":
             MessageLookupByLibrary.simpleMessage("Any Specific instructions?"),
         "availability": MessageLookupByLibrary.simpleMessage("Availability:"),
@@ -44,7 +45,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "buyer": MessageLookupByLibrary.simpleMessage("Buyer"),
         "cache_error": MessageLookupByLibrary.simpleMessage(
             "cache error, try again later"),
-        "cancelAlert": MessageLookupByLibrary.simpleMessage("cancel alert"),
+        "cancelAlert": MessageLookupByLibrary.simpleMessage(
+            "are you sure you want to delete order"),
         "cancelOrder": MessageLookupByLibrary.simpleMessage("cancel order"),
         "cancelled_status": MessageLookupByLibrary.simpleMessage("cancelled"),
         "cart": MessageLookupByLibrary.simpleMessage("cart"),

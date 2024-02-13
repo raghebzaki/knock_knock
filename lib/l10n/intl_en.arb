@@ -175,6 +175,16 @@
   "quantity": "quantity",
 
   "@trackOrder": {},
+  "estimatedTimeOfArrivalEta": "Estimated time of arrival (ETA)",
+  "cancelAlert": "are you sure you want to delete order",
+  "yes": "yes",
+  "close": "close",
+  "cancelOrder": "cancel order",
+  "deliveryRequestAccepted": "Delivery request accepted",
+  "orderPreparation": "Order preparation",
+  "yourOrderIsReadyForDelivery": "Your order is ready for delivery",
+  "orderSuccessfullyDelivered": "Order successfully delivered",
+  "amount": "Amount",
 
 
   "@cart": {},
@@ -184,14 +194,5 @@
   "deliveryFee": "delivery fee",
   "tax": "tax",
   "completePayment": "Complete payment",
-  "yourCartIsEmpty": "Your cart is empty",
-  "estimatedTimeOfArrivalEta": "Estimated time of arrival (ETA)",
-  "cancelAlert": "cancel alert",
-  "yes": "yes",
-  "close": "close",
-  "cancelOrder": "cancel order",
-  "deliveryRequestAccepted": "Delivery request accepted",
-  "orderPreparation": "Order preparation",
-  "yourOrderIsReadyForDelivery": "Your order is ready for delivery",
-  "orderSuccessfullyDelivered": "Order successfully delivered"
+  "yourCartIsEmpty": "Your cart is empty"
 }

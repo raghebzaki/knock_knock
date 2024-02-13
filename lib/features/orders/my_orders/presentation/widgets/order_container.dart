@@ -61,7 +61,7 @@ class OrderContainer extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text(
-                  "track order #${orderEntity!.orderNumber}",
+                  "${S.of(context).trackOrder} #${orderEntity!.orderNumber}",
                   style: CustomTextStyle.kTextStyleF14,
                 ),
                  StatusIndicator(
@@ -82,7 +82,7 @@ class OrderContainer extends StatelessWidget {
                 Row(
                   children: [
                     Text(
-                      "total: ",
+                      "${S.of(context).total}: ",
                       style: CustomTextStyle.kTextStyleF12.copyWith(
                         color: AppColors.textColorGrey,
                       ),
@@ -96,7 +96,7 @@ class OrderContainer extends StatelessWidget {
                 Row(
                   children: [
                     Text(
-                      "quantity: ",
+                      "${S.of(context).amount}: ",
                       style: CustomTextStyle.kTextStyleF12.copyWith(
                         color: AppColors.textColorGrey,
                       ),

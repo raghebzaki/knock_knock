@@ -34,6 +34,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "address": MessageLookupByLibrary.simpleMessage("العنوان"),
         "alreadyHaveAnAccount":
             MessageLookupByLibrary.simpleMessage("لديك بالفعل حساب؟"),
+        "amount": MessageLookupByLibrary.simpleMessage("الكمية"),
         "anySpecificInstructions":
             MessageLookupByLibrary.simpleMessage("هل هناك تعليمات محددة؟"),
         "availability": MessageLookupByLibrary.simpleMessage("التوفر:"),
@@ -44,6 +45,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "buyer": MessageLookupByLibrary.simpleMessage("مشتري"),
         "cache_error": MessageLookupByLibrary.simpleMessage(
             "خطأ في ذاكرة التخزين المؤقت , حاول مرة أخرى لاحقًا"),
+        "cancelAlert": MessageLookupByLibrary.simpleMessage(
+            "هل أنت متأكد أنك تريد حذف الطلب"),
+        "cancelOrder": MessageLookupByLibrary.simpleMessage("إلغاء الطلب"),
         "cancelled_status": MessageLookupByLibrary.simpleMessage("تم الإلغاء"),
         "cart": MessageLookupByLibrary.simpleMessage("السلة"),
         "change_language": MessageLookupByLibrary.simpleMessage("اختيار اللغة"),
@@ -53,6 +57,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "قم بتغيير كلمة المرور الخاصة بك"),
         "check_your_mail": MessageLookupByLibrary.simpleMessage(
             "يرجى التحقق من رقم الهاتف لتأمين حسابك"),
+        "close": MessageLookupByLibrary.simpleMessage("إغلاق"),
         "completePayment": MessageLookupByLibrary.simpleMessage("إتمام الدفع"),
         "conflict_error": MessageLookupByLibrary.simpleMessage(
             "تم العثور على تعارض , حاول مرة أخرى لاحقًا"),
@@ -63,6 +68,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "deleteAccount": MessageLookupByLibrary.simpleMessage("حذف الحساب"),
         "deliveryDate": MessageLookupByLibrary.simpleMessage("تاريخ التسليم"),
         "deliveryFee": MessageLookupByLibrary.simpleMessage("رسوم التوصيل"),
+        "deliveryRequestAccepted":
+            MessageLookupByLibrary.simpleMessage("تم قبول طلب التوصيل"),
         "deliveryTime": MessageLookupByLibrary.simpleMessage("وقت التسليم"),
         "details": MessageLookupByLibrary.simpleMessage("تفاصيل"),
         "doNotHaveAccount":
@@ -75,6 +82,8 @@ class MessageLookup extends MessageLookupByLibrary {
             "أدخل كلمة المرور الجديدة أدناه"),
         "err_code": MessageLookupByLibrary.simpleMessage("رمز الخطأ"),
         "error_occurred": MessageLookupByLibrary.simpleMessage("حدث خطأ!"),
+        "estimatedTimeOfArrivalEta":
+            MessageLookupByLibrary.simpleMessage("الوقت المقدر للوصول (ETA)"),
         "failedToChangePassword":
             MessageLookupByLibrary.simpleMessage("فشل تغيير كلمة المرور"),
         "failedToCheckOtp":
@@ -118,6 +127,10 @@ class MessageLookup extends MessageLookupByLibrary {
         "onboard_1": MessageLookupByLibrary.simpleMessage("معرض الملابس"),
         "onboard_1_des": MessageLookupByLibrary.simpleMessage(
             "نقدم مجموعة متنوعة من المقاسات والأنماط، مم"),
+        "orderNumber": MessageLookupByLibrary.simpleMessage("رقم الطلب"),
+        "orderPreparation": MessageLookupByLibrary.simpleMessage("إعداد الطلب"),
+        "orderSuccessfullyDelivered":
+            MessageLookupByLibrary.simpleMessage("تم توصيل الطلب بنجاح"),
         "otpIsCorrect": MessageLookupByLibrary.simpleMessage("رمز التحقق صحيح"),
         "otpSentTo":
             MessageLookupByLibrary.simpleMessage("تم إرسال رمز التحقق إلى"),
@@ -134,6 +147,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("كلمات المرور غير متطابقة"),
         "payment_required": MessageLookupByLibrary.simpleMessage("الدفع مطلوب"),
         "pending": MessageLookupByLibrary.simpleMessage("قيد الانتظار"),
+        "pendingAccessTo":
+            MessageLookupByLibrary.simpleMessage("في انتظار الوصول إلى"),
         "phone": MessageLookupByLibrary.simpleMessage("الهاتف"),
         "phoneAlreadyUsed":
             MessageLookupByLibrary.simpleMessage("الهاتف مستخدم"),
@@ -149,6 +164,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "processing": MessageLookupByLibrary.simpleMessage("قيد المعالجة"),
         "products": MessageLookupByLibrary.simpleMessage("المنتجات"),
         "profile": MessageLookupByLibrary.simpleMessage("الملف الشخصي"),
+        "quantity": MessageLookupByLibrary.simpleMessage("الكمية"),
         "register": MessageLookupByLibrary.simpleMessage("تسجيل"),
         "registerNow": MessageLookupByLibrary.simpleMessage("سجل الآن"),
         "registeredSuccessfully":
@@ -176,9 +192,12 @@ class MessageLookup extends MessageLookupByLibrary {
         "tax": MessageLookupByLibrary.simpleMessage("الضريبة"),
         "termsAndConditions":
             MessageLookupByLibrary.simpleMessage("الشروط والأحكام"),
+        "theExecutedOrder":
+            MessageLookupByLibrary.simpleMessage("الطلب المنفذ"),
         "timeout_error": MessageLookupByLibrary.simpleMessage(
             "انتهت المهلة , حاول مرة أخرى لاحقًا"),
         "total": MessageLookupByLibrary.simpleMessage("الإجمالي"),
+        "trackOrder": MessageLookupByLibrary.simpleMessage("تتبع الطلب"),
         "unauthorized_error": MessageLookupByLibrary.simpleMessage(
             "المستخدم غير مصرح له، جرب مرة أخرى في وقت لاحق"),
         "unknown_error": MessageLookupByLibrary.simpleMessage(
@@ -198,10 +217,13 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("أي وقت تفضل أن نبدأ؟"),
         "wrongPhoneCheckAgain": MessageLookupByLibrary.simpleMessage(
             "الهاتف غير صحيح، قم بالتحقق من الهاتف وحاول مرة أخرى"),
+        "yes": MessageLookupByLibrary.simpleMessage("نعم"),
         "yourCartIsEmpty":
             MessageLookupByLibrary.simpleMessage("Your cart is empty"),
         "yourMessage": MessageLookupByLibrary.simpleMessage("رسالتك"),
         "yourMessageSentSuccessfully":
-            MessageLookupByLibrary.simpleMessage("تم إرسال رسالتك بنجاح")
+            MessageLookupByLibrary.simpleMessage("تم إرسال رسالتك بنجاح"),
+        "yourOrderIsReadyForDelivery":
+            MessageLookupByLibrary.simpleMessage("طلبك جاهز للتوصيل")
       };
 }

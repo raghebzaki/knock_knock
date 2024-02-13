@@ -1330,76 +1330,6 @@ class S {
     );
   }
 
-  /// `cart`
-  String get cart {
-    return Intl.message(
-      'cart',
-      name: 'cart',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `total`
-  String get total {
-    return Intl.message(
-      'total',
-      name: 'total',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `sub total`
-  String get subTotal {
-    return Intl.message(
-      'sub total',
-      name: 'subTotal',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `delivery fee`
-  String get deliveryFee {
-    return Intl.message(
-      'delivery fee',
-      name: 'deliveryFee',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `tax`
-  String get tax {
-    return Intl.message(
-      'tax',
-      name: 'tax',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `Complete payment`
-  String get completePayment {
-    return Intl.message(
-      'Complete payment',
-      name: 'completePayment',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `Your cart is empty`
-  String get yourCartIsEmpty {
-    return Intl.message(
-      'Your cart is empty',
-      name: 'yourCartIsEmpty',
-      desc: '',
-      args: [],
-    );
-  }
-
   /// `Estimated time of arrival (ETA)`
   String get estimatedTimeOfArrivalEta {
     return Intl.message(
@@ -1410,10 +1340,10 @@ class S {
     );
   }
 
-  /// `cancel alert`
+  /// `are you sure you want to delete order`
   String get cancelAlert {
     return Intl.message(
-      'cancel alert',
+      'are you sure you want to delete order',
       name: 'cancelAlert',
       desc: '',
       args: [],
@@ -1485,6 +1415,86 @@ class S {
     return Intl.message(
       'Order successfully delivered',
       name: 'orderSuccessfullyDelivered',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Amount`
+  String get amount {
+    return Intl.message(
+      'Amount',
+      name: 'amount',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `cart`
+  String get cart {
+    return Intl.message(
+      'cart',
+      name: 'cart',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `total`
+  String get total {
+    return Intl.message(
+      'total',
+      name: 'total',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `sub total`
+  String get subTotal {
+    return Intl.message(
+      'sub total',
+      name: 'subTotal',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `delivery fee`
+  String get deliveryFee {
+    return Intl.message(
+      'delivery fee',
+      name: 'deliveryFee',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `tax`
+  String get tax {
+    return Intl.message(
+      'tax',
+      name: 'tax',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Complete payment`
+  String get completePayment {
+    return Intl.message(
+      'Complete payment',
+      name: 'completePayment',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Your cart is empty`
+  String get yourCartIsEmpty {
+    return Intl.message(
+      'Your cart is empty',
+      name: 'yourCartIsEmpty',
       desc: '',
       args: [],
     );

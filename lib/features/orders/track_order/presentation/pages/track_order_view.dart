@@ -237,7 +237,7 @@ class _TrackOrderViewState extends State<TrackOrderView> {
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
                               Text(
-                                "Amount: 2",
+                                "${S.of(context).amount}: 2",
                                 style: CustomTextStyle.kTextStyleF12.copyWith(
                                   color: AppColors.textColorGrey,
                                 ),
@@ -245,7 +245,7 @@ class _TrackOrderViewState extends State<TrackOrderView> {
                               Row(
                                 children: [
                                   Text(
-                                    "Total: ",
+                                    "${S.of(context).total}: ",
                                     style:
                                         CustomTextStyle.kTextStyleF12.copyWith(
                                       color: AppColors.textColorGrey,

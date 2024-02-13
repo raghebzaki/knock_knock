@@ -152,6 +152,25 @@
   "done_status": "تم الاكتمال",
   "cancelled_status": "تم الإلغاء",
 
+  "@orderDetails": {},
+  "orderNumber": "رقم الطلب",
+  "pendingAccessTo": "في انتظار الوصول إلى",
+  "trackOrder": "تتبع الطلب",
+  "theExecutedOrder": "الطلب المنفذ",
+  "quantity": "الكمية",
+
+  "@trackOrder": {},
+  "estimatedTimeOfArrivalEta": "الوقت المقدر للوصول (ETA)",
+  "cancelAlert": "هل أنت متأكد أنك تريد حذف الطلب",
+  "yes": "نعم",
+  "close": "إغلاق",
+  "cancelOrder": "إلغاء الطلب",
+  "deliveryRequestAccepted": "تم قبول طلب التوصيل",
+  "orderPreparation": "إعداد الطلب",
+  "yourOrderIsReadyForDelivery": "طلبك جاهز للتوصيل",
+  "orderSuccessfullyDelivered": "تم توصيل الطلب بنجاح",
+  "amount": "الكمية",
+
 
 
   "@cart": {},
