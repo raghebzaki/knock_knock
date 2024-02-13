@@ -19,6 +19,7 @@ class Dimensions {
   static double f55 = 55.0.sp;
   static double f58 = 58.0.sp;
 
+  static const double p4 = 4.0;
   static const double p5 = 5.0;
   static const double p8 = 8.0;
   static const double p10 = 10.0;

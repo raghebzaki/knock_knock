@@ -18,7 +18,10 @@ import '../manager/track_order_cubit.dart';
 class TrackOrderView extends StatefulWidget {
   final OrderEntity orderDetails;
 
-  const TrackOrderView({super.key, required this.orderDetails, });
+  const TrackOrderView({
+    super.key,
+    required this.orderDetails,
+  });
 
   @override
   State<TrackOrderView> createState() => _TrackOrderViewState();
@@ -52,8 +55,15 @@ class _TrackOrderViewState extends State<TrackOrderView> {
           return Scaffold(
             backgroundColor: AppColors.primary,
             appBar: AppBar(
-                title:
-                Text("${S.of(context).orderNumber} ${widget.orderDetails.orderNumber}")),
+              title: Text(
+                "${S.of(context).orderNumber} ${widget.orderDetails.orderNumber}",
+                style: CustomTextStyle.kTextStyleF16.copyWith(
+                  color: Colors.black,
+                  fontWeight: FontWeight.w700,
+                ),
+              ),
+              centerTitle: true,
+            ),
             body: SafeArea(
               child: Padding(
                 padding: const EdgeInsets.all(
@@ -62,6 +72,7 @@ class _TrackOrderViewState extends State<TrackOrderView> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
+
                     MaxGap(35.h),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -92,7 +103,7 @@ class _TrackOrderViewState extends State<TrackOrderView> {
                                     child: Column(
                                       mainAxisSize: MainAxisSize.min,
                                       crossAxisAlignment:
-                                      CrossAxisAlignment.start,
+                                          CrossAxisAlignment.start,
                                       children: [
                                         Text(
                                           S.of(context).cancelAlert,
@@ -112,10 +123,11 @@ class _TrackOrderViewState extends State<TrackOrderView> {
                                                 Dimensions.p20),
                                             decoration: BoxDecoration(
                                               color:
-                                              AppColors.statusRedContainer,
+                                                  AppColors.statusRedContainer,
                                               borderRadius:
-                                              BorderRadius.circular(
-                                                  Dimensions.r10),
+                                                  BorderRadius.circular(
+                                                Dimensions.r10,
+                                              ),
                                             ),
                                             child: Center(
                                               child: Text(
@@ -140,8 +152,8 @@ class _TrackOrderViewState extends State<TrackOrderView> {
                                             decoration: BoxDecoration(
                                               // color: AppColors.statusRedContainer,
                                               borderRadius:
-                                              BorderRadius.circular(
-                                                  Dimensions.r10),
+                                                  BorderRadius.circular(
+                                                      Dimensions.r10),
                                             ),
                                             child: Center(
                                               child: Text(
@@ -150,7 +162,7 @@ class _TrackOrderViewState extends State<TrackOrderView> {
                                                     .kTextStyleF16
                                                     .copyWith(
                                                   color:
-                                                  AppColors.textColorGrey,
+                                                      AppColors.textColorGrey,
                                                 ),
                                               ),
                                             ),
@@ -161,10 +173,20 @@ class _TrackOrderViewState extends State<TrackOrderView> {
                                   );
                                 });
                           },
-                          child: Text(
-                            S.of(context).cancelOrder,
-                            style: CustomTextStyle.kTextStyleF14.copyWith(
-                              color: AppColors.errorColor,
+                          child: Container(
+                            padding: const EdgeInsets.symmetric(vertical: Dimensions.p4, horizontal: Dimensions.p8),
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(Dimensions.r25),
+                                border: Border.all(
+                                  color: AppColors.errorColor,
+                                  width: 2,
+                                )
+                            ),
+                            child: Text(
+                              S.of(context).cancelOrder,
+                              style: CustomTextStyle.kTextStyleF14.copyWith(
+                                color: AppColors.errorColor,
+                              ),
                             ),
                           ),
                         ),
@@ -182,6 +204,14 @@ class _TrackOrderViewState extends State<TrackOrderView> {
                       decoration: BoxDecoration(
                         color: Colors.white,
                         borderRadius: BorderRadius.circular(Dimensions.r15),
+                        boxShadow: const [
+                          BoxShadow(
+                            color: AppColors.textColorGrey,
+                            blurRadius: 10,
+                            offset: Offset(2, 2),
+                            spreadRadius: 0,
+                          ),
+                        ],
                       ),
                       child: Column(
                         children: [
@@ -203,31 +233,85 @@ class _TrackOrderViewState extends State<TrackOrderView> {
                           Gap(25.h),
                           const Divider(thickness: 2.0),
                           Gap(25.h),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Text(
+                                "Amount: 2",
+                                style: CustomTextStyle.kTextStyleF12.copyWith(
+                                  color: AppColors.textColorGrey,
+                                ),
+                              ),
+                              Row(
+                                children: [
+                                  Text(
+                                    "Total: ",
+                                    style:
+                                        CustomTextStyle.kTextStyleF12.copyWith(
+                                      color: AppColors.textColorGrey,
+                                    ),
+                                  ),
+                                  Text(
+                                    "189.00 SAR",
+                                    style:
+                                        CustomTextStyle.kTextStyleF12.copyWith(
+                                      color: AppColors.textColor,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ],
+                          ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.end,
+                            children: [
+                              Text(
+                                "20/03/2020",
+                                style: CustomTextStyle.kTextStyleF12.copyWith(
+                                  color: AppColors.textColorGrey,
+                                ),
+                              ),
+                            ],
+                          ),
+                          Gap(25.h),
                           Container(
                             padding: EdgeInsets.symmetric(
                                 horizontal: Dimensions.p16.w),
                             child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
+                                Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Text(S.of(context).deliveryRequestAccepted, style: CustomTextStyle.kTextStyleF14,),
+                                    widget.orderDetails.acceptanceDate != null
+                                        ? Text(
+                                            DateTime.parse(
+                                              widget
+                                                  .orderDetails.acceptanceDate!,
+                                            ).stringFormat(
+                                              DateFormatType.hyphenatedDate,
+                                            ),
+                                      style: CustomTextStyle.kTextStyleF12.copyWith(
+                                        color: AppColors.textColorGrey,
+                                      ),
+                                          )
+                                        : const Text('')
+                                  ],
+                                ),
                                 CircleAvatar(
                                   radius: Dimensions.r15,
                                   backgroundColor:
-                                  widget.orderDetails.acceptanceDate!=""
-                                      ? AppColors.secondary:AppColors.primary,
-                                  child: Icon(MdiIcons.check),
-                                ),
-                                Gap(20.w),
-                                Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                     Text(S.of(context).deliveryRequestAccepted),
-                                    widget.orderDetails.acceptanceDate!=""||widget.orderDetails.acceptanceDate!=null?
-                                    Text(
-                                      DateTime.parse(
-                                        widget.orderDetails.acceptanceDate!,
-                                      ).stringFormat(
-                                        DateFormatType.hyphenatedDate,
-                                      ),):const Text('')
-                                  ],
+                                      widget.orderDetails.acceptanceDate != ""
+                                          ? AppColors.successColor
+                                          : AppColors.primary,
+                                  child: Icon(
+                                    MdiIcons.check,
+                                    color:
+                                        widget.orderDetails.acceptanceDate != ""
+                                            ? Colors.white
+                                            : Colors.black,
+                                  ),
                                 ),
                               ],
                             ),
@@ -237,26 +321,40 @@ class _TrackOrderViewState extends State<TrackOrderView> {
                             padding: EdgeInsets.symmetric(
                                 horizontal: Dimensions.p16.w),
                             child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
-                                CircleAvatar(
-                                  radius: Dimensions.r15,
-                                  backgroundColor: widget.orderDetails.preparingDate!=""
-                                      ? AppColors.secondary:AppColors.primary,
-                                  child: Icon(MdiIcons.check),
-                                ),
-                                Gap(20.w),
                                 Column(
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
-                                    Text(S.of(context).orderPreparation),
-                                    widget.orderDetails.preparingDate!=""?
-                                    Text(
+                                    Text(S.of(context).orderPreparation, style: CustomTextStyle.kTextStyleF14,),
+                                    widget.orderDetails.preparingDate != null
+                                        ? Text(
                                       DateTime.parse(
-                                        widget.orderDetails.preparingDate!,
+                                        widget
+                                            .orderDetails.preparingDate!,
                                       ).stringFormat(
                                         DateFormatType.hyphenatedDate,
-                                      ),):const Text('')
+                                      ),
+                                      style: CustomTextStyle.kTextStyleF12.copyWith(
+                                        color: AppColors.textColorGrey,
+                                      ),
+                                    )
+                                        : const Text('')
                                   ],
+                                ),
+                                CircleAvatar(
+                                  radius: Dimensions.r15,
+                                  backgroundColor:
+                                      widget.orderDetails.acceptanceDate != ""
+                                          ? AppColors.successColor
+                                          : AppColors.primary,
+                                  child: Icon(
+                                    MdiIcons.check,
+                                    color:
+                                        widget.orderDetails.acceptanceDate != ""
+                                            ? Colors.white
+                                            : Colors.black,
+                                  ),
                                 ),
                               ],
                             ),
@@ -266,26 +364,42 @@ class _TrackOrderViewState extends State<TrackOrderView> {
                             padding: EdgeInsets.symmetric(
                                 horizontal: Dimensions.p16.w),
                             child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
-                                CircleAvatar(
-                                  radius: Dimensions.r15,
-                                  backgroundColor: widget.orderDetails.availabilityDate!=""
-                                      ? AppColors.secondary:AppColors.primary,
-                                  child: Icon(MdiIcons.check),
-                                ),
-                                Gap(20.w),
                                 Column(
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
-                                    Text(S.of(context).yourOrderIsReadyForDelivery),
-                                    widget.orderDetails.availabilityDate!=""?
-                                    Text(
+                                    Text(S
+                                        .of(context)
+                                        .yourOrderIsReadyForDelivery, style: CustomTextStyle.kTextStyleF14,),
+                                    widget.orderDetails.availabilityDate != null
+                                        ? Text(
                                       DateTime.parse(
-                                        widget.orderDetails.availabilityDate!,
+                                        widget.orderDetails
+                                            .availabilityDate!,
                                       ).stringFormat(
                                         DateFormatType.hyphenatedDate,
-                                      ),):const Text('')
+                                      ),
+                                      style: CustomTextStyle.kTextStyleF12.copyWith(
+                                        color: AppColors.textColorGrey,
+                                      ),
+                                    )
+                                        : const Text('')
                                   ],
+                                ),
+                                CircleAvatar(
+                                  radius: Dimensions.r15,
+                                  backgroundColor:
+                                  widget.orderDetails.acceptanceDate != ""
+                                      ? AppColors.successColor
+                                      : AppColors.primary,
+                                  child: Icon(
+                                    MdiIcons.check,
+                                    color:
+                                    widget.orderDetails.acceptanceDate != ""
+                                        ? Colors.white
+                                        : Colors.black,
+                                  ),
                                 ),
                               ],
                             ),
@@ -295,27 +409,41 @@ class _TrackOrderViewState extends State<TrackOrderView> {
                             padding: EdgeInsets.symmetric(
                                 horizontal: Dimensions.p16.w),
                             child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
-                                CircleAvatar(
-                                  radius: Dimensions.r15,
-                                  backgroundColor: widget.orderDetails.receivedDate!=""
-                                      ? AppColors.secondary:AppColors.primary,
-                                  child: Icon(MdiIcons.check),
-                                ),
-                                Gap(20.w),
                                 Column(
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
-                                    Text(S.of(context).orderSuccessfullyDelivered),
-                                    widget.orderDetails.receivedDate!=""?
-                                    Text(
+                                    Text(S
+                                        .of(context)
+                                        .orderSuccessfullyDelivered, style: CustomTextStyle.kTextStyleF14,),
+                                    widget.orderDetails.receivedDate != null
+                                        ? Text(
                                       DateTime.parse(
                                         widget.orderDetails.receivedDate!,
                                       ).stringFormat(
                                         DateFormatType.hyphenatedDate,
                                       ),
-                                    ):const Text('')
+                                      style: CustomTextStyle.kTextStyleF12.copyWith(
+                                        color: AppColors.textColorGrey,
+                                      ),
+                                    )
+                                        : const Text('')
                                   ],
+                                ),
+                                CircleAvatar(
+                                  radius: Dimensions.r15,
+                                  backgroundColor:
+                                  widget.orderDetails.acceptanceDate != ""
+                                      ? AppColors.successColor
+                                      : AppColors.primary,
+                                  child: Icon(
+                                    MdiIcons.check,
+                                    color:
+                                    widget.orderDetails.acceptanceDate != ""
+                                        ? Colors.white
+                                        : Colors.black,
+                                  ),
                                 ),
                               ],
                             ),

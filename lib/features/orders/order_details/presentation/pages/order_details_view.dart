@@ -162,8 +162,9 @@ class _OrderDetailsViewState extends State<OrderDetailsView> {
                               avatar: GFAvatar(
                                 size: 50.h,
                                 shape: GFAvatarShape.square,
-                                child:Image.asset(
-                                  AppImages.appLogo,
+                                child:Image.network(
+                                  "${AppImages.placeholder}250",
+                                  fit: BoxFit.contain,
                                 ),
                               ),
                               title: Intl.getCurrentLocale() == "en"
