@@ -122,6 +122,9 @@
   "my_orders": "طلباتي",
   "editProfile": "تعديل الملف الشخصي",
   "myOrders": "طلباتي",
+  "paymentMethods": "طرق الدفع",
+  "giftCard": "بطاقة الهدايا",
+  "getHelp": "الحصول على مساعدة",
 
   "@editProfile": {},
   "deleteAccount": "حذف الحساب",
@@ -197,6 +200,26 @@
   "postalCode": "الرمز البريدي",
   "addNewAddress": "إضافة عنوان جديد",
   "newAddress": "عنوان جديد",
-  "savedAddresses": "العناوين المحفوظة"
+  "savedAddresses": "العناوين المحفوظة",
+
+  "@credits": {},
+  "seeTransaction": "رؤية العملية",
+  "sendAGiftCard": "إرسال بطاقة هدايا",
+  "availableCredits": "الرصيد المتاح",
+  "selectAPackageThatSuitsYouBestAndEarnUp": "اختر الحزمة التي تناسبك أفضل واحصل على ما يصل إلى 18% على جميع الخدمات",
+  "buyCredit": "شراء رصيد",
+
+  "@checkout": {},"checkout": "الدفع",
+  "paymentMethod": "طريقة الدفع",
+  "change": "تغيير",
+  "cardHolderName": "اسم حامل البطاقة",
+  "cardNumber": "رقم البطاقة",
+  "cardDate": "تاريخ البطاقة",
+  "cvv": "CVV",
+  "addVoucherCode": "إضافة رمز القسيمة",
+  "voucherCode": "رمز القسيمة",
+  "paymentSummary": "ملخص الدفع",
+  "confirmPayment": "تأكيد الدفع"
+
 
 }

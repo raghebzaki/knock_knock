@@ -35,7 +35,7 @@ class OrderContainer extends StatelessWidget {
       onTap: () {
         context.pushNamed(
           orderDetailsPageRoute,
-          arguments: OrderDetailsArgs(
+          arguments: OrderDetailAedgs(
             orderDetails: orderEntity!,
           ),
         );

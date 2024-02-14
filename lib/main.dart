@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:knockknock/core/shared/cubits/cart_cubit/cart_cubit.dart';
 
 import 'core/dependency_injection/di.dart' as di;
 import 'core/helpers/cache_helper.dart';
@@ -87,28 +88,31 @@ class _MyAppState extends State<MyApp> {
 
   @override
   Widget build(BuildContext context) {
-    return ScreenUtilInit(
-      designSize: const Size(360, 800),
-      minTextAdapt: true,
-      splitScreenMode: true,
-      // Use builder only if you need to use library outside ScreenUtilInit context
-      builder: (ctx, child) {
-        return MaterialApp(
-          debugShowCheckedModeBanner: false,
-          locale: locale,
-          localizationsDelegates: const [
-            S.delegate,
-            GlobalMaterialLocalizations.delegate,
-            GlobalWidgetsLocalizations.delegate,
-            GlobalCupertinoLocalizations.delegate,
-          ],
-          supportedLocales: S.delegate.supportedLocales,
-          title: AppStrings.appName,
-          onGenerateRoute: AppRouters.routeGenerator,
-          home: child,
-        );
-      },
-      child: const MainView(),
+    return BlocProvider(
+      create: (context) => CartCubit(),
+      child: ScreenUtilInit(
+        designSize: const Size(360, 800),
+        minTextAdapt: true,
+        splitScreenMode: true,
+        // Use builder only if you need to use library outside ScreenUtilInit context
+        builder: (ctx, child) {
+          return MaterialApp(
+            debugShowCheckedModeBanner: false,
+            locale: locale,
+            localizationsDelegates: const [
+              S.delegate,
+              GlobalMaterialLocalizations.delegate,
+              GlobalWidgetsLocalizations.delegate,
+              GlobalCupertinoLocalizations.delegate,
+            ],
+            supportedLocales: S.delegate.supportedLocales,
+            title: AppStrings.appName,
+            onGenerateRoute: AppRouters.routeGenerator,
+            home: child,
+          );
+        },
+        child: const MainView(),
+      ),
     );
   }
 }

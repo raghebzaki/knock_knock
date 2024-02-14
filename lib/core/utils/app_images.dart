@@ -14,6 +14,10 @@ class AppImages {
   static String mapPointerImg = "$imagePath/pointer.png";
   static String personImg = "$imagePath/person.png";
   static String phoneImg = "$imagePath/phone.png";
+  static String cardImg = "$imagePath/card.png";
+  static String giftImg = "$imagePath/gift.png";
+  static String bagImg = "$imagePath/bag.png";
+  static String walletImg = "$imagePath/walet.png";
 
 
   //? SVG Paths

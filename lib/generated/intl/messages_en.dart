@@ -34,6 +34,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "addNewAddress":
             MessageLookupByLibrary.simpleMessage("Add New Address"),
         "addToCart": MessageLookupByLibrary.simpleMessage("add to cart"),
+        "addVoucherCode":
+            MessageLookupByLibrary.simpleMessage("Add Voucher Code"),
         "address": MessageLookupByLibrary.simpleMessage("Address"),
         "alreadyHaveAnAccount":
             MessageLookupByLibrary.simpleMessage("already have an account?"),
@@ -41,6 +43,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "anySpecificInstructions":
             MessageLookupByLibrary.simpleMessage("Any Specific instructions?"),
         "availability": MessageLookupByLibrary.simpleMessage("Availability:"),
+        "availableCredits":
+            MessageLookupByLibrary.simpleMessage("Available Credits"),
         "bad_gateway": MessageLookupByLibrary.simpleMessage(
             "Invalid data, please try again"),
         "bad_request_error": MessageLookupByLibrary.simpleMessage(
@@ -48,6 +52,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "buildingNo": MessageLookupByLibrary.simpleMessage("Building No."),
         "buildingNoCantBeEmpty": MessageLookupByLibrary.simpleMessage(
             "Building No. can\'t be empty"),
+        "buyCredit": MessageLookupByLibrary.simpleMessage("Buy Credit"),
         "buyer": MessageLookupByLibrary.simpleMessage("Buyer"),
         "cache_error": MessageLookupByLibrary.simpleMessage(
             "cache error, try again later"),
@@ -55,7 +60,12 @@ class MessageLookup extends MessageLookupByLibrary {
             "are you sure you want to delete order"),
         "cancelOrder": MessageLookupByLibrary.simpleMessage("cancel order"),
         "cancelled_status": MessageLookupByLibrary.simpleMessage("cancelled"),
+        "cardDate": MessageLookupByLibrary.simpleMessage("card date"),
+        "cardHolderName":
+            MessageLookupByLibrary.simpleMessage("card holder name"),
+        "cardNumber": MessageLookupByLibrary.simpleMessage("card number"),
         "cart": MessageLookupByLibrary.simpleMessage("cart"),
+        "change": MessageLookupByLibrary.simpleMessage("Change"),
         "change_language":
             MessageLookupByLibrary.simpleMessage("choose language"),
         "change_pass": MessageLookupByLibrary.simpleMessage("Change Password"),
@@ -63,15 +73,19 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Change your password"),
         "check_your_mail": MessageLookupByLibrary.simpleMessage(
             "Please check your email to secure your account"),
+        "checkout": MessageLookupByLibrary.simpleMessage("Checkout"),
         "chooseAddress": MessageLookupByLibrary.simpleMessage("Choose Address"),
         "city": MessageLookupByLibrary.simpleMessage("City"),
         "close": MessageLookupByLibrary.simpleMessage("close"),
         "completePayment":
             MessageLookupByLibrary.simpleMessage("Complete payment"),
+        "confirmPayment":
+            MessageLookupByLibrary.simpleMessage("confirm payment"),
         "conflict_error": MessageLookupByLibrary.simpleMessage(
             "conflict found, try again later"),
         "contactUs": MessageLookupByLibrary.simpleMessage("Contact Us"),
         "cs": MessageLookupByLibrary.simpleMessage("Customer Support"),
+        "cvv": MessageLookupByLibrary.simpleMessage("cvv"),
         "default_error": MessageLookupByLibrary.simpleMessage(
             "some thing went wrong, try again later"),
         "deleteAccount": MessageLookupByLibrary.simpleMessage("Delete account"),
@@ -110,6 +124,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "freeCancellationUntil12HoursBeforeTheStartOfYour":
             MessageLookupByLibrary.simpleMessage(
                 "free cancellation until 12 hours before the start of your booking"),
+        "getHelp": MessageLookupByLibrary.simpleMessage("Get Help"),
+        "giftCard": MessageLookupByLibrary.simpleMessage("Gift Card"),
         "goodMorning": MessageLookupByLibrary.simpleMessage("Good Morning"),
         "have_problem": MessageLookupByLibrary.simpleMessage("Have a problem?"),
         "internal_server_error": MessageLookupByLibrary.simpleMessage(
@@ -169,6 +185,11 @@ class MessageLookup extends MessageLookupByLibrary {
             "Password must be 8 chars at least"),
         "passwordsDoesNotMatch":
             MessageLookupByLibrary.simpleMessage("Passwords doesn\'t match"),
+        "paymentMethod": MessageLookupByLibrary.simpleMessage("Payment Method"),
+        "paymentMethods":
+            MessageLookupByLibrary.simpleMessage("Payment Methods"),
+        "paymentSummary":
+            MessageLookupByLibrary.simpleMessage("Payment summary"),
         "payment_required":
             MessageLookupByLibrary.simpleMessage("Payment Required"),
         "pending": MessageLookupByLibrary.simpleMessage("Pending"),
@@ -201,6 +222,11 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Saved Addresses"),
         "searchFor": MessageLookupByLibrary.simpleMessage("Search For"),
         "seeMore": MessageLookupByLibrary.simpleMessage("see more"),
+        "seeTransaction":
+            MessageLookupByLibrary.simpleMessage("See Transaction"),
+        "selectAPackageThatSuitsYouBestAndEarnUp":
+            MessageLookupByLibrary.simpleMessage(
+                "Select a package that suits you best and earn up to 18% on all services"),
         "selectDateAndTimeOfDelivery": MessageLookupByLibrary.simpleMessage(
             "Select date and time of delivery"),
         "selectDateAndTimeYouLikeUsToStart":
@@ -208,6 +234,8 @@ class MessageLookup extends MessageLookupByLibrary {
                 "Select date and time you like us to start"),
         "seller": MessageLookupByLibrary.simpleMessage("Seller"),
         "send": MessageLookupByLibrary.simpleMessage("send"),
+        "sendAGiftCard":
+            MessageLookupByLibrary.simpleMessage("Send a Gift Card"),
         "sendAgain": MessageLookupByLibrary.simpleMessage("send again"),
         "sendCode": MessageLookupByLibrary.simpleMessage("send code"),
         "service_unavailable":
@@ -244,6 +272,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "Verification Code sent to your phone"),
         "verify": MessageLookupByLibrary.simpleMessage("verify"),
         "verifyAccount": MessageLookupByLibrary.simpleMessage("Verify Account"),
+        "voucherCode": MessageLookupByLibrary.simpleMessage("Voucher Code"),
         "whatDateWouldYouLikeUsToStart": MessageLookupByLibrary.simpleMessage(
             "What Date would you like us to start?"),
         "whatTimeWouldYouLikeUsToStart": MessageLookupByLibrary.simpleMessage(

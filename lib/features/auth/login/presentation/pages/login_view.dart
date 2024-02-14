@@ -114,7 +114,7 @@ class _LoginViewState extends State<LoginView> {
                                 return Column(
                                   children: [
                                     CustomFormField(
-                                      hint: S.current.phoneNumber,
+                                      hint: S.current.email,
                                       isObscure: false,
                                       onChange: (phone) {
                                         loginCubit.validatePhone(phone);

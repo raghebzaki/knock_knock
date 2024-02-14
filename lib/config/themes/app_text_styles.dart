@@ -128,6 +128,12 @@ class CustomTextStyle {
     fontFamily: AppConstants.mainFontFamily,
     color: AppColors.secondary,
   );
+  static TextStyle kTextStyleF24White = TextStyle(
+    fontSize: Dimensions.f24,
+    fontWeight: FontWeight.w400, //? Regular
+    fontFamily: AppConstants.mainFontFamily,
+    color: AppColors.primary,
+  );
 
   static TextStyle kTextStyleF26 = TextStyle(
     fontSize: Dimensions.f26,

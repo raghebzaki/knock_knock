@@ -20,7 +20,7 @@ class SavedAddressItem extends StatelessWidget {
       onTap: () {
         // context.pushNamed(
         //   paymentDetailsPageRoute,
-        //   arguments: AddressArgs(
+        //   arguments: AddresAedgs(
         //     "",
         //     address: address,
         //   ),

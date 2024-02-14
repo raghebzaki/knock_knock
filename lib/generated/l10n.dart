@@ -1070,6 +1070,36 @@ class S {
     );
   }
 
+  /// `Payment Methods`
+  String get paymentMethods {
+    return Intl.message(
+      'Payment Methods',
+      name: 'paymentMethods',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Gift Card`
+  String get giftCard {
+    return Intl.message(
+      'Gift Card',
+      name: 'giftCard',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Get Help`
+  String get getHelp {
+    return Intl.message(
+      'Get Help',
+      name: 'getHelp',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Delete account`
   String get deleteAccount {
     return Intl.message(
@@ -1625,6 +1655,166 @@ class S {
     return Intl.message(
       'Saved Addresses',
       name: 'savedAddresses',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `See Transaction`
+  String get seeTransaction {
+    return Intl.message(
+      'See Transaction',
+      name: 'seeTransaction',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Send a Gift Card`
+  String get sendAGiftCard {
+    return Intl.message(
+      'Send a Gift Card',
+      name: 'sendAGiftCard',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Available Credits`
+  String get availableCredits {
+    return Intl.message(
+      'Available Credits',
+      name: 'availableCredits',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Select a package that suits you best and earn up to 18% on all services`
+  String get selectAPackageThatSuitsYouBestAndEarnUp {
+    return Intl.message(
+      'Select a package that suits you best and earn up to 18% on all services',
+      name: 'selectAPackageThatSuitsYouBestAndEarnUp',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Buy Credit`
+  String get buyCredit {
+    return Intl.message(
+      'Buy Credit',
+      name: 'buyCredit',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Checkout`
+  String get checkout {
+    return Intl.message(
+      'Checkout',
+      name: 'checkout',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Payment Method`
+  String get paymentMethod {
+    return Intl.message(
+      'Payment Method',
+      name: 'paymentMethod',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Change`
+  String get change {
+    return Intl.message(
+      'Change',
+      name: 'change',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `card holder name`
+  String get cardHolderName {
+    return Intl.message(
+      'card holder name',
+      name: 'cardHolderName',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `card number`
+  String get cardNumber {
+    return Intl.message(
+      'card number',
+      name: 'cardNumber',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `card date`
+  String get cardDate {
+    return Intl.message(
+      'card date',
+      name: 'cardDate',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `cvv`
+  String get cvv {
+    return Intl.message(
+      'cvv',
+      name: 'cvv',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Add Voucher Code`
+  String get addVoucherCode {
+    return Intl.message(
+      'Add Voucher Code',
+      name: 'addVoucherCode',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Voucher Code`
+  String get voucherCode {
+    return Intl.message(
+      'Voucher Code',
+      name: 'voucherCode',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Payment summary`
+  String get paymentSummary {
+    return Intl.message(
+      'Payment summary',
+      name: 'paymentSummary',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `confirm payment`
+  String get confirmPayment {
+    return Intl.message(
+      'confirm payment',
+      name: 'confirmPayment',
       desc: '',
       args: [],
     );

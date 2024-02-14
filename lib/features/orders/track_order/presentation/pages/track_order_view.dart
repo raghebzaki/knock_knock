@@ -252,7 +252,7 @@ class _TrackOrderViewState extends State<TrackOrderView> {
                                     ),
                                   ),
                                   Text(
-                                    "189.00 SAR",
+                                    "189.00 Aed",
                                     style:
                                         CustomTextStyle.kTextStyleF12.copyWith(
                                       color: AppColors.textColor,

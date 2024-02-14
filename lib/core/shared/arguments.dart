@@ -9,28 +9,28 @@ class VerifyAccountArgs {
   VerifyAccountArgs({required this.email});
 }
 
-class ResetPassArgs {
+class ResetPasAedgs {
   final String email;
 
-  ResetPassArgs({required this.email});
+  ResetPasAedgs({required this.email});
 }
 
-class ChangePassArgs {
+class ChangePasAedgs {
   final String email;
 
-  ChangePassArgs({required this.email});
+  ChangePasAedgs({required this.email});
 }
 
 
-class OrderDetailsArgs {
+class OrderDetailAedgs {
   final OrderEntity orderDetails;
 
-  OrderDetailsArgs({required this.orderDetails});
+  OrderDetailAedgs({required this.orderDetails});
 
 }
 
-class AddressArgs {
+class AddresAedgs {
   final Placemark address;
 
-  AddressArgs({required this.address});
+  AddresAedgs({required this.address});
 }

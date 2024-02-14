@@ -1,10 +1,11 @@
 
 import 'package:flutter/material.dart';
-import 'package:knockknock/features/main/products/presentation/pages/products_view.dart';
 import 'package:knockknock/features/main/profile/presentation/pages/profile_view.dart';
+import 'package:knockknock/features/orders/my_orders/presentation/pages/my_orders.dart';
 
 import '../../core/utils/app_colors.dart';
 import '../../core/utils/app_images.dart';
+import 'main/credits/presentation/pages/credits_view.dart';
 import 'main/home/presentation/pages/home_view.dart';
 
 class BottomNavBarView extends StatefulWidget {
@@ -19,8 +20,8 @@ class _BottomNavBarViewState extends State<BottomNavBarView> {
   int selectedIndex = 0;
   final List body = [
     const HomeView(),
-    const ProductsView(),
-    const HomeView(),
+    const MyOrdersView(),
+    const CreditsView(),
     const ProfileView(),
   ];
   @override
@@ -97,8 +98,8 @@ class _BottomNavForAllScreenViewState extends State<BottomNavForAllScreenView> {
   int selectedIndex = 0;
   final List body = [
     const HomeView(),
-    const ProductsView(),
-    const HomeView(),
+    const MyOrdersView(),
+    const CreditsView(),
     const ProfileView(),
   ];
 

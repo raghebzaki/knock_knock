@@ -8,8 +8,10 @@ import 'package:knockknock/core/shared/widgets/custom_app_bar.dart';
 import 'package:knockknock/core/shared/widgets/custom_button_small.dart';
 import 'package:knockknock/core/utils/app_colors.dart';
 import 'package:knockknock/core/utils/app_images.dart';
+import 'package:knockknock/core/utils/extensions.dart';
 
 import '../../../../../config/themes/app_text_styles.dart';
+import '../../../../../core/router/router.dart';
 import '../../../../../core/shared/widgets/date_widget.dart';
 import '../../../../../core/shared/widgets/time_widget.dart';
 import '../../../../../generated/l10n.dart';
@@ -242,7 +244,31 @@ class _ServicesDetailsViewState extends State<ServicesDetailsView> {
                   Container(
                     constraints: BoxConstraints(maxWidth: context.width / 2),
                     child: CustomBtnSmall(
-                      onPressed: () {},
+                      onPressed: () {
+                        // context.read<CartCubit>().addToCart(
+                        //   ProductEntity(
+                        //     id: widget.productEntity.id,
+                        //
+                        //     quantity: widget.productEntity.quantity,
+                        //     userQuantity: quantity,
+                        //     price: widget.productEntity.price,
+                        //     priceAfterDiscount: widget
+                        //         .productEntity
+                        //         .priceAfterDiscount,
+                        //     discountPercent: widget.productEntity.discountPercent,
+                        //     image: widget.productEntity.image,
+                        //     images: widget.productEntity.images,
+                        //     imagesBase64:widget.productEntity.imagesBase64,
+                        //     nameEn: widget.productEntity.nameEn,
+                        //     nameAr: widget.productEntity.nameAr,
+                        //     descriptionEn: widget.productEntity.descriptionEn,
+                        //     descriptionAr: widget.productEntity.descriptionAr,
+                        //
+                        //
+                        //   ),
+                        // );
+                        context.pushNamed(cartPageRoute);
+                      },
                       label: S.of(context).next,
                     ),
                   )

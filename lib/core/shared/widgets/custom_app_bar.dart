@@ -3,6 +3,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:gap/gap.dart';
 import 'package:get/get.dart';
+import 'package:knockknock/core/router/router.dart';
+import 'package:knockknock/core/utils/extensions.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import 'package:badges/badges.dart' as badges;
 
@@ -67,12 +69,17 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
                 ),
                 centerTitle: false,
                 actions:  [
-                  CircleAvatar(
-                    radius: 50.sp,
-                    backgroundColor: AppColors.secondary,
-                    child: badges.Badge(
-                      badgeContent: Text('3',style: CustomTextStyle.kTextStyleF14,),
-                      child: const Icon(Icons.shopping_cart,color: Colors.white,size: 40,),
+                  GestureDetector(
+                    onTap: (){
+                      context.pushNamed(cartPageRoute);
+                    },
+                    child: CircleAvatar(
+                      radius: 50.sp,
+                      backgroundColor: AppColors.secondary,
+                      child: badges.Badge(
+                        badgeContent: Text('3',style: CustomTextStyle.kTextStyleF14,),
+                        child: const Icon(Icons.shopping_cart,color: Colors.white,size: 40,),
+                      ),
                     ),
                   )
                 ],

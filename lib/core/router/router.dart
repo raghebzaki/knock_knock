@@ -9,6 +9,8 @@ const String changePassPageRoute = '/changePass';
 const String changePassConfirmationPageRoute = '/changePassConfirmation';
 const String bottomNavBarPageRoute = '/bottomNavBar';
 const String homePageRoute = '/home';
+const String cartPageRoute = '/cart';
+const String creditsViewPageRoute = '/creditsView';
 const String productsPageRoute = '/products';
 const String productsDetailsPageRoute = '/productsDetails';
 const String servicesPageRoute = '/services';
@@ -27,3 +29,6 @@ const String editProfilePageRoute = '/editProfile';
 const String myOrdersPageRoute = '/myOrders';
 const String orderDetailsPageRoute = '/orderDetails';
 const String trackOrderPageRoute = '/trackOrder';
+
+///payment
+const String paymentSummeryPageRoute = '/paymentSummery';

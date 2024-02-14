@@ -147,6 +147,33 @@ class _RegisterViewState extends State<RegisterView> {
                           ),
                           Gap(10.h),
                           StreamBuilder(
+                              stream: registerCubit.emailStream,
+                              builder: (context, snapshot) {
+                                return Column(
+                                  children: [
+                                    CustomFormField(
+                                      hint: S.current.email,
+                                      isObscure: false,
+                                      onChange: (email) {
+                                        registerCubit.validateEmail(email);
+                                      },
+                                    ),
+                                    snapshot.hasError
+                                        ? Align(
+                                            alignment: Alignment.centerLeft,
+                                            child: Text(
+                                              snapshot.error.toString(),
+                                              style: const TextStyle(
+                                                color: AppColors.errorColor,
+                                              ),
+                                            ),
+                                          )
+                                        : Gap(5.h),
+                                  ],
+                                );
+                              }),
+                          Gap(10.h),
+                          StreamBuilder(
                               stream: registerCubit.phoneStream,
                               builder: (context, snapshot) {
                                 return Column(

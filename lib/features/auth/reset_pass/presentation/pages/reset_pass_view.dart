@@ -42,7 +42,7 @@ class _ResetPassViewState extends State<ResetPassView> {
                 context.defaultSnackBar(S.of(context).otpIsCorrect);
                 context.pushNamed(
                   changePassPageRoute,
-                  arguments: ChangePassArgs(
+                  arguments: ChangePasAedgs(
                     email: widget.email,
                   ),
                 );

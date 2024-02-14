@@ -3,6 +3,8 @@ import 'package:knockknock/core/router/router.dart';
 import 'package:knockknock/features/address/add_new_address/presentation/pages/add_new_address_view.dart';
 import 'package:knockknock/features/address/map/presentation/pages/map_view.dart';
 import 'package:knockknock/features/address/saved_addresses/presentation/pages/saved_addresses_view.dart';
+import 'package:knockknock/features/main/cart/presentation/pages/cart_view.dart';
+import 'package:knockknock/features/main/credits/presentation/pages/credits_view.dart';
 import 'package:knockknock/features/main/home/presentation/pages/home_view.dart';
 import 'package:knockknock/features/main/products/presentation/pages/products_view.dart';
 import 'package:knockknock/features/main/products_details/presentation/pages/products_details_view.dart';
@@ -11,6 +13,7 @@ import 'package:knockknock/features/main/services/presentation/pages/services_vi
 import 'package:knockknock/features/main/services_details/presentation/pages/services_details_view.dart';
 import 'package:knockknock/features/orders/my_orders/presentation/pages/my_orders.dart';
 import 'package:knockknock/features/orders/track_order/presentation/pages/track_order_view.dart';
+import 'package:knockknock/features/payment/payment_summary/presentation/pages/payment_summary_view.dart';
 import 'package:knockknock/features/profile/contact_us/presentation/pages/contact_us_view.dart';
 import 'package:knockknock/features/profile/edit_profile/presentation/pages/edit_profile_view.dart';
 import 'package:knockknock/features/profile/settings/presentation/pages/settings_view.dart';
@@ -60,14 +63,14 @@ class AppRouters {
           builder: (BuildContext context) => const ForgotPassView(),
         );
       case resetPassPageRoute:
-        final args = settings.arguments as ResetPassArgs;
+        final args = settings.arguments as ResetPasAedgs;
         return MaterialPageRoute(
           builder: (BuildContext context) => ResetPassView(
             email: args.email,
           ),
         );
       case changePassPageRoute:
-        final args = settings.arguments as ChangePassArgs;
+        final args = settings.arguments as ChangePasAedgs;
         return MaterialPageRoute(
           builder: (BuildContext context) => ChangePassView(
             email: args.email,
@@ -82,6 +85,14 @@ class AppRouters {
         case homePageRoute:
         return MaterialPageRoute(
           builder: (BuildContext context) => const HomeView(),
+        );
+        case cartPageRoute:
+        return MaterialPageRoute(
+          builder: (BuildContext context) => const CartView(),
+        );
+        case creditsViewPageRoute:
+        return MaterialPageRoute(
+          builder: (BuildContext context) => const CreditsView(),
         );
         case productsPageRoute:
         return MaterialPageRoute(
@@ -104,7 +115,7 @@ class AppRouters {
           builder: (BuildContext context) => const SavedAddressesView(),
         );
         case addNewAddressPageRoute:
-          final args = settings.arguments as AddressArgs;
+          final args = settings.arguments as AddresAedgs;
         return MaterialPageRoute(
           builder: (BuildContext context) => AddNewAddressView(address: args.address),
         );
@@ -136,16 +147,20 @@ class AppRouters {
           builder: (BuildContext context) => const MyOrdersView(),
         );
       case orderDetailsPageRoute:
-        final args = settings.arguments as OrderDetailsArgs;
+        final args = settings.arguments as OrderDetailAedgs;
         return MaterialPageRoute(
           builder: (BuildContext context) =>
               OrderDetailsView(orderDetails: args.orderDetails),
         );
         case trackOrderPageRoute:
-        final args = settings.arguments as OrderDetailsArgs;
+        final args = settings.arguments as OrderDetailAedgs;
         return MaterialPageRoute(
           builder: (BuildContext context) =>
               TrackOrderView(orderDetails: args.orderDetails),
+        );
+        case paymentSummeryPageRoute:
+        return MaterialPageRoute(
+          builder: (BuildContext context) => const PaymentSummaryView(),
         );
       default:
         return MaterialPageRoute(

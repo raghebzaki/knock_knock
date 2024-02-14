@@ -70,7 +70,7 @@ class _OrderDetailsViewState extends State<OrderDetailsView> {
                             onPressed: () {
                               context.pushNamed(
                                 trackOrderPageRoute,
-                                arguments: OrderDetailsArgs(
+                                arguments: OrderDetailAedgs(
                                   orderDetails: widget.orderDetails,
                                 ),
                               );

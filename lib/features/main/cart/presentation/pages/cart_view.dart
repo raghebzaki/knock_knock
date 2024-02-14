@@ -1,11 +1,10 @@
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gap/gap.dart';
 import 'package:getwidget/getwidget.dart';
-import 'package:intl/intl.dart';
 import 'package:knockknock/core/utils/app_constants.dart';
+import 'package:knockknock/core/utils/app_images.dart';
 import 'package:knockknock/core/utils/extensions.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 
@@ -52,8 +51,9 @@ class _CartViewState extends State<CartView> {
           title: Text(S.of(context).cart),
         ),
         body: SafeArea(
-          child: context.watch<CartCubit>().cartProducts.isNotEmpty
-              ? Stack(
+          child:
+          // context.watch<CartCubit>().cartProducts.isNotEmpty ?
+          Stack(
                   children: [
                     Padding(
                       padding: const EdgeInsets.all(Dimensions.p16),
@@ -64,116 +64,78 @@ class _CartViewState extends State<CartView> {
                               physics: const NeverScrollableScrollPhysics(),
                               scrollDirection: Axis.vertical,
                               shrinkWrap: true,
-                              itemCount: context
-                                  .watch<CartCubit>()
-                                  .cartProducts
-                                  .length,
+                              itemCount: 2,
                               itemBuilder: (ctx, index) {
-                                final productItems = context
-                                    .watch<CartCubit>()
-                                    .cartProducts[index];
-                                return Dismissible(
-                                  key: ValueKey<int>(context
-                                      .watch<CartCubit>()
-                                      .cartProducts[index]
-                                      .id!
-                                      .toInt()),
-                                  onDismissed: (value) {
-                                    context
-                                        .read<CartCubit>()
-                                        .removeFromCart(productItems);
-                                  },
-                                  direction: DismissDirection.endToStart,
-                                  background: Container(
-                                    padding:
-                                        const EdgeInsets.all(Dimensions.p16),
-                                    decoration: BoxDecoration(
-                                      color: AppColors.errorColor,
-                                      borderRadius:
-                                          BorderRadius.circular(Dimensions.r15),
-                                    ),
-                                    child: Align(
-                                      alignment: Intl.getCurrentLocale() == "en"
-                                          ? Alignment.centerRight
-                                          : Alignment.centerLeft,
-                                      child: Icon(
-                                        MdiIcons.deleteEmpty,
-                                        size: 32.sp,
-                                      ),
+                                return GFListTile(
+                                  padding: EdgeInsets.zero,
+                                  margin: const EdgeInsets.symmetric(vertical: 5),
+                                  shadow: const BoxShadow(),
+
+                                  color: Colors.white,
+                                  avatar: GFAvatar(
+                                    size: 60.sp,
+                                    shape: GFAvatarShape.standard,
+                                    backgroundImage:
+                                        AssetImage(
+                                      AppImages.appLogo,
                                     ),
                                   ),
-                                  // onDismissed: (direction) {
-                                  //   setState(() {});
-                                  // },
-                                  child: GFListTile(
-                                    shadow: const BoxShadow(),
-                                    color: Colors.white,
-                                    avatar: GFAvatar(
-                                      size: 60.sp,
-                                      shape: GFAvatarShape.standard,
-                                      backgroundImage:
-                                          CachedNetworkImageProvider(
-                                        AppConstants.imageUrl +
-                                            productItems.image!,
+                                  title: Text(
+                                    // Intl.getCurrentLocale() == "en" ?
+                                    "name",
+                                        // : productItems.nameAr!,
+                                    style: CustomTextStyle.kTextStyleF12,
+                                  ),
+                                  description: Row(
+                                    children: [
+                                      Text(
+                                        // productItems.discountPercent == 0 ?
+                                        "50 ${S.current.Aed}",
+                                            // : "${productItems.priceAfterDiscount} ${S.current.Aed}",
+                                        style: CustomTextStyle.kTextStyleF14
+                                            .copyWith(
+                                                color: AppColors.textColor),
                                       ),
-                                    ),
-                                    title: Text(
-                                      Intl.getCurrentLocale() == "en"
-                                          ? productItems.nameEn!
-                                          : productItems.nameAr!,
-                                      style: CustomTextStyle.kTextStyleF12,
-                                    ),
-                                    description: Row(
-                                      children: [
-                                        Text(
-                                          productItems.discountPercent == 0
-                                              ? "${productItems.price} ${S.current.Aed}"
-                                              : "${productItems.priceAfterDiscount} ${S.current.Aed}",
-                                          style: CustomTextStyle.kTextStyleF14
-                                              .copyWith(
-                                                  color: AppColors.textColor),
-                                        ),
-                                        const Spacer(),
-                                        GestureDetector(
-                                            onTap: () {
-                                              setState(() {
-                                                if (productItems
-                                                        .userQuantity! <=
-                                                    productItems.quantity!) {
-                                                  productItems.userQuantity =
-                                                      productItems
-                                                              .userQuantity! +
-                                                          1;
-                                                }
-                                              });
-                                            },
-                                            child:
-                                                Icon(MdiIcons.plusBoxOutline)),
-                                        Gap(10.w),
-                                        Text(
-                                          productItems.userQuantity.toString(),
-                                          style: CustomTextStyle.kTextStyleF14
-                                              .copyWith(
-                                                  color: AppColors.textColor),
-                                        ),
-                                        Gap(10.w),
-                                        GestureDetector(
-                                            onTap: () {
-                                              setState(() {
-                                                if (productItems
-                                                        .userQuantity! >=
-                                                    1) {
-                                                  productItems.userQuantity =
-                                                      productItems
-                                                              .userQuantity! -
-                                                          1;
-                                                }
-                                              });
-                                            },
-                                            child:
-                                                Icon(MdiIcons.minusBoxOutline)),
-                                      ],
-                                    ),
+                                      const Spacer(),
+                                      GestureDetector(
+                                          onTap: () {
+                                            setState(() {
+                                              // if (productItems
+                                              //         .userQuantity! <=
+                                              //     productItems.quantity!) {
+                                              //   productItems.userQuantity =
+                                              //       productItems
+                                              //               .userQuantity! +
+                                              //           1;
+                                              // }
+                                            });
+                                          },
+                                          child:
+                                              Icon(MdiIcons.plusBoxOutline)),
+                                      Gap(10.w),
+                                      Text(
+                                        "2",
+                                        style: CustomTextStyle.kTextStyleF14
+                                            .copyWith(
+                                                color: AppColors.textColor),
+                                      ),
+                                      Gap(10.w),
+                                      GestureDetector(
+                                          onTap: () {
+                                            setState(() {
+                                              // if (productItems
+                                              //         .userQuantity! >=
+                                              //     1) {
+                                              //   productItems.userQuantity =
+                                              //       productItems
+                                              //               .userQuantity! -
+                                              //           1;
+                                              // }
+                                            });
+                                          },
+                                          child:
+                                              Icon(MdiIcons.minusBoxOutline)),
+                                    ],
                                   ),
                                 );
                               },
@@ -191,7 +153,8 @@ class _CartViewState extends State<CartView> {
                                 ),
                                 const Spacer(),
                                 Text(
-                                  "${totalPrice.map((e) => e.discountPercent == 0 ? int.parse(e.price!) * e.userQuantity! + int.parse(e.price!) * e.userQuantity! / 10 : int.parse(e.priceAfterDiscount!) * e.userQuantity! + int.parse(e.priceAfterDiscount!) * e.userQuantity! / 10).reduce((value, element) => value + element) + AppConstants.deliveryFee} ${S.current.Aed}",
+                                  "130 ${S.current.Aed}",
+                                  // "${totalPrice.map((e) => e.discountPercent == 0 ? int.parse(e.price!) * e.userQuantity! + int.parse(e.price!) * e.userQuantity! / 10 : int.parse(e.priceAfterDiscount!) * e.userQuantity! + int.parse(e.priceAfterDiscount!) * e.userQuantity! / 10).reduce((value, element) => value + element) + AppConstants.deliveryFee} ${S.current.Aed}",
                                   style: CustomTextStyle.kTextStyleF14
                                       .copyWith(color: AppColors.textColor),
                                 ),
@@ -220,7 +183,8 @@ class _CartViewState extends State<CartView> {
                                 ),
                                 const Spacer(),
                                 Text(
-                                  "${totalPrice.map((e) => e.discountPercent == 0 ? int.parse(e.price!) * e.userQuantity! : int.parse(e.priceAfterDiscount!) * e.userQuantity!).reduce((value, element) => value + element)} ${S.current.Aed}",
+                                  "100 ${S.current.Aed}",
+                                  // "${totalPrice.map((e) => e.discountPercent == 0 ? int.parse(e.price!) * e.userQuantity! : int.parse(e.priceAfterDiscount!) * e.userQuantity!).reduce((value, element) => value + element)} ${S.current.Aed}",
                                   style: CustomTextStyle.kTextStyleF14.copyWith(
                                       color: AppColors.textColorSecondary),
                                 ),
@@ -254,7 +218,8 @@ class _CartViewState extends State<CartView> {
                                 ),
                                 const Spacer(),
                                 Text(
-                                  "${totalPrice.map((e) => e.discountPercent == 0 ? int.parse(e.price!) * e.userQuantity! : int.parse(e.priceAfterDiscount!) * e.userQuantity!).reduce((value, element) => value + element) / 10} ${S.current.Aed}",
+                                  "10 ${S.current.Aed}",
+                                  // "${totalPrice.map((e) => e.discountPercent == 0 ? int.parse(e.price!) * e.userQuantity! : int.parse(e.priceAfterDiscount!) * e.userQuantity!).reduce((value, element) => value + element) / 10} ${S.current.Aed}",
                                   style: CustomTextStyle.kTextStyleF14.copyWith(
                                       color: AppColors.textColorSecondary),
                                 ),
@@ -271,25 +236,25 @@ class _CartViewState extends State<CartView> {
                         child: CustomBtn(
                           label: S.of(context).completePayment,
                           onPressed: () {
-                            // context.pushNamed(savedAddressesPageRoute,);
+                             context.pushNamed(paymentSummeryPageRoute,);
                           },
                         ),
                       ),
                     ),
                   ],
                 )
-              : Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    Center(
-                      child: Text(
-                        S.of(context).yourCartIsEmpty,
-                        style: CustomTextStyle.kTextStyleF20,
-                      ),
-                    ),
-                  ],
-                ),
+              // : Column(
+              //     mainAxisAlignment: MainAxisAlignment.center,
+              //     crossAxisAlignment: CrossAxisAlignment.center,
+              //     children: [
+              //       Center(
+              //         child: Text(
+              //           S.of(context).yourCartIsEmpty,
+              //           style: CustomTextStyle.kTextStyleF20,
+              //         ),
+              //       ),
+              //     ],
+              //   ),
         ),
       ),
     );

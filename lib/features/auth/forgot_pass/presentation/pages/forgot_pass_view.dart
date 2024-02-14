@@ -38,12 +38,12 @@ class _ForgotPassViewState extends State<ForgotPassView> {
             success: (state) {
               if (state.statusCode == 1) {
                 context.defaultSnackBar(
-                  "${S.of(context).otpSentTo} ${forgotPassCubit.phoneCtrl.value}",
+                  "${S.of(context).otpSentTo} ${forgotPassCubit.emailCtrl.value}",
                 );
                 context.pushNamed(
                   resetPassPageRoute,
-                  arguments: ResetPassArgs(
-                    email: forgotPassCubit.phoneCtrl.value.isNullOrEmpty(),
+                  arguments: ResetPasAedgs(
+                    email: forgotPassCubit.emailCtrl.value.isNullOrEmpty(),
                   ),
                 );
               } else {
@@ -89,10 +89,10 @@ class _ForgotPassViewState extends State<ForgotPassView> {
                             ),
                             Gap(20.h),
                             StreamBuilder(
-                                stream: forgotPassCubit.phoneStream,
+                                stream: forgotPassCubit.emailStream,
                                 builder: (context, snapshot) {
                                   return CustomFormField(
-                                    label: S.current.phoneNumber,
+                                    label: S.current.email,
                                     isObscure: false,
                                     onChange: (phone) {
                                       forgotPassCubit.validatePhone(phone);
@@ -113,9 +113,9 @@ class _ForgotPassViewState extends State<ForgotPassView> {
                                         ? () {
                                             context.pushNamed(
                                               resetPassPageRoute,
-                                              arguments: ResetPassArgs(
+                                              arguments: ResetPasAedgs(
                                                 email: forgotPassCubit
-                                                    .phoneCtrl.value,
+                                                    .emailCtrl.value,
                                               ),
                                             );
                                             // if (formKey.currentState!.validate()) {

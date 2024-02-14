@@ -34,6 +34,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "addNewAddress":
             MessageLookupByLibrary.simpleMessage("إضافة عنوان جديد"),
         "addToCart": MessageLookupByLibrary.simpleMessage("أضف إلى السلة"),
+        "addVoucherCode":
+            MessageLookupByLibrary.simpleMessage("إضافة رمز القسيمة"),
         "address": MessageLookupByLibrary.simpleMessage("العنوان"),
         "alreadyHaveAnAccount":
             MessageLookupByLibrary.simpleMessage("لديك بالفعل حساب؟"),
@@ -41,6 +43,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "anySpecificInstructions":
             MessageLookupByLibrary.simpleMessage("هل هناك تعليمات محددة؟"),
         "availability": MessageLookupByLibrary.simpleMessage("التوفر:"),
+        "availableCredits":
+            MessageLookupByLibrary.simpleMessage("الرصيد المتاح"),
         "bad_gateway": MessageLookupByLibrary.simpleMessage(
             "بيانات غير صالحة، يرجى المحاولة مرة أخرى"),
         "bad_request_error": MessageLookupByLibrary.simpleMessage(
@@ -48,6 +52,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "buildingNo": MessageLookupByLibrary.simpleMessage("رقم المبنى"),
         "buildingNoCantBeEmpty": MessageLookupByLibrary.simpleMessage(
             "رقم المبنى لا يمكن أن يكون فارغًا"),
+        "buyCredit": MessageLookupByLibrary.simpleMessage("شراء رصيد"),
         "buyer": MessageLookupByLibrary.simpleMessage("مشتري"),
         "cache_error": MessageLookupByLibrary.simpleMessage(
             "خطأ في ذاكرة التخزين المؤقت , حاول مرة أخرى لاحقًا"),
@@ -55,7 +60,12 @@ class MessageLookup extends MessageLookupByLibrary {
             "هل أنت متأكد أنك تريد حذف الطلب"),
         "cancelOrder": MessageLookupByLibrary.simpleMessage("إلغاء الطلب"),
         "cancelled_status": MessageLookupByLibrary.simpleMessage("تم الإلغاء"),
+        "cardDate": MessageLookupByLibrary.simpleMessage("تاريخ البطاقة"),
+        "cardHolderName":
+            MessageLookupByLibrary.simpleMessage("اسم حامل البطاقة"),
+        "cardNumber": MessageLookupByLibrary.simpleMessage("رقم البطاقة"),
         "cart": MessageLookupByLibrary.simpleMessage("السلة"),
+        "change": MessageLookupByLibrary.simpleMessage("تغيير"),
         "change_language": MessageLookupByLibrary.simpleMessage("اختيار اللغة"),
         "change_pass":
             MessageLookupByLibrary.simpleMessage("تغيير كلمة المرور"),
@@ -63,14 +73,17 @@ class MessageLookup extends MessageLookupByLibrary {
             "قم بتغيير كلمة المرور الخاصة بك"),
         "check_your_mail": MessageLookupByLibrary.simpleMessage(
             "يرجى التحقق من رقم الهاتف لتأمين حسابك"),
+        "checkout": MessageLookupByLibrary.simpleMessage("الدفع"),
         "chooseAddress": MessageLookupByLibrary.simpleMessage("اختر العنوان"),
         "city": MessageLookupByLibrary.simpleMessage("المدينة"),
         "close": MessageLookupByLibrary.simpleMessage("إغلاق"),
         "completePayment": MessageLookupByLibrary.simpleMessage("إتمام الدفع"),
+        "confirmPayment": MessageLookupByLibrary.simpleMessage("تأكيد الدفع"),
         "conflict_error": MessageLookupByLibrary.simpleMessage(
             "تم العثور على تعارض , حاول مرة أخرى لاحقًا"),
         "contactUs": MessageLookupByLibrary.simpleMessage("اتصل بنا"),
         "cs": MessageLookupByLibrary.simpleMessage("خدمة العملاء"),
+        "cvv": MessageLookupByLibrary.simpleMessage("CVV"),
         "default_error": MessageLookupByLibrary.simpleMessage(
             "حدث خطأ ما , حاول مرة أخرى لاحقًا"),
         "deleteAccount": MessageLookupByLibrary.simpleMessage("حذف الحساب"),
@@ -109,6 +122,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "freeCancellationUntil12HoursBeforeTheStartOfYour":
             MessageLookupByLibrary.simpleMessage(
                 "إلغاء مجاني حتى 12 ساعة قبل بداية الحجز"),
+        "getHelp": MessageLookupByLibrary.simpleMessage("الحصول على مساعدة"),
+        "giftCard": MessageLookupByLibrary.simpleMessage("بطاقة الهدايا"),
         "goodMorning": MessageLookupByLibrary.simpleMessage("صباح الخير"),
         "have_problem": MessageLookupByLibrary.simpleMessage("هل لديك مشكلة؟"),
         "internal_server_error": MessageLookupByLibrary.simpleMessage(
@@ -157,6 +172,9 @@ class MessageLookup extends MessageLookupByLibrary {
             "يجب أن تكون كلمة المرور على الأقل 8 أحرف"),
         "passwordsDoesNotMatch":
             MessageLookupByLibrary.simpleMessage("كلمات المرور غير متطابقة"),
+        "paymentMethod": MessageLookupByLibrary.simpleMessage("طريقة الدفع"),
+        "paymentMethods": MessageLookupByLibrary.simpleMessage("طرق الدفع"),
+        "paymentSummary": MessageLookupByLibrary.simpleMessage("ملخص الدفع"),
         "payment_required": MessageLookupByLibrary.simpleMessage("الدفع مطلوب"),
         "pending": MessageLookupByLibrary.simpleMessage("قيد الانتظار"),
         "pendingAccessTo":
@@ -189,12 +207,18 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("العناوين المحفوظة"),
         "searchFor": MessageLookupByLibrary.simpleMessage("البحث عن"),
         "seeMore": MessageLookupByLibrary.simpleMessage("رؤية المزيد"),
+        "seeTransaction": MessageLookupByLibrary.simpleMessage("رؤية العملية"),
+        "selectAPackageThatSuitsYouBestAndEarnUp":
+            MessageLookupByLibrary.simpleMessage(
+                "اختر الحزمة التي تناسبك أفضل واحصل على ما يصل إلى 18% على جميع الخدمات"),
         "selectDateAndTimeOfDelivery":
             MessageLookupByLibrary.simpleMessage("اختر تاريخ ووقت التسليم"),
         "selectDateAndTimeYouLikeUsToStart":
             MessageLookupByLibrary.simpleMessage(
                 "اختر تاريخ ووقت تفضلنا أن نبدأ"),
         "send": MessageLookupByLibrary.simpleMessage("إرسال"),
+        "sendAGiftCard":
+            MessageLookupByLibrary.simpleMessage("إرسال بطاقة هدايا"),
         "sendAgain": MessageLookupByLibrary.simpleMessage("إرسال مرة أخرى"),
         "sendCode": MessageLookupByLibrary.simpleMessage("إرسال الرمز"),
         "service_unavailable":
@@ -229,6 +253,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "تم إرسال رمز التحقق إلى هاتفك"),
         "verify": MessageLookupByLibrary.simpleMessage("تحقق"),
         "verifyAccount": MessageLookupByLibrary.simpleMessage("تحقق من الحساب"),
+        "voucherCode": MessageLookupByLibrary.simpleMessage("رمز القسيمة"),
         "whatDateWouldYouLikeUsToStart":
             MessageLookupByLibrary.simpleMessage("أي تاريخ تفضل أن نبدأ؟"),
         "whatTimeWouldYouLikeUsToStart":

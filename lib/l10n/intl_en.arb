@@ -137,6 +137,9 @@
   "my_orders": "My Orders",
   "editProfile": "Edit profile",
   "myOrders": "My orders",
+  "paymentMethods": "Payment Methods",
+  "giftCard": "Gift Card",
+  "getHelp": "Get Help",
 
   "@editProfile": {},
   "deleteAccount": "Delete account",
@@ -211,5 +214,25 @@
   "postalCode": "Postal Code",
   "addNewAddress": "Add New Address",
   "newAddress": "New Address",
-  "savedAddresses": "Saved Addresses"
+  "savedAddresses": "Saved Addresses",
+
+  "@credits": {},
+  "seeTransaction": "See Transaction",
+  "sendAGiftCard": "Send a Gift Card",
+  "availableCredits": "Available Credits",
+  "selectAPackageThatSuitsYouBestAndEarnUp": "Select a package that suits you best and earn up to 18% on all services",
+  "buyCredit": "Buy Credit",
+
+  "@checkout": {},"checkout": "Checkout",
+  "paymentMethod": "Payment Method",
+  "change": "Change",
+  "cardHolderName": "card holder name",
+  "cardNumber": "card number",
+  "cardDate": "card date",
+  "cvv": "cvv",
+  "addVoucherCode": "Add Voucher Code",
+  "voucherCode": "Voucher Code",
+  "paymentSummary": "Payment summary",
+  "confirmPayment": "confirm payment"
+
 }

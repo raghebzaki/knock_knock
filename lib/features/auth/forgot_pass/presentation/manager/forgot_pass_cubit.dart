@@ -41,23 +41,23 @@ class ForgotPassCubit extends Cubit<ForgotPassStates> {
     );
   }
 
-  var phoneCtrl = BehaviorSubject<String>();
+  var emailCtrl = BehaviorSubject<String>();
 
-  Stream<String> get phoneStream => phoneCtrl.stream;
+  Stream<String> get emailStream => emailCtrl.stream;
 
-  validatePhone(String phone) {
-    if (phone.isEmpty) {
-      phoneCtrl.sink.addError(S.current.pleaseEnterAValidPhoneNumber);
-    } else if (!phone.isPhone()) {
-      phoneCtrl.sink.addError(S.current.wrongPhoneCheckAgain);
+  validatePhone(String email) {
+    if (email.isEmpty) {
+      emailCtrl.sink.addError(S.current.plzEnterYourEmail);
+    } else if (!email.isEmail()) {
+      emailCtrl.sink.addError(S.current.plzEnterValidEmail);
     } else {
-      phoneCtrl.sink.add(phone);
+      emailCtrl.sink.add(email);
     }
   }
 
   Stream<bool> get validateForgotPassBtn => Rx.combineLatest(
         [
-          phoneStream
+          emailStream
         ],
         (values) => true,
       );

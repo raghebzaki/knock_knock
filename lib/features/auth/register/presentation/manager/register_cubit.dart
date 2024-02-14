@@ -60,6 +60,7 @@ class RegisterCubit extends Cubit<RegisterState> {
   var firstNameCtrl = BehaviorSubject<String>();
   var lastNameCtrl = BehaviorSubject<String>();
   var phoneCtrl = BehaviorSubject<String>();
+  var emailCtrl = BehaviorSubject<String>();
   var passCtrl = BehaviorSubject<String>();
   var passConfirmCtrl = BehaviorSubject<String>();
 
@@ -68,6 +69,7 @@ class RegisterCubit extends Cubit<RegisterState> {
   Stream<String> get lastNameStream => lastNameCtrl.stream;
 
   Stream<String> get phoneStream => phoneCtrl.stream;
+  Stream<String> get emailStream => emailCtrl.stream;
 
   Stream<String> get passStream => passCtrl.stream;
 
@@ -96,6 +98,15 @@ class RegisterCubit extends Cubit<RegisterState> {
       phoneCtrl.sink.addError(S.current.pleaseEnterAValidPhoneNumber);
     } else {
       phoneCtrl.sink.add(phone);
+    }
+  }
+  validateEmail(String email) async {
+    if (email.isEmpty) {
+      emailCtrl.sink.addError(S.current.plzEnterYourEmail);
+    } else if (!email.isEmail()) {
+      emailCtrl.sink.addError(S.current.plzEnterValidEmail);
+    } else {
+      emailCtrl.sink.add(email);
     }
   }
 

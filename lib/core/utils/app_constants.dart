@@ -5,6 +5,9 @@ class AppConstants {
       RegExp(r"(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[!@#\\$&*~]).{8,}");
   static RegExp phoneRegExp = RegExp(r"(?:[+0][1-9])?[0-9]{9,12}");
 
+
+  static const appName = "Knock knock";
+
   //? Consts for language manager
   static const arabic = "ar";
   static const english = "en";
@@ -15,7 +18,7 @@ class AppConstants {
   static const subFontFamily = "Abhaya Libre";
   static const unknownStringValue = "UNKNOWN STRING VALUE";
   static const unknownNumValue = 2077;
-  static const deliveryFee = 40;
+  static const deliveryFee = 20;
 
   //! API headers
   static const String applicationJson = "application/json";
