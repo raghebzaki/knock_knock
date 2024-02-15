@@ -65,6 +65,7 @@ class CustomFormField extends StatelessWidget {
       inputFormatters: formatters,
       keyboardType: keyboardType,
       style: CustomTextStyle.kFormFieldTextStyle,
+
       decoration: InputDecoration(
           labelText: label,
           hintText: hint,

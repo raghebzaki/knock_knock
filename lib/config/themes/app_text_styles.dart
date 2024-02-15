@@ -37,6 +37,18 @@ class CustomTextStyle {
     fontFamily: AppConstants.mainFontFamily,
     fontWeight: FontWeight.w400,
   );
+  static TextStyle kTextStyleF14w600 =  const TextStyle(
+    color: AppColors.secondary,
+    fontSize: 14,
+    fontFamily: AppConstants.mainFontFamily,
+    fontWeight: FontWeight.w600,
+  );
+  static TextStyle kTextStyleF14Secondary =  const TextStyle(
+    color: AppColors.secondary,
+    fontSize: 14,
+    fontFamily: AppConstants.mainFontFamily,
+    fontWeight: FontWeight.w400,
+  );
 
   static TextStyle kTextStyleF14Sub =  TextStyle(
     color: Colors.black.withOpacity(0.6000000238418579),

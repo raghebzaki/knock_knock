@@ -34,8 +34,8 @@
   "loginSuccessful": "Login Successful",
   "login": "Login",
   "email": "Email",
-  "plzEnterYourEmail": "Please enter your phone",
-  "plzEnterValidEmail": "Please enter a valid phone",
+  "plzEnterYourEmail": "Please enter your email",
+  "plzEnterValidEmail": "Please enter a valid email",
   "pass": "Password",
   "passConfirm": "Password Confirmation",
   "forgotPass": "Forgot Pass",
@@ -223,7 +223,8 @@
   "selectAPackageThatSuitsYouBestAndEarnUp": "Select a package that suits you best and earn up to 18% on all services",
   "buyCredit": "Buy Credit",
 
-  "@checkout": {},"checkout": "Checkout",
+  "@checkout": {},
+  "checkout": "Checkout",
   "paymentMethod": "Payment Method",
   "change": "Change",
   "cardHolderName": "card holder name",
@@ -233,6 +234,26 @@
   "addVoucherCode": "Add Voucher Code",
   "voucherCode": "Voucher Code",
   "paymentSummary": "Payment summary",
-  "confirmPayment": "confirm payment"
+  "confirmPayment": "confirm payment",
 
+  "@buyCredit": {},
+  "payLessGetMore": "Pay Less & Get More",
+  "basicPackage": "BASIC PACKAGE",
+  "getAed300WorthOfKnockKnockCreditForPrice": "Get AED 300 worth of knock knock credit for price of AED 279",
+  "earn8More": "Earn 8% More",
+  "vaildFor30DaysOnAllHomeServices": "Vaild for 30 days on all home services",
+  "buyNow": "Buy Now",
+
+  "@giftCard": {},
+  "thePerfectGiftCardForYourLovedOne": "The perfect gift card for your loved one!",
+  "treatThemToTheirFavoriteHomeService": "Treat them to their favorite home  service!",
+  "selectGiftAmount": "Select Gift Amount",
+  "enterAmount": "Enter Amount",
+  "yourMessageOptional": "Your Message (Optional)",
+  "accountNumberOfThePersonYouLove": "Account number of the person you love",
+
+  "@bottomNavBar": {},
+  "home": "Home",
+  "booking": "Booking",
+  "credits": "Credits"
 }

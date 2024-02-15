@@ -121,13 +121,13 @@ class ProfileView extends StatelessWidget {
                 margin: EdgeInsets.symmetric(horizontal: 16.0.sp),
                 child: ListTile(
                   onTap: () {
-                    context.pushNamed(myOrdersPageRoute);
+                    context.pushNamed(savedAddressesPageRoute);
                   },
                   leading: Icon(MdiIcons.mapMarker,color: AppColors.secondary,size: 30.sp,),
                   title: Opacity(
                     opacity: 0.90,
                     child: Text(
-                      S.of(context).myOrders,
+                      S.of(context).savedAddresses,
                       style: CustomTextStyle.kTextStyleF16,
                     ),
                   ),
@@ -187,7 +187,7 @@ class ProfileView extends StatelessWidget {
                 margin: EdgeInsets.symmetric(horizontal: 16.0.sp),
                 child: ListTile(
                   onTap: () {
-                    context.pushNamed(settingsPageRoute);
+                    context.pushNamed(sendGiftPageRoute);
                   },
                   title: Opacity(
                     opacity: 0.90,
@@ -221,7 +221,7 @@ class ProfileView extends StatelessWidget {
                 margin: EdgeInsets.symmetric(horizontal: 16.0.sp),
                 child: ListTile(
                   onTap: () {
-                    context.pushNamed(settingsPageRoute);
+                    context.pushNamed(contactUsPageRoute);
                   },
                   title: Opacity(
                     opacity: 0.90,

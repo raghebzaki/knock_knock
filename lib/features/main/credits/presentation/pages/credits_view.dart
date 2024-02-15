@@ -3,9 +3,11 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gap/gap.dart';
 import 'package:get/get.dart';
 import 'package:knockknock/config/themes/app_text_styles.dart';
+import 'package:knockknock/core/router/router.dart';
 import 'package:knockknock/core/utils/app_colors.dart';
 import 'package:knockknock/core/utils/app_constants.dart';
 import 'package:knockknock/core/utils/app_images.dart';
+import 'package:knockknock/core/utils/extensions.dart';
 
 import '../../../../../core/utils/dimensions.dart';
 import '../../../../../generated/l10n.dart';
@@ -58,20 +60,25 @@ class _CreditsViewState extends State<CreditsView> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Container(
-                      width: context.width,
-                      padding: EdgeInsets.all( 10.sp),
-                      decoration: BoxDecoration(
-                        borderRadius: const BorderRadius.all(Radius.circular(12)),
-                        color: AppColors.secondaryWithOpacity,
-                      ),
-                      child:  Row(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Image.asset(AppImages.giftImg),
-                          Gap(10.h),
-                          Text(S.of(context).sendAGiftCard,style: CustomTextStyle.kTextStyleF12.copyWith(color: AppColors.primary),),
-                        ],
+                    GestureDetector(
+                      onTap:(){
+                        context.pushNamed(sendGiftPageRoute);
+                      },
+                      child: Container(
+                        width: context.width,
+                        padding: EdgeInsets.all( 10.sp),
+                        decoration: BoxDecoration(
+                          borderRadius: const BorderRadius.all(Radius.circular(12)),
+                          color: AppColors.secondaryWithOpacity,
+                        ),
+                        child:  Row(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Image.asset(AppImages.giftImg),
+                            Gap(10.h),
+                            Text(S.of(context).sendAGiftCard,style: CustomTextStyle.kTextStyleF12.copyWith(color: AppColors.primary),),
+                          ],
+                        ),
                       ),
                     ),
                     Gap(20.h),
@@ -118,7 +125,9 @@ class _CreditsViewState extends State<CreditsView> {
                         children: [
                           Expanded(
                             child: ElevatedButton(
-                              onPressed: (){},
+                              onPressed: (){
+                                context.pushNamed(buyCreditPageRoute);
+                              },
                               style: ElevatedButton.styleFrom(
                                 padding: EdgeInsets.symmetric(
                                   horizontal: Dimensions.p5.w,

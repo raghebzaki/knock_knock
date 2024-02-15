@@ -45,7 +45,7 @@ class ForgotPassCubit extends Cubit<ForgotPassStates> {
 
   Stream<String> get emailStream => emailCtrl.stream;
 
-  validatePhone(String email) {
+  validateEmail(String email) {
     if (email.isEmpty) {
       emailCtrl.sink.addError(S.current.plzEnterYourEmail);
     } else if (!email.isEmail()) {

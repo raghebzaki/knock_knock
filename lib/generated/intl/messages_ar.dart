@@ -27,6 +27,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("نسيت كلمة المرور"),
         "accountDeletedSuccessfully":
             MessageLookupByLibrary.simpleMessage("تم حذف الحساب بنجاح"),
+        "accountNumberOfThePersonYouLove":
+            MessageLookupByLibrary.simpleMessage("رقم حساب الشخص الذي تحب"),
         "accountUpdatedSuccessfully":
             MessageLookupByLibrary.simpleMessage("تم تحديث الحساب بنجاح"),
         "add": MessageLookupByLibrary.simpleMessage("إضافة"),
@@ -49,10 +51,13 @@ class MessageLookup extends MessageLookupByLibrary {
             "بيانات غير صالحة، يرجى المحاولة مرة أخرى"),
         "bad_request_error": MessageLookupByLibrary.simpleMessage(
             "طلب غير صالح. حاول مرة أخرى لاحقًا"),
+        "basicPackage": MessageLookupByLibrary.simpleMessage("الحزمة الأساسية"),
+        "booking": MessageLookupByLibrary.simpleMessage("الحجز"),
         "buildingNo": MessageLookupByLibrary.simpleMessage("رقم المبنى"),
         "buildingNoCantBeEmpty": MessageLookupByLibrary.simpleMessage(
             "رقم المبنى لا يمكن أن يكون فارغًا"),
         "buyCredit": MessageLookupByLibrary.simpleMessage("شراء رصيد"),
+        "buyNow": MessageLookupByLibrary.simpleMessage("اشترِ الآن"),
         "buyer": MessageLookupByLibrary.simpleMessage("مشتري"),
         "cache_error": MessageLookupByLibrary.simpleMessage(
             "خطأ في ذاكرة التخزين المؤقت , حاول مرة أخرى لاحقًا"),
@@ -82,6 +87,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "conflict_error": MessageLookupByLibrary.simpleMessage(
             "تم العثور على تعارض , حاول مرة أخرى لاحقًا"),
         "contactUs": MessageLookupByLibrary.simpleMessage("اتصل بنا"),
+        "credits": MessageLookupByLibrary.simpleMessage("الرصيد"),
         "cs": MessageLookupByLibrary.simpleMessage("خدمة العملاء"),
         "cvv": MessageLookupByLibrary.simpleMessage("CVV"),
         "default_error": MessageLookupByLibrary.simpleMessage(
@@ -96,9 +102,11 @@ class MessageLookup extends MessageLookupByLibrary {
         "doNotHaveAccount":
             MessageLookupByLibrary.simpleMessage("ليس لديك حساب؟"),
         "done_status": MessageLookupByLibrary.simpleMessage("تم الاكتمال"),
+        "earn8More": MessageLookupByLibrary.simpleMessage("اربح 8% أكثر"),
         "editProfile":
             MessageLookupByLibrary.simpleMessage("تعديل الملف الشخصي"),
         "email": MessageLookupByLibrary.simpleMessage("البريد الإلكتروني"),
+        "enterAmount": MessageLookupByLibrary.simpleMessage("أدخل المبلغ"),
         "enterYourNewPassword": MessageLookupByLibrary.simpleMessage(
             "أدخل كلمة المرور الجديدة أدناه"),
         "err_code": MessageLookupByLibrary.simpleMessage("رمز الخطأ"),
@@ -122,10 +130,14 @@ class MessageLookup extends MessageLookupByLibrary {
         "freeCancellationUntil12HoursBeforeTheStartOfYour":
             MessageLookupByLibrary.simpleMessage(
                 "إلغاء مجاني حتى 12 ساعة قبل بداية الحجز"),
+        "getAed300WorthOfKnockKnockCreditForPrice":
+            MessageLookupByLibrary.simpleMessage(
+                "احصل على 300 درهم قيمة ائتمان Knock Knock بسعر 279 درهم"),
         "getHelp": MessageLookupByLibrary.simpleMessage("الحصول على مساعدة"),
         "giftCard": MessageLookupByLibrary.simpleMessage("بطاقة الهدايا"),
         "goodMorning": MessageLookupByLibrary.simpleMessage("صباح الخير"),
         "have_problem": MessageLookupByLibrary.simpleMessage("هل لديك مشكلة؟"),
+        "home": MessageLookupByLibrary.simpleMessage("الرئيسية"),
         "internal_server_error": MessageLookupByLibrary.simpleMessage(
             "حدث خطأ ما , حاول مرة أخرى لاحقًا"),
         "language": MessageLookupByLibrary.simpleMessage("اللغة"),
@@ -162,6 +174,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "otpSentTo":
             MessageLookupByLibrary.simpleMessage("تم إرسال رمز التحقق إلى"),
         "pass": MessageLookupByLibrary.simpleMessage("كلمة المرور"),
+        "passConfirm":
+            MessageLookupByLibrary.simpleMessage("تاكيد كلمة المرور"),
         "passConfirmCantBeEmpty": MessageLookupByLibrary.simpleMessage(
             "تأكيد كلمة المرور لا يمكن أن يكون فارغًا"),
         "passwordCaNotBeEmpty":
@@ -172,6 +186,8 @@ class MessageLookup extends MessageLookupByLibrary {
             "يجب أن تكون كلمة المرور على الأقل 8 أحرف"),
         "passwordsDoesNotMatch":
             MessageLookupByLibrary.simpleMessage("كلمات المرور غير متطابقة"),
+        "payLessGetMore":
+            MessageLookupByLibrary.simpleMessage("ادفع أقل واحصل على المزيد"),
         "paymentMethod": MessageLookupByLibrary.simpleMessage("طريقة الدفع"),
         "paymentMethods": MessageLookupByLibrary.simpleMessage("طرق الدفع"),
         "paymentSummary": MessageLookupByLibrary.simpleMessage("ملخص الدفع"),
@@ -187,10 +203,10 @@ class MessageLookup extends MessageLookupByLibrary {
         "phoneNumber": MessageLookupByLibrary.simpleMessage("رقم الجوال"),
         "pleaseEnterAValidPhoneNumber":
             MessageLookupByLibrary.simpleMessage("يرجى إدخال رقم هاتف صالح"),
-        "plzEnterValidEmail":
-            MessageLookupByLibrary.simpleMessage("يرجى إدخال رقم هاتف صالح"),
-        "plzEnterYourEmail":
-            MessageLookupByLibrary.simpleMessage("يرجى إدخال رقم الهاتف"),
+        "plzEnterValidEmail": MessageLookupByLibrary.simpleMessage(
+            "يرجى إدخال بريد الإلكتروني صالح"),
+        "plzEnterYourEmail": MessageLookupByLibrary.simpleMessage(
+            "يرجى إدخال البريد الإلكتروني"),
         "postalCode": MessageLookupByLibrary.simpleMessage("الرمز البريدي"),
         "privacy_policy":
             MessageLookupByLibrary.simpleMessage("سياسة الخصوصية"),
@@ -216,6 +232,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "selectDateAndTimeYouLikeUsToStart":
             MessageLookupByLibrary.simpleMessage(
                 "اختر تاريخ ووقت تفضلنا أن نبدأ"),
+        "selectGiftAmount":
+            MessageLookupByLibrary.simpleMessage("حدد مبلغ الهدية"),
         "send": MessageLookupByLibrary.simpleMessage("إرسال"),
         "sendAGiftCard":
             MessageLookupByLibrary.simpleMessage("إرسال بطاقة هدايا"),
@@ -236,15 +254,23 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("الشروط والأحكام"),
         "theExecutedOrder":
             MessageLookupByLibrary.simpleMessage("الطلب المنفذ"),
+        "thePerfectGiftCardForYourLovedOne":
+            MessageLookupByLibrary.simpleMessage(
+                "بطاقة الهدية المثالية لمن تحب!"),
         "timeout_error": MessageLookupByLibrary.simpleMessage(
             "انتهت المهلة , حاول مرة أخرى لاحقًا"),
         "total": MessageLookupByLibrary.simpleMessage("الإجمالي"),
         "trackOrder": MessageLookupByLibrary.simpleMessage("تتبع الطلب"),
+        "treatThemToTheirFavoriteHomeService":
+            MessageLookupByLibrary.simpleMessage(
+                "عاملهم بخدمة المنزل المفضلة لديهم!"),
         "unauthorized_error": MessageLookupByLibrary.simpleMessage(
             "المستخدم غير مصرح له، جرب مرة أخرى في وقت لاحق"),
         "unknown_error": MessageLookupByLibrary.simpleMessage(
             "حدث خطأ ما , حاول مرة أخرى لاحقًا"),
         "updateAccount": MessageLookupByLibrary.simpleMessage("تحديث الحساب"),
+        "vaildFor30DaysOnAllHomeServices": MessageLookupByLibrary.simpleMessage(
+            "صالح لمدة 30 يومًا على جميع خدمات المنزل"),
         "verificationCode":
             MessageLookupByLibrary.simpleMessage("التحقق من الرمز"),
         "verificationCodeCantEmpty": MessageLookupByLibrary.simpleMessage(
@@ -264,6 +290,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "yourCartIsEmpty":
             MessageLookupByLibrary.simpleMessage("Your cart is empty"),
         "yourMessage": MessageLookupByLibrary.simpleMessage("رسالتك"),
+        "yourMessageOptional":
+            MessageLookupByLibrary.simpleMessage("رسالتك (اختياري)"),
         "yourMessageSentSuccessfully":
             MessageLookupByLibrary.simpleMessage("تم إرسال رسالتك بنجاح"),
         "yourOrderIsReadyForDelivery":

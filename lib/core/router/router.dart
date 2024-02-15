@@ -19,6 +19,10 @@ const String savedAddressesPageRoute = '/savedAddresses';
 const String addNewAddressPageRoute = '/AddAddress';
 const String mapPageRoute = '/mapView';
 
+///credits
+const String buyCreditPageRoute = '/buyCredit';
+const String sendGiftPageRoute = '/sendGift';
+
 ///profile
 const String profilePageRoute = '/profile';
 const String contactUsPageRoute = '/contactUs';

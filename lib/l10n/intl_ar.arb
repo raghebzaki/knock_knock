@@ -35,14 +35,15 @@
   "loginSuccessful": "تم تسجيل الدخول بنجاح",
   "login": "تسجيل الدخول",
   "email": "البريد الإلكتروني",
-  "plzEnterYourEmail": "يرجى إدخال رقم الهاتف",
-  "plzEnterValidEmail": "يرجى إدخال رقم هاتف صالح",
+  "plzEnterYourEmail": "يرجى إدخال البريد الإلكتروني",
+  "plzEnterValidEmail": "يرجى إدخال بريد الإلكتروني صالح",
   "pass": "كلمة المرور",
   "pass_confirm": "تأكيد كلمة المرور",
   "forgotPass": "نسيت كلمة المرور",
   "doNotHaveAccount": "ليس لديك حساب؟",
   "registerNow": "سجل الآن",
   "rememberMe": "تذكرني",
+
 
 
   "@register": {},
@@ -54,6 +55,7 @@
   "lastName": "الاسم الأخير",
   "phoneNumber": "رقم الجوال",
   "phone": "الهاتف",
+  "passConfirm": "تاكيد كلمة المرور",
   "alreadyHaveAnAccount": "لديك بالفعل حساب؟",
   "passwordCaNotBeEmpty": "يجب إدخال كلمة المرور",
   "passwordTooShort": "يجب أن تكون كلمة المرور على الأقل 8 أحرف",
@@ -219,7 +221,28 @@
   "addVoucherCode": "إضافة رمز القسيمة",
   "voucherCode": "رمز القسيمة",
   "paymentSummary": "ملخص الدفع",
-  "confirmPayment": "تأكيد الدفع"
+  "confirmPayment": "تأكيد الدفع",
+
+  "@buyCredit": {},
+  "payLessGetMore": "ادفع أقل واحصل على المزيد",
+  "basicPackage": "الحزمة الأساسية",
+  "getAed300WorthOfKnockKnockCreditForPrice": "احصل على 300 درهم قيمة ائتمان Knock Knock بسعر 279 درهم",
+  "earn8More": "اربح 8% أكثر",
+  "vaildFor30DaysOnAllHomeServices": "صالح لمدة 30 يومًا على جميع خدمات المنزل",
+  "buyNow": "اشترِ الآن",
+
+  "@giftCard": {},
+  "thePerfectGiftCardForYourLovedOne": "بطاقة الهدية المثالية لمن تحب!",
+  "treatThemToTheirFavoriteHomeService": "عاملهم بخدمة المنزل المفضلة لديهم!",
+  "selectGiftAmount": "حدد مبلغ الهدية",
+  "enterAmount": "أدخل المبلغ",
+  "yourMessageOptional": "رسالتك (اختياري)",
+  "accountNumberOfThePersonYouLove": "رقم حساب الشخص الذي تحب",
+
+  "@bottomNavBar": {},
+  "home": "الرئيسية",
+  "booking": "الحجز",
+  "credits": "الرصيد"
 
 
 }

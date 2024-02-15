@@ -360,20 +360,20 @@ class S {
     );
   }
 
-  /// `Please enter your phone`
+  /// `Please enter your email`
   String get plzEnterYourEmail {
     return Intl.message(
-      'Please enter your phone',
+      'Please enter your email',
       name: 'plzEnterYourEmail',
       desc: '',
       args: [],
     );
   }
 
-  /// `Please enter a valid phone`
+  /// `Please enter a valid email`
   String get plzEnterValidEmail {
     return Intl.message(
-      'Please enter a valid phone',
+      'Please enter a valid email',
       name: 'plzEnterValidEmail',
       desc: '',
       args: [],
@@ -1815,6 +1815,156 @@ class S {
     return Intl.message(
       'confirm payment',
       name: 'confirmPayment',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Pay Less & Get More`
+  String get payLessGetMore {
+    return Intl.message(
+      'Pay Less & Get More',
+      name: 'payLessGetMore',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `BASIC PACKAGE`
+  String get basicPackage {
+    return Intl.message(
+      'BASIC PACKAGE',
+      name: 'basicPackage',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Get AED 300 worth of knock knock credit for price of AED 279`
+  String get getAed300WorthOfKnockKnockCreditForPrice {
+    return Intl.message(
+      'Get AED 300 worth of knock knock credit for price of AED 279',
+      name: 'getAed300WorthOfKnockKnockCreditForPrice',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Earn 8% More`
+  String get earn8More {
+    return Intl.message(
+      'Earn 8% More',
+      name: 'earn8More',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Vaild for 30 days on all home services`
+  String get vaildFor30DaysOnAllHomeServices {
+    return Intl.message(
+      'Vaild for 30 days on all home services',
+      name: 'vaildFor30DaysOnAllHomeServices',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Buy Now`
+  String get buyNow {
+    return Intl.message(
+      'Buy Now',
+      name: 'buyNow',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `The perfect gift card for your loved one!`
+  String get thePerfectGiftCardForYourLovedOne {
+    return Intl.message(
+      'The perfect gift card for your loved one!',
+      name: 'thePerfectGiftCardForYourLovedOne',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Treat them to their favorite home  service!`
+  String get treatThemToTheirFavoriteHomeService {
+    return Intl.message(
+      'Treat them to their favorite home  service!',
+      name: 'treatThemToTheirFavoriteHomeService',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Select Gift Amount`
+  String get selectGiftAmount {
+    return Intl.message(
+      'Select Gift Amount',
+      name: 'selectGiftAmount',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Enter Amount`
+  String get enterAmount {
+    return Intl.message(
+      'Enter Amount',
+      name: 'enterAmount',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Your Message (Optional)`
+  String get yourMessageOptional {
+    return Intl.message(
+      'Your Message (Optional)',
+      name: 'yourMessageOptional',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Account number of the person you love`
+  String get accountNumberOfThePersonYouLove {
+    return Intl.message(
+      'Account number of the person you love',
+      name: 'accountNumberOfThePersonYouLove',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Home`
+  String get home {
+    return Intl.message(
+      'Home',
+      name: 'home',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Booking`
+  String get booking {
+    return Intl.message(
+      'Booking',
+      name: 'booking',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Credits`
+  String get credits {
+    return Intl.message(
+      'Credits',
+      name: 'credits',
       desc: '',
       args: [],
     );

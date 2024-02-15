@@ -27,6 +27,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Forget Password"),
         "accountDeletedSuccessfully": MessageLookupByLibrary.simpleMessage(
             "account deleted successfully"),
+        "accountNumberOfThePersonYouLove": MessageLookupByLibrary.simpleMessage(
+            "Account number of the person you love"),
         "accountUpdatedSuccessfully": MessageLookupByLibrary.simpleMessage(
             "Account updated successfully"),
         "add": MessageLookupByLibrary.simpleMessage("Add"),
@@ -49,10 +51,13 @@ class MessageLookup extends MessageLookupByLibrary {
             "Invalid data, please try again"),
         "bad_request_error": MessageLookupByLibrary.simpleMessage(
             "bad request. try again later"),
+        "basicPackage": MessageLookupByLibrary.simpleMessage("BASIC PACKAGE"),
+        "booking": MessageLookupByLibrary.simpleMessage("Booking"),
         "buildingNo": MessageLookupByLibrary.simpleMessage("Building No."),
         "buildingNoCantBeEmpty": MessageLookupByLibrary.simpleMessage(
             "Building No. can\'t be empty"),
         "buyCredit": MessageLookupByLibrary.simpleMessage("Buy Credit"),
+        "buyNow": MessageLookupByLibrary.simpleMessage("Buy Now"),
         "buyer": MessageLookupByLibrary.simpleMessage("Buyer"),
         "cache_error": MessageLookupByLibrary.simpleMessage(
             "cache error, try again later"),
@@ -84,6 +89,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "conflict_error": MessageLookupByLibrary.simpleMessage(
             "conflict found, try again later"),
         "contactUs": MessageLookupByLibrary.simpleMessage("Contact Us"),
+        "credits": MessageLookupByLibrary.simpleMessage("Credits"),
         "cs": MessageLookupByLibrary.simpleMessage("Customer Support"),
         "cvv": MessageLookupByLibrary.simpleMessage("cvv"),
         "default_error": MessageLookupByLibrary.simpleMessage(
@@ -98,8 +104,10 @@ class MessageLookup extends MessageLookupByLibrary {
         "doNotHaveAccount":
             MessageLookupByLibrary.simpleMessage("Don\'t have an account?"),
         "done_status": MessageLookupByLibrary.simpleMessage("completed"),
+        "earn8More": MessageLookupByLibrary.simpleMessage("Earn 8% More"),
         "editProfile": MessageLookupByLibrary.simpleMessage("Edit profile"),
         "email": MessageLookupByLibrary.simpleMessage("Email"),
+        "enterAmount": MessageLookupByLibrary.simpleMessage("Enter Amount"),
         "enterYourNewPassword": MessageLookupByLibrary.simpleMessage(
             "Enter your new password below"),
         "err_code": MessageLookupByLibrary.simpleMessage("Error Code"),
@@ -124,10 +132,14 @@ class MessageLookup extends MessageLookupByLibrary {
         "freeCancellationUntil12HoursBeforeTheStartOfYour":
             MessageLookupByLibrary.simpleMessage(
                 "free cancellation until 12 hours before the start of your booking"),
+        "getAed300WorthOfKnockKnockCreditForPrice":
+            MessageLookupByLibrary.simpleMessage(
+                "Get AED 300 worth of knock knock credit for price of AED 279"),
         "getHelp": MessageLookupByLibrary.simpleMessage("Get Help"),
         "giftCard": MessageLookupByLibrary.simpleMessage("Gift Card"),
         "goodMorning": MessageLookupByLibrary.simpleMessage("Good Morning"),
         "have_problem": MessageLookupByLibrary.simpleMessage("Have a problem?"),
+        "home": MessageLookupByLibrary.simpleMessage("Home"),
         "internal_server_error": MessageLookupByLibrary.simpleMessage(
             "some thing went wrong, try again later"),
         "language": MessageLookupByLibrary.simpleMessage("Language"),
@@ -185,6 +197,8 @@ class MessageLookup extends MessageLookupByLibrary {
             "Password must be 8 chars at least"),
         "passwordsDoesNotMatch":
             MessageLookupByLibrary.simpleMessage("Passwords doesn\'t match"),
+        "payLessGetMore":
+            MessageLookupByLibrary.simpleMessage("Pay Less & Get More"),
         "paymentMethod": MessageLookupByLibrary.simpleMessage("Payment Method"),
         "paymentMethods":
             MessageLookupByLibrary.simpleMessage("Payment Methods"),
@@ -203,9 +217,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "pleaseEnterAValidPhoneNumber": MessageLookupByLibrary.simpleMessage(
             "Please enter a valid phone number"),
         "plzEnterValidEmail":
-            MessageLookupByLibrary.simpleMessage("Please enter a valid phone"),
+            MessageLookupByLibrary.simpleMessage("Please enter a valid email"),
         "plzEnterYourEmail":
-            MessageLookupByLibrary.simpleMessage("Please enter your phone"),
+            MessageLookupByLibrary.simpleMessage("Please enter your email"),
         "postalCode": MessageLookupByLibrary.simpleMessage("Postal Code"),
         "privacy_policy":
             MessageLookupByLibrary.simpleMessage("Privacy Policy"),
@@ -232,6 +246,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "selectDateAndTimeYouLikeUsToStart":
             MessageLookupByLibrary.simpleMessage(
                 "Select date and time you like us to start"),
+        "selectGiftAmount":
+            MessageLookupByLibrary.simpleMessage("Select Gift Amount"),
         "seller": MessageLookupByLibrary.simpleMessage("Seller"),
         "send": MessageLookupByLibrary.simpleMessage("send"),
         "sendAGiftCard":
@@ -254,10 +270,16 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Terms and Conditions"),
         "theExecutedOrder":
             MessageLookupByLibrary.simpleMessage("The executed order"),
+        "thePerfectGiftCardForYourLovedOne":
+            MessageLookupByLibrary.simpleMessage(
+                "The perfect gift card for your loved one!"),
         "timeout_error":
             MessageLookupByLibrary.simpleMessage("time out, try again late"),
         "total": MessageLookupByLibrary.simpleMessage("total"),
         "trackOrder": MessageLookupByLibrary.simpleMessage("track order"),
+        "treatThemToTheirFavoriteHomeService":
+            MessageLookupByLibrary.simpleMessage(
+                "Treat them to their favorite home  service!"),
         "unauthorized_error": MessageLookupByLibrary.simpleMessage(
             "user unauthorized, try again later"),
         "unknown_error": MessageLookupByLibrary.simpleMessage(
@@ -265,6 +287,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "unprocessable_content_error": MessageLookupByLibrary.simpleMessage(
             "unprocessable data, check it and try again"),
         "updateAccount": MessageLookupByLibrary.simpleMessage("update account"),
+        "vaildFor30DaysOnAllHomeServices": MessageLookupByLibrary.simpleMessage(
+            "Vaild for 30 days on all home services"),
         "verificationCode": MessageLookupByLibrary.simpleMessage("Verify Code"),
         "verificationCodeCantEmpty": MessageLookupByLibrary.simpleMessage(
             "Verification code can\'t empty"),
@@ -283,6 +307,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "yourCartIsEmpty":
             MessageLookupByLibrary.simpleMessage("Your cart is empty"),
         "yourMessage": MessageLookupByLibrary.simpleMessage("Your Message"),
+        "yourMessageOptional":
+            MessageLookupByLibrary.simpleMessage("Your Message (Optional)"),
         "yourMessageSentSuccessfully": MessageLookupByLibrary.simpleMessage(
             "Your message sent successfully"),
         "yourOrderIsReadyForDelivery": MessageLookupByLibrary.simpleMessage(

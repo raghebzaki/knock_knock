@@ -161,7 +161,7 @@ class _ResetPassViewState extends State<ResetPassView> {
                                         onPressed: snapshot.hasData
                                             ? () {
                                           context
-                                              .pushNamed(changePassPageRoute);
+                                              .pushNamed(changePassPageRoute,arguments: ChangePasAedgs(email: widget.email));
                                         }
                                             : null,
                                         label: S.current.verify,

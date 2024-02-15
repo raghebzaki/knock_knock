@@ -5,6 +5,7 @@ import 'package:knockknock/features/orders/my_orders/presentation/pages/my_order
 
 import '../../core/utils/app_colors.dart';
 import '../../core/utils/app_images.dart';
+import '../generated/l10n.dart';
 import 'main/credits/presentation/pages/credits_view.dart';
 import 'main/home/presentation/pages/home_view.dart';
 
@@ -47,14 +48,14 @@ class _BottomNavBarViewState extends State<BottomNavBarView> {
               icon: Image.asset(
                 AppImages.home,
               ),
-              label: "Home",
+              label: S.of(context).home,
               backgroundColor: AppColors.primary
           ),
           BottomNavigationBarItem(
               icon: Image.asset(
                 AppImages.booking,
               ),
-              label: "Booking",
+              label: S.of(context).booking,
               backgroundColor: AppColors.primary
 
           ),
@@ -62,7 +63,7 @@ class _BottomNavBarViewState extends State<BottomNavBarView> {
               icon: Image.asset(
                 AppImages.credits,
               ),
-              label: "Credits",
+              label: S.of(context).credits,
               backgroundColor: AppColors.primary
 
           ),
@@ -70,7 +71,7 @@ class _BottomNavBarViewState extends State<BottomNavBarView> {
               icon: Image.asset(
                 AppImages.profile,
               ),
-              label: "Profile",
+              label: S.of(context).profile,
               backgroundColor: AppColors.primary
 
           ),
@@ -124,14 +125,14 @@ class _BottomNavForAllScreenViewState extends State<BottomNavForAllScreenView> {
             icon: Image.asset(
               AppImages.home,
             ),
-            label: "Home",
+            label: S.of(context).home,
             backgroundColor: AppColors.primary
         ),
         BottomNavigationBarItem(
             icon: Image.asset(
               AppImages.booking,
             ),
-            label: "Booking",
+            label: S.of(context).booking,
             backgroundColor: AppColors.primary
 
         ),
@@ -139,7 +140,7 @@ class _BottomNavForAllScreenViewState extends State<BottomNavForAllScreenView> {
             icon: Image.asset(
               AppImages.credits,
             ),
-            label: "Credits",
+            label: S.of(context).credits,
             backgroundColor: AppColors.primary
 
         ),
@@ -147,7 +148,7 @@ class _BottomNavForAllScreenViewState extends State<BottomNavForAllScreenView> {
             icon: Image.asset(
               AppImages.profile,
             ),
-            label: "Profile",
+            label: S.of(context).profile,
             backgroundColor: AppColors.primary
 
         ),

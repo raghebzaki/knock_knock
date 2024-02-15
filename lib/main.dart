@@ -4,7 +4,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:hive/hive.dart';
 import 'package:knockknock/core/shared/cubits/cart_cubit/cart_cubit.dart';
+import 'package:path_provider/path_provider.dart';
 
 import 'core/dependency_injection/di.dart' as di;
 import 'core/helpers/cache_helper.dart';
@@ -21,6 +23,8 @@ void main() async {
   Bloc.observer = AppCubitObserver();
   await ScreenUtil.ensureScreenSize();
   await di.init();
+  final appDocumentDirectory = await getApplicationDocumentsDirectory();
+  Hive.init(appDocumentDirectory.path);
 
   ErrorWidget.builder = (FlutterErrorDetails errorDetails) {
     return MaterialApp(

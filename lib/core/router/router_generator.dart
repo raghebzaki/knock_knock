@@ -3,6 +3,7 @@ import 'package:knockknock/core/router/router.dart';
 import 'package:knockknock/features/address/add_new_address/presentation/pages/add_new_address_view.dart';
 import 'package:knockknock/features/address/map/presentation/pages/map_view.dart';
 import 'package:knockknock/features/address/saved_addresses/presentation/pages/saved_addresses_view.dart';
+import 'package:knockknock/features/credits/buy_credits/presentation/pages/buy_credits.dart';
 import 'package:knockknock/features/main/cart/presentation/pages/cart_view.dart';
 import 'package:knockknock/features/main/credits/presentation/pages/credits_view.dart';
 import 'package:knockknock/features/main/home/presentation/pages/home_view.dart';
@@ -25,6 +26,7 @@ import '../../features/auth/register/presentation/pages/register_view.dart';
 import '../../features/auth/reset_pass/presentation/pages/reset_pass_view.dart';
 import '../../features/auth/verify_account/presentation/pages/verify_account_view.dart';
 import '../../features/bottom_nav_bar.dart';
+import '../../features/credits/gift_card/presentation/pages/gift_card.dart';
 import '../../features/on_boarding/presentation/pages/on_boarding_view.dart';
 import '../../features/orders/order_details/presentation/pages/order_details_view.dart';
 import '../../main_view.dart';
@@ -124,6 +126,15 @@ class AppRouters {
           builder: (BuildContext context) => const MapView(),
         );
 
+        ///credits
+      case buyCreditPageRoute:
+        return MaterialPageRoute(
+          builder: (BuildContext context) => const BuyCreditsView(),
+        );
+      case sendGiftPageRoute:
+        return MaterialPageRoute(
+          builder: (BuildContext context) => const GiftCardView(),
+        );
         /// profile
       case profilePageRoute:
         return MaterialPageRoute(

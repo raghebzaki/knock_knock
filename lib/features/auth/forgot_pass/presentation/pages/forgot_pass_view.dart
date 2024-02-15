@@ -94,8 +94,8 @@ class _ForgotPassViewState extends State<ForgotPassView> {
                                   return CustomFormField(
                                     label: S.current.email,
                                     isObscure: false,
-                                    onChange: (phone) {
-                                      forgotPassCubit.validatePhone(phone);
+                                    onChange: (email) {
+                                      forgotPassCubit.validateEmail(email);
                                     },
                                   );
                                 }),
