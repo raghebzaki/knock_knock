@@ -6,7 +6,6 @@ import 'package:material_design_icons_flutter/material_design_icons_flutter.dart
 
 import '../../../../../../config/themes/app_text_styles.dart';
 import '../../../../../../core/helpers/cache_helper.dart';
-import '../../../../../../core/router/router.dart';
 import '../../../../../../core/utils/app_colors.dart';
 import '../../../../../../core/utils/dimensions.dart';
 import '../../../../../../generated/l10n.dart';
