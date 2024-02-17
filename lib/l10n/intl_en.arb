@@ -72,6 +72,8 @@
   "otpIsCorrect": "otp is correct",
   "failedToCheckOtp": "failed to checkOtp",
   "otpSentTo": "OTP sent to",
+  "accountVerifiedSuccessfully": "Account Verified Successfully",
+  "failedToVerifyAccount": "Failed to verify account",
 
   "@ForgetPassword": {},
   "ForgetPassword": "Forget Password",

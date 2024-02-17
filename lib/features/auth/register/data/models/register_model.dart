@@ -6,13 +6,13 @@ class RegisterModel extends RegisterEntity {
   const RegisterModel ({
     super.status,
     super.msg,
-    super.userName,
+    super.firstName,
     super.email,
     super.id,
     super.phone,
     super.pass,
     super.confirmPass,
-    super.type
+    super.lastName
   });
 
   factory RegisterModel.fromJson(Map<String, dynamic> json) {
@@ -26,11 +26,12 @@ class RegisterModel extends RegisterEntity {
 
   static Map<String, dynamic> toJson(RegisterEntity registerEntity) {
     return {
-      'name': registerEntity.userName,
+      'first_name': registerEntity.firstName,
+      'last_name': registerEntity.lastName,
       'email': registerEntity.email,
       'password': registerEntity.pass,
       'password_confirmation': registerEntity.confirmPass,
-      'type':registerEntity.type
+      'phone':registerEntity.phone
     };
   }
 }

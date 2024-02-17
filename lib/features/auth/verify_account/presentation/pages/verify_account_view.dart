@@ -14,6 +14,7 @@ import '../../../../../core/utils/app_colors.dart';
 import '../../../../../core/utils/app_images.dart';
 import '../../../../../core/utils/dimensions.dart';
 import '../../../../../generated/l10n.dart';
+import '../../domain/entities/verify_account_entity.dart';
 import '../manager/verify_account_cubit.dart';
 
 class VerifyAccountView extends StatefulWidget {
@@ -38,18 +39,18 @@ class _VerifyAccountViewState extends State<VerifyAccountView> {
           state.maybeWhen(
             success: (state) {
               if (state.status == 1) {
-                context.defaultSnackBar("Account Verified Successfully");
+                context.defaultSnackBar(S.of(context).accountVerifiedSuccessfully);
                 context.pushNamed(loginPageRoute);
               } else {
-                context.defaultSnackBar("Failed to verify account");
+                context.defaultSnackBar(S.of(context).failedToVerifyAccount);
                 // defaultSnackBar(context, S.of(context).IncorrectVerificationCode);
               }
             },
             resendCode: (state) {
-              context.defaultSnackBar("OTP sent to $state");
+              context.defaultSnackBar("${S.current.otpSentTo} $state");
             },
             error: (errCode, err) {
-              context.defaultSnackBar("Error Code: $errCode, $err");
+              context.defaultSnackBar("${S.current.err_code}: $errCode, $err");
             },
             orElse: () {
               return null;
@@ -94,16 +95,9 @@ class _VerifyAccountViewState extends State<VerifyAccountView> {
                                       verifyAccountCubit.validateCode(code);
                                     },
                                     closeKeyboardWhenCompleted: false,
-                                    // onSubmitted: (value) {
-                                    //   verifyAccountCubit.verifyUserAccount(
-                                    //     VerifyAccountEntity(
-                                    //       email: widget.email,
-                                    //       otp: pinCtrl.text,
-                                    //     ),
-                                    //   );
-                                    //   // context.pushNamed(login);
-                                    // },
-                                    length: 4,
+                                    
+                                    length: 6,
+                                    controller: pinCtrl,
                                     mainAxisAlignment:
                                         MainAxisAlignment.spaceEvenly,
                                     crossAxisAlignment:
@@ -155,8 +149,12 @@ class _VerifyAccountViewState extends State<VerifyAccountView> {
                                         fgColor: AppColors.primary,
                                         onPressed: snapshot.hasData
                                             ? () {
-                                                context
-                                                    .pushNamed(loginPageRoute);
+                                          verifyAccountCubit.verifyUserAccount(
+                                                  VerifyAccountEntity(
+                                                    email: widget.email,
+                                                    otp: pinCtrl.text,
+                                                  ),
+                                                );
                                               }
                                             : null,
                                         label: S.current.verify,
@@ -165,7 +163,9 @@ class _VerifyAccountViewState extends State<VerifyAccountView> {
                                     Gap(5.w),
                                     Expanded(
                                       child: GestureDetector(
-                                        onTap: () {},
+                                        onTap: () {
+                                          verifyAccountCubit.resendCode(widget.email);
+                                        },
                                         child: Container(
                                           padding: EdgeInsets.symmetric(
                                             vertical: 11.h,
@@ -179,7 +179,7 @@ class _VerifyAccountViewState extends State<VerifyAccountView> {
                                           ),
                                           child: Center(
                                               child: Text(
-                                            "Send Code",
+                                            S.of(context).sendCode,
                                             style: CustomTextStyle.kBtnTextStyle
                                                 .copyWith(
                                               color: AppColors.secondary,

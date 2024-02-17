@@ -12,7 +12,6 @@ import 'package:material_design_icons_flutter/material_design_icons_flutter.dart
 
 import '../../../../../config/themes/app_text_styles.dart';
 import '../../../../../core/router/router.dart';
-import '../../../../../core/shared/arguments.dart';
 import '../../../../../core/shared/widgets/custom_form_field.dart';
 import '../../../../../core/utils/app_colors.dart';
 import '../../../../../core/utils/app_images.dart';
@@ -286,30 +285,16 @@ class _RegisterViewState extends State<RegisterView> {
                                         label: S.current.register,
                                         onPressed: snapshot.hasData
                                             ? () async {
-                                                context.pushNamed(
-                                                  verifyAccountPageRoute,
-                                                  arguments:
-                                                      VerifyAccountArgs(
-                                                    email: registerCubit
-                                                        .firstNameCtrl.value,
-                                                  ),
-                                                );
-                                                // if (formKey.currentState!.validate()) {
-                                                //   registerCubit.userRegister(
-                                                //       RegisterEntity(
-                                                //         userName: registerCubit
-                                                //             .userNameCtrl.text,
-                                                //         email:
-                                                //             registerCubit.emailCtrl.text,
-                                                //         pass: registerCubit.passCtrl.text,
-                                                //         confirmPass: registerCubit
-                                                //             .passConfirmCtrl.text,
-                                                //         type: isCustomer
-                                                //             ? 'customer'
-                                                //             : 'designer',
-                                                //       ),
-                                                //       context);
-                                                // }
+                                                  registerCubit.userRegister(
+                                                      RegisterEntity(
+                                                        firstName: registerCubit.firstNameCtrl.value,
+                                                        lastName: registerCubit.lastNameCtrl.value,
+                                                        email: registerCubit.emailCtrl.value,
+                                                        phone: registerCubit.phoneCtrl.value,
+                                                        pass: registerCubit.passCtrl.value,
+                                                        confirmPass: registerCubit.passConfirmCtrl.value,
+
+                                                      ), context);
                                               }
                                             : null,
                                         fgColor: Colors.white,

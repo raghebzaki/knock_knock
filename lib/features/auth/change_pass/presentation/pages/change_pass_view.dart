@@ -15,6 +15,7 @@ import '../../../../../core/utils/app_colors.dart';
 import '../../../../../core/utils/app_images.dart';
 import '../../../../../core/utils/dimensions.dart';
 import '../../../../../generated/l10n.dart';
+import '../../domain/entities/change_pass_entity.dart';
 import '../manager/change_pass_cubit.dart';
 
 class ChangePassView extends StatefulWidget {
@@ -41,7 +42,7 @@ class _ChangePassViewState extends State<ChangePassView> {
             success: (state) {
               if (state.status == 1) {
                 context.defaultSnackBar(S.of(context).passwordChangedSuccessfully);
-                context.pushNamed(changePassConfirmationPageRoute);
+                context.pushNamed(loginPageRoute);
               } else {
                 context.defaultSnackBar(S.of(context).failedToChangePassword);
               }
@@ -166,18 +167,14 @@ class _ChangePassViewState extends State<ChangePassView> {
                                 return CustomBtn(
                                   label: S.current.change_pass,
                                   onPressed: snapshot.hasData ? () {
-                                    context.pushNamed(loginPageRoute);
-
-                                    // if (formKey.currentState!.validate()) {
-                                    //   changePassCubit.userChangePass(
-                                    //     ChangePassEntity(
-                                    //       email: widget.email,
-                                    //       pass: changePassCubit.passCtrl.text,
-                                    //       confirmPass:
-                                    //           changePassCubit.passConfirmCtrl.text,
-                                    //     ),
-                                    //   );
-                                    // }
+                                      changePassCubit.userChangePass(
+                                        ChangePassEntity(
+                                          email: widget.email,
+                                          pass: changePassCubit.passCtrl.value,
+                                          confirmPass:
+                                              changePassCubit.passConfirmCtrl.value,
+                                        ),
+                                      );
                                   } : null,
                                   fgColor: Colors.white,
                                   isUpperCase: true,

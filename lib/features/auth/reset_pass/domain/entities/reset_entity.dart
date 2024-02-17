@@ -4,7 +4,7 @@ class ResetPassEntity extends Equatable {
   final String? status;
   final String? msg;
   final String? email;
-  final int? otp;
+  final String? otp;
 
   const ResetPassEntity({
     this.status,

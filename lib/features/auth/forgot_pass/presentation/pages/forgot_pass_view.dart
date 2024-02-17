@@ -15,6 +15,7 @@ import '../../../../../core/utils/app_colors.dart';
 import '../../../../../core/utils/app_images.dart';
 import '../../../../../core/utils/dimensions.dart';
 import '../../../../../generated/l10n.dart';
+import '../../domain/entities/forget_pass_entity.dart';
 import '../manager/forgot_pass_cubit.dart';
 
 class ForgotPassView extends StatefulWidget {
@@ -111,20 +112,12 @@ class _ForgotPassViewState extends State<ForgotPassView> {
                                     label: S.current.sendCode,
                                     onPressed: snapshot.hasData
                                         ? () {
-                                            context.pushNamed(
-                                              resetPassPageRoute,
-                                              arguments: ResetPasAedgs(
-                                                email: forgotPassCubit
-                                                    .emailCtrl.value,
-                                              ),
-                                            );
-                                            // if (formKey.currentState!.validate()) {
-                                            //   forgotPassCubit.userForgotPass(
-                                            //     ForgetPassEntity(
-                                            //       email: forgotPassCubit.emailCtrl.text,
-                                            //     ),
-                                            //   );
-                                            // }
+
+                                              forgotPassCubit.userForgotPass(
+                                                ForgetPassEntity(
+                                                  email: forgotPassCubit.emailCtrl.value,
+                                                ),
+                                              );
                                           }
                                         : null,
                                     fgColor: Colors.white,

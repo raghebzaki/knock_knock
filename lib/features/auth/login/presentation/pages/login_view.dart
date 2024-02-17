@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gap/gap.dart';
 import 'package:knockknock/core/utils/extensions.dart';
+import 'package:knockknock/features/auth/login/domain/entities/login_entity.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 
 import '../../../../../config/themes/app_text_styles.dart';
@@ -52,7 +53,7 @@ class _LoginViewState extends State<LoginView> {
                 // UpdateFcmTokenService.updateUserToken(UserData.id!);
               } else if (state.status == 0) {
                 if (state.msg ==
-                    "Active your account first verification postalCode sent to your email !") {
+                    "Active your account first verification code sent to your email !") {
                   // await resendCodeUseCase(email.ifEmpty());
                   loginCubit.resendCode(loginCubit.phoneCtrl.value);
                   context.pushNamed(
@@ -203,60 +204,34 @@ class _LoginViewState extends State<LoginView> {
                         ],
                       ),
                       Gap(25.h),
-                      ConditionalBuilder(
-                          condition: state is! Loading,
-                          builder: (BuildContext context) {
-                            return CustomBtn(
-                              label: S.current.login,
-                              onPressed:  () {
-                                context.pushNamed(bottomNavBarPageRoute);
-                                //   loginCubit.userLogin(LoginEntity(
-                                //       userName: loginCubit.emailCtrl.text,
-                                //       pass: loginCubit.passCtrl.text,
-                                //     ),);
-                              },
-                              fgColor: Colors.white,
-                              isUpperCase: true,
-                            );
-                          },
-                          fallback: (BuildContext context) {
-                            return const Center(
-                              child: CircularProgressIndicator(
-                                color: AppColors.secondary,
-                              ),
-                            );
+                      StreamBuilder(
+                          stream: loginCubit.validBtnStream,
+                          builder: (context, snapshot) {
+                            return ConditionalBuilder(
+                                condition: state is! Loading,
+                                builder: (BuildContext context) {
+                                  return CustomBtn(
+                                    label: S.current.login,
+                                    onPressed: snapshot.hasData
+                                        ? () {
+                                              loginCubit.userLogin(LoginEntity(
+                                                  userName: loginCubit.phoneCtrl.value,
+                                                  pass: loginCubit.passCtrl.value,
+                                                ),);
+                                          }
+                                        : null,
+                                    fgColor: Colors.white,
+                                    isUpperCase: true,
+                                  );
+                                },
+                                fallback: (BuildContext context) {
+                                  return const Center(
+                                    child: CircularProgressIndicator(
+                                      color: AppColors.secondary,
+                                    ),
+                                  );
+                                });
                           }),
-                      // StreamBuilder(
-                      //     stream: loginCubit.validBtnStream,
-                      //     builder: (context, snapshot) {
-                      //       return ConditionalBuilder(
-                      //           condition: state is! Loading,
-                      //           builder: (BuildContext context) {
-                      //             return CustomBtn(
-                      //               label: S.current.login,
-                      //               onPressed: snapshot.hasData
-                      //                   ? () {
-                      //                       context.pushNamed(homePageRoute);
-                      //                       // if (formKey.currentState!.validate()) {
-                      //                       //   loginCubit.userLogin(LoginEntity(
-                      //                       //       userName: loginCubit.emailCtrl.text,
-                      //                       //       pass: loginCubit.passCtrl.text,
-                      //                       //     ),);
-                      //                       // }
-                      //                     }
-                      //                   : null,
-                      //               fgColor: Colors.white,
-                      //               isUpperCase: true,
-                      //             );
-                      //           },
-                      //           fallback: (BuildContext context) {
-                      //             return const Center(
-                      //               child: CircularProgressIndicator(
-                      //                 color: AppColors.secondary,
-                      //               ),
-                      //             );
-                      //           });
-                      //     }),
                       Gap(15.h),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,

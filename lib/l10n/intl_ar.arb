@@ -75,6 +75,8 @@
   "otpIsCorrect": "رمز التحقق صحيح",
   "failedToCheckOtp": "فشل في التحقق من الرمز",
   "otpSentTo": "تم إرسال رمز التحقق إلى",
+  "accountVerifiedSuccessfully": "تم التحقق من الحساب بنجاح",
+  "failedToVerifyAccount": "فشل التحقق من الحساب",
 
   "@ForgetPassword": {},
   "ForgetPassword": "نسيت كلمة المرور",

@@ -11,14 +11,14 @@ class VerifyAccountModel extends VerifyAccountEntity {
   factory VerifyAccountModel.fromJson(Map<String, dynamic> json) {
     return VerifyAccountModel(
       status: json['status'],
-      msg: json['success'],
+      msg: json['message'],
     );
   }
 
   static Map<String, dynamic> toJson(VerifyAccountEntity verifyAccountEntity) {
     return {
       'email': verifyAccountEntity.email,
-      'postalCode': verifyAccountEntity.otp,
+      'code': verifyAccountEntity.otp,
     };
   }
 }

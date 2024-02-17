@@ -27,9 +27,8 @@ class AppConstants {
   static String? fcmToken = "";
 
   // * API URIs
-  static const apiBaseUrl = "https://beautyproducts.website/api/";
-  static const imageUrl = "https://beautyproducts.website/";
-  static const fullImgUrl = "https://beautyproducts.website/uploads/users/";
+  static const apiBaseUrl = "https://dashboard.knock-knock.ae/api/";
+  static const imageUrl = "https://dashboard.knock-knock.ae/";
   static const loginUri = "auth/login";
   static const forgotPassUri = "auth/forget-password";
   static const resetPassUri = "auth/reset-password";
@@ -37,7 +36,7 @@ class AppConstants {
   static const registerUri = "auth/register";
   static const verifyAccountUri = "auth/account_verification";
   static const checkEmailRegisterUri = "auth/check_email_before_register";
-  static const resendCodeUri = "auth/resend-postalCode";
+  static const resendCodeUri = "auth/resend-code";
 
   ///main
   static const productsUri = "";

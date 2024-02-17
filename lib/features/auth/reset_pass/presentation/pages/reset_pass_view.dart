@@ -6,6 +6,7 @@ import 'package:gap/gap.dart';
 import 'package:knockknock/core/router/router.dart';
 import 'package:knockknock/core/shared/arguments.dart';
 import 'package:knockknock/core/utils/extensions.dart';
+import 'package:knockknock/features/auth/reset_pass/domain/entities/reset_entity.dart';
 import 'package:knockknock/features/auth/reset_pass/presentation/manager/reset_pass_cubit.dart';
 import 'package:pinput/pinput.dart';
 
@@ -108,7 +109,8 @@ class _ResetPassViewState extends State<ResetPassView> {
                                     //   );
                                     //   // context.pushNamed(login);
                                     // },
-                                    length: 4,
+                                    controller: pinCtrl,
+                                    length: 6,
                                     mainAxisAlignment:
                                     MainAxisAlignment.spaceEvenly,
                                     crossAxisAlignment:
@@ -160,8 +162,12 @@ class _ResetPassViewState extends State<ResetPassView> {
                                         fgColor: AppColors.primary,
                                         onPressed: snapshot.hasData
                                             ? () {
-                                          context
-                                              .pushNamed(changePassPageRoute,arguments: ChangePasAedgs(email: widget.email));
+                                          resetPassCubit.verifyUserAccount(
+                                              ResetPassEntity(
+                                                email: widget.email,
+                                                otp: pinCtrl.text,
+                                              ),
+                                            );
                                         }
                                             : null,
                                         label: S.current.verify,
@@ -170,7 +176,9 @@ class _ResetPassViewState extends State<ResetPassView> {
                                     Gap(5.w),
                                     Expanded(
                                       child: GestureDetector(
-                                        onTap: () {},
+                                        onTap: () {
+                                          resetPassCubit.resendCode(widget.email,);
+                                        },
                                         child: Container(
                                           padding: EdgeInsets.symmetric(
                                             vertical: 11.h,
@@ -184,7 +192,7 @@ class _ResetPassViewState extends State<ResetPassView> {
                                           ),
                                           child: Center(
                                               child: Text(
-                                                "Send Code",
+                                                S.of(context).sendCode,
                                                 style: CustomTextStyle.kBtnTextStyle
                                                     .copyWith(
                                                   color: AppColors.secondary,

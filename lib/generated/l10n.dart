@@ -690,6 +690,26 @@ class S {
     );
   }
 
+  /// `Account Verified Successfully`
+  String get accountVerifiedSuccessfully {
+    return Intl.message(
+      'Account Verified Successfully',
+      name: 'accountVerifiedSuccessfully',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Failed to verify account`
+  String get failedToVerifyAccount {
+    return Intl.message(
+      'Failed to verify account',
+      name: 'failedToVerifyAccount',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Forget Password`
   String get ForgetPassword {
     return Intl.message(

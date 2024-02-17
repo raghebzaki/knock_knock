@@ -45,7 +45,7 @@ class RegisterCubit extends Cubit<RegisterState> {
           context.pushNamed(
             verifyAccountPageRoute,
             arguments: VerifyAccountArgs(
-              email: firstNameCtrl.value,
+              email: emailCtrl.value,
             ),
           );
           context.defaultSnackBar("Registered Successfully");

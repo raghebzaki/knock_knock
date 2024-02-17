@@ -31,6 +31,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("رقم حساب الشخص الذي تحب"),
         "accountUpdatedSuccessfully":
             MessageLookupByLibrary.simpleMessage("تم تحديث الحساب بنجاح"),
+        "accountVerifiedSuccessfully":
+            MessageLookupByLibrary.simpleMessage("تم التحقق من الحساب بنجاح"),
         "add": MessageLookupByLibrary.simpleMessage("إضافة"),
         "addAddress": MessageLookupByLibrary.simpleMessage("إضافة العنوان"),
         "addNewAddress":
@@ -117,6 +119,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("فشل تغيير كلمة المرور"),
         "failedToCheckOtp":
             MessageLookupByLibrary.simpleMessage("فشل في التحقق من الرمز"),
+        "failedToVerifyAccount":
+            MessageLookupByLibrary.simpleMessage("فشل التحقق من الحساب"),
         "finish": MessageLookupByLibrary.simpleMessage("انتهاء"),
         "firstName": MessageLookupByLibrary.simpleMessage("الاسم الأول"),
         "firstNameCantBeEmpty": MessageLookupByLibrary.simpleMessage(

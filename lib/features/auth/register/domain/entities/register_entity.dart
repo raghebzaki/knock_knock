@@ -4,23 +4,23 @@ class RegisterEntity extends Equatable {
   final num? status;
   final String? msg;
   final num? id;
-  final String? userName;
+  final String? firstName;
+  final String? lastName;
   final String? phone;
   final String? email;
   final String? pass;
   final String? confirmPass;
-  final String? type;
 
   const RegisterEntity({
     this.status,
     this.msg,
     this.id,
-    this.userName,
+    this.firstName,
+    this.lastName,
     this.phone,
     this.email,
     this.pass,
     this.confirmPass,
-    this.type,
   });
 
   @override
@@ -28,11 +28,10 @@ class RegisterEntity extends Equatable {
         status,
         msg,
         id,
-        userName,
+        firstName,
         phone,
         email,
         pass,
         confirmPass,
-        type
       ];
 }

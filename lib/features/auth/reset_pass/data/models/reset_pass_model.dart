@@ -11,7 +11,7 @@ class ResetPassModel extends ResetPassEntity {
   factory ResetPassModel.fromJson(Map<String, dynamic> json) {
     return ResetPassModel(
       status: json['status'],
-      msg: json['success'],
+      msg: json['message'],
     );
   }
 
