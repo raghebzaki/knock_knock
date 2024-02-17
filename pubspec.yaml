@@ -106,6 +106,7 @@ dependencies:
   uuid: ^4.3.3 # Generate a v4 (random) id
   file_picker: ^6.1.1 # A package that allows you to use a native file explorer to pick single or multiple absolute file paths, with extension filtering support.
   image_picker: ^1.0.7 # Flutter plugin for selecting images from the Android and iOS image library, and taking new pictures with the camera.
+  path_provider: ^2.1.2
 
   # Maps
   google_maps_flutter: ^2.5.3

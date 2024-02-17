@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
-part of 'register_cubit.dart';
+part of 'carousel_cubit.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -15,35 +15,35 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
-mixin _$RegisterState {
+mixin _$CarouselState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(RegisterEntity? registerEntity) success,
-    required TResult Function(String status) checkEmailSuccess,
-    required TResult Function(String errCode, String err) error,
-    required TResult Function() validEmail,
+    required TResult Function(List<CarouselEntity>? carouselEntity) success,
+    required TResult Function() paginationLoading,
+    required TResult Function(String? errCode, String? err) paginationError,
+    required TResult Function(String? errCode, String? err) error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(RegisterEntity? registerEntity)? success,
-    TResult? Function(String status)? checkEmailSuccess,
-    TResult? Function(String errCode, String err)? error,
-    TResult? Function()? validEmail,
+    TResult? Function(List<CarouselEntity>? carouselEntity)? success,
+    TResult? Function()? paginationLoading,
+    TResult? Function(String? errCode, String? err)? paginationError,
+    TResult? Function(String? errCode, String? err)? error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(RegisterEntity? registerEntity)? success,
-    TResult Function(String status)? checkEmailSuccess,
-    TResult Function(String errCode, String err)? error,
-    TResult Function()? validEmail,
+    TResult Function(List<CarouselEntity>? carouselEntity)? success,
+    TResult Function()? paginationLoading,
+    TResult Function(String? errCode, String? err)? paginationError,
+    TResult Function(String? errCode, String? err)? error,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -52,9 +52,9 @@ mixin _$RegisterState {
     required TResult Function(_Initial value) initial,
     required TResult Function(Loading value) loading,
     required TResult Function(Success value) success,
-    required TResult Function(CheckEmailSuccess value) checkEmailSuccess,
+    required TResult Function(PaginationLoading value) paginationLoading,
+    required TResult Function(PaginationError value) paginationError,
     required TResult Function(Error value) error,
-    required TResult Function(ValidEmail value) validEmail,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -62,9 +62,9 @@ mixin _$RegisterState {
     TResult? Function(_Initial value)? initial,
     TResult? Function(Loading value)? loading,
     TResult? Function(Success value)? success,
-    TResult? Function(CheckEmailSuccess value)? checkEmailSuccess,
+    TResult? Function(PaginationLoading value)? paginationLoading,
+    TResult? Function(PaginationError value)? paginationError,
     TResult? Function(Error value)? error,
-    TResult? Function(ValidEmail value)? validEmail,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -72,25 +72,25 @@ mixin _$RegisterState {
     TResult Function(_Initial value)? initial,
     TResult Function(Loading value)? loading,
     TResult Function(Success value)? success,
-    TResult Function(CheckEmailSuccess value)? checkEmailSuccess,
+    TResult Function(PaginationLoading value)? paginationLoading,
+    TResult Function(PaginationError value)? paginationError,
     TResult Function(Error value)? error,
-    TResult Function(ValidEmail value)? validEmail,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $RegisterStateCopyWith<$Res> {
-  factory $RegisterStateCopyWith(
-          RegisterState value, $Res Function(RegisterState) then) =
-      _$RegisterStateCopyWithImpl<$Res, RegisterState>;
+abstract class $CarouselStateCopyWith<$Res> {
+  factory $CarouselStateCopyWith(
+          CarouselState value, $Res Function(CarouselState) then) =
+      _$CarouselStateCopyWithImpl<$Res, CarouselState>;
 }
 
 /// @nodoc
-class _$RegisterStateCopyWithImpl<$Res, $Val extends RegisterState>
-    implements $RegisterStateCopyWith<$Res> {
-  _$RegisterStateCopyWithImpl(this._value, this._then);
+class _$CarouselStateCopyWithImpl<$Res, $Val extends CarouselState>
+    implements $CarouselStateCopyWith<$Res> {
+  _$CarouselStateCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -107,7 +107,7 @@ abstract class _$$InitialImplCopyWith<$Res> {
 
 /// @nodoc
 class __$$InitialImplCopyWithImpl<$Res>
-    extends _$RegisterStateCopyWithImpl<$Res, _$InitialImpl>
+    extends _$CarouselStateCopyWithImpl<$Res, _$InitialImpl>
     implements _$$InitialImplCopyWith<$Res> {
   __$$InitialImplCopyWithImpl(
       _$InitialImpl _value, $Res Function(_$InitialImpl) _then)
@@ -121,7 +121,7 @@ class _$InitialImpl implements _Initial {
 
   @override
   String toString() {
-    return 'RegisterState.initial()';
+    return 'CarouselState.initial()';
   }
 
   @override
@@ -138,10 +138,10 @@ class _$InitialImpl implements _Initial {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(RegisterEntity? registerEntity) success,
-    required TResult Function(String status) checkEmailSuccess,
-    required TResult Function(String errCode, String err) error,
-    required TResult Function() validEmail,
+    required TResult Function(List<CarouselEntity>? carouselEntity) success,
+    required TResult Function() paginationLoading,
+    required TResult Function(String? errCode, String? err) paginationError,
+    required TResult Function(String? errCode, String? err) error,
   }) {
     return initial();
   }
@@ -151,10 +151,10 @@ class _$InitialImpl implements _Initial {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(RegisterEntity? registerEntity)? success,
-    TResult? Function(String status)? checkEmailSuccess,
-    TResult? Function(String errCode, String err)? error,
-    TResult? Function()? validEmail,
+    TResult? Function(List<CarouselEntity>? carouselEntity)? success,
+    TResult? Function()? paginationLoading,
+    TResult? Function(String? errCode, String? err)? paginationError,
+    TResult? Function(String? errCode, String? err)? error,
   }) {
     return initial?.call();
   }
@@ -164,10 +164,10 @@ class _$InitialImpl implements _Initial {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(RegisterEntity? registerEntity)? success,
-    TResult Function(String status)? checkEmailSuccess,
-    TResult Function(String errCode, String err)? error,
-    TResult Function()? validEmail,
+    TResult Function(List<CarouselEntity>? carouselEntity)? success,
+    TResult Function()? paginationLoading,
+    TResult Function(String? errCode, String? err)? paginationError,
+    TResult Function(String? errCode, String? err)? error,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -182,9 +182,9 @@ class _$InitialImpl implements _Initial {
     required TResult Function(_Initial value) initial,
     required TResult Function(Loading value) loading,
     required TResult Function(Success value) success,
-    required TResult Function(CheckEmailSuccess value) checkEmailSuccess,
+    required TResult Function(PaginationLoading value) paginationLoading,
+    required TResult Function(PaginationError value) paginationError,
     required TResult Function(Error value) error,
-    required TResult Function(ValidEmail value) validEmail,
   }) {
     return initial(this);
   }
@@ -195,9 +195,9 @@ class _$InitialImpl implements _Initial {
     TResult? Function(_Initial value)? initial,
     TResult? Function(Loading value)? loading,
     TResult? Function(Success value)? success,
-    TResult? Function(CheckEmailSuccess value)? checkEmailSuccess,
+    TResult? Function(PaginationLoading value)? paginationLoading,
+    TResult? Function(PaginationError value)? paginationError,
     TResult? Function(Error value)? error,
-    TResult? Function(ValidEmail value)? validEmail,
   }) {
     return initial?.call(this);
   }
@@ -208,9 +208,9 @@ class _$InitialImpl implements _Initial {
     TResult Function(_Initial value)? initial,
     TResult Function(Loading value)? loading,
     TResult Function(Success value)? success,
-    TResult Function(CheckEmailSuccess value)? checkEmailSuccess,
+    TResult Function(PaginationLoading value)? paginationLoading,
+    TResult Function(PaginationError value)? paginationError,
     TResult Function(Error value)? error,
-    TResult Function(ValidEmail value)? validEmail,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -220,7 +220,7 @@ class _$InitialImpl implements _Initial {
   }
 }
 
-abstract class _Initial implements RegisterState {
+abstract class _Initial implements CarouselState {
   const factory _Initial() = _$InitialImpl;
 }
 
@@ -233,7 +233,7 @@ abstract class _$$LoadingImplCopyWith<$Res> {
 
 /// @nodoc
 class __$$LoadingImplCopyWithImpl<$Res>
-    extends _$RegisterStateCopyWithImpl<$Res, _$LoadingImpl>
+    extends _$CarouselStateCopyWithImpl<$Res, _$LoadingImpl>
     implements _$$LoadingImplCopyWith<$Res> {
   __$$LoadingImplCopyWithImpl(
       _$LoadingImpl _value, $Res Function(_$LoadingImpl) _then)
@@ -247,7 +247,7 @@ class _$LoadingImpl implements Loading {
 
   @override
   String toString() {
-    return 'RegisterState.loading()';
+    return 'CarouselState.loading()';
   }
 
   @override
@@ -264,10 +264,10 @@ class _$LoadingImpl implements Loading {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(RegisterEntity? registerEntity) success,
-    required TResult Function(String status) checkEmailSuccess,
-    required TResult Function(String errCode, String err) error,
-    required TResult Function() validEmail,
+    required TResult Function(List<CarouselEntity>? carouselEntity) success,
+    required TResult Function() paginationLoading,
+    required TResult Function(String? errCode, String? err) paginationError,
+    required TResult Function(String? errCode, String? err) error,
   }) {
     return loading();
   }
@@ -277,10 +277,10 @@ class _$LoadingImpl implements Loading {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(RegisterEntity? registerEntity)? success,
-    TResult? Function(String status)? checkEmailSuccess,
-    TResult? Function(String errCode, String err)? error,
-    TResult? Function()? validEmail,
+    TResult? Function(List<CarouselEntity>? carouselEntity)? success,
+    TResult? Function()? paginationLoading,
+    TResult? Function(String? errCode, String? err)? paginationError,
+    TResult? Function(String? errCode, String? err)? error,
   }) {
     return loading?.call();
   }
@@ -290,10 +290,10 @@ class _$LoadingImpl implements Loading {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(RegisterEntity? registerEntity)? success,
-    TResult Function(String status)? checkEmailSuccess,
-    TResult Function(String errCode, String err)? error,
-    TResult Function()? validEmail,
+    TResult Function(List<CarouselEntity>? carouselEntity)? success,
+    TResult Function()? paginationLoading,
+    TResult Function(String? errCode, String? err)? paginationError,
+    TResult Function(String? errCode, String? err)? error,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -308,9 +308,9 @@ class _$LoadingImpl implements Loading {
     required TResult Function(_Initial value) initial,
     required TResult Function(Loading value) loading,
     required TResult Function(Success value) success,
-    required TResult Function(CheckEmailSuccess value) checkEmailSuccess,
+    required TResult Function(PaginationLoading value) paginationLoading,
+    required TResult Function(PaginationError value) paginationError,
     required TResult Function(Error value) error,
-    required TResult Function(ValidEmail value) validEmail,
   }) {
     return loading(this);
   }
@@ -321,9 +321,9 @@ class _$LoadingImpl implements Loading {
     TResult? Function(_Initial value)? initial,
     TResult? Function(Loading value)? loading,
     TResult? Function(Success value)? success,
-    TResult? Function(CheckEmailSuccess value)? checkEmailSuccess,
+    TResult? Function(PaginationLoading value)? paginationLoading,
+    TResult? Function(PaginationError value)? paginationError,
     TResult? Function(Error value)? error,
-    TResult? Function(ValidEmail value)? validEmail,
   }) {
     return loading?.call(this);
   }
@@ -334,9 +334,9 @@ class _$LoadingImpl implements Loading {
     TResult Function(_Initial value)? initial,
     TResult Function(Loading value)? loading,
     TResult Function(Success value)? success,
-    TResult Function(CheckEmailSuccess value)? checkEmailSuccess,
+    TResult Function(PaginationLoading value)? paginationLoading,
+    TResult Function(PaginationError value)? paginationError,
     TResult Function(Error value)? error,
-    TResult Function(ValidEmail value)? validEmail,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -346,7 +346,7 @@ class _$LoadingImpl implements Loading {
   }
 }
 
-abstract class Loading implements RegisterState {
+abstract class Loading implements CarouselState {
   const factory Loading() = _$LoadingImpl;
 }
 
@@ -356,12 +356,12 @@ abstract class _$$SuccessImplCopyWith<$Res> {
           _$SuccessImpl value, $Res Function(_$SuccessImpl) then) =
       __$$SuccessImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({RegisterEntity? registerEntity});
+  $Res call({List<CarouselEntity>? carouselEntity});
 }
 
 /// @nodoc
 class __$$SuccessImplCopyWithImpl<$Res>
-    extends _$RegisterStateCopyWithImpl<$Res, _$SuccessImpl>
+    extends _$CarouselStateCopyWithImpl<$Res, _$SuccessImpl>
     implements _$$SuccessImplCopyWith<$Res> {
   __$$SuccessImplCopyWithImpl(
       _$SuccessImpl _value, $Res Function(_$SuccessImpl) _then)
@@ -370,13 +370,13 @@ class __$$SuccessImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? registerEntity = freezed,
+    Object? carouselEntity = freezed,
   }) {
     return _then(_$SuccessImpl(
-      freezed == registerEntity
-          ? _value.registerEntity
-          : registerEntity // ignore: cast_nullable_to_non_nullable
-              as RegisterEntity?,
+      freezed == carouselEntity
+          ? _value._carouselEntity
+          : carouselEntity // ignore: cast_nullable_to_non_nullable
+              as List<CarouselEntity>?,
     ));
   }
 }
@@ -384,14 +384,22 @@ class __$$SuccessImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$SuccessImpl implements Success {
-  const _$SuccessImpl(this.registerEntity);
+  const _$SuccessImpl(final List<CarouselEntity>? carouselEntity)
+      : _carouselEntity = carouselEntity;
 
+  final List<CarouselEntity>? _carouselEntity;
   @override
-  final RegisterEntity? registerEntity;
+  List<CarouselEntity>? get carouselEntity {
+    final value = _carouselEntity;
+    if (value == null) return null;
+    if (_carouselEntity is EqualUnmodifiableListView) return _carouselEntity;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(value);
+  }
 
   @override
   String toString() {
-    return 'RegisterState.success(registerEntity: $registerEntity)';
+    return 'CarouselState.success(carouselEntity: $carouselEntity)';
   }
 
   @override
@@ -399,12 +407,13 @@ class _$SuccessImpl implements Success {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$SuccessImpl &&
-            (identical(other.registerEntity, registerEntity) ||
-                other.registerEntity == registerEntity));
+            const DeepCollectionEquality()
+                .equals(other._carouselEntity, _carouselEntity));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, registerEntity);
+  int get hashCode => Object.hash(
+      runtimeType, const DeepCollectionEquality().hash(_carouselEntity));
 
   @JsonKey(ignore: true)
   @override
@@ -417,12 +426,12 @@ class _$SuccessImpl implements Success {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(RegisterEntity? registerEntity) success,
-    required TResult Function(String status) checkEmailSuccess,
-    required TResult Function(String errCode, String err) error,
-    required TResult Function() validEmail,
+    required TResult Function(List<CarouselEntity>? carouselEntity) success,
+    required TResult Function() paginationLoading,
+    required TResult Function(String? errCode, String? err) paginationError,
+    required TResult Function(String? errCode, String? err) error,
   }) {
-    return success(registerEntity);
+    return success(carouselEntity);
   }
 
   @override
@@ -430,12 +439,12 @@ class _$SuccessImpl implements Success {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(RegisterEntity? registerEntity)? success,
-    TResult? Function(String status)? checkEmailSuccess,
-    TResult? Function(String errCode, String err)? error,
-    TResult? Function()? validEmail,
+    TResult? Function(List<CarouselEntity>? carouselEntity)? success,
+    TResult? Function()? paginationLoading,
+    TResult? Function(String? errCode, String? err)? paginationError,
+    TResult? Function(String? errCode, String? err)? error,
   }) {
-    return success?.call(registerEntity);
+    return success?.call(carouselEntity);
   }
 
   @override
@@ -443,14 +452,14 @@ class _$SuccessImpl implements Success {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(RegisterEntity? registerEntity)? success,
-    TResult Function(String status)? checkEmailSuccess,
-    TResult Function(String errCode, String err)? error,
-    TResult Function()? validEmail,
+    TResult Function(List<CarouselEntity>? carouselEntity)? success,
+    TResult Function()? paginationLoading,
+    TResult Function(String? errCode, String? err)? paginationError,
+    TResult Function(String? errCode, String? err)? error,
     required TResult orElse(),
   }) {
     if (success != null) {
-      return success(registerEntity);
+      return success(carouselEntity);
     }
     return orElse();
   }
@@ -461,9 +470,9 @@ class _$SuccessImpl implements Success {
     required TResult Function(_Initial value) initial,
     required TResult Function(Loading value) loading,
     required TResult Function(Success value) success,
-    required TResult Function(CheckEmailSuccess value) checkEmailSuccess,
+    required TResult Function(PaginationLoading value) paginationLoading,
+    required TResult Function(PaginationError value) paginationError,
     required TResult Function(Error value) error,
-    required TResult Function(ValidEmail value) validEmail,
   }) {
     return success(this);
   }
@@ -474,9 +483,9 @@ class _$SuccessImpl implements Success {
     TResult? Function(_Initial value)? initial,
     TResult? Function(Loading value)? loading,
     TResult? Function(Success value)? success,
-    TResult? Function(CheckEmailSuccess value)? checkEmailSuccess,
+    TResult? Function(PaginationLoading value)? paginationLoading,
+    TResult? Function(PaginationError value)? paginationError,
     TResult? Function(Error value)? error,
-    TResult? Function(ValidEmail value)? validEmail,
   }) {
     return success?.call(this);
   }
@@ -487,9 +496,9 @@ class _$SuccessImpl implements Success {
     TResult Function(_Initial value)? initial,
     TResult Function(Loading value)? loading,
     TResult Function(Success value)? success,
-    TResult Function(CheckEmailSuccess value)? checkEmailSuccess,
+    TResult Function(PaginationLoading value)? paginationLoading,
+    TResult Function(PaginationError value)? paginationError,
     TResult Function(Error value)? error,
-    TResult Function(ValidEmail value)? validEmail,
     required TResult orElse(),
   }) {
     if (success != null) {
@@ -499,88 +508,62 @@ class _$SuccessImpl implements Success {
   }
 }
 
-abstract class Success implements RegisterState {
-  const factory Success(final RegisterEntity? registerEntity) = _$SuccessImpl;
+abstract class Success implements CarouselState {
+  const factory Success(final List<CarouselEntity>? carouselEntity) =
+      _$SuccessImpl;
 
-  RegisterEntity? get registerEntity;
+  List<CarouselEntity>? get carouselEntity;
   @JsonKey(ignore: true)
   _$$SuccessImplCopyWith<_$SuccessImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$CheckEmailSuccessImplCopyWith<$Res> {
-  factory _$$CheckEmailSuccessImplCopyWith(_$CheckEmailSuccessImpl value,
-          $Res Function(_$CheckEmailSuccessImpl) then) =
-      __$$CheckEmailSuccessImplCopyWithImpl<$Res>;
-  @useResult
-  $Res call({String status});
+abstract class _$$PaginationLoadingImplCopyWith<$Res> {
+  factory _$$PaginationLoadingImplCopyWith(_$PaginationLoadingImpl value,
+          $Res Function(_$PaginationLoadingImpl) then) =
+      __$$PaginationLoadingImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$CheckEmailSuccessImplCopyWithImpl<$Res>
-    extends _$RegisterStateCopyWithImpl<$Res, _$CheckEmailSuccessImpl>
-    implements _$$CheckEmailSuccessImplCopyWith<$Res> {
-  __$$CheckEmailSuccessImplCopyWithImpl(_$CheckEmailSuccessImpl _value,
-      $Res Function(_$CheckEmailSuccessImpl) _then)
+class __$$PaginationLoadingImplCopyWithImpl<$Res>
+    extends _$CarouselStateCopyWithImpl<$Res, _$PaginationLoadingImpl>
+    implements _$$PaginationLoadingImplCopyWith<$Res> {
+  __$$PaginationLoadingImplCopyWithImpl(_$PaginationLoadingImpl _value,
+      $Res Function(_$PaginationLoadingImpl) _then)
       : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? status = null,
-  }) {
-    return _then(_$CheckEmailSuccessImpl(
-      null == status
-          ? _value.status
-          : status // ignore: cast_nullable_to_non_nullable
-              as String,
-    ));
-  }
 }
 
 /// @nodoc
 
-class _$CheckEmailSuccessImpl implements CheckEmailSuccess {
-  const _$CheckEmailSuccessImpl(this.status);
-
-  @override
-  final String status;
+class _$PaginationLoadingImpl implements PaginationLoading {
+  const _$PaginationLoadingImpl();
 
   @override
   String toString() {
-    return 'RegisterState.checkEmailSuccess(status: $status)';
+    return 'CarouselState.paginationLoading()';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$CheckEmailSuccessImpl &&
-            (identical(other.status, status) || other.status == status));
+        (other.runtimeType == runtimeType && other is _$PaginationLoadingImpl);
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, status);
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$CheckEmailSuccessImplCopyWith<_$CheckEmailSuccessImpl> get copyWith =>
-      __$$CheckEmailSuccessImplCopyWithImpl<_$CheckEmailSuccessImpl>(
-          this, _$identity);
+  int get hashCode => runtimeType.hashCode;
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(RegisterEntity? registerEntity) success,
-    required TResult Function(String status) checkEmailSuccess,
-    required TResult Function(String errCode, String err) error,
-    required TResult Function() validEmail,
+    required TResult Function(List<CarouselEntity>? carouselEntity) success,
+    required TResult Function() paginationLoading,
+    required TResult Function(String? errCode, String? err) paginationError,
+    required TResult Function(String? errCode, String? err) error,
   }) {
-    return checkEmailSuccess(status);
+    return paginationLoading();
   }
 
   @override
@@ -588,12 +571,12 @@ class _$CheckEmailSuccessImpl implements CheckEmailSuccess {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(RegisterEntity? registerEntity)? success,
-    TResult? Function(String status)? checkEmailSuccess,
-    TResult? Function(String errCode, String err)? error,
-    TResult? Function()? validEmail,
+    TResult? Function(List<CarouselEntity>? carouselEntity)? success,
+    TResult? Function()? paginationLoading,
+    TResult? Function(String? errCode, String? err)? paginationError,
+    TResult? Function(String? errCode, String? err)? error,
   }) {
-    return checkEmailSuccess?.call(status);
+    return paginationLoading?.call();
   }
 
   @override
@@ -601,14 +584,14 @@ class _$CheckEmailSuccessImpl implements CheckEmailSuccess {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(RegisterEntity? registerEntity)? success,
-    TResult Function(String status)? checkEmailSuccess,
-    TResult Function(String errCode, String err)? error,
-    TResult Function()? validEmail,
+    TResult Function(List<CarouselEntity>? carouselEntity)? success,
+    TResult Function()? paginationLoading,
+    TResult Function(String? errCode, String? err)? paginationError,
+    TResult Function(String? errCode, String? err)? error,
     required TResult orElse(),
   }) {
-    if (checkEmailSuccess != null) {
-      return checkEmailSuccess(status);
+    if (paginationLoading != null) {
+      return paginationLoading();
     }
     return orElse();
   }
@@ -619,11 +602,11 @@ class _$CheckEmailSuccessImpl implements CheckEmailSuccess {
     required TResult Function(_Initial value) initial,
     required TResult Function(Loading value) loading,
     required TResult Function(Success value) success,
-    required TResult Function(CheckEmailSuccess value) checkEmailSuccess,
+    required TResult Function(PaginationLoading value) paginationLoading,
+    required TResult Function(PaginationError value) paginationError,
     required TResult Function(Error value) error,
-    required TResult Function(ValidEmail value) validEmail,
   }) {
-    return checkEmailSuccess(this);
+    return paginationLoading(this);
   }
 
   @override
@@ -632,11 +615,11 @@ class _$CheckEmailSuccessImpl implements CheckEmailSuccess {
     TResult? Function(_Initial value)? initial,
     TResult? Function(Loading value)? loading,
     TResult? Function(Success value)? success,
-    TResult? Function(CheckEmailSuccess value)? checkEmailSuccess,
+    TResult? Function(PaginationLoading value)? paginationLoading,
+    TResult? Function(PaginationError value)? paginationError,
     TResult? Function(Error value)? error,
-    TResult? Function(ValidEmail value)? validEmail,
   }) {
-    return checkEmailSuccess?.call(this);
+    return paginationLoading?.call(this);
   }
 
   @override
@@ -645,25 +628,187 @@ class _$CheckEmailSuccessImpl implements CheckEmailSuccess {
     TResult Function(_Initial value)? initial,
     TResult Function(Loading value)? loading,
     TResult Function(Success value)? success,
-    TResult Function(CheckEmailSuccess value)? checkEmailSuccess,
+    TResult Function(PaginationLoading value)? paginationLoading,
+    TResult Function(PaginationError value)? paginationError,
     TResult Function(Error value)? error,
-    TResult Function(ValidEmail value)? validEmail,
     required TResult orElse(),
   }) {
-    if (checkEmailSuccess != null) {
-      return checkEmailSuccess(this);
+    if (paginationLoading != null) {
+      return paginationLoading(this);
     }
     return orElse();
   }
 }
 
-abstract class CheckEmailSuccess implements RegisterState {
-  const factory CheckEmailSuccess(final String status) =
-      _$CheckEmailSuccessImpl;
+abstract class PaginationLoading implements CarouselState {
+  const factory PaginationLoading() = _$PaginationLoadingImpl;
+}
 
-  String get status;
+/// @nodoc
+abstract class _$$PaginationErrorImplCopyWith<$Res> {
+  factory _$$PaginationErrorImplCopyWith(_$PaginationErrorImpl value,
+          $Res Function(_$PaginationErrorImpl) then) =
+      __$$PaginationErrorImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String? errCode, String? err});
+}
+
+/// @nodoc
+class __$$PaginationErrorImplCopyWithImpl<$Res>
+    extends _$CarouselStateCopyWithImpl<$Res, _$PaginationErrorImpl>
+    implements _$$PaginationErrorImplCopyWith<$Res> {
+  __$$PaginationErrorImplCopyWithImpl(
+      _$PaginationErrorImpl _value, $Res Function(_$PaginationErrorImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? errCode = freezed,
+    Object? err = freezed,
+  }) {
+    return _then(_$PaginationErrorImpl(
+      freezed == errCode
+          ? _value.errCode
+          : errCode // ignore: cast_nullable_to_non_nullable
+              as String?,
+      freezed == err
+          ? _value.err
+          : err // ignore: cast_nullable_to_non_nullable
+              as String?,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$PaginationErrorImpl implements PaginationError {
+  const _$PaginationErrorImpl(this.errCode, this.err);
+
+  @override
+  final String? errCode;
+  @override
+  final String? err;
+
+  @override
+  String toString() {
+    return 'CarouselState.paginationError(errCode: $errCode, err: $err)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$PaginationErrorImpl &&
+            (identical(other.errCode, errCode) || other.errCode == errCode) &&
+            (identical(other.err, err) || other.err == err));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, errCode, err);
+
   @JsonKey(ignore: true)
-  _$$CheckEmailSuccessImplCopyWith<_$CheckEmailSuccessImpl> get copyWith =>
+  @override
+  @pragma('vm:prefer-inline')
+  _$$PaginationErrorImplCopyWith<_$PaginationErrorImpl> get copyWith =>
+      __$$PaginationErrorImplCopyWithImpl<_$PaginationErrorImpl>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loading,
+    required TResult Function(List<CarouselEntity>? carouselEntity) success,
+    required TResult Function() paginationLoading,
+    required TResult Function(String? errCode, String? err) paginationError,
+    required TResult Function(String? errCode, String? err) error,
+  }) {
+    return paginationError(errCode, err);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function(List<CarouselEntity>? carouselEntity)? success,
+    TResult? Function()? paginationLoading,
+    TResult? Function(String? errCode, String? err)? paginationError,
+    TResult? Function(String? errCode, String? err)? error,
+  }) {
+    return paginationError?.call(errCode, err);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loading,
+    TResult Function(List<CarouselEntity>? carouselEntity)? success,
+    TResult Function()? paginationLoading,
+    TResult Function(String? errCode, String? err)? paginationError,
+    TResult Function(String? errCode, String? err)? error,
+    required TResult orElse(),
+  }) {
+    if (paginationError != null) {
+      return paginationError(errCode, err);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(Loading value) loading,
+    required TResult Function(Success value) success,
+    required TResult Function(PaginationLoading value) paginationLoading,
+    required TResult Function(PaginationError value) paginationError,
+    required TResult Function(Error value) error,
+  }) {
+    return paginationError(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(Loading value)? loading,
+    TResult? Function(Success value)? success,
+    TResult? Function(PaginationLoading value)? paginationLoading,
+    TResult? Function(PaginationError value)? paginationError,
+    TResult? Function(Error value)? error,
+  }) {
+    return paginationError?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(Loading value)? loading,
+    TResult Function(Success value)? success,
+    TResult Function(PaginationLoading value)? paginationLoading,
+    TResult Function(PaginationError value)? paginationError,
+    TResult Function(Error value)? error,
+    required TResult orElse(),
+  }) {
+    if (paginationError != null) {
+      return paginationError(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class PaginationError implements CarouselState {
+  const factory PaginationError(final String? errCode, final String? err) =
+      _$PaginationErrorImpl;
+
+  String? get errCode;
+  String? get err;
+  @JsonKey(ignore: true)
+  _$$PaginationErrorImplCopyWith<_$PaginationErrorImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -673,12 +818,12 @@ abstract class _$$ErrorImplCopyWith<$Res> {
           _$ErrorImpl value, $Res Function(_$ErrorImpl) then) =
       __$$ErrorImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({String errCode, String err});
+  $Res call({String? errCode, String? err});
 }
 
 /// @nodoc
 class __$$ErrorImplCopyWithImpl<$Res>
-    extends _$RegisterStateCopyWithImpl<$Res, _$ErrorImpl>
+    extends _$CarouselStateCopyWithImpl<$Res, _$ErrorImpl>
     implements _$$ErrorImplCopyWith<$Res> {
   __$$ErrorImplCopyWithImpl(
       _$ErrorImpl _value, $Res Function(_$ErrorImpl) _then)
@@ -687,18 +832,18 @@ class __$$ErrorImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? errCode = null,
-    Object? err = null,
+    Object? errCode = freezed,
+    Object? err = freezed,
   }) {
     return _then(_$ErrorImpl(
-      null == errCode
+      freezed == errCode
           ? _value.errCode
           : errCode // ignore: cast_nullable_to_non_nullable
-              as String,
-      null == err
+              as String?,
+      freezed == err
           ? _value.err
           : err // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
     ));
   }
 }
@@ -709,13 +854,13 @@ class _$ErrorImpl implements Error {
   const _$ErrorImpl(this.errCode, this.err);
 
   @override
-  final String errCode;
+  final String? errCode;
   @override
-  final String err;
+  final String? err;
 
   @override
   String toString() {
-    return 'RegisterState.error(errCode: $errCode, err: $err)';
+    return 'CarouselState.error(errCode: $errCode, err: $err)';
   }
 
   @override
@@ -741,10 +886,10 @@ class _$ErrorImpl implements Error {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(RegisterEntity? registerEntity) success,
-    required TResult Function(String status) checkEmailSuccess,
-    required TResult Function(String errCode, String err) error,
-    required TResult Function() validEmail,
+    required TResult Function(List<CarouselEntity>? carouselEntity) success,
+    required TResult Function() paginationLoading,
+    required TResult Function(String? errCode, String? err) paginationError,
+    required TResult Function(String? errCode, String? err) error,
   }) {
     return error(errCode, err);
   }
@@ -754,10 +899,10 @@ class _$ErrorImpl implements Error {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(RegisterEntity? registerEntity)? success,
-    TResult? Function(String status)? checkEmailSuccess,
-    TResult? Function(String errCode, String err)? error,
-    TResult? Function()? validEmail,
+    TResult? Function(List<CarouselEntity>? carouselEntity)? success,
+    TResult? Function()? paginationLoading,
+    TResult? Function(String? errCode, String? err)? paginationError,
+    TResult? Function(String? errCode, String? err)? error,
   }) {
     return error?.call(errCode, err);
   }
@@ -767,10 +912,10 @@ class _$ErrorImpl implements Error {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(RegisterEntity? registerEntity)? success,
-    TResult Function(String status)? checkEmailSuccess,
-    TResult Function(String errCode, String err)? error,
-    TResult Function()? validEmail,
+    TResult Function(List<CarouselEntity>? carouselEntity)? success,
+    TResult Function()? paginationLoading,
+    TResult Function(String? errCode, String? err)? paginationError,
+    TResult Function(String? errCode, String? err)? error,
     required TResult orElse(),
   }) {
     if (error != null) {
@@ -785,9 +930,9 @@ class _$ErrorImpl implements Error {
     required TResult Function(_Initial value) initial,
     required TResult Function(Loading value) loading,
     required TResult Function(Success value) success,
-    required TResult Function(CheckEmailSuccess value) checkEmailSuccess,
+    required TResult Function(PaginationLoading value) paginationLoading,
+    required TResult Function(PaginationError value) paginationError,
     required TResult Function(Error value) error,
-    required TResult Function(ValidEmail value) validEmail,
   }) {
     return error(this);
   }
@@ -798,9 +943,9 @@ class _$ErrorImpl implements Error {
     TResult? Function(_Initial value)? initial,
     TResult? Function(Loading value)? loading,
     TResult? Function(Success value)? success,
-    TResult? Function(CheckEmailSuccess value)? checkEmailSuccess,
+    TResult? Function(PaginationLoading value)? paginationLoading,
+    TResult? Function(PaginationError value)? paginationError,
     TResult? Function(Error value)? error,
-    TResult? Function(ValidEmail value)? validEmail,
   }) {
     return error?.call(this);
   }
@@ -811,9 +956,9 @@ class _$ErrorImpl implements Error {
     TResult Function(_Initial value)? initial,
     TResult Function(Loading value)? loading,
     TResult Function(Success value)? success,
-    TResult Function(CheckEmailSuccess value)? checkEmailSuccess,
+    TResult Function(PaginationLoading value)? paginationLoading,
+    TResult Function(PaginationError value)? paginationError,
     TResult Function(Error value)? error,
-    TResult Function(ValidEmail value)? validEmail,
     required TResult orElse(),
   }) {
     if (error != null) {
@@ -823,138 +968,12 @@ class _$ErrorImpl implements Error {
   }
 }
 
-abstract class Error implements RegisterState {
-  const factory Error(final String errCode, final String err) = _$ErrorImpl;
+abstract class Error implements CarouselState {
+  const factory Error(final String? errCode, final String? err) = _$ErrorImpl;
 
-  String get errCode;
-  String get err;
+  String? get errCode;
+  String? get err;
   @JsonKey(ignore: true)
   _$$ErrorImplCopyWith<_$ErrorImpl> get copyWith =>
       throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class _$$ValidEmailImplCopyWith<$Res> {
-  factory _$$ValidEmailImplCopyWith(
-          _$ValidEmailImpl value, $Res Function(_$ValidEmailImpl) then) =
-      __$$ValidEmailImplCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$$ValidEmailImplCopyWithImpl<$Res>
-    extends _$RegisterStateCopyWithImpl<$Res, _$ValidEmailImpl>
-    implements _$$ValidEmailImplCopyWith<$Res> {
-  __$$ValidEmailImplCopyWithImpl(
-      _$ValidEmailImpl _value, $Res Function(_$ValidEmailImpl) _then)
-      : super(_value, _then);
-}
-
-/// @nodoc
-
-class _$ValidEmailImpl implements ValidEmail {
-  const _$ValidEmailImpl();
-
-  @override
-  String toString() {
-    return 'RegisterState.validEmail()';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$ValidEmailImpl);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() initial,
-    required TResult Function() loading,
-    required TResult Function(RegisterEntity? registerEntity) success,
-    required TResult Function(String status) checkEmailSuccess,
-    required TResult Function(String errCode, String err) error,
-    required TResult Function() validEmail,
-  }) {
-    return validEmail();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? initial,
-    TResult? Function()? loading,
-    TResult? Function(RegisterEntity? registerEntity)? success,
-    TResult? Function(String status)? checkEmailSuccess,
-    TResult? Function(String errCode, String err)? error,
-    TResult? Function()? validEmail,
-  }) {
-    return validEmail?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function()? loading,
-    TResult Function(RegisterEntity? registerEntity)? success,
-    TResult Function(String status)? checkEmailSuccess,
-    TResult Function(String errCode, String err)? error,
-    TResult Function()? validEmail,
-    required TResult orElse(),
-  }) {
-    if (validEmail != null) {
-      return validEmail();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_Initial value) initial,
-    required TResult Function(Loading value) loading,
-    required TResult Function(Success value) success,
-    required TResult Function(CheckEmailSuccess value) checkEmailSuccess,
-    required TResult Function(Error value) error,
-    required TResult Function(ValidEmail value) validEmail,
-  }) {
-    return validEmail(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Initial value)? initial,
-    TResult? Function(Loading value)? loading,
-    TResult? Function(Success value)? success,
-    TResult? Function(CheckEmailSuccess value)? checkEmailSuccess,
-    TResult? Function(Error value)? error,
-    TResult? Function(ValidEmail value)? validEmail,
-  }) {
-    return validEmail?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    TResult Function(Loading value)? loading,
-    TResult Function(Success value)? success,
-    TResult Function(CheckEmailSuccess value)? checkEmailSuccess,
-    TResult Function(Error value)? error,
-    TResult Function(ValidEmail value)? validEmail,
-    required TResult orElse(),
-  }) {
-    if (validEmail != null) {
-      return validEmail(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class ValidEmail implements RegisterState {
-  const factory ValidEmail() = _$ValidEmailImpl;
 }

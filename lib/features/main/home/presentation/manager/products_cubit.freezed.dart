@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
-part of 'edit_profile_cubit.dart';
+part of 'products_cubit.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -15,33 +15,35 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
-mixin _$EditProfileState {
+mixin _$ProductsState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(EditProfileEntity? editProfileEntity) success,
-    required TResult Function(EditProfileEntity? editProfileEntity)
-        deleteSuccess,
+    required TResult Function(List<ProductEntity>? productEntity) success,
     required TResult Function(String? errCode, String? err) error,
+    required TResult Function() paginationLoading,
+    required TResult Function(String? errCode, String? err) paginationError,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(EditProfileEntity? editProfileEntity)? success,
-    TResult? Function(EditProfileEntity? editProfileEntity)? deleteSuccess,
+    TResult? Function(List<ProductEntity>? productEntity)? success,
     TResult? Function(String? errCode, String? err)? error,
+    TResult? Function()? paginationLoading,
+    TResult? Function(String? errCode, String? err)? paginationError,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(EditProfileEntity? editProfileEntity)? success,
-    TResult Function(EditProfileEntity? editProfileEntity)? deleteSuccess,
+    TResult Function(List<ProductEntity>? productEntity)? success,
     TResult Function(String? errCode, String? err)? error,
+    TResult Function()? paginationLoading,
+    TResult Function(String? errCode, String? err)? paginationError,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -50,8 +52,9 @@ mixin _$EditProfileState {
     required TResult Function(_Initial value) initial,
     required TResult Function(Loading value) loading,
     required TResult Function(Success value) success,
-    required TResult Function(DeleteSuccess value) deleteSuccess,
     required TResult Function(Error value) error,
+    required TResult Function(PaginationLoading value) paginationLoading,
+    required TResult Function(PaginationSuccess value) paginationError,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -59,8 +62,9 @@ mixin _$EditProfileState {
     TResult? Function(_Initial value)? initial,
     TResult? Function(Loading value)? loading,
     TResult? Function(Success value)? success,
-    TResult? Function(DeleteSuccess value)? deleteSuccess,
     TResult? Function(Error value)? error,
+    TResult? Function(PaginationLoading value)? paginationLoading,
+    TResult? Function(PaginationSuccess value)? paginationError,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -68,24 +72,25 @@ mixin _$EditProfileState {
     TResult Function(_Initial value)? initial,
     TResult Function(Loading value)? loading,
     TResult Function(Success value)? success,
-    TResult Function(DeleteSuccess value)? deleteSuccess,
     TResult Function(Error value)? error,
+    TResult Function(PaginationLoading value)? paginationLoading,
+    TResult Function(PaginationSuccess value)? paginationError,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $EditProfileStateCopyWith<$Res> {
-  factory $EditProfileStateCopyWith(
-          EditProfileState value, $Res Function(EditProfileState) then) =
-      _$EditProfileStateCopyWithImpl<$Res, EditProfileState>;
+abstract class $ProductsStateCopyWith<$Res> {
+  factory $ProductsStateCopyWith(
+          ProductsState value, $Res Function(ProductsState) then) =
+      _$ProductsStateCopyWithImpl<$Res, ProductsState>;
 }
 
 /// @nodoc
-class _$EditProfileStateCopyWithImpl<$Res, $Val extends EditProfileState>
-    implements $EditProfileStateCopyWith<$Res> {
-  _$EditProfileStateCopyWithImpl(this._value, this._then);
+class _$ProductsStateCopyWithImpl<$Res, $Val extends ProductsState>
+    implements $ProductsStateCopyWith<$Res> {
+  _$ProductsStateCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -102,7 +107,7 @@ abstract class _$$InitialImplCopyWith<$Res> {
 
 /// @nodoc
 class __$$InitialImplCopyWithImpl<$Res>
-    extends _$EditProfileStateCopyWithImpl<$Res, _$InitialImpl>
+    extends _$ProductsStateCopyWithImpl<$Res, _$InitialImpl>
     implements _$$InitialImplCopyWith<$Res> {
   __$$InitialImplCopyWithImpl(
       _$InitialImpl _value, $Res Function(_$InitialImpl) _then)
@@ -116,7 +121,7 @@ class _$InitialImpl implements _Initial {
 
   @override
   String toString() {
-    return 'EditProfileState.initial()';
+    return 'ProductsState.initial()';
   }
 
   @override
@@ -133,10 +138,10 @@ class _$InitialImpl implements _Initial {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(EditProfileEntity? editProfileEntity) success,
-    required TResult Function(EditProfileEntity? editProfileEntity)
-        deleteSuccess,
+    required TResult Function(List<ProductEntity>? productEntity) success,
     required TResult Function(String? errCode, String? err) error,
+    required TResult Function() paginationLoading,
+    required TResult Function(String? errCode, String? err) paginationError,
   }) {
     return initial();
   }
@@ -146,9 +151,10 @@ class _$InitialImpl implements _Initial {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(EditProfileEntity? editProfileEntity)? success,
-    TResult? Function(EditProfileEntity? editProfileEntity)? deleteSuccess,
+    TResult? Function(List<ProductEntity>? productEntity)? success,
     TResult? Function(String? errCode, String? err)? error,
+    TResult? Function()? paginationLoading,
+    TResult? Function(String? errCode, String? err)? paginationError,
   }) {
     return initial?.call();
   }
@@ -158,9 +164,10 @@ class _$InitialImpl implements _Initial {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(EditProfileEntity? editProfileEntity)? success,
-    TResult Function(EditProfileEntity? editProfileEntity)? deleteSuccess,
+    TResult Function(List<ProductEntity>? productEntity)? success,
     TResult Function(String? errCode, String? err)? error,
+    TResult Function()? paginationLoading,
+    TResult Function(String? errCode, String? err)? paginationError,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -175,8 +182,9 @@ class _$InitialImpl implements _Initial {
     required TResult Function(_Initial value) initial,
     required TResult Function(Loading value) loading,
     required TResult Function(Success value) success,
-    required TResult Function(DeleteSuccess value) deleteSuccess,
     required TResult Function(Error value) error,
+    required TResult Function(PaginationLoading value) paginationLoading,
+    required TResult Function(PaginationSuccess value) paginationError,
   }) {
     return initial(this);
   }
@@ -187,8 +195,9 @@ class _$InitialImpl implements _Initial {
     TResult? Function(_Initial value)? initial,
     TResult? Function(Loading value)? loading,
     TResult? Function(Success value)? success,
-    TResult? Function(DeleteSuccess value)? deleteSuccess,
     TResult? Function(Error value)? error,
+    TResult? Function(PaginationLoading value)? paginationLoading,
+    TResult? Function(PaginationSuccess value)? paginationError,
   }) {
     return initial?.call(this);
   }
@@ -199,8 +208,9 @@ class _$InitialImpl implements _Initial {
     TResult Function(_Initial value)? initial,
     TResult Function(Loading value)? loading,
     TResult Function(Success value)? success,
-    TResult Function(DeleteSuccess value)? deleteSuccess,
     TResult Function(Error value)? error,
+    TResult Function(PaginationLoading value)? paginationLoading,
+    TResult Function(PaginationSuccess value)? paginationError,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -210,7 +220,7 @@ class _$InitialImpl implements _Initial {
   }
 }
 
-abstract class _Initial implements EditProfileState {
+abstract class _Initial implements ProductsState {
   const factory _Initial() = _$InitialImpl;
 }
 
@@ -223,7 +233,7 @@ abstract class _$$LoadingImplCopyWith<$Res> {
 
 /// @nodoc
 class __$$LoadingImplCopyWithImpl<$Res>
-    extends _$EditProfileStateCopyWithImpl<$Res, _$LoadingImpl>
+    extends _$ProductsStateCopyWithImpl<$Res, _$LoadingImpl>
     implements _$$LoadingImplCopyWith<$Res> {
   __$$LoadingImplCopyWithImpl(
       _$LoadingImpl _value, $Res Function(_$LoadingImpl) _then)
@@ -237,7 +247,7 @@ class _$LoadingImpl implements Loading {
 
   @override
   String toString() {
-    return 'EditProfileState.loading()';
+    return 'ProductsState.loading()';
   }
 
   @override
@@ -254,10 +264,10 @@ class _$LoadingImpl implements Loading {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(EditProfileEntity? editProfileEntity) success,
-    required TResult Function(EditProfileEntity? editProfileEntity)
-        deleteSuccess,
+    required TResult Function(List<ProductEntity>? productEntity) success,
     required TResult Function(String? errCode, String? err) error,
+    required TResult Function() paginationLoading,
+    required TResult Function(String? errCode, String? err) paginationError,
   }) {
     return loading();
   }
@@ -267,9 +277,10 @@ class _$LoadingImpl implements Loading {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(EditProfileEntity? editProfileEntity)? success,
-    TResult? Function(EditProfileEntity? editProfileEntity)? deleteSuccess,
+    TResult? Function(List<ProductEntity>? productEntity)? success,
     TResult? Function(String? errCode, String? err)? error,
+    TResult? Function()? paginationLoading,
+    TResult? Function(String? errCode, String? err)? paginationError,
   }) {
     return loading?.call();
   }
@@ -279,9 +290,10 @@ class _$LoadingImpl implements Loading {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(EditProfileEntity? editProfileEntity)? success,
-    TResult Function(EditProfileEntity? editProfileEntity)? deleteSuccess,
+    TResult Function(List<ProductEntity>? productEntity)? success,
     TResult Function(String? errCode, String? err)? error,
+    TResult Function()? paginationLoading,
+    TResult Function(String? errCode, String? err)? paginationError,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -296,8 +308,9 @@ class _$LoadingImpl implements Loading {
     required TResult Function(_Initial value) initial,
     required TResult Function(Loading value) loading,
     required TResult Function(Success value) success,
-    required TResult Function(DeleteSuccess value) deleteSuccess,
     required TResult Function(Error value) error,
+    required TResult Function(PaginationLoading value) paginationLoading,
+    required TResult Function(PaginationSuccess value) paginationError,
   }) {
     return loading(this);
   }
@@ -308,8 +321,9 @@ class _$LoadingImpl implements Loading {
     TResult? Function(_Initial value)? initial,
     TResult? Function(Loading value)? loading,
     TResult? Function(Success value)? success,
-    TResult? Function(DeleteSuccess value)? deleteSuccess,
     TResult? Function(Error value)? error,
+    TResult? Function(PaginationLoading value)? paginationLoading,
+    TResult? Function(PaginationSuccess value)? paginationError,
   }) {
     return loading?.call(this);
   }
@@ -320,8 +334,9 @@ class _$LoadingImpl implements Loading {
     TResult Function(_Initial value)? initial,
     TResult Function(Loading value)? loading,
     TResult Function(Success value)? success,
-    TResult Function(DeleteSuccess value)? deleteSuccess,
     TResult Function(Error value)? error,
+    TResult Function(PaginationLoading value)? paginationLoading,
+    TResult Function(PaginationSuccess value)? paginationError,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -331,7 +346,7 @@ class _$LoadingImpl implements Loading {
   }
 }
 
-abstract class Loading implements EditProfileState {
+abstract class Loading implements ProductsState {
   const factory Loading() = _$LoadingImpl;
 }
 
@@ -341,12 +356,12 @@ abstract class _$$SuccessImplCopyWith<$Res> {
           _$SuccessImpl value, $Res Function(_$SuccessImpl) then) =
       __$$SuccessImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({EditProfileEntity? editProfileEntity});
+  $Res call({List<ProductEntity>? productEntity});
 }
 
 /// @nodoc
 class __$$SuccessImplCopyWithImpl<$Res>
-    extends _$EditProfileStateCopyWithImpl<$Res, _$SuccessImpl>
+    extends _$ProductsStateCopyWithImpl<$Res, _$SuccessImpl>
     implements _$$SuccessImplCopyWith<$Res> {
   __$$SuccessImplCopyWithImpl(
       _$SuccessImpl _value, $Res Function(_$SuccessImpl) _then)
@@ -355,13 +370,13 @@ class __$$SuccessImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? editProfileEntity = freezed,
+    Object? productEntity = freezed,
   }) {
     return _then(_$SuccessImpl(
-      freezed == editProfileEntity
-          ? _value.editProfileEntity
-          : editProfileEntity // ignore: cast_nullable_to_non_nullable
-              as EditProfileEntity?,
+      freezed == productEntity
+          ? _value._productEntity
+          : productEntity // ignore: cast_nullable_to_non_nullable
+              as List<ProductEntity>?,
     ));
   }
 }
@@ -369,14 +384,22 @@ class __$$SuccessImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$SuccessImpl implements Success {
-  const _$SuccessImpl(this.editProfileEntity);
+  const _$SuccessImpl(final List<ProductEntity>? productEntity)
+      : _productEntity = productEntity;
 
+  final List<ProductEntity>? _productEntity;
   @override
-  final EditProfileEntity? editProfileEntity;
+  List<ProductEntity>? get productEntity {
+    final value = _productEntity;
+    if (value == null) return null;
+    if (_productEntity is EqualUnmodifiableListView) return _productEntity;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(value);
+  }
 
   @override
   String toString() {
-    return 'EditProfileState.success(editProfileEntity: $editProfileEntity)';
+    return 'ProductsState.success(productEntity: $productEntity)';
   }
 
   @override
@@ -384,12 +407,13 @@ class _$SuccessImpl implements Success {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$SuccessImpl &&
-            (identical(other.editProfileEntity, editProfileEntity) ||
-                other.editProfileEntity == editProfileEntity));
+            const DeepCollectionEquality()
+                .equals(other._productEntity, _productEntity));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, editProfileEntity);
+  int get hashCode => Object.hash(
+      runtimeType, const DeepCollectionEquality().hash(_productEntity));
 
   @JsonKey(ignore: true)
   @override
@@ -402,12 +426,12 @@ class _$SuccessImpl implements Success {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(EditProfileEntity? editProfileEntity) success,
-    required TResult Function(EditProfileEntity? editProfileEntity)
-        deleteSuccess,
+    required TResult Function(List<ProductEntity>? productEntity) success,
     required TResult Function(String? errCode, String? err) error,
+    required TResult Function() paginationLoading,
+    required TResult Function(String? errCode, String? err) paginationError,
   }) {
-    return success(editProfileEntity);
+    return success(productEntity);
   }
 
   @override
@@ -415,11 +439,12 @@ class _$SuccessImpl implements Success {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(EditProfileEntity? editProfileEntity)? success,
-    TResult? Function(EditProfileEntity? editProfileEntity)? deleteSuccess,
+    TResult? Function(List<ProductEntity>? productEntity)? success,
     TResult? Function(String? errCode, String? err)? error,
+    TResult? Function()? paginationLoading,
+    TResult? Function(String? errCode, String? err)? paginationError,
   }) {
-    return success?.call(editProfileEntity);
+    return success?.call(productEntity);
   }
 
   @override
@@ -427,13 +452,14 @@ class _$SuccessImpl implements Success {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(EditProfileEntity? editProfileEntity)? success,
-    TResult Function(EditProfileEntity? editProfileEntity)? deleteSuccess,
+    TResult Function(List<ProductEntity>? productEntity)? success,
     TResult Function(String? errCode, String? err)? error,
+    TResult Function()? paginationLoading,
+    TResult Function(String? errCode, String? err)? paginationError,
     required TResult orElse(),
   }) {
     if (success != null) {
-      return success(editProfileEntity);
+      return success(productEntity);
     }
     return orElse();
   }
@@ -444,8 +470,9 @@ class _$SuccessImpl implements Success {
     required TResult Function(_Initial value) initial,
     required TResult Function(Loading value) loading,
     required TResult Function(Success value) success,
-    required TResult Function(DeleteSuccess value) deleteSuccess,
     required TResult Function(Error value) error,
+    required TResult Function(PaginationLoading value) paginationLoading,
+    required TResult Function(PaginationSuccess value) paginationError,
   }) {
     return success(this);
   }
@@ -456,8 +483,9 @@ class _$SuccessImpl implements Success {
     TResult? Function(_Initial value)? initial,
     TResult? Function(Loading value)? loading,
     TResult? Function(Success value)? success,
-    TResult? Function(DeleteSuccess value)? deleteSuccess,
     TResult? Function(Error value)? error,
+    TResult? Function(PaginationLoading value)? paginationLoading,
+    TResult? Function(PaginationSuccess value)? paginationError,
   }) {
     return success?.call(this);
   }
@@ -468,8 +496,9 @@ class _$SuccessImpl implements Success {
     TResult Function(_Initial value)? initial,
     TResult Function(Loading value)? loading,
     TResult Function(Success value)? success,
-    TResult Function(DeleteSuccess value)? deleteSuccess,
     TResult Function(Error value)? error,
+    TResult Function(PaginationLoading value)? paginationLoading,
+    TResult Function(PaginationSuccess value)? paginationError,
     required TResult orElse(),
   }) {
     if (success != null) {
@@ -479,167 +508,13 @@ class _$SuccessImpl implements Success {
   }
 }
 
-abstract class Success implements EditProfileState {
-  const factory Success(final EditProfileEntity? editProfileEntity) =
+abstract class Success implements ProductsState {
+  const factory Success(final List<ProductEntity>? productEntity) =
       _$SuccessImpl;
 
-  EditProfileEntity? get editProfileEntity;
+  List<ProductEntity>? get productEntity;
   @JsonKey(ignore: true)
   _$$SuccessImplCopyWith<_$SuccessImpl> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class _$$DeleteSuccessImplCopyWith<$Res> {
-  factory _$$DeleteSuccessImplCopyWith(
-          _$DeleteSuccessImpl value, $Res Function(_$DeleteSuccessImpl) then) =
-      __$$DeleteSuccessImplCopyWithImpl<$Res>;
-  @useResult
-  $Res call({EditProfileEntity? editProfileEntity});
-}
-
-/// @nodoc
-class __$$DeleteSuccessImplCopyWithImpl<$Res>
-    extends _$EditProfileStateCopyWithImpl<$Res, _$DeleteSuccessImpl>
-    implements _$$DeleteSuccessImplCopyWith<$Res> {
-  __$$DeleteSuccessImplCopyWithImpl(
-      _$DeleteSuccessImpl _value, $Res Function(_$DeleteSuccessImpl) _then)
-      : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? editProfileEntity = freezed,
-  }) {
-    return _then(_$DeleteSuccessImpl(
-      freezed == editProfileEntity
-          ? _value.editProfileEntity
-          : editProfileEntity // ignore: cast_nullable_to_non_nullable
-              as EditProfileEntity?,
-    ));
-  }
-}
-
-/// @nodoc
-
-class _$DeleteSuccessImpl implements DeleteSuccess {
-  const _$DeleteSuccessImpl(this.editProfileEntity);
-
-  @override
-  final EditProfileEntity? editProfileEntity;
-
-  @override
-  String toString() {
-    return 'EditProfileState.deleteSuccess(editProfileEntity: $editProfileEntity)';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$DeleteSuccessImpl &&
-            (identical(other.editProfileEntity, editProfileEntity) ||
-                other.editProfileEntity == editProfileEntity));
-  }
-
-  @override
-  int get hashCode => Object.hash(runtimeType, editProfileEntity);
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$DeleteSuccessImplCopyWith<_$DeleteSuccessImpl> get copyWith =>
-      __$$DeleteSuccessImplCopyWithImpl<_$DeleteSuccessImpl>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() initial,
-    required TResult Function() loading,
-    required TResult Function(EditProfileEntity? editProfileEntity) success,
-    required TResult Function(EditProfileEntity? editProfileEntity)
-        deleteSuccess,
-    required TResult Function(String? errCode, String? err) error,
-  }) {
-    return deleteSuccess(editProfileEntity);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? initial,
-    TResult? Function()? loading,
-    TResult? Function(EditProfileEntity? editProfileEntity)? success,
-    TResult? Function(EditProfileEntity? editProfileEntity)? deleteSuccess,
-    TResult? Function(String? errCode, String? err)? error,
-  }) {
-    return deleteSuccess?.call(editProfileEntity);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function()? loading,
-    TResult Function(EditProfileEntity? editProfileEntity)? success,
-    TResult Function(EditProfileEntity? editProfileEntity)? deleteSuccess,
-    TResult Function(String? errCode, String? err)? error,
-    required TResult orElse(),
-  }) {
-    if (deleteSuccess != null) {
-      return deleteSuccess(editProfileEntity);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_Initial value) initial,
-    required TResult Function(Loading value) loading,
-    required TResult Function(Success value) success,
-    required TResult Function(DeleteSuccess value) deleteSuccess,
-    required TResult Function(Error value) error,
-  }) {
-    return deleteSuccess(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Initial value)? initial,
-    TResult? Function(Loading value)? loading,
-    TResult? Function(Success value)? success,
-    TResult? Function(DeleteSuccess value)? deleteSuccess,
-    TResult? Function(Error value)? error,
-  }) {
-    return deleteSuccess?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    TResult Function(Loading value)? loading,
-    TResult Function(Success value)? success,
-    TResult Function(DeleteSuccess value)? deleteSuccess,
-    TResult Function(Error value)? error,
-    required TResult orElse(),
-  }) {
-    if (deleteSuccess != null) {
-      return deleteSuccess(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class DeleteSuccess implements EditProfileState {
-  const factory DeleteSuccess(final EditProfileEntity? editProfileEntity) =
-      _$DeleteSuccessImpl;
-
-  EditProfileEntity? get editProfileEntity;
-  @JsonKey(ignore: true)
-  _$$DeleteSuccessImplCopyWith<_$DeleteSuccessImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -654,7 +529,7 @@ abstract class _$$ErrorImplCopyWith<$Res> {
 
 /// @nodoc
 class __$$ErrorImplCopyWithImpl<$Res>
-    extends _$EditProfileStateCopyWithImpl<$Res, _$ErrorImpl>
+    extends _$ProductsStateCopyWithImpl<$Res, _$ErrorImpl>
     implements _$$ErrorImplCopyWith<$Res> {
   __$$ErrorImplCopyWithImpl(
       _$ErrorImpl _value, $Res Function(_$ErrorImpl) _then)
@@ -691,7 +566,7 @@ class _$ErrorImpl implements Error {
 
   @override
   String toString() {
-    return 'EditProfileState.error(errCode: $errCode, err: $err)';
+    return 'ProductsState.error(errCode: $errCode, err: $err)';
   }
 
   @override
@@ -717,10 +592,10 @@ class _$ErrorImpl implements Error {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(EditProfileEntity? editProfileEntity) success,
-    required TResult Function(EditProfileEntity? editProfileEntity)
-        deleteSuccess,
+    required TResult Function(List<ProductEntity>? productEntity) success,
     required TResult Function(String? errCode, String? err) error,
+    required TResult Function() paginationLoading,
+    required TResult Function(String? errCode, String? err) paginationError,
   }) {
     return error(errCode, err);
   }
@@ -730,9 +605,10 @@ class _$ErrorImpl implements Error {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(EditProfileEntity? editProfileEntity)? success,
-    TResult? Function(EditProfileEntity? editProfileEntity)? deleteSuccess,
+    TResult? Function(List<ProductEntity>? productEntity)? success,
     TResult? Function(String? errCode, String? err)? error,
+    TResult? Function()? paginationLoading,
+    TResult? Function(String? errCode, String? err)? paginationError,
   }) {
     return error?.call(errCode, err);
   }
@@ -742,9 +618,10 @@ class _$ErrorImpl implements Error {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(EditProfileEntity? editProfileEntity)? success,
-    TResult Function(EditProfileEntity? editProfileEntity)? deleteSuccess,
+    TResult Function(List<ProductEntity>? productEntity)? success,
     TResult Function(String? errCode, String? err)? error,
+    TResult Function()? paginationLoading,
+    TResult Function(String? errCode, String? err)? paginationError,
     required TResult orElse(),
   }) {
     if (error != null) {
@@ -759,8 +636,9 @@ class _$ErrorImpl implements Error {
     required TResult Function(_Initial value) initial,
     required TResult Function(Loading value) loading,
     required TResult Function(Success value) success,
-    required TResult Function(DeleteSuccess value) deleteSuccess,
     required TResult Function(Error value) error,
+    required TResult Function(PaginationLoading value) paginationLoading,
+    required TResult Function(PaginationSuccess value) paginationError,
   }) {
     return error(this);
   }
@@ -771,8 +649,9 @@ class _$ErrorImpl implements Error {
     TResult? Function(_Initial value)? initial,
     TResult? Function(Loading value)? loading,
     TResult? Function(Success value)? success,
-    TResult? Function(DeleteSuccess value)? deleteSuccess,
     TResult? Function(Error value)? error,
+    TResult? Function(PaginationLoading value)? paginationLoading,
+    TResult? Function(PaginationSuccess value)? paginationError,
   }) {
     return error?.call(this);
   }
@@ -783,8 +662,9 @@ class _$ErrorImpl implements Error {
     TResult Function(_Initial value)? initial,
     TResult Function(Loading value)? loading,
     TResult Function(Success value)? success,
-    TResult Function(DeleteSuccess value)? deleteSuccess,
     TResult Function(Error value)? error,
+    TResult Function(PaginationLoading value)? paginationLoading,
+    TResult Function(PaginationSuccess value)? paginationError,
     required TResult orElse(),
   }) {
     if (error != null) {
@@ -794,12 +674,306 @@ class _$ErrorImpl implements Error {
   }
 }
 
-abstract class Error implements EditProfileState {
+abstract class Error implements ProductsState {
   const factory Error(final String? errCode, final String? err) = _$ErrorImpl;
 
   String? get errCode;
   String? get err;
   @JsonKey(ignore: true)
   _$$ErrorImplCopyWith<_$ErrorImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$PaginationLoadingImplCopyWith<$Res> {
+  factory _$$PaginationLoadingImplCopyWith(_$PaginationLoadingImpl value,
+          $Res Function(_$PaginationLoadingImpl) then) =
+      __$$PaginationLoadingImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$PaginationLoadingImplCopyWithImpl<$Res>
+    extends _$ProductsStateCopyWithImpl<$Res, _$PaginationLoadingImpl>
+    implements _$$PaginationLoadingImplCopyWith<$Res> {
+  __$$PaginationLoadingImplCopyWithImpl(_$PaginationLoadingImpl _value,
+      $Res Function(_$PaginationLoadingImpl) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$PaginationLoadingImpl implements PaginationLoading {
+  const _$PaginationLoadingImpl();
+
+  @override
+  String toString() {
+    return 'ProductsState.paginationLoading()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$PaginationLoadingImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loading,
+    required TResult Function(List<ProductEntity>? productEntity) success,
+    required TResult Function(String? errCode, String? err) error,
+    required TResult Function() paginationLoading,
+    required TResult Function(String? errCode, String? err) paginationError,
+  }) {
+    return paginationLoading();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function(List<ProductEntity>? productEntity)? success,
+    TResult? Function(String? errCode, String? err)? error,
+    TResult? Function()? paginationLoading,
+    TResult? Function(String? errCode, String? err)? paginationError,
+  }) {
+    return paginationLoading?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loading,
+    TResult Function(List<ProductEntity>? productEntity)? success,
+    TResult Function(String? errCode, String? err)? error,
+    TResult Function()? paginationLoading,
+    TResult Function(String? errCode, String? err)? paginationError,
+    required TResult orElse(),
+  }) {
+    if (paginationLoading != null) {
+      return paginationLoading();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(Loading value) loading,
+    required TResult Function(Success value) success,
+    required TResult Function(Error value) error,
+    required TResult Function(PaginationLoading value) paginationLoading,
+    required TResult Function(PaginationSuccess value) paginationError,
+  }) {
+    return paginationLoading(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(Loading value)? loading,
+    TResult? Function(Success value)? success,
+    TResult? Function(Error value)? error,
+    TResult? Function(PaginationLoading value)? paginationLoading,
+    TResult? Function(PaginationSuccess value)? paginationError,
+  }) {
+    return paginationLoading?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(Loading value)? loading,
+    TResult Function(Success value)? success,
+    TResult Function(Error value)? error,
+    TResult Function(PaginationLoading value)? paginationLoading,
+    TResult Function(PaginationSuccess value)? paginationError,
+    required TResult orElse(),
+  }) {
+    if (paginationLoading != null) {
+      return paginationLoading(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class PaginationLoading implements ProductsState {
+  const factory PaginationLoading() = _$PaginationLoadingImpl;
+}
+
+/// @nodoc
+abstract class _$$PaginationSuccessImplCopyWith<$Res> {
+  factory _$$PaginationSuccessImplCopyWith(_$PaginationSuccessImpl value,
+          $Res Function(_$PaginationSuccessImpl) then) =
+      __$$PaginationSuccessImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String? errCode, String? err});
+}
+
+/// @nodoc
+class __$$PaginationSuccessImplCopyWithImpl<$Res>
+    extends _$ProductsStateCopyWithImpl<$Res, _$PaginationSuccessImpl>
+    implements _$$PaginationSuccessImplCopyWith<$Res> {
+  __$$PaginationSuccessImplCopyWithImpl(_$PaginationSuccessImpl _value,
+      $Res Function(_$PaginationSuccessImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? errCode = freezed,
+    Object? err = freezed,
+  }) {
+    return _then(_$PaginationSuccessImpl(
+      freezed == errCode
+          ? _value.errCode
+          : errCode // ignore: cast_nullable_to_non_nullable
+              as String?,
+      freezed == err
+          ? _value.err
+          : err // ignore: cast_nullable_to_non_nullable
+              as String?,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$PaginationSuccessImpl implements PaginationSuccess {
+  const _$PaginationSuccessImpl(this.errCode, this.err);
+
+  @override
+  final String? errCode;
+  @override
+  final String? err;
+
+  @override
+  String toString() {
+    return 'ProductsState.paginationError(errCode: $errCode, err: $err)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$PaginationSuccessImpl &&
+            (identical(other.errCode, errCode) || other.errCode == errCode) &&
+            (identical(other.err, err) || other.err == err));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, errCode, err);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$PaginationSuccessImplCopyWith<_$PaginationSuccessImpl> get copyWith =>
+      __$$PaginationSuccessImplCopyWithImpl<_$PaginationSuccessImpl>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loading,
+    required TResult Function(List<ProductEntity>? productEntity) success,
+    required TResult Function(String? errCode, String? err) error,
+    required TResult Function() paginationLoading,
+    required TResult Function(String? errCode, String? err) paginationError,
+  }) {
+    return paginationError(errCode, err);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function(List<ProductEntity>? productEntity)? success,
+    TResult? Function(String? errCode, String? err)? error,
+    TResult? Function()? paginationLoading,
+    TResult? Function(String? errCode, String? err)? paginationError,
+  }) {
+    return paginationError?.call(errCode, err);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loading,
+    TResult Function(List<ProductEntity>? productEntity)? success,
+    TResult Function(String? errCode, String? err)? error,
+    TResult Function()? paginationLoading,
+    TResult Function(String? errCode, String? err)? paginationError,
+    required TResult orElse(),
+  }) {
+    if (paginationError != null) {
+      return paginationError(errCode, err);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(Loading value) loading,
+    required TResult Function(Success value) success,
+    required TResult Function(Error value) error,
+    required TResult Function(PaginationLoading value) paginationLoading,
+    required TResult Function(PaginationSuccess value) paginationError,
+  }) {
+    return paginationError(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(Loading value)? loading,
+    TResult? Function(Success value)? success,
+    TResult? Function(Error value)? error,
+    TResult? Function(PaginationLoading value)? paginationLoading,
+    TResult? Function(PaginationSuccess value)? paginationError,
+  }) {
+    return paginationError?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(Loading value)? loading,
+    TResult Function(Success value)? success,
+    TResult Function(Error value)? error,
+    TResult Function(PaginationLoading value)? paginationLoading,
+    TResult Function(PaginationSuccess value)? paginationError,
+    required TResult orElse(),
+  }) {
+    if (paginationError != null) {
+      return paginationError(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class PaginationSuccess implements ProductsState {
+  const factory PaginationSuccess(final String? errCode, final String? err) =
+      _$PaginationSuccessImpl;
+
+  String? get errCode;
+  String? get err;
+  @JsonKey(ignore: true)
+  _$$PaginationSuccessImplCopyWith<_$PaginationSuccessImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

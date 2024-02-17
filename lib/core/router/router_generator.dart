@@ -27,7 +27,6 @@ import '../../features/auth/reset_pass/presentation/pages/reset_pass_view.dart';
 import '../../features/auth/verify_account/presentation/pages/verify_account_view.dart';
 import '../../features/bottom_nav_bar.dart';
 import '../../features/credits/gift_card/presentation/pages/gift_card.dart';
-import '../../features/on_boarding/presentation/pages/on_boarding_view.dart';
 import '../../features/orders/order_details/presentation/pages/order_details_view.dart';
 import '../../main_view.dart';
 import '../shared/arguments.dart';
@@ -39,11 +38,6 @@ class AppRouters {
         return MaterialPageRoute(
           builder: (BuildContext context) => const MainView(),
         );
-      case onBoardingPageRoute:
-        return MaterialPageRoute(
-          builder: (BuildContext context) => const OnBoardingView(),
-        );
-
       /// Auth
       case loginPageRoute:
         return MaterialPageRoute(
