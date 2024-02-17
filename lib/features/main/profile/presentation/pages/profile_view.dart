@@ -5,7 +5,9 @@ import 'package:gap/gap.dart';
 import 'package:knockknock/config/themes/app_text_styles.dart';
 import 'package:knockknock/core/helpers/cache_helper.dart';
 import 'package:knockknock/core/router/router.dart';
+import 'package:knockknock/core/shared/models/user_data_model.dart';
 import 'package:knockknock/core/utils/app_colors.dart';
+import 'package:knockknock/core/utils/app_constants.dart';
 import 'package:knockknock/core/utils/app_images.dart';
 import 'package:knockknock/core/utils/extensions.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
@@ -59,19 +61,18 @@ class ProfileView extends StatelessWidget {
                 child: Container(
                   width: 80.w,
                   height: 80.w,
-                  decoration: const ShapeDecoration(
+                  decoration:  ShapeDecoration(
                     image: DecorationImage(
-                      image: CachedNetworkImageProvider(
-                          "https://via.placeholder.com/73x73"),
+                      image: CachedNetworkImageProvider(AppConstants.imageUrl+UserData.avatar!),
                       fit: BoxFit.cover,
                     ),
-                    shape: OvalBorder(),
+                    shape: const OvalBorder(),
                   ),
                 ),
               ),
               Gap(10.h),
-              Text("name",style: CustomTextStyle.kTextStyleF16,),
-              Text("+ 012 345 6789",style: CustomTextStyle.kTextStyleF12,),
+              Text("${UserData.firstName} ${UserData.lastName}",style: CustomTextStyle.kTextStyleF16,),
+              Text(UserData.phone!,style: CustomTextStyle.kTextStyleF12,),
               Gap(10.h),
               Container(
                decoration: const BoxDecoration(

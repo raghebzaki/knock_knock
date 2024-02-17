@@ -164,6 +164,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "my_orders": MessageLookupByLibrary.simpleMessage("My Orders"),
         "newAddress": MessageLookupByLibrary.simpleMessage("New Address"),
         "next": MessageLookupByLibrary.simpleMessage("Next"),
+        "noInternetConnection":
+            MessageLookupByLibrary.simpleMessage("no internet connection"),
         "no_content":
             MessageLookupByLibrary.simpleMessage("success with not content"),
         "no_internet_error": MessageLookupByLibrary.simpleMessage(

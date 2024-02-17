@@ -13,6 +13,7 @@ import 'package:knockknock/core/utils/extensions.dart';
 import '../../../../../../core/dependency_injection/di.dart' as di;
 import '../../../../../../core/shared/models/user_data_model.dart';
 import '../../../../../../generated/l10n.dart';
+import '../../../../../core/utils/app_constants.dart';
 import '../../domain/entities/edit_profile_entity.dart';
 import '../manager/edit_profile_cubit.dart';
 
@@ -24,10 +25,18 @@ class EditProfileView extends StatefulWidget {
 }
 
 class _EditProfileViewState extends State<EditProfileView> {
-  TextEditingController nameCtrl = TextEditingController();
-  TextEditingController emailCtrl = TextEditingController();
+  TextEditingController firstNameCtrl = TextEditingController();
+  TextEditingController lastNameCtrl = TextEditingController();
+  TextEditingController phoneCtrl = TextEditingController();
   TextEditingController password = TextEditingController();
 
+  @override
+  void initState() {
+    super.initState();
+    firstNameCtrl = TextEditingController(text: UserData.firstName);
+    lastNameCtrl = TextEditingController(text: UserData.lastName);
+    phoneCtrl = TextEditingController(text: UserData.phone);
+  }
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
@@ -51,7 +60,8 @@ class _EditProfileViewState extends State<EditProfileView> {
           EditProfileCubit editProfileCubit = EditProfileCubit.get(context);
           return Scaffold(
             appBar: AppBar(
-              title: Text(S.current.profile),
+              backgroundColor: AppColors.primary,
+              title: Text(S.current.profile,style: CustomTextStyle.kTextStyleF20,),
             ),
             backgroundColor: AppColors.primary,
             body: Padding(
@@ -64,13 +74,13 @@ class _EditProfileViewState extends State<EditProfileView> {
                       child: Container(
                         width: 80.w,
                         height: 80.w,
-                        decoration: const ShapeDecoration(
+                        decoration:  ShapeDecoration(
                           image: DecorationImage(
                             image: CachedNetworkImageProvider(
-                                    "https://via.placeholder.com/73x73"),
+                                AppConstants.imageUrl+UserData.avatar!),
                             fit: BoxFit.cover,
                           ),
-                          shape: OvalBorder(),
+                          shape: const OvalBorder(),
                         ),
                       ),
                     ),
@@ -78,17 +88,17 @@ class _EditProfileViewState extends State<EditProfileView> {
 
                     CustomFormField(
                       hint: S.current.firstName,
-                      ctrl: nameCtrl,
+                      ctrl: firstNameCtrl,
                     ),
                     Gap(10.h),
                     CustomFormField(
                       hint: S.current.lastName,
-                      ctrl: nameCtrl,
+                      ctrl: lastNameCtrl,
                     ),
                     Gap(10.h),
                     CustomFormField(
                       hint: S.current.phone,
-                      ctrl: emailCtrl,
+                      ctrl: phoneCtrl,
                     ),
                     Gap(10.h),
                     CustomFormField(
@@ -128,8 +138,9 @@ class _EditProfileViewState extends State<EditProfileView> {
                         editProfileCubit.editProfile(
                           EditProfileEntity(
                               userId: UserData.id,
-                              name: nameCtrl.text,
-                              email: emailCtrl.text),
+                              firstName: firstNameCtrl.text,
+                              lastName: lastNameCtrl.text,
+                              phone: phoneCtrl.text),
                         );
                       },
                     )

@@ -162,6 +162,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "my_orders": MessageLookupByLibrary.simpleMessage("طلباتي"),
         "newAddress": MessageLookupByLibrary.simpleMessage("عنوان جديد"),
         "next": MessageLookupByLibrary.simpleMessage("التالي"),
+        "noInternetConnection":
+            MessageLookupByLibrary.simpleMessage("لا يوجد اتصال بالإنترنت"),
         "no_content": MessageLookupByLibrary.simpleMessage("نجاح بدون محتوى"),
         "no_internet_error": MessageLookupByLibrary.simpleMessage(
             "يُرجى التحقق من اتصالك بالإنترنت"),

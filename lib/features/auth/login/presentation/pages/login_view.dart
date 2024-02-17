@@ -43,12 +43,12 @@ class _LoginViewState extends State<LoginView> {
           state.maybeWhen(
             success: (state) async {
               if (state!.status == 1) {
+                if(rememberMe){
+                  var email = CacheHelper.setData("email", loginCubit.phoneCtrl.value);
+                  var pass = CacheHelper.setData("pass", loginCubit.passCtrl.value);
+                  debugPrint("$email, $pass");
+                }
                 context.defaultSnackBar(S.of(context).loginSuccessful);
-                var email =
-                    CacheHelper.setData("email", loginCubit.phoneCtrl.value);
-                var pass =
-                    CacheHelper.setData("pass", loginCubit.passCtrl.value);
-                debugPrint("$email, $pass");
                 context.pushNamed(bottomNavBarPageRoute);
                 // UpdateFcmTokenService.updateUserToken(UserData.id!);
               } else if (state.status == 0) {

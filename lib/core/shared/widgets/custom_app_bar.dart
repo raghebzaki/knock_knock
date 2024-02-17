@@ -4,6 +4,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:gap/gap.dart';
 import 'package:get/get.dart';
 import 'package:knockknock/core/router/router.dart';
+import 'package:knockknock/core/shared/models/user_data_model.dart';
 import 'package:knockknock/core/utils/extensions.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import 'package:badges/badges.dart' as badges;
@@ -42,7 +43,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
                     width: 25.h,
                   ),
                   Gap(5.w),
-                   Text(S.current.goodMorning),
+                   Text("${S.current.goodMorning}, ${UserData.firstName}"),
                 ],
               ),
               Gap(8.h),

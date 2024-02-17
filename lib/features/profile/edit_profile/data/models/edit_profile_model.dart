@@ -3,8 +3,9 @@ import '../../domain/entities/edit_profile_entity.dart';
 class EditProfileModel extends EditProfileEntity{
   const EditProfileModel({
     super.userId,
-    super.name,
-    super.email,
+    super.firstName,
+    super.lastName,
+    super.phone,
     super.status,
     super.message,
   });
@@ -20,8 +21,9 @@ class EditProfileModel extends EditProfileEntity{
   static Map<String, dynamic> editAccountToJson(EditProfileEntity contactUsEntity) {
     return {
       'user_id': contactUsEntity.userId,
-      'name': contactUsEntity.name,
-      'email': contactUsEntity.email,
+      'first_name': contactUsEntity.firstName,
+      'last_name': contactUsEntity.lastName,
+      'phone': contactUsEntity.phone,
     };
   }
 

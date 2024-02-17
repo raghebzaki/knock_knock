@@ -22,16 +22,28 @@ class _SettingsViewState extends State<SettingsView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: AppColors.primary,
       appBar: AppBar(
-        title: Text(S.current.settings),
+        backgroundColor: AppColors.primary,
+        title: Text(S.current.settings,style: CustomTextStyle.kTextStyleF20,),
       ),
       body: SingleChildScrollView(
         child: Column(
           children: [
             Gap(20.h),
             Container(
-              color: Colors.white,
-              padding: EdgeInsets.all(16.0.sp),
+              decoration: const BoxDecoration(
+                border: BorderDirectional(
+                  bottom: BorderSide(
+                    color: AppColors.secondary,
+                    width: 1,
+                    style: BorderStyle.solid,
+                  ),
+                ),
+                color: Colors.white,
+              ),
+
+              margin: EdgeInsets.symmetric(horizontal: 16.0.sp),
               child: ListTile(
                 onTap: () {
                   showModalBottomSheet(
@@ -70,7 +82,7 @@ class _SettingsViewState extends State<SettingsView> {
                                     Text('English - EN',
                                         style: CustomTextStyle.kTextStyleF14
                                             .copyWith(
-                                                color: CacheHelper.isEnglish()?AppColors.lightBlue:AppColors.textColorSecondary)),
+                                            color: CacheHelper.isEnglish()?AppColors.lightBlue:AppColors.textColorSecondary)),
                                     const Spacer(),
                                     CacheHelper.isEnglish()?Icon(
                                       Icons.check,
@@ -95,8 +107,8 @@ class _SettingsViewState extends State<SettingsView> {
                                     Text('العربية - AR',
                                         style: CustomTextStyle.kTextStyleF14
                                             .copyWith(
-                                                color: CacheHelper.isEnglish()?AppColors
-                                                    .textColorSecondary:AppColors.lightBlue)),
+                                            color: CacheHelper.isEnglish()?AppColors
+                                                .textColorSecondary:AppColors.lightBlue)),
                                     const Spacer(),
                                     CacheHelper.isEnglish()?const SizedBox.shrink():Icon(
                                       Icons.check,
@@ -115,9 +127,8 @@ class _SettingsViewState extends State<SettingsView> {
                 title: Opacity(
                   opacity: 0.90,
                   child: Text(
-                    S.current.language,
-                    style: CustomTextStyle.kTextStyleF16
-                        .copyWith(color: AppColors.textColorSecondary),
+                    S.of(context).language,
+                    style: CustomTextStyle.kTextStyleF16,
                   ),
                 ),
                 trailing: Icon(
@@ -129,8 +140,18 @@ class _SettingsViewState extends State<SettingsView> {
             ),
             Gap(10.h),
             Container(
-              color: Colors.white,
-              padding: EdgeInsets.all(16.0.sp),
+              decoration: const BoxDecoration(
+                border: BorderDirectional(
+                  bottom: BorderSide(
+                    color: AppColors.secondary,
+                    width: 1,
+                    style: BorderStyle.solid,
+                  ),
+                ),
+                color: Colors.white,
+              ),
+
+              margin: EdgeInsets.symmetric(horizontal: 16.0.sp),
               child: ListTile(
                 onTap: () {
                   showDialog(
@@ -166,9 +187,8 @@ class _SettingsViewState extends State<SettingsView> {
                 title: Opacity(
                   opacity: 0.90,
                   child: Text(
-                    S.current.termsAndConditions,
-                    style: CustomTextStyle.kTextStyleF16
-                        .copyWith(color: AppColors.textColorSecondary),
+                    S.of(context).termsAndConditions,
+                    style: CustomTextStyle.kTextStyleF16,
                   ),
                 ),
                 trailing: Icon(
@@ -178,7 +198,6 @@ class _SettingsViewState extends State<SettingsView> {
                 ),
               ),
             ),
-
           ],
         ),
       ),

@@ -45,7 +45,8 @@ class _ContactUsViewState extends State<ContactUsView> {
           return Scaffold(
             backgroundColor: AppColors.primary,
             appBar: AppBar(
-              title: Text(S.current.contactUs),
+              backgroundColor: AppColors.primary,
+              title: Text(S.current.contactUs,style: CustomTextStyle.kTextStyleF20,),
             ),
             body: SingleChildScrollView(
               child: Column(

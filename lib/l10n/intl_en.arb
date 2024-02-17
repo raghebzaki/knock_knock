@@ -257,5 +257,6 @@
   "@bottomNavBar": {},
   "home": "Home",
   "booking": "Booking",
-  "credits": "Credits"
+  "credits": "Credits",
+  "noInternetConnection": "no internet connection"
 }
