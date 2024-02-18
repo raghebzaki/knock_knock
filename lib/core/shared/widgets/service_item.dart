@@ -1,22 +1,26 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gap/gap.dart';
+import 'package:knockknock/core/helpers/cache_helper.dart';
 import 'package:knockknock/core/router/router.dart';
+import 'package:knockknock/core/shared/entities/service_entity.dart';
 import 'package:knockknock/core/utils/app_colors.dart';
+import 'package:knockknock/core/utils/app_constants.dart';
 import 'package:knockknock/core/utils/extensions.dart';
 
 import '../../../config/themes/app_text_styles.dart';
-import '../../utils/app_images.dart';
 import '../../utils/dimensions.dart';
+import '../arguments.dart';
 
 class ServiceItem extends StatelessWidget {
-  const ServiceItem({super.key});
+  final ServicesEntity servicesEntity;
+  const ServiceItem({super.key, required this.servicesEntity});
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: (){
-        context.pushNamed(servicesDetailsPageRoute);
+        context.pushNamed(servicesDetailsPageRoute,arguments: ServicesArgs(servicesEntity: servicesEntity));
       },
       child: Column(
         mainAxisAlignment: MainAxisAlignment.start,
@@ -27,8 +31,9 @@ class ServiceItem extends StatelessWidget {
             height: 104.h,
             decoration: ShapeDecoration(
               image: DecorationImage(
-                image: NetworkImage("${AppImages.placeholder}/500"),
-                fit: BoxFit.cover,
+                image: NetworkImage(AppConstants.imageUrl+servicesEntity.image!,),
+                fit: BoxFit.fill,
+
               ),
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(Dimensions.r12),
@@ -45,7 +50,7 @@ class ServiceItem extends StatelessWidget {
           ),
           Gap(2.h),
           Text(
-            'Air conditioning \nmaintenance contracts',
+            CacheHelper.isEnglish()?servicesEntity.nameEn!:servicesEntity.nameAr!,
             textAlign: TextAlign.center,
             style: CustomTextStyle.kTextStyleF12Black,
           ),

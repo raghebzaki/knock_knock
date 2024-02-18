@@ -1,24 +1,28 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_html/flutter_html.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gap/gap.dart';
 import 'package:get/get.dart';
 import 'package:knockknock/core/helpers/cache_helper.dart';
+import 'package:knockknock/core/shared/entities/service_entity.dart';
 
 import 'package:knockknock/core/shared/widgets/custom_app_bar.dart';
 import 'package:knockknock/core/shared/widgets/custom_button_small.dart';
 import 'package:knockknock/core/utils/app_colors.dart';
-import 'package:knockknock/core/utils/app_images.dart';
+
 import 'package:knockknock/core/utils/extensions.dart';
 
 import '../../../../../config/themes/app_text_styles.dart';
 import '../../../../../core/router/router.dart';
 import '../../../../../core/shared/widgets/date_widget.dart';
 import '../../../../../core/shared/widgets/time_widget.dart';
+import '../../../../../core/utils/app_constants.dart';
 import '../../../../../generated/l10n.dart';
 import '../../../../bottom_nav_bar.dart';
 
 class ServicesDetailsView extends StatefulWidget {
-  const ServicesDetailsView({super.key});
+  final ServicesEntity servicesEntity;
+  const ServicesDetailsView({super.key, required this.servicesEntity});
 
   @override
   State<ServicesDetailsView> createState() => _ServicesDetailsViewState();
@@ -45,7 +49,7 @@ class _ServicesDetailsViewState extends State<ServicesDetailsView> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Image.network(
-                "${AppImages.placeholder}600x350",
+                AppConstants.imageUrl+widget.servicesEntity.image!,
                 fit: BoxFit.cover,
               ),
               Gap(10.h),
@@ -53,11 +57,10 @@ class _ServicesDetailsViewState extends State<ServicesDetailsView> {
                 S.of(context).details,
                 style: CustomTextStyle.kTextStyleF16Black,
               ),
-              Gap(10.h),
-              Text(
-                "Numbers: 4 Persons \n"
-                    "Hire a cleaning  worker",
-                style: CustomTextStyle.kTextStyleF12Black,
+              Html(
+                data: CacheHelper.isEnglish()
+                    ? widget.servicesEntity.descriptionEn!
+                    : widget.servicesEntity.descriptionAr!,
               ),
               const Divider(),
               Gap(5.h),
@@ -68,7 +71,7 @@ class _ServicesDetailsViewState extends State<ServicesDetailsView> {
                     style: CustomTextStyle.kTextStyleF16Black,
                   ),
                   Text(
-                    "All time",
+                    widget.servicesEntity.availability!,
                     style: CustomTextStyle.kTextStyleF16BlackW300,
                   ),
                 ],
@@ -80,7 +83,7 @@ class _ServicesDetailsViewState extends State<ServicesDetailsView> {
                     style: CustomTextStyle.kTextStyleF16Black,
                   ),
                   Text(
-                    "Knock Knock56235",
+                    widget.servicesEntity.sku!,
                     style: CustomTextStyle.kTextStyleF16BlackW300,
                   ),
                 ],
@@ -214,7 +217,6 @@ class _ServicesDetailsViewState extends State<ServicesDetailsView> {
                     Gap(10.h),
                     Align(
                       alignment:CacheHelper.isEnglish()?Alignment.bottomRight:Alignment.bottomLeft,
-
                       child: Text(
                         S.of(context).add,
                         textAlign: TextAlign.start,
@@ -234,7 +236,7 @@ class _ServicesDetailsViewState extends State<ServicesDetailsView> {
                       children: [
                       Center(
                               child: Text(
-                                "129 ${S.of(context).Aed}",
+                                "${widget.servicesEntity.price} ${S.of(context).Aed}",
                                 style: CustomTextStyle.kTextStyleF18Black,
                               ),
                         ),

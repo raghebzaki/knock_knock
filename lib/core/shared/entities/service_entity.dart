@@ -1,44 +1,31 @@
 import 'package:equatable/equatable.dart';
-import 'package:knockknock/core/shared/entities/products_images_entity.dart';
 
 
 class ServicesEntity extends Equatable {
   final num? id;
   final String? nameEn;
   final String? nameAr;
-  final num? categoryId;
-  final num? subCategoryId;
+  final num? serviceCategoryId;
   final String? descriptionEn;
   final String? descriptionAr;
-  final String? code;
+  final String? sku;
   final String? price;
-  final int? discountPercent;
-  final String? priceAfterDiscount;
+  final String? availability;
   final String? image;
-  final num? quantity;
-  late  num? userQuantity;
-  final List<ProductsImagesEntity>? images;
-  final List<String>? imagesBase64;
   final String? status;
   final String? message;
 
-  ServicesEntity({
+  const ServicesEntity({
     this.nameEn,
     this.nameAr,
-    this.subCategoryId,
+    this.serviceCategoryId,
     this.descriptionEn,
     this.descriptionAr,
-    this.code,
-    this.priceAfterDiscount,
+    this.sku,
+    this.availability,
     this.image,
-    this.imagesBase64,
-    this.quantity,
-    this.userQuantity = 1,
     this.id,
-    this.categoryId,
     this.price,
-    this.discountPercent,
-    this.images,
     this.status,
     this.message,
   });
@@ -48,20 +35,13 @@ class ServicesEntity extends Equatable {
     id,
     nameEn,
     nameAr,
-    categoryId,
-    subCategoryId,
+    serviceCategoryId,
     descriptionEn,
     descriptionAr,
-    code,
+    sku,
     price,
-    discountPercent,
-    priceAfterDiscount,
+    availability,
     image,
-    imagesBase64,
-    quantity,
-    userQuantity,
-
-    images,
     status,
     message,
   ];

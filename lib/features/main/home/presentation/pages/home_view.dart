@@ -47,7 +47,7 @@ class _HomeViewState extends State<HomeView> {
         ),
       ],
       child: Scaffold(
-        backgroundColor: AppColors.bg,
+        backgroundColor: AppColors.primary,
         appBar: const CustomAppBar(),
         body: SafeArea(
           child: SingleChildScrollView(
@@ -59,11 +59,12 @@ class _HomeViewState extends State<HomeView> {
                   builder: (context, state) {
                     return state.maybeWhen(
                       success: (state) {
-                        return  CarouselSlider(
+                        return CarouselSlider(
                           options: CarouselOptions(
                             autoPlay: true,
                             autoPlayInterval: const Duration(seconds: 10),
-                            autoPlayAnimationDuration: const Duration(milliseconds: 800),
+                            autoPlayAnimationDuration:
+                                const Duration(milliseconds: 800),
                             autoPlayCurve: Curves.fastOutSlowIn,
                           ),
                           items: state!.map((i) {
@@ -131,13 +132,28 @@ class _HomeViewState extends State<HomeView> {
                               ],
                             ),
                           ),
-                          AutoHeightGridView(
-                            crossAxisSpacing: 10.w,
-                            shrinkWrap: true,
-                            physics: const NeverScrollableScrollPhysics(),
-                            itemCount: 8,
-                            builder: (ctx, index) {
-                              return const ServiceItem();
+                          state.maybeWhen(
+                            loading: () {
+                              return const StateLoadingWidget();
+                            },
+                            success: (state) {
+                              return  AutoHeightGridView(
+                                crossAxisSpacing: 10.w,
+                                shrinkWrap: true,
+                                physics:
+                                const NeverScrollableScrollPhysics(),
+                                itemCount: state!.length,
+                                builder: (ctx, index) {
+                                  return  ServiceItem(servicesEntity: state[index],);
+                                },
+                              );
+                            },
+                            error: (errCode, err) {
+                              return StateErrorWidget(
+                                  errCode: errCode!, err: err!);
+                            },
+                            orElse: () {
+                              return const SizedBox.shrink();
                             },
                           ),
                         ],

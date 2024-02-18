@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:knockknock/core/router/router.dart';
 import 'package:knockknock/features/address/add_new_address/presentation/pages/add_new_address_view.dart';
 import 'package:knockknock/features/address/map/presentation/pages/map_view.dart';
@@ -6,6 +7,7 @@ import 'package:knockknock/features/address/saved_addresses/presentation/pages/s
 import 'package:knockknock/features/credits/buy_credits/presentation/pages/buy_credits.dart';
 import 'package:knockknock/features/main/cart/presentation/pages/cart_view.dart';
 import 'package:knockknock/features/main/credits/presentation/pages/credits_view.dart';
+import 'package:knockknock/features/main/home/presentation/manager/services_cubit.dart';
 import 'package:knockknock/features/main/home/presentation/pages/home_view.dart';
 import 'package:knockknock/features/main/products/presentation/pages/products_view.dart';
 import 'package:knockknock/features/main/products_details/presentation/pages/products_details_view.dart';
@@ -29,6 +31,7 @@ import '../../features/bottom_nav_bar.dart';
 import '../../features/credits/gift_card/presentation/pages/gift_card.dart';
 import '../../features/orders/order_details/presentation/pages/order_details_view.dart';
 import '../../main_view.dart';
+import '../dependency_injection/di.dart' as di;
 import '../shared/arguments.dart';
 
 class AppRouters {
@@ -100,11 +103,15 @@ class AppRouters {
         );
             case servicesPageRoute:
         return MaterialPageRoute(
-          builder: (BuildContext context) => const ServicesView(),
+          builder: (BuildContext context) => BlocProvider(
+            create: (context) => di.di<ServicesCubit>()..getAllServices(1),
+            child: const ServicesView(),
+          ),
         );
         case servicesDetailsPageRoute:
-        return MaterialPageRoute(
-          builder: (BuildContext context) => const ServicesDetailsView(),
+          final args = settings.arguments as ServicesArgs;
+          return MaterialPageRoute(
+          builder: (BuildContext context) =>  ServicesDetailsView(servicesEntity: args.servicesEntity),
         );
         case savedAddressesPageRoute:
         return MaterialPageRoute(

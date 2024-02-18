@@ -1,5 +1,6 @@
 
 import 'package:geocoding/geocoding.dart';
+import 'package:knockknock/core/shared/entities/service_entity.dart';
 
 import 'entities/order_entity.dart';
 
@@ -33,4 +34,9 @@ class AddresAedgs {
   final Placemark address;
 
   AddresAedgs({required this.address});
+}
+class ServicesArgs {
+  final ServicesEntity servicesEntity;
+
+  ServicesArgs({required this.servicesEntity});
 }
