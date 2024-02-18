@@ -40,7 +40,7 @@ class AppConstants {
 
   ///main
   static const productsUri = "";
-  static const servicesUri = "";
+  static const servicesUri = "v1/services/get-all";
   static const favoriteProductsUri = "";
   static const addFavoriteProductsUri = "";
   static const checkIfFavoriteProductsUri = "";

@@ -11,6 +11,7 @@ import 'package:knockknock/core/shared/widgets/state_error_widget.dart';
 import 'package:knockknock/core/shared/widgets/state_loading_widget.dart';
 import 'package:knockknock/core/utils/extensions.dart';
 import 'package:knockknock/features/main/home/presentation/manager/carousel_cubit.dart';
+import 'package:knockknock/features/main/home/presentation/manager/services_cubit.dart';
 import 'package:knockknock/features/main/home/presentation/widgets/ads_item.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
@@ -19,6 +20,7 @@ import '../../../../../core/shared/widgets/service_item.dart';
 import '../../../../../core/utils/app_colors.dart';
 import '../../../../../core/utils/dimensions.dart';
 import '../../../../../generated/l10n.dart';
+import '../manager/products_category_cubit.dart';
 
 class HomeView extends StatefulWidget {
   const HomeView({super.key});
@@ -37,9 +39,12 @@ class _HomeViewState extends State<HomeView> {
         BlocProvider(
           create: (context) => di.di<CarouselCubit>()..getAds(),
         ),
-        // BlocProvider(
-        //   create: (context) => di.di<>(),
-        // ),
+        BlocProvider(
+          create: (context) => di.di<ServicesCubit>()..getAllServices(1),
+        ),
+        BlocProvider(
+          create: (context) => di.di<ProductsCategoryCubit>(),
+        ),
       ],
       child: Scaffold(
         backgroundColor: AppColors.bg,
@@ -115,44 +120,50 @@ class _HomeViewState extends State<HomeView> {
                   },
                 ),
                 Gap(15.h),
-                Container(
-                  decoration: const BoxDecoration(
-                    color: AppColors.primary,
-                  ),
-                  child: Column(
-                    children: [
-                      Padding(
-                        padding: EdgeInsets.symmetric(
-                            horizontal: 12.0.w, vertical: 10.h),
-                        child: Row(
-                          children: [
-                            Text(
-                              S.current.services,
-                              style: CustomTextStyle.kTextStyleF20Black,
-                            ),
-                            const Spacer(),
-                            TextButton(
-                              onPressed: () {
-                                context.pushNamed(servicesPageRoute);
-                              },
-                              child: Text(S.current.seeMore,
-                                  style: CustomTextStyle.kTextStyleF12Black
-                                      .copyWith(fontWeight: FontWeight.w300)),
-                            ),
-                          ],
-                        ),
+                BlocConsumer<ServicesCubit, ServicesState>(
+                  listener: (context, state) {},
+                  builder: (context, state) {
+                    return Container(
+                      decoration: const BoxDecoration(
+                        color: AppColors.primary,
                       ),
-                      AutoHeightGridView(
-                        crossAxisSpacing: 10.w,
-                        shrinkWrap: true,
-                        physics: const NeverScrollableScrollPhysics(),
-                        itemCount: 8,
-                        builder: (ctx, index) {
-                          return const ServiceItem();
-                        },
+                      child: Column(
+                        children: [
+                          Padding(
+                            padding: EdgeInsets.symmetric(
+                                horizontal: 12.0.w, vertical: 10.h),
+                            child: Row(
+                              children: [
+                                Text(
+                                  S.current.services,
+                                  style: CustomTextStyle.kTextStyleF20Black,
+                                ),
+                                const Spacer(),
+                                TextButton(
+                                  onPressed: () {
+                                    context.pushNamed(servicesPageRoute);
+                                  },
+                                  child: Text(S.current.seeMore,
+                                      style: CustomTextStyle.kTextStyleF12Black
+                                          .copyWith(
+                                              fontWeight: FontWeight.w300)),
+                                ),
+                              ],
+                            ),
+                          ),
+                          AutoHeightGridView(
+                            crossAxisSpacing: 10.w,
+                            shrinkWrap: true,
+                            physics: const NeverScrollableScrollPhysics(),
+                            itemCount: 8,
+                            builder: (ctx, index) {
+                              return const ServiceItem();
+                            },
+                          ),
+                        ],
                       ),
-                    ],
-                  ),
+                    );
+                  },
                 ),
                 Gap(15.h),
                 Container(

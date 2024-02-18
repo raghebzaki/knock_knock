@@ -13,7 +13,7 @@ class ServicesCubit extends Cubit<ServicesState> {
 
   final ServicesUseCase servicesUseCase;
 
-  getAllProducts(int? nextPage) async {
+  getAllServices(int? nextPage) async {
     if (nextPage == 1) {
       emit(const ServicesState.loading());
     } else {
