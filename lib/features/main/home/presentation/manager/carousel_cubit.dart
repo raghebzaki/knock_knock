@@ -13,31 +13,22 @@ class CarouselCubit extends Cubit<CarouselState> {
 
   final CarouselUseCase carouselUseCase;
 
-  getAds(int nextPage) async {
-    if (nextPage == 1) {
+  getAds() async {
       emit(const CarouselState.loading());
-    } else {
-      emit(const CarouselState.paginationLoading());
-    }
+
     
     
 
-    final getAllCarousel = await carouselUseCase(nextPage);
+    final getAllCarousel = await carouselUseCase();
 
     getAllCarousel.fold(
       (l) => {
-        nextPage == 1 ?
         emit(
           CarouselState.error(
             l.code.toString(),
             l.message,
           ),
-        ) : emit(
-          CarouselState.paginationError(
-            l.code.toString(),
-            l.message,
-          ),
-        ),
+        )
       },
       (r) => {
         emit(

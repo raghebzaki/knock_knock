@@ -16,12 +16,12 @@ class CarouselRepoImpl implements CarouselRepo {
 
 
   @override
-  Future<Either<Failure, List<CarouselEntity>>> getAllCarousel(int nextPage) async {
+  Future<Either<Failure, List<CarouselEntity>>> getAllCarousel() async {
     final result = await Connectivity().checkConnectivity();
     if (result == ConnectivityResult.mobile ||
         result == ConnectivityResult.wifi) {
       try {
-        final getCarousel = await carouselService.getAllCarousel(nextPage);
+        final getCarousel = await carouselService.getAllCarousel();
         return right(getCarousel);
       } on DioException catch (error) {
         return Left(ErrorHandler.handle(error).failure);

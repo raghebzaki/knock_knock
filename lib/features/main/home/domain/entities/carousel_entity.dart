@@ -2,12 +2,12 @@ import 'package:equatable/equatable.dart';
 
 class CarouselEntity extends Equatable {
   final num? id;
-  final String? title;
-  final String? description;
+  final String? titleAr;
+  final String? titleEn;
   final String? image;
 
-  const CarouselEntity({this.id, this.title, this.description, this.image});
+  const CarouselEntity({this.id, this.titleAr, this.titleEn, this.image});
 
   @override
-  List<Object?> get props => [id, title, description, image];
+  List<Object?> get props => [id, titleAr, titleEn, image];
 }

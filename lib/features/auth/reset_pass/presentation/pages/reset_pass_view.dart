@@ -110,7 +110,7 @@ class _ResetPassViewState extends State<ResetPassView> {
                                     //   // context.pushNamed(login);
                                     // },
                                     controller: pinCtrl,
-                                    length: 6,
+                                    length: 4,
                                     mainAxisAlignment:
                                     MainAxisAlignment.spaceEvenly,
                                     crossAxisAlignment:

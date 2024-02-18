@@ -96,7 +96,7 @@ class _VerifyAccountViewState extends State<VerifyAccountView> {
                                     },
                                     closeKeyboardWhenCompleted: false,
                                     
-                                    length: 6,
+                                    length: 4,
                                     controller: pinCtrl,
                                     mainAxisAlignment:
                                         MainAxisAlignment.spaceEvenly,
