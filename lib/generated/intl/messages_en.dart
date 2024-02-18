@@ -231,6 +231,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Privacy Policy"),
         "processing": MessageLookupByLibrary.simpleMessage("Processing"),
         "products": MessageLookupByLibrary.simpleMessage("Products"),
+        "productsCategories":
+            MessageLookupByLibrary.simpleMessage("products categories"),
         "profile": MessageLookupByLibrary.simpleMessage("Profile"),
         "quantity": MessageLookupByLibrary.simpleMessage("quantity"),
         "register": MessageLookupByLibrary.simpleMessage("Register"),

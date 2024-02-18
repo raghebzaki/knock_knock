@@ -56,6 +56,11 @@ import '../../features/main/home/domain/use_cases/products_category_use_case.dar
 import '../../features/main/home/domain/use_cases/services_use_case.dart';
 import '../../features/main/home/presentation/manager/products_category_cubit.dart';
 import '../../features/main/home/presentation/manager/services_cubit.dart';
+import '../../features/main/products/data/data_sources/products_service.dart';
+import '../../features/main/products/data/repositories/products_repo_impl.dart';
+import '../../features/main/products/domain/repositories/products_repo.dart';
+import '../../features/main/products/domain/use_cases/products_use_case.dart';
+import '../../features/main/products/presentation/manager/products_cubit.dart';
 import '../../features/orders/my_orders/data/data_sources/my_orders_service.dart';
 import '../../features/orders/my_orders/data/repositories/my_orders_repo_impl.dart';
 import '../../features/orders/my_orders/domain/repositories/my_orders_repo.dart';
@@ -152,6 +157,11 @@ Future<void> init() async {
   di.registerLazySingleton(() => ProductsCategoryUseCase(di()));
   di.registerLazySingleton<ProductsCategoryRepo>(() => ProductsCategoryRepoImpl(di(),));
   di.registerLazySingleton<ProductsCategoryService>(() => ProductsCategoryServiceImpl());
+ /// Products Category
+  di.registerFactory(() => ProductsCubit( di()));
+  di.registerLazySingleton(() => ProductsUseCase(di()));
+  di.registerLazySingleton<ProductsRepo>(() => ProductsRepoImpl(di(),));
+  di.registerLazySingleton<ProductsService>(() => ProductsServiceImpl());
 
   ///profile
   /// Edit profile

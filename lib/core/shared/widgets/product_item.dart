@@ -3,16 +3,20 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gap/gap.dart';
 import 'package:get/get.dart';
 import 'package:knockknock/core/router/router.dart';
+import 'package:knockknock/core/shared/arguments.dart';
+import 'package:knockknock/core/shared/entities/product_entity.dart';
+import 'package:knockknock/core/utils/app_constants.dart';
 import 'package:knockknock/core/utils/extensions.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 
 import '../../../config/themes/app_text_styles.dart';
+import '../../helpers/cache_helper.dart';
 import '../../utils/app_colors.dart';
-import '../../utils/app_images.dart';
 import '../../utils/dimensions.dart';
 
 class ProductItem extends StatelessWidget {
-  const ProductItem({super.key});
+  final ProductEntity productEntity;
+  const ProductItem({super.key, required this.productEntity});
 
   @override
   Widget build(BuildContext context) {
@@ -44,7 +48,7 @@ class ProductItem extends StatelessWidget {
                 width: context.queryWidth.w,
                 height: 140.h,
                 child: Image.network(
-                  "${AppImages.placeholder}1000",
+                  AppConstants.imageUrl+productEntity.image!,
                   fit: BoxFit.cover,
                 ),
               ),
@@ -53,7 +57,7 @@ class ProductItem extends StatelessWidget {
                 child: CircleAvatar(
                   backgroundColor: AppColors.primary,
                   child: Icon(
-                    MdiIcons.heart,
+                    MdiIcons.heartOutline,
                     color: AppColors.errorColor,
                   ),
                 ).paddingAll(Dimensions.p8,),
@@ -62,7 +66,6 @@ class ProductItem extends StatelessWidget {
           ),
           Container(
             width: context.queryWidth.w,
-            height: 98.h,
             padding: EdgeInsets.symmetric(horizontal: Dimensions.p12.w),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.start,
@@ -73,7 +76,7 @@ class ProductItem extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      'dasani',
+                      CacheHelper.isEnglish()?productEntity.nameEn!:productEntity.nameAr!,
                       style: CustomTextStyle.kTextStyleF14,
                     ),
                     Row(
@@ -81,16 +84,16 @@ class ProductItem extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
                         Text(
-                          "AED 5",
+                          productEntity.discountPercent==0?productEntity.price!:productEntity.priceAfterDiscount!,
                           style: CustomTextStyle.kTextStyleF14.copyWith(
                             fontWeight: FontWeight.w500,
                           ),
                         ),
                         Gap(8.w),
-                        Text(
-                          '-30%',
+                        productEntity.discountPercent!=0?Text(
+                          productEntity.discountPercent.toString(),
                           style: CustomTextStyle.kTextStyleF12,
-                        ),
+                        ):const SizedBox.shrink(),
                       ],
                     ),
                   ],
@@ -98,7 +101,7 @@ class ProductItem extends StatelessWidget {
                 Gap(12.h),
                 GestureDetector(
                   onTap: () {
-                    context.pushNamed(productsDetailsPageRoute);
+                    context.pushNamed(productsDetailsPageRoute,arguments: ProductArgs(productEntity: productEntity));
                   },
                   child: Container(
                     width: context.queryWidth.w,

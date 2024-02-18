@@ -910,6 +910,16 @@ class S {
     );
   }
 
+  /// `products categories`
+  String get productsCategories {
+    return Intl.message(
+      'products categories',
+      name: 'productsCategories',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Availability:`
   String get availability {
     return Intl.message(

@@ -10,7 +10,7 @@ class ProductsUseCase {
 
   ProductsUseCase(this.productsRepo);
 
-  Future<Either<Failure, List<ProductEntity>>> call(int? nextPage) async {
-    return await productsRepo.getAllProducts( nextPage);
+  Future<Either<Failure, List<ProductEntity>>> call(int? nextPage,num? categoryId) async {
+    return await productsRepo.getAllProducts( nextPage,categoryId);
   }
 }

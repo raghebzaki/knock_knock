@@ -109,6 +109,7 @@
   "services": "Services",
   "products": "Products",
   "seeMore": "see more",
+  "productsCategories": "products categories",
 
 
   "@productsDetails": {},
@@ -259,4 +260,5 @@
   "booking": "Booking",
   "credits": "Credits",
   "noInternetConnection": "no internet connection"
+
 }

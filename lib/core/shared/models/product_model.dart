@@ -1,4 +1,3 @@
-import 'package:knockknock/core/shared/models/products_images_model.dart';
 
 import '../entities/product_entity.dart';
 
@@ -8,18 +7,15 @@ class ProductModel extends ProductEntity {
     super.nameAr,
     super.nameEn,
     super.categoryId,
-    super.subCategoryId,
     super.descriptionEn,
     super.descriptionAr,
     super.price,
     super.discountPercent,
     super.code,
     super.image,
-    super.imagesBase64,
     super.priceAfterDiscount,
     super.quantity,
     super.userQuantity,
-    super.images,
     super.status,
     super.message,
   });
@@ -29,20 +25,19 @@ class ProductModel extends ProductEntity {
       id: json["id"],
       nameAr: json["name_ar"],
       nameEn: json["name_en"],
-      categoryId: json["category_id"],
-      subCategoryId: json["sub_category_id"],
+      categoryId: json["product_category_id"],
       descriptionAr: json["description_ar"],
       descriptionEn: json["description_en"],
-      code: json["postalCode"],
+      code: json["code"],
       price: json["price"],
-      discountPercent: json["discount_percentage"] ?? 0,
-      priceAfterDiscount: json["price_after_discount"],
+      discountPercent: json["discount"] ?? 0,
+      priceAfterDiscount: json["price_after_discount"]??"",
       image: json["image"],
       quantity: json["quantity"],
-      images: json["product_images"] == null
-          ? []
-          : List<ProductsImagesModel>.from(json["product_images"]!
-              .map((x) => ProductsImagesModel.fromJson(x))),
+      // images: json["product_images"] == null
+      //     ? []
+      //     : List<ProductsImagesModel>.from(json["product_images"]!
+      //         .map((x) => ProductsImagesModel.fromJson(x))),
     );
   }
 
@@ -62,7 +57,6 @@ class ProductModel extends ProductEntity {
       'price': productEntity.price,
       'discount_percent': productEntity.discountPercent,
       'image': productEntity.image,
-      'images': productEntity.imagesBase64,
     };
   }
 }

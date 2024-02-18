@@ -14,14 +14,14 @@ class ProductsCubit extends Cubit<ProductsState> {
 
   final ProductsUseCase productsUseCase;
 
-  getAllProducts(int? nextPage) async {
+  getAllProducts(int? nextPage,num categoryId) async {
     if (nextPage == 1) {
       emit(const ProductsState.loading());
     } else {
       emit(const ProductsState.paginationLoading());
     }
 
-    final getAllProduct = await productsUseCase( nextPage);
+    final getAllProduct = await productsUseCase( nextPage,categoryId);
 
     getAllProduct.fold(
           (l) => {

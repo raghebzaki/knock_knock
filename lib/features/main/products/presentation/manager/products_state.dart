@@ -1,4 +1,4 @@
-part of 'products_cubit.dart';
+part of '../../../products/presentation/manager/products_cubit.dart';
 
 @freezed
 class ProductsState with _$ProductsState {

@@ -7,7 +7,7 @@ import 'package:gap/gap.dart';
 import 'package:knockknock/config/themes/app_text_styles.dart';
 import 'package:knockknock/core/router/router.dart';
 import 'package:knockknock/core/shared/widgets/custom_app_bar.dart';
-import 'package:knockknock/core/shared/widgets/product_item.dart';
+import 'package:knockknock/core/shared/widgets/product_category_item.dart.dart';
 import 'package:knockknock/core/shared/widgets/state_error_widget.dart';
 import 'package:knockknock/core/shared/widgets/state_loading_widget.dart';
 import 'package:knockknock/core/utils/extensions.dart';
@@ -43,7 +43,7 @@ class _HomeViewState extends State<HomeView> {
           create: (context) => di.di<ServicesCubit>()..getAllServices(1),
         ),
         BlocProvider(
-          create: (context) => di.di<ProductsCategoryCubit>(),
+          create: (context) => di.di<ProductsCategoryCubit>()..getProductsCategory(),
         ),
       ],
       child: Scaffold(
@@ -162,43 +162,54 @@ class _HomeViewState extends State<HomeView> {
                   },
                 ),
                 Gap(15.h),
-                Container(
-                  decoration: const BoxDecoration(
-                    color: AppColors.primary,
-                  ),
-                  child: Column(
-                    children: [
-                      Padding(
-                        padding: EdgeInsets.symmetric(
-                            horizontal: 12.0.w, vertical: 10.h),
-                        child: Row(
-                          children: [
-                            Text(
-                              S.current.products,
-                              style: CustomTextStyle.kTextStyleF20Black,
-                            ),
-                            const Spacer(),
-                            TextButton(
-                              onPressed: () {
-                                context.pushNamed(productsPageRoute);
-                              },
-                              child: Text(S.current.seeMore,
-                                  style: CustomTextStyle.kTextStyleF12Black
-                                      .copyWith(fontWeight: FontWeight.w300)),
-                            ),
-                          ],
-                        ),
+                BlocConsumer<ProductsCategoryCubit, ProductsCategoryState>(
+                  listener: (context, state) {},
+                  builder: (context, state) {
+                    return Container(
+                      decoration: const BoxDecoration(
+                        color: AppColors.primary,
                       ),
-                      AutoHeightGridView(
-                        shrinkWrap: true,
-                        physics: const NeverScrollableScrollPhysics(),
-                        itemCount: 10,
-                        builder: (ctx, index) {
-                          return const ProductItem();
-                        },
+                      child: Column(
+                        children: [
+                          Padding(
+                            padding: EdgeInsets.symmetric(
+                                horizontal: 12.0.w, vertical: 10.h),
+                            child: Row(
+                              children: [
+                                Text(
+                                  S.of(context).productsCategories,
+                                  style: CustomTextStyle.kTextStyleF20Black,
+                                ),
+                              ],
+                            ),
+                          ),
+                          state.maybeWhen(
+                            loading: () {
+                              return const StateLoadingWidget();
+                            },
+                            success: (state) {
+                              return  AutoHeightGridView(
+                                crossAxisSpacing: 10.w,
+                                shrinkWrap: true,
+                                physics: const NeverScrollableScrollPhysics(),
+                                itemCount: state!.length,
+                                builder: (ctx, index) {
+                                  return   ProductCategoryItem(productsCategoryEntity: state[index], );
+                                },
+                              );
+                            },
+                            error: (errCode, err) {
+                              return StateErrorWidget(
+                                  errCode: errCode!, err: err!);
+                            },
+                            orElse: () {
+                              return const SizedBox.shrink();
+                            },
+                          ),
+                        ],
                       ),
-                    ],
-                  ),
+                    );
+                  },
                 ),
               ],
             ),

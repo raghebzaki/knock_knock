@@ -9,6 +9,7 @@ import 'package:knockknock/features/main/cart/presentation/pages/cart_view.dart'
 import 'package:knockknock/features/main/credits/presentation/pages/credits_view.dart';
 import 'package:knockknock/features/main/home/presentation/manager/services_cubit.dart';
 import 'package:knockknock/features/main/home/presentation/pages/home_view.dart';
+import 'package:knockknock/features/main/products/presentation/manager/products_cubit.dart';
 import 'package:knockknock/features/main/products/presentation/pages/products_view.dart';
 import 'package:knockknock/features/main/products_details/presentation/pages/products_details_view.dart';
 import 'package:knockknock/features/main/profile/presentation/pages/profile_view.dart';
@@ -94,12 +95,17 @@ class AppRouters {
           builder: (BuildContext context) => const CreditsView(),
         );
         case productsPageRoute:
-        return MaterialPageRoute(
-          builder: (BuildContext context) => const ProductsView(),
+          final args = settings.arguments as ProductsArgs;
+          return MaterialPageRoute(
+            builder: (BuildContext context) => BlocProvider(
+              create: (context) => di.di<ProductsCubit>()..getAllProducts(1,args.categoryId),
+              child: ProductsView(categoryId: args.categoryId),
+            ),
         );
         case productsDetailsPageRoute:
-        return MaterialPageRoute(
-          builder: (BuildContext context) => const ProductsDetailsView(),
+          final args = settings.arguments as ProductArgs;
+          return MaterialPageRoute(
+          builder: (BuildContext context) =>  ProductsDetailsView(productEntity: args.productEntity,),
         );
             case servicesPageRoute:
         return MaterialPageRoute(

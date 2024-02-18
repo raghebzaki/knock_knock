@@ -39,7 +39,7 @@ class AppConstants {
   static const resendCodeUri = "auth/resend-code";
 
   ///main
-  static const productsUri = "";
+  static const productsUri = "v1/products/get-products-by-category";
   static const servicesUri = "v1/services/get-all";
   static const favoriteProductsUri = "";
   static const addFavoriteProductsUri = "";

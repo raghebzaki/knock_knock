@@ -218,6 +218,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("سياسة الخصوصية"),
         "processing": MessageLookupByLibrary.simpleMessage("قيد المعالجة"),
         "products": MessageLookupByLibrary.simpleMessage("المنتجات"),
+        "productsCategories":
+            MessageLookupByLibrary.simpleMessage("فئات المنتجات"),
         "profile": MessageLookupByLibrary.simpleMessage("الملف الشخصي"),
         "quantity": MessageLookupByLibrary.simpleMessage("الكمية"),
         "register": MessageLookupByLibrary.simpleMessage("تسجيل"),

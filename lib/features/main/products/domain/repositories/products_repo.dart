@@ -5,6 +5,6 @@ import '../../../../../../core/resources/api/failure_class.dart';
 
 
 abstract class ProductsRepo {
-  Future<Either<Failure, List<ProductEntity>>> getAllProducts(int? nextPage);
+  Future<Either<Failure, List<ProductEntity>>> getAllProducts(int? nextPage,num? categoryId);
 
 }

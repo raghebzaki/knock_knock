@@ -1,23 +1,28 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_html/flutter_html.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gap/gap.dart';
 import 'package:get/get.dart';
 import 'package:knockknock/config/themes/app_text_styles.dart';
+import 'package:knockknock/core/shared/entities/product_entity.dart';
 import 'package:knockknock/core/shared/widgets/custom_button_small.dart';
 import 'package:knockknock/core/shared/widgets/date_widget.dart';
 import 'package:knockknock/core/shared/widgets/time_widget.dart';
 import 'package:knockknock/core/utils/app_colors.dart';
 import 'package:knockknock/core/utils/extensions.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
+import '../../../../../core/helpers/cache_helper.dart';
 import '../../../../../core/router/router.dart';
 
 import '../../../../../core/shared/widgets/custom_app_bar.dart';
+import '../../../../../core/utils/app_constants.dart';
 import '../../../../../core/utils/app_images.dart';
 import '../../../../../generated/l10n.dart';
 import '../../../../bottom_nav_bar.dart';
 
 class ProductsDetailsView extends StatefulWidget {
-  const ProductsDetailsView({super.key});
+  final ProductEntity productEntity;
+  const ProductsDetailsView({super.key, required this.productEntity});
 
   @override
   State<ProductsDetailsView> createState() => _ProductsDetailsViewState();
@@ -41,7 +46,7 @@ class _ProductsDetailsViewState extends State<ProductsDetailsView> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Image.network(
-                "${AppImages.placeholder}600x350",
+                AppConstants.imageUrl+widget.productEntity.image!,
                 fit: BoxFit.cover,
               ),
               Gap(10.h),
@@ -65,13 +70,13 @@ class _ProductsDetailsViewState extends State<ProductsDetailsView> {
               ),
               Gap(10.h),
               Text(
-                "Sunny oil",
+                CacheHelper.isEnglish()?widget.productEntity.nameEn!:widget.productEntity.nameAr!,
                 style: CustomTextStyle.kTextStyleF16Black,
               ),
-              Gap(10.h),
-              Text(
-                "Extracted from the finest, handpicked olives, our Extra Virgin Olive Oil is cold-pressed to ensure the highest quality and purity. Its rich golden hue and robust, fruity aroma are a prelude to the depth of flavor that awaits within.",
-                style: CustomTextStyle.kTextStyleF12Black,
+              Html(
+                data: CacheHelper.isEnglish()
+                    ? widget.productEntity.descriptionEn!
+                    : widget.productEntity.descriptionAr!,
               ),
               const Divider(),
               Gap(5.h),
@@ -82,7 +87,7 @@ class _ProductsDetailsViewState extends State<ProductsDetailsView> {
                     style: CustomTextStyle.kTextStyleF16Black,
                   ),
                   Text(
-                    "In Stock ",
+                    widget.productEntity.quantity!,
                     style: CustomTextStyle.kTextStyleF16BlackW300,
                   ),
                 ],
@@ -94,7 +99,7 @@ class _ProductsDetailsViewState extends State<ProductsDetailsView> {
                     style: CustomTextStyle.kTextStyleF16Black,
                   ),
                   Text(
-                    "Knock Knock56235",
+                    widget.productEntity.code.toString(),
                     style: CustomTextStyle.kTextStyleF16BlackW300,
                   ),
                 ],

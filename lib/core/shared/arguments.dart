@@ -1,5 +1,6 @@
 
 import 'package:geocoding/geocoding.dart';
+import 'package:knockknock/core/shared/entities/product_entity.dart';
 import 'package:knockknock/core/shared/entities/service_entity.dart';
 
 import 'entities/order_entity.dart';
@@ -39,4 +40,14 @@ class ServicesArgs {
   final ServicesEntity servicesEntity;
 
   ServicesArgs({required this.servicesEntity});
+}
+class ProductsArgs {
+  final num categoryId;
+
+  ProductsArgs({required this.categoryId});
+}
+class ProductArgs {
+  final ProductEntity productEntity;
+
+  ProductArgs({required this.productEntity});
 }
