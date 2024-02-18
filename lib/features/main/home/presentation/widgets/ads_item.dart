@@ -3,8 +3,9 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gap/gap.dart';
 import 'package:get/get.dart';
 import 'package:knockknock/config/themes/app_text_styles.dart';
-import 'package:knockknock/core/utils/app_images.dart';
+import 'package:knockknock/core/utils/app_constants.dart';
 import 'package:knockknock/core/utils/extensions.dart';
+import 'package:knockknock/features/main/home/domain/entities/carousel_entity.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 import '../../../../../core/utils/app_colors.dart';
@@ -13,9 +14,10 @@ import '../../../../../core/utils/dimensions.dart';
 class AdsItem extends StatelessWidget {
   const AdsItem({
     super.key,
-    required this.adsCtrl,
+    required this.adsCtrl, required this.carouselList,
   });
 
+  final List<CarouselEntity> carouselList;
   final PageController adsCtrl;
 
   @override
@@ -46,7 +48,7 @@ class AdsItem extends StatelessWidget {
                 height: 165.h,
                 decoration: ShapeDecoration(
                   image: DecorationImage(
-                    image: NetworkImage("${AppImages.placeholder}500x500"),
+                    image: NetworkImage(AppConstants.imageUrl+carouselList[0].image!),
                     fit: BoxFit.cover,
                   ),
                   shape: RoundedRectangleBorder(
@@ -62,21 +64,9 @@ class AdsItem extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      'Hire ',
+                      carouselList[0].titleEn!,
                       style: CustomTextStyle.kTextStyleF12.copyWith(
                         fontWeight: FontWeight.w700,
-                      ),
-                    ),
-                    Text(
-                      'a cleaning worker',
-                      style: CustomTextStyle.kTextStyleF12.copyWith(
-                        fontWeight: FontWeight.w400,
-                      ),
-                    ),
-                    Text(
-                      'With AED 100 off!',
-                      style: CustomTextStyle.kTextStyleF12.copyWith(
-                        fontWeight: FontWeight.w300,
                       ),
                     ),
                   ],

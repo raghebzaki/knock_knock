@@ -1,4 +1,5 @@
 import 'package:get_it/get_it.dart';
+import 'package:knockknock/features/main/home/presentation/manager/carousel_cubit.dart';
 import 'package:knockknock/features/orders/track_order/domain/use_cases/cancel_order_usecase.dart';
 import 'package:knockknock/features/profile/edit_profile/domain/use_cases/delete_account_use_case.dart';
 import 'package:knockknock/features/profile/edit_profile/domain/use_cases/edit_account_use_case.dart';
@@ -41,6 +42,10 @@ import '../../features/auth/verify_account/domain/repositories/verify_account_re
 import '../../features/auth/verify_account/domain/use_cases/resend_code_usecase.dart';
 import '../../features/auth/verify_account/domain/use_cases/verify_account_usecase.dart';
 import '../../features/auth/verify_account/presentation/manager/verify_account_cubit.dart';
+import '../../features/main/home/data/data_sources/carousel_service.dart';
+import '../../features/main/home/data/repositories/carousel_repo_impl.dart';
+import '../../features/main/home/domain/repositories/carousel_repo.dart';
+import '../../features/main/home/domain/use_cases/carousel_use_case.dart';
 import '../../features/orders/my_orders/data/data_sources/my_orders_service.dart';
 import '../../features/orders/my_orders/data/repositories/my_orders_repo_impl.dart';
 import '../../features/orders/my_orders/domain/repositories/my_orders_repo.dart';
@@ -120,6 +125,13 @@ Future<void> init() async {
       () => VerifyAccountServiceImpl());
   di.registerLazySingleton<VerifyResendCodeService>(
       () => VerifyResendCodeServiceImpl());
+
+  ///Home view
+  /// carousel
+  di.registerFactory(() => CarouselCubit(carouselUseCase: di()));
+  di.registerLazySingleton(() => CarouselUseCase(di()));
+  di.registerLazySingleton<CarouselRepo>(() => CarouselRepoImpl(di(),));
+  di.registerLazySingleton<CarouselService>(() => CarouselServiceImpl());
 
   ///profile
   /// Edit profile

@@ -7,6 +7,8 @@ import 'package:knockknock/config/themes/app_text_styles.dart';
 import 'package:knockknock/core/router/router.dart';
 import 'package:knockknock/core/shared/widgets/custom_app_bar.dart';
 import 'package:knockknock/core/shared/widgets/product_item.dart';
+import 'package:knockknock/core/shared/widgets/state_error_widget.dart';
+import 'package:knockknock/core/shared/widgets/state_loading_widget.dart';
 import 'package:knockknock/core/utils/extensions.dart';
 import 'package:knockknock/features/main/home/presentation/manager/carousel_cubit.dart';
 import 'package:knockknock/features/main/home/presentation/widgets/ads_item.dart';
@@ -32,7 +34,9 @@ class _HomeViewState extends State<HomeView> {
     return MultiBlocProvider(
       providers: [
         BlocProvider(
-          create: (context) => di.di<CarouselCubit>()..getAds(),
+          create: (context) =>
+          di.di<CarouselCubit>()
+            ..getAds(),
         ),
         // BlocProvider(
         //   create: (context) => di.di<>(),
@@ -46,16 +50,34 @@ class _HomeViewState extends State<HomeView> {
             child: Column(
               children: [
                 Gap(15.h),
-                Container(
-                  width: context.queryWidth.w,
-                  padding: EdgeInsets.symmetric(
-                    horizontal: Dimensions.p24.w,
-                    vertical: Dimensions.p12.h,
-                  ),
-                  color: Colors.white,
-                  child: AdsItem(
-                    adsCtrl: adsCtrl,
-                  ),
+                BlocConsumer<CarouselCubit, CarouselState>(
+                  listener: (context, state) {
+                  },
+                  builder: (context, state) {
+                    return state.maybeWhen(
+                      success: (state){
+                        return Container(
+                          width: context.queryWidth.w,
+                          padding: EdgeInsets.symmetric(
+                            horizontal: Dimensions.p24.w,
+                            vertical: Dimensions.p12.h,
+                          ),
+                          color: Colors.white,
+                          child: AdsItem(
+                            carouselList: state!,
+                            adsCtrl: adsCtrl,
+                          ),
+                        );
+                      },
+                        loading: (){
+                          return const StateLoadingWidget();
+                        },
+                        error: (errCode,err){
+                           return StateErrorWidget(errCode: errCode!, err: err!);
+                        },
+                        orElse: (){return const SizedBox.shrink();
+                        });
+                  },
                 ),
                 Gap(15.h),
                 Container(
