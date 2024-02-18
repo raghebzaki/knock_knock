@@ -12,10 +12,10 @@ import '../../domain/entities/carousel_entity.dart';
 class AdsItem extends StatelessWidget {
   const AdsItem({
     super.key,
-    required this.carouselList,
+    required this.carousel,
   });
 
-  final CarouselEntity carouselList;
+  final CarouselEntity carousel;
 
   @override
   Widget build(BuildContext context) {
@@ -42,7 +42,7 @@ class AdsItem extends StatelessWidget {
             decoration: ShapeDecoration(
               image: DecorationImage(
                 image: CachedNetworkImageProvider(
-                    AppConstants.imageUrl + carouselList.image!),
+                    AppConstants.imageUrl + carousel.image!),
                 fit: BoxFit.cover,
               ),
               shape: RoundedRectangleBorder(
@@ -58,7 +58,7 @@ class AdsItem extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  carouselList.titleEn!,
+                  carousel.titleEn!,
                   style: CustomTextStyle.kTextStyleF12.copyWith(
                     fontWeight: FontWeight.w700,
                   ),

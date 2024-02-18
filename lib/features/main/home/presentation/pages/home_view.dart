@@ -1,4 +1,5 @@
 import 'package:auto_height_grid_view/auto_height_grid_view.dart';
+import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -13,7 +14,6 @@ import 'package:knockknock/core/utils/extensions.dart';
 import 'package:knockknock/features/main/home/presentation/manager/carousel_cubit.dart';
 import 'package:knockknock/features/main/home/presentation/manager/services_cubit.dart';
 import 'package:knockknock/features/main/home/presentation/widgets/ads_item.dart';
-import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 import '../../../../../core/dependency_injection/di.dart' as di;
 import '../../../../../core/shared/widgets/service_item.dart';
@@ -59,49 +59,29 @@ class _HomeViewState extends State<HomeView> {
                   builder: (context, state) {
                     return state.maybeWhen(
                       success: (state) {
-                        return Column(
-                          children: [
-                            SingleChildScrollView(
-                              controller: adsCtrl,
-                              scrollDirection: Axis.horizontal,
-                              child: Row(
-                                children: [
-                                  ...List.generate(
-                                    state!.length,
-                                    (index) => Container(
-                                      padding: EdgeInsets.symmetric(
-                                        horizontal: Dimensions.p24.w,
-                                        vertical: Dimensions.p12.h,
-                                      ),
-                                      color: Colors.white,
-                                      child: AdsItem(
-                                        carouselList: state[index],
-                                      ),
-                                    ),
-                                  )
-                                ],
-                              ),
-                            ),
-                            // Gap(12.h),
-                            Container(
-                              width: context.queryWidth.w,
-                              padding: EdgeInsets.symmetric(
-                                horizontal: Dimensions.p24.w,
-                                vertical: Dimensions.p12.h,
-                              ),
-                              color: Colors.white,
-                              child: Center(
-                                child: SmoothPageIndicator(
-                                  controller: adsCtrl,
-                                  count: state.length,
-                                  effect: const ExpandingDotsEffect(
-                                    activeDotColor: AppColors.secondary,
-                                    dotColor: AppColors.secondary,
+                        return  CarouselSlider(
+                          options: CarouselOptions(
+                            autoPlay: true,
+                            autoPlayInterval: const Duration(seconds: 10),
+                            autoPlayAnimationDuration: const Duration(milliseconds: 800),
+                            autoPlayCurve: Curves.fastOutSlowIn,
+                          ),
+                          items: state!.map((i) {
+                            return Builder(
+                              builder: (BuildContext context) {
+                                return Container(
+                                  padding: EdgeInsets.symmetric(
+                                    horizontal: Dimensions.p24.w,
+                                    vertical: Dimensions.p12.h,
                                   ),
-                                ),
-                              ),
-                            ),
-                          ],
+                                  color: Colors.white,
+                                  child: AdsItem(
+                                    carousel: i,
+                                  ),
+                                );
+                              },
+                            );
+                          }).toList(),
                         );
                       },
                       loading: () {
