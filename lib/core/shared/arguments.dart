@@ -1,5 +1,6 @@
 
 import 'package:geocoding/geocoding.dart';
+import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:knockknock/core/shared/entities/product_entity.dart';
 import 'package:knockknock/core/shared/entities/service_entity.dart';
 
@@ -33,8 +34,9 @@ class OrderDetailAedgs {
 
 class AddresAedgs {
   final Placemark address;
+  final LatLng latLng;
 
-  AddresAedgs({required this.address});
+  AddresAedgs({required this.latLng, required this.address});
 }
 class ServicesArgs {
   final ServicesEntity servicesEntity;

@@ -27,6 +27,7 @@ class _MapViewState extends State<MapView> {
 
   List<MapsModel> markersList = [];
   Placemark? newAddress;
+  LatLng? saveLatLng;
 
   @override
   Widget build(BuildContext context) {
@@ -65,6 +66,7 @@ class _MapViewState extends State<MapView> {
                         marker,
                       );
                       setState(() {});
+                      saveLatLng=latLng;
                       newAddress = await mapsCubit.convertLocation(latLng);
                       // newAddress = latLng;
                     },
@@ -80,6 +82,8 @@ class _MapViewState extends State<MapView> {
                             addNewAddressPageRoute,
                             arguments: AddresAedgs(
                               address: newAddress!,
+                              latLng: saveLatLng!,
+
                             ),
                           );
                         },

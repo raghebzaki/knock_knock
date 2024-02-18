@@ -25,8 +25,7 @@ class Address extends Equatable {
   final String? phone;
   @HiveField(8)
   final LatLng? latitude;
-  @HiveField(9)
-  final LatLng? longitude;
+
 
   Address({
     this.address,
@@ -37,7 +36,6 @@ class Address extends Equatable {
     this.code,
     this.phone,
     this.latitude,
-    this.longitude,
   }) : id = const Uuid().v4();
 
   @override
@@ -51,6 +49,5 @@ class Address extends Equatable {
         code,
         phone,
         latitude,
-        longitude,
       ];
 }

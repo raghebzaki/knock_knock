@@ -5,6 +5,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gap/gap.dart';
 import 'package:geocoding/geocoding.dart';
+import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:knockknock/core/utils/extensions.dart';
 
 import '../../../../../../core/database/address_class.dart';
@@ -22,8 +23,9 @@ import '../manager/add_address_cubit.dart';
 
 class AddNewAddressView extends StatefulWidget {
   final Placemark address;
+  final LatLng latLng;
 
-  const AddNewAddressView({super.key, required this.address});
+  const AddNewAddressView({super.key, required this.address, required this.latLng});
 
   @override
   State<AddNewAddressView> createState() => _AddNewAddressViewState();
@@ -163,8 +165,7 @@ class _AddNewAddressViewState extends State<AddNewAddressView> {
                                         country: stateCtrl.text,
                                         city: cityCtrl.text,
                                         phone: phoneCtrl.text,
-                                        latitude: address.latitude,
-                                        longitude: address.longitude,
+                                        latitude: widget.latLng,
                                       ),
                                     );
                                     context.pushReplacementNamed(
@@ -271,8 +272,7 @@ class _AddNewAddressViewState extends State<AddNewAddressView> {
                                           country: stateCtrl.text,
                                           city: cityCtrl.text,
                                           phone: phoneCtrl.text,
-                                          latitude: address.latitude,
-                                          longitude: address.longitude,
+                                          latitude: widget.latLng,
                                         ),
                                       );
                                       context.pushReplacementNamed(

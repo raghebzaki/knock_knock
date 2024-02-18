@@ -91,8 +91,9 @@ class ProductItem extends StatelessWidget {
                         ),
                         Gap(8.w),
                         productEntity.discountPercent!=0?Text(
-                          productEntity.discountPercent.toString(),
-                          style: CustomTextStyle.kTextStyleF12,
+                          productEntity.price!,
+                          style: CustomTextStyle.kTextStyleF12.copyWith(decoration: TextDecoration.lineThrough,),
+
                         ):const SizedBox.shrink(),
                       ],
                     ),

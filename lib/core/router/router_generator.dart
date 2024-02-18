@@ -126,7 +126,7 @@ class AppRouters {
         case addNewAddressPageRoute:
           final args = settings.arguments as AddresAedgs;
         return MaterialPageRoute(
-          builder: (BuildContext context) => AddNewAddressView(address: args.address),
+          builder: (BuildContext context) => AddNewAddressView(address: args.address,latLng: args.latLng),
         );
         case mapPageRoute:
         return MaterialPageRoute(

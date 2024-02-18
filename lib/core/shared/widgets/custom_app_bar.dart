@@ -15,15 +15,21 @@ import '../../utils/app_colors.dart';
 import '../../utils/app_images.dart';
 import '../../utils/dimensions.dart';
 
-class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
+class CustomAppBar extends StatefulWidget implements PreferredSizeWidget {
 
   const CustomAppBar({
     super.key,
   });
 
   @override
-  Size get preferredSize => Size(double.infinity.w, 200.h);
+  State<CustomAppBar> createState() => _CustomAppBarState();
 
+  @override
+  // TODO: implement preferredSize
+  Size get preferredSize => Size(double.infinity.w, 200.h);
+}
+
+class _CustomAppBarState extends State<CustomAppBar> {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -48,25 +54,105 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
               ),
               Gap(8.h),
               AppBar(
-
                 titleSpacing: 0,
                 backgroundColor: Colors.white,
                 elevation: 0,
                 automaticallyImplyLeading: false,
-                title:Row(
-                  children: [
-                    SvgPicture.asset(
-                      AppImages.pinSvg,
-                      height: 32.h,
-                      width: 25.h,
-                    ),
-                    Gap(5.w),
-                    Text(
-                      "Abu Dhabi",
-                      style: CustomTextStyle.kTextStyleF16,
-                      // textAlign: TextAlign.center,
-                    ),
-                  ],
+                title:GestureDetector(
+                  onTap: (){
+                    showModalBottomSheet(
+                        context: context,
+                        shape: const RoundedRectangleBorder(
+                          borderRadius: BorderRadius.vertical(
+                            top: Radius.circular(24),
+                          ),
+                        ),
+                        clipBehavior: Clip.antiAliasWithSaveLayer,
+                        builder: (BuildContext context) {
+                          return Container(
+                            padding: EdgeInsets.symmetric(
+                                horizontal: 24.w, vertical: 48.h),
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              mainAxisSize: MainAxisSize.min,
+                              children: [
+                                Text("choose delivery location",
+                                    textAlign: TextAlign.right,
+                                    style: CustomTextStyle.kTextStyleF16.copyWith(
+                                        color: AppColors.textColorSecondary)),
+                                Gap(30.h),
+                                GestureDetector(
+                                  onTap: () {
+                                    setState(() {});
+                                  },
+                                  child: Row(
+                                    children: [
+                                      Text('address 1',
+                                          style: CustomTextStyle.kTextStyleF14),
+                                      const Spacer(),
+                                      Icon(
+                                        Icons.check,
+                                        size: 16.sp,
+                                        color: AppColors.lightBlue,
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                                Gap(20.h),
+                                GestureDetector(
+                                  onTap: () {
+                                    setState(() {});
+                                    context.pop();
+                                  },
+                                  child: Row(
+                                    children: [
+                                      Text('address 2',
+                                          style: CustomTextStyle.kTextStyleF14),
+                                      const Spacer(),
+
+                                      // Icon(Icons.check,size: 16.sp,color: AppColors.lightBlue,)
+                                    ],
+                                  ),
+                                ),
+                                Gap(20.h),
+                                GestureDetector(
+                                  onTap: () {
+                                    context.pop();
+                                    context.pushNamed(mapPageRoute);
+                                  },
+                                  child: Row(
+                                    children: [
+                                      Text('Add new address',
+                                          style: CustomTextStyle.kTextStyleF14),
+                                      const Spacer(),
+
+                                      // Icon(Icons.check,size: 16.sp,color: AppColors.lightBlue,)
+                                    ],
+                                  ),
+                                ),
+                              ],
+                            ),
+                          );
+                        });
+                  },
+                  child: Row(
+                    children: [
+                      SvgPicture.asset(
+                        AppImages.pinSvg,
+                        height: 32.h,
+                        width: 25.h,
+                      ),
+                      Gap(5.w),
+                      Text(
+                        "Abu Dhabi",
+                        style: CustomTextStyle.kTextStyleF16,
+                        // textAlign: TextAlign.center,
+                      ),
+                      Gap(5.w),
+                       Icon(Icons.arrow_downward,size: 15.sp,color: AppColors.secondary,),
+                    ],
+                  ),
                 ),
                 centerTitle: false,
                 actions:  [

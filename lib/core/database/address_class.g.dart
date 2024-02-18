@@ -25,7 +25,6 @@ class AddressAdapter extends TypeAdapter<Address> {
       code: fields[6] as String?,
       phone: fields[7] as String?,
       latitude: fields[8] as LatLng?,
-      longitude: fields[9] as LatLng?,
     );
   }
 
@@ -50,9 +49,7 @@ class AddressAdapter extends TypeAdapter<Address> {
       ..writeByte(7)
       ..write(obj.phone)
       ..writeByte(8)
-      ..write(obj.latitude)
-      ..writeByte(9)
-      ..write(obj.longitude);
+      ..write(obj.latitude);
   }
 
   @override

@@ -64,7 +64,7 @@ class _ServicesDetailsViewState extends State<ServicesDetailsView> {
               ),
               const Divider(),
               Gap(5.h),
-              Row(
+              widget.servicesEntity.availability==""?const SizedBox.shrink():Row(
                 children: [
                   Text(
                     S.of(context).availability,
@@ -76,7 +76,7 @@ class _ServicesDetailsViewState extends State<ServicesDetailsView> {
                   ),
                 ],
               ),
-              Row(
+              widget.servicesEntity.sku ==""?const SizedBox.shrink(): Row(
                 children: [
                   Text(
                     S.of(context).sku,
