@@ -12,6 +12,7 @@ import 'package:knockknock/core/shared/widgets/state_loading_widget.dart';
 import 'package:knockknock/core/utils/extensions.dart';
 import 'package:knockknock/features/main/home/presentation/manager/carousel_cubit.dart';
 import 'package:knockknock/features/main/home/presentation/widgets/ads_item.dart';
+import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 import '../../../../../core/dependency_injection/di.dart' as di;
 import '../../../../../core/shared/widgets/service_item.dart';
@@ -34,9 +35,7 @@ class _HomeViewState extends State<HomeView> {
     return MultiBlocProvider(
       providers: [
         BlocProvider(
-          create: (context) =>
-          di.di<CarouselCubit>()
-            ..getAds(),
+          create: (context) => di.di<CarouselCubit>()..getAds(),
         ),
         // BlocProvider(
         //   create: (context) => di.di<>(),
@@ -51,32 +50,68 @@ class _HomeViewState extends State<HomeView> {
               children: [
                 Gap(15.h),
                 BlocConsumer<CarouselCubit, CarouselState>(
-                  listener: (context, state) {
-                  },
+                  listener: (context, state) {},
                   builder: (context, state) {
                     return state.maybeWhen(
-                      success: (state){
-                        return Container(
-                          width: context.queryWidth.w,
-                          padding: EdgeInsets.symmetric(
-                            horizontal: Dimensions.p24.w,
-                            vertical: Dimensions.p12.h,
-                          ),
-                          color: Colors.white,
-                          child: AdsItem(
-                            carouselList: state!,
-                            adsCtrl: adsCtrl,
-                          ),
+                      success: (state) {
+                        return Column(
+                          children: [
+                            SingleChildScrollView(
+                              controller: adsCtrl,
+                              scrollDirection: Axis.horizontal,
+                              child: Row(
+                                children: [
+                                  ...List.generate(
+                                    state!.length,
+                                    (index) => Container(
+                                      padding: EdgeInsets.symmetric(
+                                        horizontal: Dimensions.p24.w,
+                                        vertical: Dimensions.p12.h,
+                                      ),
+                                      color: Colors.white,
+                                      child: AdsItem(
+                                        carouselList: state[index],
+                                      ),
+                                    ),
+                                  )
+                                ],
+                              ),
+                            ),
+                            // Gap(12.h),
+                            Container(
+                              width: context.queryWidth.w,
+                              padding: EdgeInsets.symmetric(
+                                horizontal: Dimensions.p24.w,
+                                vertical: Dimensions.p12.h,
+                              ),
+                              color: Colors.white,
+                              child: Center(
+                                child: SmoothPageIndicator(
+                                  controller: adsCtrl,
+                                  count: state.length,
+                                  effect: const ExpandingDotsEffect(
+                                    activeDotColor: AppColors.secondary,
+                                    dotColor: AppColors.secondary,
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ],
                         );
                       },
-                        loading: (){
-                          return const StateLoadingWidget();
-                        },
-                        error: (errCode,err){
-                           return StateErrorWidget(errCode: errCode!, err: err!);
-                        },
-                        orElse: (){return const SizedBox.shrink();
-                        });
+                      loading: () {
+                        return const StateLoadingWidget();
+                      },
+                      error: (errCode, err) {
+                        return StateErrorWidget(
+                          errCode: errCode!,
+                          err: err!,
+                        );
+                      },
+                      orElse: () {
+                        return const SizedBox.shrink();
+                      },
+                    );
                   },
                 ),
                 Gap(15.h),
