@@ -6,6 +6,7 @@ class LoginEntity extends Equatable {
 
   final num? status;
   final String? msg;
+  final String? error;
   final String? userName;
   final String? pass;
   final UserData? userData;
@@ -15,6 +16,7 @@ class LoginEntity extends Equatable {
     this.pass,
     this.status,
     this.msg,
+    this.error,
     this.userData,
   });
 

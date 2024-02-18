@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
-part of 'carousel_cubit.dart';
+part of 'products_category_cubit.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -15,12 +15,14 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
-mixin _$CarouselState {
+mixin _$ProductsCategoryState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(List<CarouselEntity>? carouselEntity) success,
+    required TResult Function(
+            List<ProductsCategoryEntity>? productsCategoryEntity)
+        success,
     required TResult Function(String? errCode, String? err) error,
   }) =>
       throw _privateConstructorUsedError;
@@ -28,7 +30,8 @@ mixin _$CarouselState {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(List<CarouselEntity>? carouselEntity)? success,
+    TResult? Function(List<ProductsCategoryEntity>? productsCategoryEntity)?
+        success,
     TResult? Function(String? errCode, String? err)? error,
   }) =>
       throw _privateConstructorUsedError;
@@ -36,7 +39,8 @@ mixin _$CarouselState {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(List<CarouselEntity>? carouselEntity)? success,
+    TResult Function(List<ProductsCategoryEntity>? productsCategoryEntity)?
+        success,
     TResult Function(String? errCode, String? err)? error,
     required TResult orElse(),
   }) =>
@@ -69,16 +73,17 @@ mixin _$CarouselState {
 }
 
 /// @nodoc
-abstract class $CarouselStateCopyWith<$Res> {
-  factory $CarouselStateCopyWith(
-          CarouselState value, $Res Function(CarouselState) then) =
-      _$CarouselStateCopyWithImpl<$Res, CarouselState>;
+abstract class $ProductsCategoryStateCopyWith<$Res> {
+  factory $ProductsCategoryStateCopyWith(ProductsCategoryState value,
+          $Res Function(ProductsCategoryState) then) =
+      _$ProductsCategoryStateCopyWithImpl<$Res, ProductsCategoryState>;
 }
 
 /// @nodoc
-class _$CarouselStateCopyWithImpl<$Res, $Val extends CarouselState>
-    implements $CarouselStateCopyWith<$Res> {
-  _$CarouselStateCopyWithImpl(this._value, this._then);
+class _$ProductsCategoryStateCopyWithImpl<$Res,
+        $Val extends ProductsCategoryState>
+    implements $ProductsCategoryStateCopyWith<$Res> {
+  _$ProductsCategoryStateCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -95,7 +100,7 @@ abstract class _$$InitialImplCopyWith<$Res> {
 
 /// @nodoc
 class __$$InitialImplCopyWithImpl<$Res>
-    extends _$CarouselStateCopyWithImpl<$Res, _$InitialImpl>
+    extends _$ProductsCategoryStateCopyWithImpl<$Res, _$InitialImpl>
     implements _$$InitialImplCopyWith<$Res> {
   __$$InitialImplCopyWithImpl(
       _$InitialImpl _value, $Res Function(_$InitialImpl) _then)
@@ -109,7 +114,7 @@ class _$InitialImpl implements _Initial {
 
   @override
   String toString() {
-    return 'CarouselState.initial()';
+    return 'ProductsCategoryState.initial()';
   }
 
   @override
@@ -126,7 +131,9 @@ class _$InitialImpl implements _Initial {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(List<CarouselEntity>? carouselEntity) success,
+    required TResult Function(
+            List<ProductsCategoryEntity>? productsCategoryEntity)
+        success,
     required TResult Function(String? errCode, String? err) error,
   }) {
     return initial();
@@ -137,7 +144,8 @@ class _$InitialImpl implements _Initial {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(List<CarouselEntity>? carouselEntity)? success,
+    TResult? Function(List<ProductsCategoryEntity>? productsCategoryEntity)?
+        success,
     TResult? Function(String? errCode, String? err)? error,
   }) {
     return initial?.call();
@@ -148,7 +156,8 @@ class _$InitialImpl implements _Initial {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(List<CarouselEntity>? carouselEntity)? success,
+    TResult Function(List<ProductsCategoryEntity>? productsCategoryEntity)?
+        success,
     TResult Function(String? errCode, String? err)? error,
     required TResult orElse(),
   }) {
@@ -196,7 +205,7 @@ class _$InitialImpl implements _Initial {
   }
 }
 
-abstract class _Initial implements CarouselState {
+abstract class _Initial implements ProductsCategoryState {
   const factory _Initial() = _$InitialImpl;
 }
 
@@ -209,7 +218,7 @@ abstract class _$$LoadingImplCopyWith<$Res> {
 
 /// @nodoc
 class __$$LoadingImplCopyWithImpl<$Res>
-    extends _$CarouselStateCopyWithImpl<$Res, _$LoadingImpl>
+    extends _$ProductsCategoryStateCopyWithImpl<$Res, _$LoadingImpl>
     implements _$$LoadingImplCopyWith<$Res> {
   __$$LoadingImplCopyWithImpl(
       _$LoadingImpl _value, $Res Function(_$LoadingImpl) _then)
@@ -223,7 +232,7 @@ class _$LoadingImpl implements Loading {
 
   @override
   String toString() {
-    return 'CarouselState.loading()';
+    return 'ProductsCategoryState.loading()';
   }
 
   @override
@@ -240,7 +249,9 @@ class _$LoadingImpl implements Loading {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(List<CarouselEntity>? carouselEntity) success,
+    required TResult Function(
+            List<ProductsCategoryEntity>? productsCategoryEntity)
+        success,
     required TResult Function(String? errCode, String? err) error,
   }) {
     return loading();
@@ -251,7 +262,8 @@ class _$LoadingImpl implements Loading {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(List<CarouselEntity>? carouselEntity)? success,
+    TResult? Function(List<ProductsCategoryEntity>? productsCategoryEntity)?
+        success,
     TResult? Function(String? errCode, String? err)? error,
   }) {
     return loading?.call();
@@ -262,7 +274,8 @@ class _$LoadingImpl implements Loading {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(List<CarouselEntity>? carouselEntity)? success,
+    TResult Function(List<ProductsCategoryEntity>? productsCategoryEntity)?
+        success,
     TResult Function(String? errCode, String? err)? error,
     required TResult orElse(),
   }) {
@@ -310,7 +323,7 @@ class _$LoadingImpl implements Loading {
   }
 }
 
-abstract class Loading implements CarouselState {
+abstract class Loading implements ProductsCategoryState {
   const factory Loading() = _$LoadingImpl;
 }
 
@@ -320,12 +333,12 @@ abstract class _$$SuccessImplCopyWith<$Res> {
           _$SuccessImpl value, $Res Function(_$SuccessImpl) then) =
       __$$SuccessImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({List<CarouselEntity>? carouselEntity});
+  $Res call({List<ProductsCategoryEntity>? productsCategoryEntity});
 }
 
 /// @nodoc
 class __$$SuccessImplCopyWithImpl<$Res>
-    extends _$CarouselStateCopyWithImpl<$Res, _$SuccessImpl>
+    extends _$ProductsCategoryStateCopyWithImpl<$Res, _$SuccessImpl>
     implements _$$SuccessImplCopyWith<$Res> {
   __$$SuccessImplCopyWithImpl(
       _$SuccessImpl _value, $Res Function(_$SuccessImpl) _then)
@@ -334,13 +347,13 @@ class __$$SuccessImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? carouselEntity = freezed,
+    Object? productsCategoryEntity = freezed,
   }) {
     return _then(_$SuccessImpl(
-      freezed == carouselEntity
-          ? _value._carouselEntity
-          : carouselEntity // ignore: cast_nullable_to_non_nullable
-              as List<CarouselEntity>?,
+      freezed == productsCategoryEntity
+          ? _value._productsCategoryEntity
+          : productsCategoryEntity // ignore: cast_nullable_to_non_nullable
+              as List<ProductsCategoryEntity>?,
     ));
   }
 }
@@ -348,22 +361,24 @@ class __$$SuccessImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$SuccessImpl implements Success {
-  const _$SuccessImpl(final List<CarouselEntity>? carouselEntity)
-      : _carouselEntity = carouselEntity;
+  const _$SuccessImpl(
+      final List<ProductsCategoryEntity>? productsCategoryEntity)
+      : _productsCategoryEntity = productsCategoryEntity;
 
-  final List<CarouselEntity>? _carouselEntity;
+  final List<ProductsCategoryEntity>? _productsCategoryEntity;
   @override
-  List<CarouselEntity>? get carouselEntity {
-    final value = _carouselEntity;
+  List<ProductsCategoryEntity>? get productsCategoryEntity {
+    final value = _productsCategoryEntity;
     if (value == null) return null;
-    if (_carouselEntity is EqualUnmodifiableListView) return _carouselEntity;
+    if (_productsCategoryEntity is EqualUnmodifiableListView)
+      return _productsCategoryEntity;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(value);
   }
 
   @override
   String toString() {
-    return 'CarouselState.success(carouselEntity: $carouselEntity)';
+    return 'ProductsCategoryState.success(productsCategoryEntity: $productsCategoryEntity)';
   }
 
   @override
@@ -371,13 +386,13 @@ class _$SuccessImpl implements Success {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$SuccessImpl &&
-            const DeepCollectionEquality()
-                .equals(other._carouselEntity, _carouselEntity));
+            const DeepCollectionEquality().equals(
+                other._productsCategoryEntity, _productsCategoryEntity));
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType, const DeepCollectionEquality().hash(_carouselEntity));
+  int get hashCode => Object.hash(runtimeType,
+      const DeepCollectionEquality().hash(_productsCategoryEntity));
 
   @JsonKey(ignore: true)
   @override
@@ -390,10 +405,12 @@ class _$SuccessImpl implements Success {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(List<CarouselEntity>? carouselEntity) success,
+    required TResult Function(
+            List<ProductsCategoryEntity>? productsCategoryEntity)
+        success,
     required TResult Function(String? errCode, String? err) error,
   }) {
-    return success(carouselEntity);
+    return success(productsCategoryEntity);
   }
 
   @override
@@ -401,10 +418,11 @@ class _$SuccessImpl implements Success {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(List<CarouselEntity>? carouselEntity)? success,
+    TResult? Function(List<ProductsCategoryEntity>? productsCategoryEntity)?
+        success,
     TResult? Function(String? errCode, String? err)? error,
   }) {
-    return success?.call(carouselEntity);
+    return success?.call(productsCategoryEntity);
   }
 
   @override
@@ -412,12 +430,13 @@ class _$SuccessImpl implements Success {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(List<CarouselEntity>? carouselEntity)? success,
+    TResult Function(List<ProductsCategoryEntity>? productsCategoryEntity)?
+        success,
     TResult Function(String? errCode, String? err)? error,
     required TResult orElse(),
   }) {
     if (success != null) {
-      return success(carouselEntity);
+      return success(productsCategoryEntity);
     }
     return orElse();
   }
@@ -460,11 +479,12 @@ class _$SuccessImpl implements Success {
   }
 }
 
-abstract class Success implements CarouselState {
-  const factory Success(final List<CarouselEntity>? carouselEntity) =
+abstract class Success implements ProductsCategoryState {
+  const factory Success(
+          final List<ProductsCategoryEntity>? productsCategoryEntity) =
       _$SuccessImpl;
 
-  List<CarouselEntity>? get carouselEntity;
+  List<ProductsCategoryEntity>? get productsCategoryEntity;
   @JsonKey(ignore: true)
   _$$SuccessImplCopyWith<_$SuccessImpl> get copyWith =>
       throw _privateConstructorUsedError;
@@ -481,7 +501,7 @@ abstract class _$$ErrorImplCopyWith<$Res> {
 
 /// @nodoc
 class __$$ErrorImplCopyWithImpl<$Res>
-    extends _$CarouselStateCopyWithImpl<$Res, _$ErrorImpl>
+    extends _$ProductsCategoryStateCopyWithImpl<$Res, _$ErrorImpl>
     implements _$$ErrorImplCopyWith<$Res> {
   __$$ErrorImplCopyWithImpl(
       _$ErrorImpl _value, $Res Function(_$ErrorImpl) _then)
@@ -518,7 +538,7 @@ class _$ErrorImpl implements Error {
 
   @override
   String toString() {
-    return 'CarouselState.error(errCode: $errCode, err: $err)';
+    return 'ProductsCategoryState.error(errCode: $errCode, err: $err)';
   }
 
   @override
@@ -544,7 +564,9 @@ class _$ErrorImpl implements Error {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(List<CarouselEntity>? carouselEntity) success,
+    required TResult Function(
+            List<ProductsCategoryEntity>? productsCategoryEntity)
+        success,
     required TResult Function(String? errCode, String? err) error,
   }) {
     return error(errCode, err);
@@ -555,7 +577,8 @@ class _$ErrorImpl implements Error {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(List<CarouselEntity>? carouselEntity)? success,
+    TResult? Function(List<ProductsCategoryEntity>? productsCategoryEntity)?
+        success,
     TResult? Function(String? errCode, String? err)? error,
   }) {
     return error?.call(errCode, err);
@@ -566,7 +589,8 @@ class _$ErrorImpl implements Error {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(List<CarouselEntity>? carouselEntity)? success,
+    TResult Function(List<ProductsCategoryEntity>? productsCategoryEntity)?
+        success,
     TResult Function(String? errCode, String? err)? error,
     required TResult orElse(),
   }) {
@@ -614,7 +638,7 @@ class _$ErrorImpl implements Error {
   }
 }
 
-abstract class Error implements CarouselState {
+abstract class Error implements ProductsCategoryState {
   const factory Error(final String? errCode, final String? err) = _$ErrorImpl;
 
   String? get errCode;

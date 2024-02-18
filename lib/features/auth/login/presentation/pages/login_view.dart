@@ -55,6 +55,7 @@ class _LoginViewState extends State<LoginView> {
                 if (state.msg ==
                     "Active your account first verification code sent to your email !") {
                   // await resendCodeUseCase(email.ifEmpty());
+                  context.defaultSnackBar(state.msg.isNullOrEmpty());
                   loginCubit.resendCode(loginCubit.phoneCtrl.value);
                   context.pushNamed(
                     verifyAccountPageRoute,
@@ -62,9 +63,9 @@ class _LoginViewState extends State<LoginView> {
                         VerifyAccountArgs(email: loginCubit.phoneCtrl.value),
                   );
                 }
-                context.defaultSnackBar(state.msg.isNullOrEmpty());
-              } else {
-                context.defaultSnackBar(state.msg.isNullOrEmpty());
+                else {
+                  context.defaultSnackBar(state.error.isNullOrEmpty());
+                }
               }
             },
             error: (errCode, err) {
