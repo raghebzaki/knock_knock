@@ -19,6 +19,7 @@ class AppConstants {
   static const unknownStringValue = "UNKNOWN STRING VALUE";
   static const unknownNumValue = 2077;
   static const deliveryFee = 20;
+  static  int addressIndex = 0;
 
   //! API headers
   static const String applicationJson = "application/json";

@@ -440,6 +440,26 @@ class S {
     );
   }
 
+  /// `Email can't be empty`
+  String get emailCantBeEmpty {
+    return Intl.message(
+      'Email can\'t be empty',
+      name: 'emailCantBeEmpty',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Please enter a valid email`
+  String get pleaseEnterAValidEmail {
+    return Intl.message(
+      'Please enter a valid email',
+      name: 'pleaseEnterAValidEmail',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Register`
   String get register {
     return Intl.message(
@@ -2010,21 +2030,11 @@ class S {
     );
   }
 
-  /// `Email can't be empty`
-  String get emailCantBeEmpty {
+  /// `You Already Add This Service`
+  String get youAlreadyAddThisService {
     return Intl.message(
-      'Email can\'t be empty',
-      name: 'emailCantBeEmpty',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `Please enter a valid email`
-  String get pleaseEnterAValidEmail {
-    return Intl.message(
-      'Please enter a valid email',
-      name: 'pleaseEnterAValidEmail',
+      'You Already Add This Service',
+      name: 'youAlreadyAddThisService',
       desc: '',
       args: [],
     );

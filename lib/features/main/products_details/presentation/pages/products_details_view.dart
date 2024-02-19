@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_html/flutter_html.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gap/gap.dart';
 import 'package:get/get.dart';
 import 'package:knockknock/config/themes/app_text_styles.dart';
+import 'package:knockknock/core/router/router.dart';
+import 'package:knockknock/core/shared/cubits/product_cart_cubit/product_cart_cubit.dart';
+import 'package:knockknock/core/shared/cubits/service_cart_cubit/service_cart_cubit.dart';
 import 'package:knockknock/core/shared/entities/product_entity.dart';
 import 'package:knockknock/core/shared/widgets/custom_button_small.dart';
 import 'package:knockknock/core/shared/widgets/date_widget.dart';
@@ -12,7 +16,6 @@ import 'package:knockknock/core/utils/app_colors.dart';
 import 'package:knockknock/core/utils/extensions.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import '../../../../../core/helpers/cache_helper.dart';
-import '../../../../../core/router/router.dart';
 
 import '../../../../../core/shared/widgets/custom_app_bar.dart';
 import '../../../../../core/utils/app_constants.dart';
@@ -190,7 +193,56 @@ class _ProductsDetailsViewState extends State<ProductsDetailsView> {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Container(
+                        GestureDetector(
+                          onTap: (){
+                            setState(() {
+                              if(widget.productEntity.userQuantity!>1){
+                                widget.productEntity.userQuantity=widget.productEntity.userQuantity!-1;
+                              }
+                            });
+                          },
+                          child: Container(
+                              decoration: BoxDecoration(
+                                color: AppColors.primary,
+                                boxShadow: [
+                                  BoxShadow(
+                                    color: Colors.grey.withOpacity(0.2),
+                                    spreadRadius: 3,
+                                    blurRadius: 8,
+                                    offset: const Offset(0, 3), // changes position of shadow
+                                  ),
+                                ],
+                              ),
+                              width: 35.w,
+                              height: 35.w,
+                              child: Center(
+                                child: Icon(
+                                  MdiIcons.minus,
+                                  size: 35.sp,
+                                ),
+                              )),
+                        ),
+                        Gap(10.w),
+                        SizedBox(
+                            width: 35.w,
+                            height: 35.w,
+                            child: Center(
+                              child: Text(
+                                widget.productEntity.userQuantity.toString(),
+                                style: CustomTextStyle.kTextStyleF18Black,
+                              ),
+                            )),
+                        Gap(10.w),
+                        GestureDetector(
+                          onTap: (){
+                            setState(() {
+                              if(widget.productEntity.userQuantity!<int.parse(widget.productEntity.quantity!)){
+                                widget.productEntity.userQuantity=widget.productEntity.userQuantity!+1;
+                              }
+                            });
+
+                          },
+                          child: Container(
                             decoration: BoxDecoration(
                               color: AppColors.primary,
                               boxShadow: [
@@ -202,45 +254,15 @@ class _ProductsDetailsViewState extends State<ProductsDetailsView> {
                                 ),
                               ],
                             ),
-                            width: 35.w,
-                            height: 35.w,
-                            child: Center(
-                              child: Icon(
-                                MdiIcons.minus,
-                                size: 35.sp,
-                              ),
-                            )),
-                        Gap(10.w),
-                        SizedBox(
-                            width: 35.w,
-                            height: 35.w,
-                            child: Center(
-                              child: Text(
-                                "1",
-                                style: CustomTextStyle.kTextStyleF18Black,
-                              ),
-                            )),
-                        Gap(10.w),
-                        Container(
-                          decoration: BoxDecoration(
-                            color: AppColors.primary,
-                            boxShadow: [
-                              BoxShadow(
-                                color: Colors.grey.withOpacity(0.2),
-                                spreadRadius: 3,
-                                blurRadius: 8,
-                                offset: const Offset(0, 3), // changes position of shadow
-                              ),
-                            ],
-                          ),
-                            width: 35.w,
-                            height: 35.w,
-                            child: Center(
-                              child: Icon(
-                                MdiIcons.plus,
-                                size: 35.sp,
-                              ),
-                            )),
+                              width: 35.w,
+                              height: 35.w,
+                              child: Center(
+                                child: Icon(
+                                  MdiIcons.plus,
+                                  size: 35.sp,
+                                ),
+                              )),
+                        ),
 
                       ],
                     ),
@@ -249,29 +271,9 @@ class _ProductsDetailsViewState extends State<ProductsDetailsView> {
                     constraints: BoxConstraints(maxWidth: context.width / 2),
                     child: CustomBtnSmall(
                       onPressed: () {
-                        // context.read<CartCubit>().addToCart(
-                        //   ProductEntity(
-                        //     id: widget.productEntity.id,
-                        //
-                        //     quantity: widget.productEntity.quantity,
-                        //     userQuantity: quantity,
-                        //     price: widget.productEntity.price,
-                        //     priceAfterDiscount: widget
-                        //         .productEntity
-                        //         .priceAfterDiscount,
-                        //     discountPercent: widget.productEntity.discountPercent,
-                        //     image: widget.productEntity.image,
-                        //     images: widget.productEntity.images,
-                        //     imagesBase64:widget.productEntity.imagesBase64,
-                        //     nameEn: widget.productEntity.nameEn,
-                        //     nameAr: widget.productEntity.nameAr,
-                        //     descriptionEn: widget.productEntity.descriptionEn,
-                        //     descriptionAr: widget.productEntity.descriptionAr,
-                        //
-                        //
-                        //   ),
-                        // );
-                        context.pushNamed(cartPageRoute);
+                        context.read<ServiceCartCubit>().cartServices.clear();
+                        context.read<ProductCartCubit>().addProductToCart(widget.productEntity);
+                        context.pushNamed(productsCartPageRoute);
                       },
                       label: S.of(context).addToCart,
                     ),

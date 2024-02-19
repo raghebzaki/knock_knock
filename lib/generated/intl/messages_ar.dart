@@ -108,6 +108,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "editProfile":
             MessageLookupByLibrary.simpleMessage("تعديل الملف الشخصي"),
         "email": MessageLookupByLibrary.simpleMessage("البريد الإلكتروني"),
+        "emailCantBeEmpty": MessageLookupByLibrary.simpleMessage(
+            "لا يمكن ترك حقل البريد الإلكتروني فارغًا"),
         "enterAmount": MessageLookupByLibrary.simpleMessage("أدخل المبلغ"),
         "enterYourNewPassword": MessageLookupByLibrary.simpleMessage(
             "أدخل كلمة المرور الجديدة أدناه"),
@@ -207,6 +209,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "phoneNoCantBeEmpty": MessageLookupByLibrary.simpleMessage(
             "رقم الهاتف لا يمكن أن يكون فارغًا"),
         "phoneNumber": MessageLookupByLibrary.simpleMessage("رقم الجوال"),
+        "pleaseEnterAValidEmail": MessageLookupByLibrary.simpleMessage(
+            "الرجاء إدخال بريد إلكتروني صالح"),
         "pleaseEnterAValidPhoneNumber":
             MessageLookupByLibrary.simpleMessage("يرجى إدخال رقم هاتف صالح"),
         "plzEnterValidEmail": MessageLookupByLibrary.simpleMessage(

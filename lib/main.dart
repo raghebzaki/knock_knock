@@ -5,6 +5,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:hive_flutter/hive_flutter.dart';
+import 'package:knockknock/core/shared/cubits/service_cart_cubit/service_cart_cubit.dart';
 
 import 'core/database/address_class.dart';
 import 'core/dependency_injection/di.dart' as di;
@@ -92,8 +93,15 @@ class _MyAppState extends State<MyApp> {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) => ProductCartCubit(),
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(
+          create: (context) => ProductCartCubit(),
+        ),
+        BlocProvider(
+          create: (context) => ServiceCartCubit(),
+        ),
+      ],
       child: ScreenUtilInit(
         designSize: const Size(360, 800),
         minTextAdapt: true,

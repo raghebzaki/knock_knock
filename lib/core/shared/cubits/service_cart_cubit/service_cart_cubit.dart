@@ -1,8 +1,9 @@
-import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:knockknock/core/utils/extensions.dart';
 
+import '../../../../generated/l10n.dart';
 import '../../entities/service_entity.dart';
 
 part 'service_cart_state.dart';
@@ -16,19 +17,18 @@ class ServiceCartCubit extends Cubit<ServiceCartStates> {
 
   List<ServicesEntity> cartServices = [];
 
-  addServiceToCart(ServicesEntity servicesEntity) {
+  addServiceToCart(ServicesEntity servicesEntity,BuildContext context) {
     if (cartServices.any((item) => item.id == servicesEntity.id)) {
-      cartServices;
+      context.defaultSnackBar(S.of(context).youAlreadyAddThisService);
       emit(ServiceCartStates.serviceAlreadyAdded(cartServices));
     } else {
-      // cartProducts = List<ProductEntity>.from().add(productEntity);
       cartServices.add(servicesEntity);
       emit(ServiceCartStates.addedServiceToCart(cartServices));
     }
   }
 
-  removeServiceFromCart(ServicesEntity servicesEntity) {
-    cartServices.remove(servicesEntity);
+  removeServiceFromCart(int index) {
+    cartServices.removeAt(index);
     emit(
       ServiceCartStates.removedServiceFromCart(cartServices),
     );

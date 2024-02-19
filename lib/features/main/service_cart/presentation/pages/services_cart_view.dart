@@ -3,10 +3,10 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gap/gap.dart';
 import 'package:getwidget/getwidget.dart';
+import 'package:knockknock/core/helpers/cache_helper.dart';
+import 'package:knockknock/core/shared/cubits/service_cart_cubit/service_cart_cubit.dart';
 import 'package:knockknock/core/utils/app_constants.dart';
-import 'package:knockknock/core/utils/app_images.dart';
 import 'package:knockknock/core/utils/extensions.dart';
-import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 
 import '../../../../../../config/themes/app_text_styles.dart';
 import '../../../../../../core/router/router.dart';
@@ -14,29 +14,22 @@ import '../../../../../../core/shared/widgets/custom_button.dart';
 import '../../../../../../core/utils/app_colors.dart';
 import '../../../../../../core/utils/dimensions.dart';
 import '../../../../../../generated/l10n.dart';
-import '../../../../../core/shared/cubits/product_cart_cubit/product_cart_cubit.dart';
 
-class CartView extends StatefulWidget {
-  const CartView({super.key});
+class ServicesCartView extends StatefulWidget {
+  const ServicesCartView({super.key});
 
   @override
-  State<CartView> createState() => _CartViewState();
+  State<ServicesCartView> createState() => _ServicesCartViewState();
 }
 
-class _CartViewState extends State<CartView> {
+class _ServicesCartViewState extends State<ServicesCartView> {
   double finalPrice = 0;
 
   @override
   Widget build(BuildContext context) {
-    var totalPrice = context.watch<ProductCartCubit>().cartProducts;
+    var totalPrice = context.watch<ServiceCartCubit>().cartServices;
     for (var i = 0; i < totalPrice.length; i++) {
-      if (totalPrice[i].discountPercent == 0) {
-        finalPrice +=
-            double.parse(totalPrice[i].price!) * totalPrice[i].userQuantity!;
-      } else {
-        finalPrice += double.parse(totalPrice[i].priceAfterDiscount!) *
-            totalPrice[i].userQuantity!;
-      }
+      finalPrice += double.parse(totalPrice[i].price!);
     }
 
     return PopScope(
@@ -51,9 +44,8 @@ class _CartViewState extends State<CartView> {
           title: Text(S.of(context).cart),
         ),
         body: SafeArea(
-          child:
-          // context.watch<CartCubit>().cartProducts.isNotEmpty ?
-          Stack(
+          child: context.watch<ServiceCartCubit>().cartServices.isNotEmpty
+              ? Stack(
                   children: [
                     Padding(
                       padding: const EdgeInsets.all(Dimensions.p16),
@@ -64,83 +56,64 @@ class _CartViewState extends State<CartView> {
                               physics: const NeverScrollableScrollPhysics(),
                               scrollDirection: Axis.vertical,
                               shrinkWrap: true,
-                              itemCount: 2,
+                              itemCount: context
+                                  .watch<ServiceCartCubit>()
+                                  .cartServices
+                                  .length,
                               itemBuilder: (ctx, index) {
                                 return GFListTile(
                                   padding: EdgeInsets.zero,
                                   margin: const EdgeInsets.symmetric(vertical: 5),
-                                  shadow: const BoxShadow(),
 
                                   color: Colors.white,
                                   avatar: GFAvatar(
                                     size: 60.sp,
                                     shape: GFAvatarShape.standard,
-                                    backgroundImage:
-                                        AssetImage(
-                                      AppImages.appLogo,
+                                    backgroundImage: NetworkImage(
+                                      AppConstants.imageUrl +
+                                          context
+                                              .watch<ServiceCartCubit>()
+                                              .cartServices[index]
+                                              .image!,
                                     ),
                                   ),
                                   title: Text(
-                                    // Intl.getCurrentLocale() == "en" ?
-                                    "name",
-                                        // : productItems.nameAr!,
+                                    CacheHelper.isEnglish()
+                                        ? context
+                                            .watch<ServiceCartCubit>()
+                                            .cartServices[index]
+                                            .nameEn!
+                                        : context
+                                            .watch<ServiceCartCubit>()
+                                            .cartServices[index]
+                                            .nameAr!,
                                     style: CustomTextStyle.kTextStyleF12,
                                   ),
                                   description: Row(
                                     children: [
                                       Text(
-                                        // productItems.discountPercent == 0 ?
-                                        "50 ${S.current.Aed}",
-                                            // : "${productItems.priceAfterDiscount} ${S.current.Aed}",
+                                        "${context.watch<ServiceCartCubit>().cartServices[index].price} ${S.current.Aed}",
                                         style: CustomTextStyle.kTextStyleF14
                                             .copyWith(
                                                 color: AppColors.textColor),
                                       ),
                                       const Spacer(),
                                       GestureDetector(
-                                          onTap: () {
-                                            setState(() {
-                                              // if (productItems
-                                              //         .userQuantity! <=
-                                              //     productItems.quantity!) {
-                                              //   productItems.userQuantity =
-                                              //       productItems
-                                              //               .userQuantity! +
-                                              //           1;
-                                              // }
-                                            });
-                                          },
-                                          child:
-                                              Icon(MdiIcons.plusBoxOutline)),
-                                      Gap(10.w),
-                                      Text(
-                                        "2",
-                                        style: CustomTextStyle.kTextStyleF14
-                                            .copyWith(
-                                                color: AppColors.textColor),
+                                        onTap: () {
+                                          context.read<ServiceCartCubit>().removeServiceFromCart(index);
+                                        },
+                                        child: Icon(
+                                          Icons.delete,
+                                          color: Colors.red,
+                                          size: 25.sp,
+                                        ),
                                       ),
-                                      Gap(10.w),
-                                      GestureDetector(
-                                          onTap: () {
-                                            setState(() {
-                                              // if (productItems
-                                              //         .userQuantity! >=
-                                              //     1) {
-                                              //   productItems.userQuantity =
-                                              //       productItems
-                                              //               .userQuantity! -
-                                              //           1;
-                                              // }
-                                            });
-                                          },
-                                          child:
-                                              Icon(MdiIcons.minusBoxOutline)),
                                     ],
                                   ),
                                 );
                               },
                             ),
-                            Gap(16.h),
+                            Gap(30.h),
                             Row(
                               mainAxisSize: MainAxisSize.min,
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -153,8 +126,8 @@ class _CartViewState extends State<CartView> {
                                 ),
                                 const Spacer(),
                                 Text(
-                                  "130 ${S.current.Aed}",
-                                  // "${totalPrice.map((e) => e.discountPercent == 0 ? int.parse(e.price!) * e.userQuantity! + int.parse(e.price!) * e.userQuantity! / 10 : int.parse(e.priceAfterDiscount!) * e.userQuantity! + int.parse(e.priceAfterDiscount!) * e.userQuantity! / 10).reduce((value, element) => value + element) + AppConstants.deliveryFee} ${S.current.Aed}",
+
+                                  "${totalPrice.map((e) =>  int.parse(e.price!) ).reduce((value, element) => value + element) + AppConstants.deliveryFee} ${S.current.Aed}",
                                   style: CustomTextStyle.kTextStyleF14
                                       .copyWith(color: AppColors.textColor),
                                 ),
@@ -183,7 +156,7 @@ class _CartViewState extends State<CartView> {
                                 ),
                                 const Spacer(),
                                 Text(
-                                  "100 ${S.current.Aed}",
+                                  "${totalPrice.map((e) =>  int.parse(e.price!) ).reduce((value, element) => value + element)} ${S.current.Aed}",
                                   // "${totalPrice.map((e) => e.discountPercent == 0 ? int.parse(e.price!) * e.userQuantity! : int.parse(e.priceAfterDiscount!) * e.userQuantity!).reduce((value, element) => value + element)} ${S.current.Aed}",
                                   style: CustomTextStyle.kTextStyleF14.copyWith(
                                       color: AppColors.textColorSecondary),
@@ -207,24 +180,6 @@ class _CartViewState extends State<CartView> {
                                 ),
                               ],
                             ),
-                            Gap(16.h),
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Text(
-                                  S.of(context).tax,
-                                  style: CustomTextStyle.kTextStyleF14.copyWith(
-                                      color: AppColors.textColorSecondary),
-                                ),
-                                const Spacer(),
-                                Text(
-                                  "10 ${S.current.Aed}",
-                                  // "${totalPrice.map((e) => e.discountPercent == 0 ? int.parse(e.price!) * e.userQuantity! : int.parse(e.priceAfterDiscount!) * e.userQuantity!).reduce((value, element) => value + element) / 10} ${S.current.Aed}",
-                                  style: CustomTextStyle.kTextStyleF14.copyWith(
-                                      color: AppColors.textColorSecondary),
-                                ),
-                              ],
-                            ),
                             Gap(100.h),
                           ],
                         ),
@@ -236,25 +191,27 @@ class _CartViewState extends State<CartView> {
                         child: CustomBtn(
                           label: S.of(context).completePayment,
                           onPressed: () {
-                             context.pushNamed(paymentSummeryPageRoute,);
+                            context.pushNamed(
+                              paymentSummeryPageRoute,
+                            );
                           },
                         ),
                       ),
                     ),
                   ],
                 )
-              // : Column(
-              //     mainAxisAlignment: MainAxisAlignment.center,
-              //     crossAxisAlignment: CrossAxisAlignment.center,
-              //     children: [
-              //       Center(
-              //         child: Text(
-              //           S.of(context).yourCartIsEmpty,
-              //           style: CustomTextStyle.kTextStyleF20,
-              //         ),
-              //       ),
-              //     ],
-              //   ),
+              : Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Center(
+                      child: Text(
+                        S.of(context).yourCartIsEmpty,
+                        style: CustomTextStyle.kTextStyleF20,
+                      ),
+                    ),
+                  ],
+                ),
         ),
       ),
     );
