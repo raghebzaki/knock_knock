@@ -20,7 +20,7 @@ mixin _$PlaceOrderStates {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(PlaceOrderEntity placeOrderEntity) success,
+    required TResult Function(GiftPlaceOrderEntity placeOrderEntity) success,
     required TResult Function(String errCode, String err) error,
   }) =>
       throw _privateConstructorUsedError;
@@ -28,7 +28,7 @@ mixin _$PlaceOrderStates {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(PlaceOrderEntity placeOrderEntity)? success,
+    TResult? Function(GiftPlaceOrderEntity placeOrderEntity)? success,
     TResult? Function(String errCode, String err)? error,
   }) =>
       throw _privateConstructorUsedError;
@@ -36,7 +36,7 @@ mixin _$PlaceOrderStates {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(PlaceOrderEntity placeOrderEntity)? success,
+    TResult Function(GiftPlaceOrderEntity placeOrderEntity)? success,
     TResult Function(String errCode, String err)? error,
     required TResult orElse(),
   }) =>
@@ -126,7 +126,7 @@ class _$InitialImpl implements _Initial {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(PlaceOrderEntity placeOrderEntity) success,
+    required TResult Function(GiftPlaceOrderEntity placeOrderEntity) success,
     required TResult Function(String errCode, String err) error,
   }) {
     return initial();
@@ -137,7 +137,7 @@ class _$InitialImpl implements _Initial {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(PlaceOrderEntity placeOrderEntity)? success,
+    TResult? Function(GiftPlaceOrderEntity placeOrderEntity)? success,
     TResult? Function(String errCode, String err)? error,
   }) {
     return initial?.call();
@@ -148,7 +148,7 @@ class _$InitialImpl implements _Initial {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(PlaceOrderEntity placeOrderEntity)? success,
+    TResult Function(GiftPlaceOrderEntity placeOrderEntity)? success,
     TResult Function(String errCode, String err)? error,
     required TResult orElse(),
   }) {
@@ -240,7 +240,7 @@ class _$LoadingImpl implements Loading {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(PlaceOrderEntity placeOrderEntity) success,
+    required TResult Function(GiftPlaceOrderEntity placeOrderEntity) success,
     required TResult Function(String errCode, String err) error,
   }) {
     return loading();
@@ -251,7 +251,7 @@ class _$LoadingImpl implements Loading {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(PlaceOrderEntity placeOrderEntity)? success,
+    TResult? Function(GiftPlaceOrderEntity placeOrderEntity)? success,
     TResult? Function(String errCode, String err)? error,
   }) {
     return loading?.call();
@@ -262,7 +262,7 @@ class _$LoadingImpl implements Loading {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(PlaceOrderEntity placeOrderEntity)? success,
+    TResult Function(GiftPlaceOrderEntity placeOrderEntity)? success,
     TResult Function(String errCode, String err)? error,
     required TResult orElse(),
   }) {
@@ -320,7 +320,7 @@ abstract class _$$SuccessImplCopyWith<$Res> {
           _$SuccessImpl value, $Res Function(_$SuccessImpl) then) =
       __$$SuccessImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({PlaceOrderEntity placeOrderEntity});
+  $Res call({GiftPlaceOrderEntity placeOrderEntity});
 }
 
 /// @nodoc
@@ -340,7 +340,7 @@ class __$$SuccessImplCopyWithImpl<$Res>
       null == placeOrderEntity
           ? _value.placeOrderEntity
           : placeOrderEntity // ignore: cast_nullable_to_non_nullable
-              as PlaceOrderEntity,
+              as GiftPlaceOrderEntity,
     ));
   }
 }
@@ -351,7 +351,7 @@ class _$SuccessImpl implements Success {
   const _$SuccessImpl(this.placeOrderEntity);
 
   @override
-  final PlaceOrderEntity placeOrderEntity;
+  final GiftPlaceOrderEntity placeOrderEntity;
 
   @override
   String toString() {
@@ -381,7 +381,7 @@ class _$SuccessImpl implements Success {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(PlaceOrderEntity placeOrderEntity) success,
+    required TResult Function(GiftPlaceOrderEntity placeOrderEntity) success,
     required TResult Function(String errCode, String err) error,
   }) {
     return success(placeOrderEntity);
@@ -392,7 +392,7 @@ class _$SuccessImpl implements Success {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(PlaceOrderEntity placeOrderEntity)? success,
+    TResult? Function(GiftPlaceOrderEntity placeOrderEntity)? success,
     TResult? Function(String errCode, String err)? error,
   }) {
     return success?.call(placeOrderEntity);
@@ -403,7 +403,7 @@ class _$SuccessImpl implements Success {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(PlaceOrderEntity placeOrderEntity)? success,
+    TResult Function(GiftPlaceOrderEntity placeOrderEntity)? success,
     TResult Function(String errCode, String err)? error,
     required TResult orElse(),
   }) {
@@ -452,10 +452,10 @@ class _$SuccessImpl implements Success {
 }
 
 abstract class Success implements PlaceOrderStates {
-  const factory Success(final PlaceOrderEntity placeOrderEntity) =
+  const factory Success(final GiftPlaceOrderEntity placeOrderEntity) =
       _$SuccessImpl;
 
-  PlaceOrderEntity get placeOrderEntity;
+  GiftPlaceOrderEntity get placeOrderEntity;
   @JsonKey(ignore: true)
   _$$SuccessImplCopyWith<_$SuccessImpl> get copyWith =>
       throw _privateConstructorUsedError;
@@ -535,7 +535,7 @@ class _$ErrorImpl implements Error {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(PlaceOrderEntity placeOrderEntity) success,
+    required TResult Function(GiftPlaceOrderEntity placeOrderEntity) success,
     required TResult Function(String errCode, String err) error,
   }) {
     return error(errCode, err);
@@ -546,7 +546,7 @@ class _$ErrorImpl implements Error {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(PlaceOrderEntity placeOrderEntity)? success,
+    TResult? Function(GiftPlaceOrderEntity placeOrderEntity)? success,
     TResult? Function(String errCode, String err)? error,
   }) {
     return error?.call(errCode, err);
@@ -557,7 +557,7 @@ class _$ErrorImpl implements Error {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(PlaceOrderEntity placeOrderEntity)? success,
+    TResult Function(GiftPlaceOrderEntity placeOrderEntity)? success,
     TResult Function(String errCode, String err)? error,
     required TResult orElse(),
   }) {

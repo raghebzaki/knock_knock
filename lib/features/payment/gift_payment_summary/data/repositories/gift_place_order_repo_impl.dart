@@ -5,17 +5,17 @@ import 'package:dio/dio.dart';
 import '../../../../../../core/resources/api/data_sources.dart';
 import '../../../../../../core/resources/api/error_handler.dart';
 import '../../../../../../core/resources/api/failure_class.dart';
-import '../../domain/entities/products_place_order_entity.dart';
-import '../../domain/repositories/products_place_order_repo.dart';
-import '../data_sources/products_place_order_service.dart';
+import '../../domain/entities/gift_place_order_entity.dart';
+import '../../domain/repositories/gift_place_order_repo.dart';
+import '../data_sources/gift_place_order_service.dart';
 
-class PlaceOrderRepoImpl implements PlaceOrderRepo {
-  final PlaceOrderService placeOrderService;
+class GiftPlaceOrderRepoImpl implements GiftPlaceOrderRepo {
+  final GiftPlaceOrderService placeOrderService;
 
-  PlaceOrderRepoImpl({required this.placeOrderService});
+  GiftPlaceOrderRepoImpl({required this.placeOrderService});
 
   @override
-  Future<Either<Failure, PlaceOrderEntity>> placeOrder(PlaceOrderEntity placeOrderEntity) async {
+  Future<Either<Failure, GiftPlaceOrderEntity>> placeOrder(GiftPlaceOrderEntity placeOrderEntity) async {
     final result = await Connectivity().checkConnectivity();
 
     if (result == ConnectivityResult.mobile ||

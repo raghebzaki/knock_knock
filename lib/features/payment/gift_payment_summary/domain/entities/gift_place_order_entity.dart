@@ -1,6 +1,6 @@
 import 'package:equatable/equatable.dart';
 
-class PlaceOrderEntity extends Equatable {
+class GiftPlaceOrderEntity extends Equatable {
   final num? userId;
   final String? name;
   final String? phone;
@@ -17,7 +17,7 @@ class PlaceOrderEntity extends Equatable {
   final num? status;
   final String? msg;
 
-  const PlaceOrderEntity({
+  const GiftPlaceOrderEntity({
     this.userId,
     this.name,
     this.phone,

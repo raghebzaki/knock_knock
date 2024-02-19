@@ -14,9 +14,6 @@ import '../../../../../core/utils/app_constants.dart';
 
 class PaymentSummaryView extends StatefulWidget {
 
-
-
-
   const PaymentSummaryView({super.key,});
 
   @override

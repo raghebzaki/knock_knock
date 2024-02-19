@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-import '../../domain/entities/products_place_order_entity.dart';
-import '../../domain/use_cases/products_place_order_use_case.dart';
+import '../../domain/entities/gift_place_order_entity.dart';
+import '../../domain/use_cases/gift_place_order_use_case.dart';
 
 part 'place_order_cubit.freezed.dart';
 part 'place_order_states.dart';
@@ -14,9 +14,9 @@ class PlaceOrderCubit extends Cubit<PlaceOrderStates> {
 
   static PlaceOrderCubit get(BuildContext context) => BlocProvider.of(context);
 
-  final PlaceOrderUseCase placeOrderUseCase;
+  final GiftPlaceOrderUseCase placeOrderUseCase;
 
-  placeOrder(PlaceOrderEntity placeOrderEntity) async {
+  placeOrder(GiftPlaceOrderEntity placeOrderEntity) async {
     emit(const PlaceOrderStates.loading());
     final login = await placeOrderUseCase(placeOrderEntity);
 

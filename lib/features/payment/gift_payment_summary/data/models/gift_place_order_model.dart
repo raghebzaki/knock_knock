@@ -1,7 +1,7 @@
-import '../../domain/entities/products_place_order_entity.dart';
+import '../../domain/entities/gift_place_order_entity.dart';
 
-class PlaceOrderModel extends PlaceOrderEntity {
-  const PlaceOrderModel({
+class GiftPlaceOrderModel extends GiftPlaceOrderEntity {
+  const GiftPlaceOrderModel({
     super.userId,
     super.name,
     super.phone,
@@ -17,14 +17,14 @@ class PlaceOrderModel extends PlaceOrderEntity {
     super.msg,
   });
 
-  factory PlaceOrderModel.fromJson(Map<String, dynamic> json) {
-    return PlaceOrderModel(
+  factory GiftPlaceOrderModel.fromJson(Map<String, dynamic> json) {
+    return GiftPlaceOrderModel(
       status: json['status'],
       msg: json['message'],
     );
   }
 
-  static Map<String, dynamic> toJson(PlaceOrderEntity placeOrderEntity) {
+  static Map<String, dynamic> toJson(GiftPlaceOrderEntity placeOrderEntity) {
     return {
       'user_id': placeOrderEntity.userId,
       'name': placeOrderEntity.name,
@@ -42,7 +42,7 @@ class PlaceOrderModel extends PlaceOrderEntity {
     };
   }
 
-  static Map<String, dynamic> toJsonIncludingCoupon(PlaceOrderEntity placeOrderEntity) {
+  static Map<String, dynamic> toJsonIncludingCoupon(GiftPlaceOrderEntity placeOrderEntity) {
     return {
       'user_id': placeOrderEntity.userId,
       'name': placeOrderEntity.name,
