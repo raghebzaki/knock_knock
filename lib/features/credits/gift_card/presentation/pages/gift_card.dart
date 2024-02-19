@@ -185,7 +185,7 @@ class _GiftCardViewState extends State<GiftCardView> {
                   CustomBtnSmall(
                     label: S.of(context).next,
                     onPressed: (){
-                      context.pushNamed(paymentSummeryPageRoute);
+                      context.pushNamed(giftPaymentSummeryPageRoute);
                     },
                   ),
                 ],

@@ -217,7 +217,7 @@ class _ProductsCartViewState extends State<ProductsCartView> {
                           label: S.of(context).completePayment,
                           onPressed: () {
                             context.pushNamed(
-                              paymentSummeryPageRoute,
+                              productsPaymentSummeryPageRoute,
                             );
                           },
                         ),

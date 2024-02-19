@@ -17,7 +17,8 @@ import 'package:knockknock/features/main/services/presentation/pages/services_vi
 import 'package:knockknock/features/main/services_details/presentation/pages/services_details_view.dart';
 import 'package:knockknock/features/orders/my_orders/presentation/pages/my_orders.dart';
 import 'package:knockknock/features/orders/track_order/presentation/pages/track_order_view.dart';
-import 'package:knockknock/features/payment/payment_summary/presentation/pages/payment_summary_view.dart';
+import 'package:knockknock/features/payment/products_payment_summary/presentation/pages/products_payment_summary_view.dart';
+import 'package:knockknock/features/payment/services_payment_summary/presentation/pages/services_payment_summary_view.dart';
 import 'package:knockknock/features/profile/contact_us/presentation/pages/contact_us_view.dart';
 import 'package:knockknock/features/profile/edit_profile/presentation/pages/edit_profile_view.dart';
 import 'package:knockknock/features/profile/settings/presentation/pages/settings_view.dart';
@@ -32,6 +33,7 @@ import '../../features/bottom_nav_bar.dart';
 import '../../features/credits/gift_card/presentation/pages/gift_card.dart';
 import '../../features/main/products_cart/presentation/pages/products_cart_view.dart';
 import '../../features/orders/order_details/presentation/pages/order_details_view.dart';
+import '../../features/payment/gift_payment_summary/presentation/pages/payment_summary_view.dart';
 import '../../main_view.dart';
 import '../dependency_injection/di.dart' as di;
 import '../shared/arguments.dart';
@@ -181,7 +183,15 @@ class AppRouters {
           builder: (BuildContext context) =>
               TrackOrderView(orderDetails: args.orderDetails),
         );
-        case paymentSummeryPageRoute:
+        case productsPaymentSummeryPageRoute:
+        return MaterialPageRoute(
+          builder: (BuildContext context) => const ProductsPaymentSummaryView(),
+        );
+        case servicesPaymentSummeryPageRoute:
+        return MaterialPageRoute(
+          builder: (BuildContext context) => const ServicesPaymentSummaryView(),
+        );
+        case giftPaymentSummeryPageRoute:
         return MaterialPageRoute(
           builder: (BuildContext context) => const PaymentSummaryView(),
         );

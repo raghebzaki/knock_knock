@@ -103,7 +103,7 @@ class _BuyCreditsViewState extends State<BuyCreditsView> {
                     CustomBtnSmall(
                       label: S.of(context).buyNow,
                       onPressed: (){
-                        context.pushNamed(paymentSummeryPageRoute);
+                        context.pushNamed(giftPaymentSummeryPageRoute);
                       },
                     )
                   ],

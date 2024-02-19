@@ -192,7 +192,7 @@ class _ServicesCartViewState extends State<ServicesCartView> {
                           label: S.of(context).completePayment,
                           onPressed: () {
                             context.pushNamed(
-                              paymentSummeryPageRoute,
+                              servicesPaymentSummeryPageRoute,
                             );
                           },
                         ),

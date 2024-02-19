@@ -36,4 +36,6 @@ const String orderDetailsPageRoute = '/orderDetails';
 const String trackOrderPageRoute = '/trackOrder';
 
 ///payment
-const String paymentSummeryPageRoute = '/paymentSummery';
+const String productsPaymentSummeryPageRoute = '/productsPaymentSummery';
+const String servicesPaymentSummeryPageRoute = '/servicesPaymentSummery';
+const String giftPaymentSummeryPageRoute = '/giftPaymentSummery';
