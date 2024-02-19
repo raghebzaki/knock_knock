@@ -6,7 +6,8 @@ import '../../utils/app_colors.dart';
 
 class DateWidget extends StatelessWidget {
   final bool isSelected;
-  const DateWidget({super.key, required this.isSelected});
+  final String dayName;
+  const DateWidget({super.key, required this.isSelected, required this.dayName});
 
   @override
   Widget build(BuildContext context) {
@@ -21,8 +22,7 @@ class DateWidget extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-         Text("today",style: CustomTextStyle.kTextStyleF16.copyWith(color: Colors.white),),
-         Text("5 feb",style: CustomTextStyle.kTextStyleF16.copyWith(color: Colors.white),)
+         Text(dayName,style: CustomTextStyle.kTextStyleF16.copyWith(color: Colors.white),),
         ],
       ),
     );

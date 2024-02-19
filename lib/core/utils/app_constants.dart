@@ -55,5 +55,6 @@ class AppConstants {
   static const deleteProfileUri = "";
   static const editUserProfileUri = "";
   static const deleteUserAccountUri = "";
+  static const getWeekDaysUri = "v1/days/get-all";
 
 }
