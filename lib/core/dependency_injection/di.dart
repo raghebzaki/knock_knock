@@ -61,6 +61,11 @@ import '../../features/main/products/data/repositories/products_repo_impl.dart';
 import '../../features/main/products/domain/repositories/products_repo.dart';
 import '../../features/main/products/domain/use_cases/products_use_case.dart';
 import '../../features/main/products/presentation/manager/products_cubit.dart';
+import '../../features/main/products_details/data/data_sources/week_days_service.dart';
+import '../../features/main/products_details/data/repositories/week_days_repo_impl.dart';
+import '../../features/main/products_details/domain/repositories/week_days_repo.dart';
+import '../../features/main/products_details/domain/usecases/week_days_use_case.dart';
+import '../../features/main/products_details/presentation/manager/week_days_cubit.dart';
 import '../../features/orders/my_orders/data/data_sources/my_orders_service.dart';
 import '../../features/orders/my_orders/data/repositories/my_orders_repo_impl.dart';
 import '../../features/orders/my_orders/domain/repositories/my_orders_repo.dart';
@@ -162,6 +167,12 @@ Future<void> init() async {
   di.registerLazySingleton(() => ProductsUseCase(di()));
   di.registerLazySingleton<ProductsRepo>(() => ProductsRepoImpl(di(),));
   di.registerLazySingleton<ProductsService>(() => ProductsServiceImpl());
+
+  /// Products Details
+  di.registerFactory(() => WeekDaysCubit( daysUseCase: di()));
+  di.registerLazySingleton(() => WeekDaysUseCase(weekDaysRepo: di()));
+  di.registerLazySingleton<WeekDaysRepo>(() => WeekDaysRepoImpl(weekDayService: di(),));
+  di.registerLazySingleton<WeekDayService>(() => WeekDayServiceImpl());
 
   ///profile
   /// Edit profile

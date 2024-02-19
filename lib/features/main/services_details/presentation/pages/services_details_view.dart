@@ -4,6 +4,7 @@ import 'package:flutter_html/flutter_html.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gap/gap.dart';
 import 'package:get/get.dart';
+import 'package:intl/intl.dart';
 import 'package:knockknock/core/helpers/cache_helper.dart';
 import 'package:knockknock/core/shared/entities/service_entity.dart';
 
@@ -11,7 +12,6 @@ import 'package:knockknock/core/shared/widgets/custom_app_bar.dart';
 import 'package:knockknock/core/shared/widgets/custom_button_small.dart';
 import 'package:knockknock/core/utils/app_colors.dart';
 import 'package:knockknock/core/utils/extensions.dart';
-
 
 import '../../../../../config/themes/app_text_styles.dart';
 import '../../../../../core/router/router.dart';
@@ -25,6 +25,7 @@ import '../../../../bottom_nav_bar.dart';
 
 class ServicesDetailsView extends StatefulWidget {
   final ServicesEntity servicesEntity;
+
   const ServicesDetailsView({super.key, required this.servicesEntity});
 
   @override
@@ -34,13 +35,12 @@ class ServicesDetailsView extends StatefulWidget {
 class _ServicesDetailsViewState extends State<ServicesDetailsView> {
   int selectedOption = 1;
 
-  int date =0;
+  int date = 0;
 
-  int time =0;
+  int time = 0;
 
   @override
   Widget build(BuildContext context) {
-
     return Scaffold(
       appBar: const CustomAppBar(),
       bottomNavigationBar: const BottomNavForAllScreenView(),
@@ -52,7 +52,7 @@ class _ServicesDetailsViewState extends State<ServicesDetailsView> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Image.network(
-                AppConstants.imageUrl+widget.servicesEntity.image!,
+                AppConstants.imageUrl + widget.servicesEntity.image!,
                 fit: BoxFit.cover,
               ),
               Gap(10.h),
@@ -67,30 +67,34 @@ class _ServicesDetailsViewState extends State<ServicesDetailsView> {
               ),
               const Divider(),
               Gap(5.h),
-              widget.servicesEntity.availability==""?const SizedBox.shrink():Row(
-                children: [
-                  Text(
-                    S.of(context).availability,
-                    style: CustomTextStyle.kTextStyleF16Black,
-                  ),
-                  Text(
-                    widget.servicesEntity.availability!,
-                    style: CustomTextStyle.kTextStyleF16BlackW300,
-                  ),
-                ],
-              ),
-              widget.servicesEntity.sku ==""?const SizedBox.shrink(): Row(
-                children: [
-                  Text(
-                    S.of(context).sku,
-                    style: CustomTextStyle.kTextStyleF16Black,
-                  ),
-                  Text(
-                    widget.servicesEntity.sku!,
-                    style: CustomTextStyle.kTextStyleF16BlackW300,
-                  ),
-                ],
-              ),
+              widget.servicesEntity.availability == ""
+                  ? const SizedBox.shrink()
+                  : Row(
+                      children: [
+                        Text(
+                          S.of(context).availability,
+                          style: CustomTextStyle.kTextStyleF16Black,
+                        ),
+                        Text(
+                          widget.servicesEntity.availability!,
+                          style: CustomTextStyle.kTextStyleF16BlackW300,
+                        ),
+                      ],
+                    ),
+              widget.servicesEntity.sku == ""
+                  ? const SizedBox.shrink()
+                  : Row(
+                      children: [
+                        Text(
+                          S.of(context).sku,
+                          style: CustomTextStyle.kTextStyleF16Black,
+                        ),
+                        Text(
+                          widget.servicesEntity.sku!,
+                          style: CustomTextStyle.kTextStyleF16BlackW300,
+                        ),
+                      ],
+                    ),
               const Divider(),
               Row(
                 children: [
@@ -124,20 +128,23 @@ class _ServicesDetailsViewState extends State<ServicesDetailsView> {
                   children: [
                     ...List.generate(
                         5,
-                            (index) => Row(
-                          children: [
-                            GestureDetector(
-                              onTap:(){
-                                setState(() {
-                                  date=index;
-                                });
-                              },
-                              child: DateWidget(
-                                  isSelected: index == date ? true : false),
-                            ),
-                            Gap(10.w),
-                          ],
-                        )),
+                        (index) => Row(
+                              children: [
+                                GestureDetector(
+                                  onTap: () {
+                                    setState(() {
+                                      date = index;
+                                    });
+                                  },
+                                  child: DateWidget(
+                                      dayName: Intl.getCurrentLocale() == "ar"
+                                          ? "اليوم"
+                                          : "Today",
+                                      isSelected: index == date ? true : false),
+                                ),
+                                Gap(10.w),
+                              ],
+                            )),
                   ],
                 ),
               ),
@@ -153,20 +160,19 @@ class _ServicesDetailsViewState extends State<ServicesDetailsView> {
                   children: [
                     ...List.generate(
                         5,
-                            (index) => Row(
-                          children: [
-                            GestureDetector(
-                              onTap:(){
-                                setState(() {
-                                  time=index;
-                                });
-                              },
-                              child: TimeWidget(
-                                  isSelected: index == time ? true : false),
-                            ),
-                            Gap(10.w),
-                          ],
-                        )),
+                        (index) => Row(
+                              children: [
+                                GestureDetector(
+                                  onTap: () {
+                                    setState(() {
+                                      time = index;
+                                    });
+                                  },
+                                  child: TimeWidget(),
+                                ),
+                                Gap(10.w),
+                              ],
+                            )),
                   ],
                 ),
               ),
@@ -174,22 +180,24 @@ class _ServicesDetailsViewState extends State<ServicesDetailsView> {
               Container(
                 padding: EdgeInsets.all(20.sp),
                 decoration: BoxDecoration(
-                  color: AppColors.bg,
-                  borderRadius: BorderRadius.all(Radius.circular(12.sp))
-                ),
-                child:  Column(
+                    color: AppColors.bg,
+                    borderRadius: BorderRadius.all(Radius.circular(12.sp))),
+                child: Column(
                   children: [
                     Center(
-                      child:Text(
-                        S.of(context).freeCancellationUntil12HoursBeforeTheStartOfYour,
+                      child: Text(
+                        S
+                            .of(context)
+                            .freeCancellationUntil12HoursBeforeTheStartOfYour,
                         textAlign: TextAlign.center,
                         style: CustomTextStyle.kTextStyleF14SubBlack,
                       ),
-
                     ),
                     Gap(10.h),
                     Align(
-                      alignment:CacheHelper.isEnglish()?Alignment.bottomRight:Alignment.bottomLeft,
+                      alignment: CacheHelper.isEnglish()
+                          ? Alignment.bottomRight
+                          : Alignment.bottomLeft,
                       child: Text(
                         S.of(context).details,
                         textAlign: TextAlign.start,
@@ -204,13 +212,14 @@ class _ServicesDetailsViewState extends State<ServicesDetailsView> {
                 width: context.width,
                 padding: EdgeInsets.all(20.sp),
                 decoration: BoxDecoration(
-                  color: AppColors.bg,
-                  borderRadius: BorderRadius.all(Radius.circular(12.sp))
-                ),
-                child:  Column(
+                    color: AppColors.bg,
+                    borderRadius: BorderRadius.all(Radius.circular(12.sp))),
+                child: Column(
                   children: [
                     Align(
-                      alignment:CacheHelper.isEnglish()?Alignment.topLeft:Alignment.topRight,
+                      alignment: CacheHelper.isEnglish()
+                          ? Alignment.topLeft
+                          : Alignment.topRight,
                       child: Text(
                         S.of(context).anySpecificInstructions,
                         textAlign: TextAlign.start,
@@ -219,14 +228,15 @@ class _ServicesDetailsViewState extends State<ServicesDetailsView> {
                     ),
                     Gap(10.h),
                     Align(
-                      alignment:CacheHelper.isEnglish()?Alignment.bottomRight:Alignment.bottomLeft,
+                      alignment: CacheHelper.isEnglish()
+                          ? Alignment.bottomRight
+                          : Alignment.bottomLeft,
                       child: Text(
                         S.of(context).add,
                         textAlign: TextAlign.start,
                         style: CustomTextStyle.kTextStyleF16w600,
                       ),
                     ),
-
                   ],
                 ),
               ),
@@ -237,11 +247,11 @@ class _ServicesDetailsViewState extends State<ServicesDetailsView> {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                      Center(
-                              child: Text(
-                                "${widget.servicesEntity.price} ${S.of(context).Aed}",
-                                style: CustomTextStyle.kTextStyleF18Black,
-                              ),
+                        Center(
+                          child: Text(
+                            "${widget.servicesEntity.price} ${S.of(context).Aed}",
+                            style: CustomTextStyle.kTextStyleF18Black,
+                          ),
                         ),
                       ],
                     ),
@@ -251,7 +261,9 @@ class _ServicesDetailsViewState extends State<ServicesDetailsView> {
                     child: CustomBtnSmall(
                       onPressed: () {
                         context.read<ProductCartCubit>().cartProducts.clear();
-                        context.read<ServiceCartCubit>().addServiceToCart(widget.servicesEntity,context);
+                        context
+                            .read<ServiceCartCubit>()
+                            .addServiceToCart(widget.servicesEntity, context);
                         context.pushNamed(servicesCartPageRoute);
                       },
                       label: S.of(context).next,
