@@ -14,7 +14,7 @@ import '../../../../../../core/shared/widgets/custom_button.dart';
 import '../../../../../../core/utils/app_colors.dart';
 import '../../../../../../core/utils/dimensions.dart';
 import '../../../../../../generated/l10n.dart';
-import '../../../../../core/shared/cubits/cart_cubit/cart_cubit.dart';
+import '../../../../../core/shared/cubits/product_cart_cubit/product_cart_cubit.dart';
 
 class CartView extends StatefulWidget {
   const CartView({super.key});
@@ -28,7 +28,7 @@ class _CartViewState extends State<CartView> {
 
   @override
   Widget build(BuildContext context) {
-    var totalPrice = context.watch<CartCubit>().cartProducts;
+    var totalPrice = context.watch<ProductCartCubit>().cartProducts;
     for (var i = 0; i < totalPrice.length; i++) {
       if (totalPrice[i].discountPercent == 0) {
         finalPrice +=

@@ -3,6 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:gap/gap.dart';
 import 'package:get/get.dart';
+import 'package:knockknock/core/database/database_hive.dart';
 import 'package:knockknock/core/router/router.dart';
 import 'package:knockknock/core/shared/models/user_data_model.dart';
 import 'package:knockknock/core/utils/extensions.dart';
@@ -16,7 +17,6 @@ import '../../utils/app_images.dart';
 import '../../utils/dimensions.dart';
 
 class CustomAppBar extends StatefulWidget implements PreferredSizeWidget {
-
   const CustomAppBar({
     super.key,
   });
@@ -25,11 +25,23 @@ class CustomAppBar extends StatefulWidget implements PreferredSizeWidget {
   State<CustomAppBar> createState() => _CustomAppBarState();
 
   @override
-  // TODO: implement preferredSize
   Size get preferredSize => Size(double.infinity.w, 200.h);
 }
 
 class _CustomAppBarState extends State<CustomAppBar> {
+  HiveDatabase hiveDatabase = HiveDatabase();
+  List? addresses;
+
+  getAddresses() async {
+    addresses = await hiveDatabase.getAllAddresses();
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    getAddresses();
+  }
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -49,7 +61,7 @@ class _CustomAppBarState extends State<CustomAppBar> {
                     width: 25.h,
                   ),
                   Gap(5.w),
-                   Text("${S.current.goodMorning}, ${UserData.firstName}"),
+                  Text("${S.current.goodMorning}, ${UserData.firstName}"),
                 ],
               ),
               Gap(8.h),
@@ -58,8 +70,8 @@ class _CustomAppBarState extends State<CustomAppBar> {
                 backgroundColor: Colors.white,
                 elevation: 0,
                 automaticallyImplyLeading: false,
-                title:GestureDetector(
-                  onTap: (){
+                title: GestureDetector(
+                  onTap: () {
                     showModalBottomSheet(
                         context: context,
                         shape: const RoundedRectangleBorder(
@@ -72,67 +84,65 @@ class _CustomAppBarState extends State<CustomAppBar> {
                           return Container(
                             padding: EdgeInsets.symmetric(
                                 horizontal: 24.w, vertical: 48.h),
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.start,
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              mainAxisSize: MainAxisSize.min,
-                              children: [
-                                Text("choose delivery location",
-                                    textAlign: TextAlign.right,
-                                    style: CustomTextStyle.kTextStyleF16.copyWith(
-                                        color: AppColors.textColorSecondary)),
-                                Gap(30.h),
-                                GestureDetector(
-                                  onTap: () {
-                                    setState(() {});
-                                  },
-                                  child: Row(
-                                    children: [
-                                      Text('address 1',
-                                          style: CustomTextStyle.kTextStyleF14),
-                                      const Spacer(),
-                                      Icon(
-                                        Icons.check,
-                                        size: 16.sp,
-                                        color: AppColors.lightBlue,
+                            child: SingleChildScrollView(
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                mainAxisSize: MainAxisSize.min,
+                                children: [
+                                  Text("choose delivery location",
+                                      textAlign: TextAlign.right,
+                                      style: CustomTextStyle.kTextStyleF16
+                                          .copyWith(
+                                          color: AppColors.textColorSecondary)),
+                                  Gap(30.h),
+                                ListView.builder(
+                                  shrinkWrap: true,
+                                  scrollDirection: Axis.vertical,
+                                  physics: const NeverScrollableScrollPhysics(),
+                                  itemCount: addresses!.length,
+                                  itemBuilder: (ctx, index) {
+                                    return GestureDetector(
+                                      onTap: () {
+                                        setState(() {});
+                                      },
+                                      child: Row(
+                                        children: [
+                                          Text(addresses![index].address,
+                                              style: CustomTextStyle.kTextStyleF14),
+                                          const Spacer(),
+                                          Icon(
+                                            Icons.check,
+                                            size: 16.sp,
+                                            color: AppColors.lightBlue,
+                                          ),
+                                        ],
                                       ),
-                                    ],
-                                  ),
-                                ),
-                                Gap(20.h),
-                                GestureDetector(
-                                  onTap: () {
-                                    setState(() {});
-                                    context.pop();
+                                    );
                                   },
-                                  child: Row(
-                                    children: [
-                                      Text('address 2',
-                                          style: CustomTextStyle.kTextStyleF14),
-                                      const Spacer(),
-
-                                      // Icon(Icons.check,size: 16.sp,color: AppColors.lightBlue,)
-                                    ],
-                                  ),
                                 ),
-                                Gap(20.h),
-                                GestureDetector(
-                                  onTap: () {
-                                    context.pop();
-                                    context.pushNamed(mapPageRoute);
-                                  },
-                                  child: Row(
-                                    children: [
-                                      Text('Add new address',
-                                          style: CustomTextStyle.kTextStyleF14),
-                                      const Spacer(),
-
-                                      // Icon(Icons.check,size: 16.sp,color: AppColors.lightBlue,)
-                                    ],
-                                  ),
-                                ),
-                              ],
-                            ),
+                                  Gap(20.h),
+                                  GestureDetector(
+                                    onTap: () {
+                                      context.pop();
+                                      context.pushNamed(mapPageRoute);
+                                    },
+                                    child: Row(
+                                      children: [
+                                        Text('Add new address',
+                                            style: CustomTextStyle.kTextStyleF14),
+                                        const Spacer(),
+                              
+                                        // Icon(Icons.check,size: 16.sp,color: AppColors.lightBlue,)
+                                      ],
+                                    ),
+                                  )
+                                  ,
+                                ]
+                                ,
+                              ),
+                            )
+                            ,
                           );
                         });
                   },
@@ -150,22 +160,33 @@ class _CustomAppBarState extends State<CustomAppBar> {
                         // textAlign: TextAlign.center,
                       ),
                       Gap(5.w),
-                       Icon(Icons.arrow_downward,size: 15.sp,color: AppColors.secondary,),
+                      Icon(
+                        Icons.arrow_downward,
+                        size: 15.sp,
+                        color: AppColors.secondary,
+                      ),
                     ],
                   ),
                 ),
                 centerTitle: false,
-                actions:  [
+                actions: [
                   GestureDetector(
-                    onTap: (){
+                    onTap: () {
                       context.pushNamed(cartPageRoute);
                     },
                     child: CircleAvatar(
                       radius: 50.sp,
                       backgroundColor: AppColors.secondary,
                       child: badges.Badge(
-                        badgeContent: Text('3',style: CustomTextStyle.kTextStyleF14,),
-                        child: const Icon(Icons.shopping_cart,color: Colors.white,size: 40,),
+                        badgeContent: Text(
+                          '3',
+                          style: CustomTextStyle.kTextStyleF14,
+                        ),
+                        child: const Icon(
+                          Icons.shopping_cart,
+                          color: Colors.white,
+                          size: 40,
+                        ),
                       ),
                     ),
                   )
@@ -198,7 +219,8 @@ class _CustomAppBarState extends State<CustomAppBar> {
                 ),
               )
             ],
-          ).paddingSymmetric(horizontal: Dimensions.p24,vertical: Dimensions.p10),
+          ).paddingSymmetric(
+              horizontal: Dimensions.p24, vertical: Dimensions.p10),
         ),
       ),
     );

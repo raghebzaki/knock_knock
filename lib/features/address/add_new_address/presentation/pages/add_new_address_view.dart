@@ -164,8 +164,8 @@ class _AddNewAddressViewState extends State<AddNewAddressView> {
                                         code: zipCodeCtrl.text,
                                         country: stateCtrl.text,
                                         city: cityCtrl.text,
-                                        phone: phoneCtrl.text,
-                                        latitude: widget.latLng,
+                                        latitude: widget.latLng.latitude,
+                                        longitude:  widget.latLng.longitude,
                                       ),
                                     );
                                     context.pushReplacementNamed(
@@ -271,8 +271,8 @@ class _AddNewAddressViewState extends State<AddNewAddressView> {
                                           code: zipCodeCtrl.text,
                                           country: stateCtrl.text,
                                           city: cityCtrl.text,
-                                          phone: phoneCtrl.text,
-                                          latitude: widget.latLng,
+                                          latitude: widget.latLng.latitude,
+                                          longitude:  widget.latLng.longitude,
                                         ),
                                       );
                                       context.pushReplacementNamed(

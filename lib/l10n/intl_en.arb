@@ -42,6 +42,8 @@
   "doNotHaveAccount": "Don't have an account?",
   "registerNow": "Register Now",
   "rememberMe": "Remember Me",
+  "emailCantBeEmpty": "Email can't be empty",
+  "pleaseEnterAValidEmail": "Please enter a valid email",
 
 
   "@register": {},

@@ -109,6 +109,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "earn8More": MessageLookupByLibrary.simpleMessage("Earn 8% More"),
         "editProfile": MessageLookupByLibrary.simpleMessage("Edit profile"),
         "email": MessageLookupByLibrary.simpleMessage("Email"),
+        "emailCantBeEmpty":
+            MessageLookupByLibrary.simpleMessage("Email can\'t be empty"),
         "enterAmount": MessageLookupByLibrary.simpleMessage("Enter Amount"),
         "enterYourNewPassword": MessageLookupByLibrary.simpleMessage(
             "Enter your new password below"),
@@ -220,6 +222,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "phoneNoCantBeEmpty":
             MessageLookupByLibrary.simpleMessage("Phone No. can\'t be empty"),
         "phoneNumber": MessageLookupByLibrary.simpleMessage("Phone Number"),
+        "pleaseEnterAValidEmail":
+            MessageLookupByLibrary.simpleMessage("Please enter a valid email"),
         "pleaseEnterAValidPhoneNumber": MessageLookupByLibrary.simpleMessage(
             "Please enter a valid phone number"),
         "plzEnterValidEmail":

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:knockknock/core/utils/extensions.dart';
 import 'package:knockknock/features/auth/verify_account/domain/use_cases/resend_code_usecase.dart';
 
 import 'package:rxdart/rxdart.dart';
@@ -78,29 +79,32 @@ class LoginCubit extends Cubit<LoginStates> {
   var passCtrl = BehaviorSubject<String>();
 
   Stream<String> get phoneStream => phoneCtrl.stream;
+
   Stream<String> get passStream => passCtrl.stream;
 
-validatePhone(String phone) {
-  if (phone.isEmpty) {
-    phoneCtrl.sink.addError(S.current.plzEnterYourEmail);
-  } else {
-    phoneCtrl.sink.add(phone);
+  validatePhone(String phone) {
+    if (phone.isEmpty) {
+      phoneCtrl.sink.addError(S.current.emailCantBeEmpty);
+    } else if (!phone.isEmail()) {
+      phoneCtrl.sink.addError(S.current.pleaseEnterAValidEmail);
+    } else {
+      phoneCtrl.sink.add(phone);
+    }
   }
-}
 
-validatePass(String pass) {
-  if (pass.isEmpty) {
-    passCtrl.sink.addError(S.current.passwordCaNotBeEmpty);
-  } else if (pass.length < 8) {
-    passCtrl.sink.addError(S.current.passwordTooShort);
-  } else {
-    passCtrl.sink.add(pass);
+  validatePass(String pass) {
+    if (pass.isEmpty) {
+      passCtrl.sink.addError(S.current.passwordCaNotBeEmpty);
+    } else if (pass.length < 8) {
+      passCtrl.sink.addError(S.current.passwordTooShort);
+    } else {
+      passCtrl.sink.add(pass);
+    }
   }
-}
 
-Stream<bool> get validBtnStream => Rx.combineLatest2(
-  phoneStream,
-  passStream,
-      (a, b) => true,
-);
+  Stream<bool> get validBtnStream => Rx.combineLatest2(
+        phoneStream,
+        passStream,
+        (a, b) => true,
+      );
 }

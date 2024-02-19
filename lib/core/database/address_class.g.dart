@@ -23,15 +23,15 @@ class AddressAdapter extends TypeAdapter<Address> {
       country: fields[4] as String?,
       city: fields[5] as String?,
       code: fields[6] as String?,
-      phone: fields[7] as String?,
-      latitude: fields[8] as LatLng?,
+      latitude: fields[7] as double?,
+      longitude: fields[8] as double?,
     );
   }
 
   @override
   void write(BinaryWriter writer, Address obj) {
     writer
-      ..writeByte(10)
+      ..writeByte(9)
       ..writeByte(0)
       ..write(obj.id)
       ..writeByte(1)
@@ -47,9 +47,9 @@ class AddressAdapter extends TypeAdapter<Address> {
       ..writeByte(6)
       ..write(obj.code)
       ..writeByte(7)
-      ..write(obj.phone)
+      ..write(obj.latitude)
       ..writeByte(8)
-      ..write(obj.latitude);
+      ..write(obj.longitude);
   }
 
   @override

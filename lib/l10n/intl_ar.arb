@@ -43,6 +43,8 @@
   "doNotHaveAccount": "ليس لديك حساب؟",
   "registerNow": "سجل الآن",
   "rememberMe": "تذكرني",
+  "emailCantBeEmpty": "لا يمكن ترك حقل البريد الإلكتروني فارغًا",
+  "pleaseEnterAValidEmail": "الرجاء إدخال بريد إلكتروني صالح",
 
 
 

@@ -4,14 +4,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:hive/hive.dart';
-import 'package:knockknock/core/shared/cubits/cart_cubit/cart_cubit.dart';
-import 'package:path_provider/path_provider.dart';
+import 'package:hive_flutter/hive_flutter.dart';
 
+import 'core/database/address_class.dart';
 import 'core/dependency_injection/di.dart' as di;
 import 'core/helpers/cache_helper.dart';
 import 'core/my_http.dart';
 import 'core/router/router_generator.dart';
+import 'core/shared/cubits/product_cart_cubit/product_cart_cubit.dart';
 import 'core/shared/widgets/custom_error_widget.dart';
 import 'core/utils/app_strings.dart';
 import 'core/utils/cubit_observer.dart';
@@ -23,8 +23,8 @@ void main() async {
   Bloc.observer = AppCubitObserver();
   await ScreenUtil.ensureScreenSize();
   await di.init();
-  final appDocumentDirectory = await getApplicationDocumentsDirectory();
-  Hive.init(appDocumentDirectory.path);
+  await Hive.initFlutter();
+  Hive.registerAdapter(AddressAdapter());
 
   ErrorWidget.builder = (FlutterErrorDetails errorDetails) {
     return MaterialApp(
@@ -93,7 +93,7 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => CartCubit(),
+      create: (context) => ProductCartCubit(),
       child: ScreenUtilInit(
         designSize: const Size(360, 800),
         minTextAdapt: true,

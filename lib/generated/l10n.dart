@@ -2009,6 +2009,26 @@ class S {
       args: [],
     );
   }
+
+  /// `Email can't be empty`
+  String get emailCantBeEmpty {
+    return Intl.message(
+      'Email can\'t be empty',
+      name: 'emailCantBeEmpty',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Please enter a valid email`
+  String get pleaseEnterAValidEmail {
+    return Intl.message(
+      'Please enter a valid email',
+      name: 'pleaseEnterAValidEmail',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

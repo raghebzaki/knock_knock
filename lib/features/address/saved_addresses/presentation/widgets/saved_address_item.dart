@@ -87,23 +87,6 @@ class SavedAddressItem extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  "${S.of(context).phone}:   ",
-                  style: CustomTextStyle.kTextStyleF16.copyWith(
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-                Expanded(
-                  child: Text(
-                    address.phone.isNullOrEmpty(),
-                    style: CustomTextStyle.kTextStyleF16,
-                  ),
-                ),
-              ],
-            ),
-            Row(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
                   "State:   ",
                   style: CustomTextStyle.kTextStyleF16.copyWith(
                     fontWeight: FontWeight.bold,
