@@ -46,7 +46,7 @@ class _ServicesDetailsViewState extends State<ServicesDetailsView> {
   TextEditingController noteCtrl=TextEditingController();
   int selectedOption = 1;
 
-  int date = 0;
+  int date = 1;
 
 
   HiveDatabase hiveDatabase = HiveDatabase();
@@ -64,7 +64,7 @@ class _ServicesDetailsViewState extends State<ServicesDetailsView> {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => di.di<WeekDaysCubit>(),
+      create: (context) => di.di<WeekDaysCubit>()..getAllDays(),
       child: BlocConsumer<WeekDaysCubit, WeekDaysStates>(
         listener: (context, state) {},
         builder: (context, state) {
@@ -165,7 +165,7 @@ class _ServicesDetailsViewState extends State<ServicesDetailsView> {
                                           GestureDetector(
                                             onTap: () {
                                               setState(() {
-                                                date = index;
+                                                date = index+1;
                                               });
                                             },
                                             child: DateWidget(
@@ -174,7 +174,7 @@ class _ServicesDetailsViewState extends State<ServicesDetailsView> {
                                                             "ar"
                                                         ? state[index].nameAr!
                                                         : state[index].nameEn!,
-                                                isSelected: index == date
+                                                isSelected: index == date-1
                                                     ? true
                                                     : false),
                                           ),

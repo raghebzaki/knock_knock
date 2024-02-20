@@ -1,6 +1,7 @@
 import 'package:get_it/get_it.dart';
 import 'package:knockknock/features/main/home/presentation/manager/carousel_cubit.dart';
 import 'package:knockknock/features/orders/track_order/domain/use_cases/cancel_order_usecase.dart';
+import 'package:knockknock/features/payment/services_payment_summary/presentation/manager/services_place_order_cubit.dart';
 import 'package:knockknock/features/profile/edit_profile/domain/use_cases/delete_account_use_case.dart';
 import 'package:knockknock/features/profile/edit_profile/domain/use_cases/edit_account_use_case.dart';
 import 'package:knockknock/features/profile/edit_profile/presentation/manager/edit_profile_cubit.dart';
@@ -79,6 +80,10 @@ import '../../features/orders/track_order/domain/repositories/cancel_order_repo.
 import '../../features/orders/track_order/domain/repositories/track_order_repo.dart';
 import '../../features/orders/track_order/domain/use_cases/track_order_usecase.dart';
 import '../../features/orders/track_order/presentation/manager/track_order_cubit.dart';
+import '../../features/payment/services_payment_summary/data/data_sources/services_place_order_service.dart';
+import '../../features/payment/services_payment_summary/data/repositories/services_place_order_repo_impl.dart';
+import '../../features/payment/services_payment_summary/domain/repositories/services_place_order_repo.dart';
+import '../../features/payment/services_payment_summary/domain/use_cases/services_place_order_use_case.dart';
 import '../../features/profile/contact_us/data/data_sources/contact_us_service.dart';
 import '../../features/profile/contact_us/data/repositories/contact_us_repo_impl.dart';
 import '../../features/profile/contact_us/domain/repositories/contact_us_repo.dart';
@@ -204,6 +209,12 @@ Future<void> init() async {
   di.registerLazySingleton<CancelOrderRepo>(() => CancelOrderRepoImpl(cancelOrderService: di(),));
   di.registerLazySingleton<CancelOrderService>(() => CancelOrderServiceImpl());
 
+  /// payment
+  /// service payment
+  di.registerFactory(() => ServicesPlaceOrderCubit(placeOrderUseCase: di()));
+  di.registerLazySingleton(() => ServicesPlaceOrderUseCase(placeOrderRepo: di()));
+  di.registerLazySingleton<ServicesPlaceOrderRepo>(() => ServicesPlaceOrderRepoImpl(placeOrderService: di(),));
+  di.registerLazySingleton<ServicesPlaceOrderService>(() => ServicesPlaceOrderServiceImpl());
   /// external
   final sharedPrefs = await SharedPreferences.getInstance();
   di.registerLazySingleton(() => sharedPrefs);

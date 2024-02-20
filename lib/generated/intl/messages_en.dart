@@ -186,6 +186,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "onboard_3": MessageLookupByLibrary.simpleMessage("Shop Online"),
         "onboard_3_des": MessageLookupByLibrary.simpleMessage(
             "Hurry to purchase your embroidered and distinctive clothing "),
+        "orderCreatedSuccessfully":
+            MessageLookupByLibrary.simpleMessage("Order created successfully"),
         "orderNumber": MessageLookupByLibrary.simpleMessage("order number "),
         "orderPreparation":
             MessageLookupByLibrary.simpleMessage("Order preparation"),
