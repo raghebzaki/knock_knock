@@ -34,6 +34,9 @@ class ServicesPaymentSummaryView extends StatefulWidget {
 
 class _ServicesPaymentSummaryViewState
     extends State<ServicesPaymentSummaryView> {
+  String paymentMethod = "cash";
+  TextEditingController voucherCtrl = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     var totalPrice = context.watch<ServiceCartCubit>().cartServices;
@@ -64,13 +67,57 @@ class _ServicesPaymentSummaryViewState
                             style: CustomTextStyle.kTextStyleF16Black,
                           ),
                           const Spacer(),
-                          Text(S.of(context).change,
-                              style: CustomTextStyle.kTextStyleF16),
+                          TextButton(
+                            onPressed: () {
+                              showDialog(
+                                context: context,
+                                builder: (ctx) {
+                                  return AlertDialog.adaptive(
+                                    title: Text(
+                                        S.of(context).preferredPaymentMethod),
+                                    titleTextStyle:
+                                        CustomTextStyle.kTextStyleF16,
+                                    content: Column(
+                                      children: [
+                                        Expanded(
+                                          child: CustomBtn(
+                                            label: S.of(context).cash,
+                                            onPressed: () {
+                                              setState(() {
+                                                paymentMethod = "cash";
+                                              });
+                                            },
+                                          ),
+                                        ),
+                                        Gap(10.h),
+                                        Expanded(
+                                          child: CustomBtn(
+                                            label: S.of(context).creditCard,
+                                            onPressed: () {
+                                              setState(() {
+                                                paymentMethod = "credit";
+                                              });
+                                            },
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  );
+                                },
+                              );
+                            },
+                            child: Text(
+                              S.of(context).change,
+                              style: CustomTextStyle.kTextStyleF16,
+                            ),
+                          ),
                         ],
                       ),
                       Gap(10.h),
                       Image.asset(
-                        AppImages.cardImg,
+                        paymentMethod == "credit"
+                            ? AppImages.cardImg
+                            : AppImages.cashImg,
                         width: context.width,
                       ),
                       Gap(10.h),
@@ -100,21 +147,43 @@ class _ServicesPaymentSummaryViewState
                         ],
                       ),
                       Gap(10.h),
-                      Text(
-                        S.of(context).addVoucherCode,
-                        style: CustomTextStyle.kTextStyleF16Black,
+                      TextButton(
+                        onPressed: () {
+                          showDialog(
+                            context: context,
+                            builder: (ctx) {
+                              return AlertDialog.adaptive(
+                                title:
+                                    Text(S.of(context).preferredPaymentMethod),
+                                titleTextStyle: CustomTextStyle.kTextStyleF16,
+                                content: CustomFormField(
+                                  ctrl: voucherCtrl,
+                                  label: S.current.addVoucherCode,
+                                ),
+                              );
+                            },
+                          );
+                        },
+                        child: Text(
+                          S.of(context).addVoucherCode,
+                          style: CustomTextStyle.kTextStyleF16Black,
+                        ),
                       ),
                       Gap(10.h),
                       Container(
                         width: context.width,
-                        padding: EdgeInsets.all(20.sp),
+                        padding: EdgeInsets.all(Dimensions.p20.sp),
                         decoration: BoxDecoration(
-                            border: Border.all(
-                              color: AppColors.secondary,
+                          border: Border.all(
+                            color: AppColors.secondary,
+                          ),
+                          color: AppColors.primary,
+                          borderRadius: BorderRadius.all(
+                            Radius.circular(
+                              Dimensions.r12.sp,
                             ),
-                            color: AppColors.primary,
-                            borderRadius:
-                                BorderRadius.all(Radius.circular(12.sp))),
+                          ),
+                        ),
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
@@ -216,20 +285,19 @@ class _ServicesPaymentSummaryViewState
               ),
               BlocConsumer<ServicesPlaceOrderCubit, ServicesPlaceOrderState>(
                 listener: (context, state) {
-                  state.maybeWhen(
-                    success: (state){
-                      if(state.status==1){
-                        context.defaultSnackBar(S.of(context).orderCreatedSuccessfully);
-                        context.pushNamed(myOrdersPageRoute);
-                      }
-                    },
-                      orElse: (){
-                        return null;
-                      }
-                  );
+                  state.maybeWhen(success: (state) {
+                    if (state.status == 1) {
+                      context.defaultSnackBar(
+                          S.of(context).orderCreatedSuccessfully);
+                      context.pushNamed(myOrdersPageRoute);
+                    }
+                  }, orElse: () {
+                    return null;
+                  });
                 },
                 builder: (context, state) {
-                  ServicesPlaceOrderCubit servicesPlaceOrderCubit=ServicesPlaceOrderCubit.get(context);
+                  ServicesPlaceOrderCubit servicesPlaceOrderCubit =
+                      ServicesPlaceOrderCubit.get(context);
                   return Align(
                     alignment: Alignment.bottomCenter,
                     child: Container(
@@ -237,9 +305,9 @@ class _ServicesPaymentSummaryViewState
                       child: CustomBtn(
                         label: S.of(context).confirmPayment,
                         onPressed: () async {
-                          servicesPlaceOrderCubit.placeOrder(widget.servicesPlaceOrderEntity[0]);
+                          servicesPlaceOrderCubit
+                              .placeOrder(widget.servicesPlaceOrderEntity[0]);
                           print(widget.servicesPlaceOrderEntity.toString());
-
                         },
                       ),
                     ),

@@ -1890,6 +1890,36 @@ class S {
     );
   }
 
+  /// `Choose your preferred payment method`
+  String get preferredPaymentMethod {
+    return Intl.message(
+      'Choose your preferred payment method',
+      name: 'preferredPaymentMethod',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Cash`
+  String get cash {
+    return Intl.message(
+      'Cash',
+      name: 'cash',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Credit Card`
+  String get creditCard {
+    return Intl.message(
+      'Credit Card',
+      name: 'creditCard',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Pay Less & Get More`
   String get payLessGetMore {
     return Intl.message(

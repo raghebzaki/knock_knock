@@ -15,6 +15,7 @@ class AppImages {
   static String personImg = "$imagePath/person.png";
   static String phoneImg = "$imagePath/phone.png";
   static String cardImg = "$imagePath/card.png";
+  static String cashImg = "$imagePath/cash_on_delivery.png";
   static String giftImg = "$imagePath/gift.png";
   static String giftBigImg = "$imagePath/gift_big.png";
   static String bagImg = "$imagePath/bag.png";

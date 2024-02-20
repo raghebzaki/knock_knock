@@ -230,6 +230,10 @@
   "voucherCode": "رمز القسيمة",
   "paymentSummary": "ملخص الدفع",
   "confirmPayment": "تأكيد الدفع",
+  "preferredPaymentMethod": "اختر طريقة الدفع المفضلة لديك",
+  "cash": "نقداً",
+  "creditCard": "بطاقة الائتمان",
+
 
   "@buyCredit": {},
   "payLessGetMore": "ادفع أقل واحصل على المزيد",

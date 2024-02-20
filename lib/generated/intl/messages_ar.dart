@@ -72,6 +72,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("اسم حامل البطاقة"),
         "cardNumber": MessageLookupByLibrary.simpleMessage("رقم البطاقة"),
         "cart": MessageLookupByLibrary.simpleMessage("السلة"),
+        "cash": MessageLookupByLibrary.simpleMessage("نقداً"),
         "change": MessageLookupByLibrary.simpleMessage("تغيير"),
         "change_language": MessageLookupByLibrary.simpleMessage("اختيار اللغة"),
         "change_pass":
@@ -89,6 +90,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "conflict_error": MessageLookupByLibrary.simpleMessage(
             "تم العثور على تعارض , حاول مرة أخرى لاحقًا"),
         "contactUs": MessageLookupByLibrary.simpleMessage("اتصل بنا"),
+        "creditCard": MessageLookupByLibrary.simpleMessage("بطاقة الائتمان"),
         "credits": MessageLookupByLibrary.simpleMessage("الرصيد"),
         "cs": MessageLookupByLibrary.simpleMessage("خدمة العملاء"),
         "cvv": MessageLookupByLibrary.simpleMessage("CVV"),
@@ -219,6 +221,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "plzEnterYourEmail": MessageLookupByLibrary.simpleMessage(
             "يرجى إدخال البريد الإلكتروني"),
         "postalCode": MessageLookupByLibrary.simpleMessage("الرمز البريدي"),
+        "preferredPaymentMethod": MessageLookupByLibrary.simpleMessage(
+            "اختر طريقة الدفع المفضلة لديك"),
         "privacy_policy":
             MessageLookupByLibrary.simpleMessage("سياسة الخصوصية"),
         "processing": MessageLookupByLibrary.simpleMessage("قيد المعالجة"),

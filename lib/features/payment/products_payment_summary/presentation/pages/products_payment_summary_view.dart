@@ -13,26 +13,30 @@ import '../../../../../core/shared/widgets/custom_form_field.dart';
 import '../../../../../core/utils/app_constants.dart';
 
 class ProductsPaymentSummaryView extends StatefulWidget {
-
-
-
-
-  const ProductsPaymentSummaryView({super.key,});
+  const ProductsPaymentSummaryView({
+    super.key,
+  });
 
   @override
-  State<ProductsPaymentSummaryView> createState() => _ProductsPaymentSummaryViewState();
+  State<ProductsPaymentSummaryView> createState() =>
+      _ProductsPaymentSummaryViewState();
 }
 
-class _ProductsPaymentSummaryViewState extends State<ProductsPaymentSummaryView> {
-
+class _ProductsPaymentSummaryViewState
+    extends State<ProductsPaymentSummaryView> {
+  String paymentMethod = "cash";
+  TextEditingController voucherCtrl = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppColors.primary,
       appBar: AppBar(
-        backgroundColor: AppColors.primary,
-          title:  Text(S.of(context).checkout,style: CustomTextStyle.kTextStyleF22Black,)),
+          backgroundColor: AppColors.primary,
+          title: Text(
+            S.of(context).checkout,
+            style: CustomTextStyle.kTextStyleF22Black,
+          )),
       body: SafeArea(
         child: Stack(
           children: [
@@ -49,34 +53,79 @@ class _ProductsPaymentSummaryViewState extends State<ProductsPaymentSummaryView>
                           style: CustomTextStyle.kTextStyleF16Black,
                         ),
                         const Spacer(),
-                        Text(
+                        TextButton(
+                          onPressed: () {
+                            showDialog(
+                              context: context,
+                              builder: (ctx) {
+                                return AlertDialog.adaptive(
+                                  title: Text(
+                                      S.of(context).preferredPaymentMethod),
+                                  titleTextStyle:
+                                  CustomTextStyle.kTextStyleF16,
+                                  content: Column(
+                                    children: [
+                                      Expanded(
+                                        child: CustomBtn(
+                                          label: S.of(context).cash,
+                                          onPressed: () {
+                                            setState(() {
+                                              paymentMethod = "cash";
+                                            });
+                                          },
+                                        ),
+                                      ),
+                                      Gap(10.h),
+                                      Expanded(
+                                        child: CustomBtn(
+                                          label: S.of(context).creditCard,
+                                          onPressed: () {
+                                            setState(() {
+                                              paymentMethod = "credit";
+                                            });
+                                          },
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                );
+                              },
+                            );
+                          },
+                          child: Text(
                             S.of(context).change,
-                            style: CustomTextStyle.kTextStyleF16
+                            style: CustomTextStyle.kTextStyleF16,
+                          ),
                         ),
                       ],
                     ),
                     Gap(10.h),
-                    Image.asset(AppImages.cardImg,width: context.width,),
+                    Image.asset(
+                      paymentMethod == "credit"
+                          ? AppImages.cardImg
+                          : AppImages.cashImg,
+                      width: context.width,
+                    ),
                     Gap(10.h),
                     Column(
                       children: [
-                         CustomFormField(
+                        CustomFormField(
                           hint: S.of(context).cardHolderName,
                         ),
-                         CustomFormField(
-                          hint:S.of(context).cardNumber,
+                        CustomFormField(
+                          hint: S.of(context).cardNumber,
                         ),
                         Row(
                           children: [
-                             Flexible(
+                            Flexible(
                               child: CustomFormField(
                                 hint: S.of(context).cardDate,
                               ),
                             ),
                             Gap(5.w),
-                             Flexible(
+                            Flexible(
                               child: CustomFormField(
-                                hint:S.of(context).cvv,
+                                hint: S.of(context).cvv,
                               ),
                             ),
                           ],
@@ -84,9 +133,27 @@ class _ProductsPaymentSummaryViewState extends State<ProductsPaymentSummaryView>
                       ],
                     ),
                     Gap(10.h),
-                    Text(
-                      S.of(context).addVoucherCode,
-                      style: CustomTextStyle.kTextStyleF16Black,
+                    TextButton(
+                      onPressed: () {
+                        showDialog(
+                          context: context,
+                          builder: (ctx) {
+                            return AlertDialog.adaptive(
+                              title:
+                              Text(S.of(context).preferredPaymentMethod),
+                              titleTextStyle: CustomTextStyle.kTextStyleF16,
+                              content: CustomFormField(
+                                ctrl: voucherCtrl,
+                                label: S.current.addVoucherCode,
+                              ),
+                            );
+                          },
+                        );
+                      },
+                      child: Text(
+                        S.of(context).addVoucherCode,
+                        style: CustomTextStyle.kTextStyleF16Black,
+                      ),
                     ),
                     Gap(10.h),
                     Container(
@@ -97,9 +164,9 @@ class _ProductsPaymentSummaryViewState extends State<ProductsPaymentSummaryView>
                             color: AppColors.secondary,
                           ),
                           color: AppColors.primary,
-                          borderRadius: BorderRadius.all(Radius.circular(12.sp))
-                      ),
-                      child:  Column(
+                          borderRadius:
+                              BorderRadius.all(Radius.circular(12.sp))),
+                      child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
@@ -111,14 +178,18 @@ class _ProductsPaymentSummaryViewState extends State<ProductsPaymentSummaryView>
                             // width: context.width/3,
                             child: GestureDetector(
                               child: Container(
-                                padding: EdgeInsets.symmetric(horizontal: 16.sp,vertical: 2.sp),
-                                decoration:  BoxDecoration(
+                                padding: EdgeInsets.symmetric(
+                                    horizontal: 16.sp, vertical: 2.sp),
+                                decoration: BoxDecoration(
                                   color: AppColors.secondary,
                                   borderRadius: BorderRadius.circular(
                                     12,
                                   ),
                                 ),
-                                child: Text(S.of(context).add,style: CustomTextStyle.kTextStyleF16White,),
+                                child: Text(
+                                  S.of(context).add,
+                                  style: CustomTextStyle.kTextStyleF16White,
+                                ),
                               ),
                             ),
                           )
@@ -131,45 +202,40 @@ class _ProductsPaymentSummaryViewState extends State<ProductsPaymentSummaryView>
                       padding: EdgeInsets.all(20.sp),
                       decoration: BoxDecoration(
                           color: AppColors.bg,
-                          borderRadius: BorderRadius.all(Radius.circular(12.sp))
-                      ),
-                      child:  Column(
+                          borderRadius:
+                              BorderRadius.all(Radius.circular(12.sp))),
+                      child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
                             S.of(context).paymentSummary,
                             style: CustomTextStyle.kTextStyleF16Black,
                           ),
-
                           Gap(15.h),
-
                           Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
-                              Text(
-                                S.current.subTotal,
-                                style: CustomTextStyle.kTextStyleF16BlackW300
-                              ),
+                              Text(S.current.subTotal,
+                                  style:
+                                      CustomTextStyle.kTextStyleF16BlackW300),
                               const Spacer(),
-                              Text(
-                                "100 ${S.current.Aed}",
-                                style: CustomTextStyle.kTextStyleF16BlackW300
-                              ),
+                              Text("100 ${S.current.Aed}",
+                                  style:
+                                      CustomTextStyle.kTextStyleF16BlackW300),
                             ],
                           ),
                           Gap(15.h),
                           Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
-                              Text(
-                                S.current.deliveryFee,
-                                style: CustomTextStyle.kTextStyleF16BlackW300
-                              ),
+                              Text(S.current.deliveryFee,
+                                  style:
+                                      CustomTextStyle.kTextStyleF16BlackW300),
                               const Spacer(),
                               Text(
-                                '${AppConstants.deliveryFee} ${S.current.Aed}',
-                                style: CustomTextStyle.kTextStyleF16BlackW300
-                              ),
+                                  '${AppConstants.deliveryFee} ${S.current.Aed}',
+                                  style:
+                                      CustomTextStyle.kTextStyleF16BlackW300),
                             ],
                           ),
                           Gap(15.h),
@@ -184,10 +250,9 @@ class _ProductsPaymentSummaryViewState extends State<ProductsPaymentSummaryView>
                                     .copyWith(color: AppColors.textColor),
                               ),
                               const Spacer(),
-                              Text(
-                                "130 ${S.current.Aed}",
-                                style: CustomTextStyle.kTextStyleF16BlackW300
-                              ),
+                              Text("130 ${S.current.Aed}",
+                                  style:
+                                      CustomTextStyle.kTextStyleF16BlackW300),
                             ],
                           ),
                         ],
@@ -204,8 +269,7 @@ class _ProductsPaymentSummaryViewState extends State<ProductsPaymentSummaryView>
                 color: Colors.white,
                 child: CustomBtn(
                   label: S.of(context).confirmPayment,
-                  onPressed: () async {
-                  },
+                  onPressed: () async {},
                 ),
               ),
             ),

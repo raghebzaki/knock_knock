@@ -242,6 +242,10 @@
   "voucherCode": "Voucher Code",
   "paymentSummary": "Payment summary",
   "confirmPayment": "confirm payment",
+  "preferredPaymentMethod": "Choose your preferred payment method",
+  "cash": "Cash",
+  "creditCard": "Credit Card",
+
 
   "@buyCredit": {},
   "payLessGetMore": "Pay Less & Get More",
@@ -265,4 +269,5 @@
   "credits": "Credits",
   "noInternetConnection": "no internet connection",
   "orderCreatedSuccessfully": "Order created successfully"
+
 }

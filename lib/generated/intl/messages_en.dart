@@ -72,6 +72,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("card holder name"),
         "cardNumber": MessageLookupByLibrary.simpleMessage("card number"),
         "cart": MessageLookupByLibrary.simpleMessage("cart"),
+        "cash": MessageLookupByLibrary.simpleMessage("Cash"),
         "change": MessageLookupByLibrary.simpleMessage("Change"),
         "change_language":
             MessageLookupByLibrary.simpleMessage("choose language"),
@@ -91,6 +92,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "conflict_error": MessageLookupByLibrary.simpleMessage(
             "conflict found, try again later"),
         "contactUs": MessageLookupByLibrary.simpleMessage("Contact Us"),
+        "creditCard": MessageLookupByLibrary.simpleMessage("Credit Card"),
         "credits": MessageLookupByLibrary.simpleMessage("Credits"),
         "cs": MessageLookupByLibrary.simpleMessage("Customer Support"),
         "cvv": MessageLookupByLibrary.simpleMessage("cvv"),
@@ -234,6 +236,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "plzEnterYourEmail":
             MessageLookupByLibrary.simpleMessage("Please enter your email"),
         "postalCode": MessageLookupByLibrary.simpleMessage("Postal Code"),
+        "preferredPaymentMethod": MessageLookupByLibrary.simpleMessage(
+            "Choose your preferred payment method"),
         "privacy_policy":
             MessageLookupByLibrary.simpleMessage("Privacy Policy"),
         "processing": MessageLookupByLibrary.simpleMessage("Processing"),
