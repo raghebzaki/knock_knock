@@ -1080,6 +1080,26 @@ class S {
     );
   }
 
+  /// `Instructions`
+  String get instructions {
+    return Intl.message(
+      'Instructions',
+      name: 'instructions',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `you Already Add one Service`
+  String get youAlreadyAddOneService {
+    return Intl.message(
+      'you Already Add one Service',
+      name: 'youAlreadyAddOneService',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Profile`
   String get profile {
     return Intl.message(
@@ -2025,26 +2045,6 @@ class S {
     return Intl.message(
       'no internet connection',
       name: 'noInternetConnection',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `You Already Add This Service`
-  String get youAlreadyAddThisService {
-    return Intl.message(
-      'You Already Add This Service',
-      name: 'youAlreadyAddThisService',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `Instructions`
-  String get instructions {
-    return Intl.message(
-      'Instructions',
-      name: 'instructions',
       desc: '',
       args: [],
     );

@@ -131,6 +131,8 @@
   "anySpecificInstructions": "Any Specific instructions?",
   "add": "Add",
   "Aed": "AED",
+  "instructions": "Instructions",
+  "youAlreadyAddOneService": "you Already Add one Service",
 
 
 
@@ -261,7 +263,5 @@
   "home": "Home",
   "booking": "Booking",
   "credits": "Credits",
-  "noInternetConnection": "no internet connection",
-  "youAlreadyAddThisService": "You Already Add This Service",
-  "instructions": "Instructions"
+  "noInternetConnection": "no internet connection"
 }

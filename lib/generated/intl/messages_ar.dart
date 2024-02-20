@@ -144,6 +144,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "goodMorning": MessageLookupByLibrary.simpleMessage("صباح الخير"),
         "have_problem": MessageLookupByLibrary.simpleMessage("هل لديك مشكلة؟"),
         "home": MessageLookupByLibrary.simpleMessage("الرئيسية"),
+        "instructions": MessageLookupByLibrary.simpleMessage("تعليمات"),
         "internal_server_error": MessageLookupByLibrary.simpleMessage(
             "حدث خطأ ما , حاول مرة أخرى لاحقًا"),
         "language": MessageLookupByLibrary.simpleMessage("اللغة"),
@@ -299,6 +300,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "wrongPhoneCheckAgain": MessageLookupByLibrary.simpleMessage(
             "الهاتف غير صحيح، قم بالتحقق من الهاتف وحاول مرة أخرى"),
         "yes": MessageLookupByLibrary.simpleMessage("نعم"),
+        "youAlreadyAddOneService": MessageLookupByLibrary.simpleMessage(
+            "قمت بالفعل بإضافة خدمة واحدة"),
         "yourCartIsEmpty":
             MessageLookupByLibrary.simpleMessage("Your cart is empty"),
         "yourMessage": MessageLookupByLibrary.simpleMessage("رسالتك"),

@@ -18,9 +18,9 @@ class ServiceCartCubit extends Cubit<ServiceCartStates> {
   List<ServicesPlaceOrderEntity> cartServices = [];
 
   addServiceToCart(ServicesPlaceOrderEntity servicesPlaceOrderEntity,BuildContext context) {
-    if (cartServices.any((item) => item.servicesEntity!.id == servicesPlaceOrderEntity.servicesEntity!.id)) {
-      context.defaultSnackBar(S.of(context).youAlreadyAddThisService);
-      emit(ServiceCartStates.serviceAlreadyAdded(cartServices));
+    if(cartServices.length==1){
+      context.defaultSnackBar(S.of(context).youAlreadyAddOneService);
+
     } else {
       cartServices.add(servicesPlaceOrderEntity);
       emit(ServiceCartStates.addedServiceToCart(cartServices));

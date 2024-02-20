@@ -124,6 +124,8 @@
   "anySpecificInstructions": "هل هناك تعليمات محددة؟",
   "add": "إضافة",
   "Aed": "د.إ",
+  "instructions": "تعليمات",
+  "youAlreadyAddOneService": "قمت بالفعل بإضافة خدمة واحدة",
 
   "@profile": {},
   "profile": "الملف الشخصي",

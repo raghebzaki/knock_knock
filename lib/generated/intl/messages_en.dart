@@ -317,8 +317,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "wrongPhoneCheckAgain": MessageLookupByLibrary.simpleMessage(
             "phone is wrong, check phone & try again"),
         "yes": MessageLookupByLibrary.simpleMessage("yes"),
-        "youAlreadyAddThisService": MessageLookupByLibrary.simpleMessage(
-            "You Already Add This Service"),
+        "youAlreadyAddOneService":
+            MessageLookupByLibrary.simpleMessage("you Already Add one Service"),
         "yourCartIsEmpty":
             MessageLookupByLibrary.simpleMessage("Your cart is empty"),
         "yourMessage": MessageLookupByLibrary.simpleMessage("Your Message"),
