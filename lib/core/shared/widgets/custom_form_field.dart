@@ -22,6 +22,7 @@ class CustomFormField extends StatelessWidget {
   final bool? readOnly;
   final bool? isEnable;
   final int? maxLength;
+  final int? maxLines;
   final TextEditingController? ctrl;
   final double borderRadius;
   final Color focusedBorderColor;
@@ -43,6 +44,7 @@ class CustomFormField extends StatelessWidget {
     this.isEnable = true,
     this.readOnly = false,
     this.maxLength,
+    this.maxLines = 1,
     this.ctrl,
     this.borderRadius = Dimensions.r10,
     this.focusedBorderColor = Colors.black,
@@ -58,6 +60,7 @@ class CustomFormField extends StatelessWidget {
       enabled: isEnable,
       readOnly: readOnly!,
       maxLength: maxLength,
+      maxLines: maxLines,
       onChanged: onChange,
       onFieldSubmitted: onSubmitted,
       controller: ctrl,

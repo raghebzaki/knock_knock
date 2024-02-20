@@ -262,5 +262,6 @@
   "booking": "Booking",
   "credits": "Credits",
   "noInternetConnection": "no internet connection",
-  "youAlreadyAddThisService": "You Already Add This Service"
+  "youAlreadyAddThisService": "You Already Add This Service",
+  "instructions": "Instructions"
 }

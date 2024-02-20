@@ -146,6 +146,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "goodMorning": MessageLookupByLibrary.simpleMessage("Good Morning"),
         "have_problem": MessageLookupByLibrary.simpleMessage("Have a problem?"),
         "home": MessageLookupByLibrary.simpleMessage("Home"),
+        "instructions": MessageLookupByLibrary.simpleMessage("Instructions"),
         "internal_server_error": MessageLookupByLibrary.simpleMessage(
             "some thing went wrong, try again later"),
         "language": MessageLookupByLibrary.simpleMessage("Language"),

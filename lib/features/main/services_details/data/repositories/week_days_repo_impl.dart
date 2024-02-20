@@ -3,13 +3,13 @@ import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
 
 import 'package:knockknock/core/resources/api/failure_class.dart';
-import 'package:knockknock/features/main/products_details/data/data_sources/week_days_service.dart';
 
-import 'package:knockknock/features/main/products_details/domain/entities/week_days_entity.dart';
 
 import '../../../../../core/resources/api/data_sources.dart';
 import '../../../../../core/resources/api/error_handler.dart';
+import '../../domain/entities/week_days_entity.dart';
 import '../../domain/repositories/week_days_repo.dart';
+import '../data_sources/week_days_service.dart';
 
 class WeekDaysRepoImpl implements WeekDaysRepo {
   final WeekDayService weekDayService;

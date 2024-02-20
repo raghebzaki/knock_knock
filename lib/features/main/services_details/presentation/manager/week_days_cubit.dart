@@ -1,10 +1,9 @@
-import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:knockknock/features/main/products_details/domain/usecases/week_days_use_case.dart';
 
 import '../../domain/entities/week_days_entity.dart';
+import '../../domain/usecases/week_days_use_case.dart';
 
 part 'week_days_state.dart';
 
