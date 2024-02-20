@@ -1,13 +1,14 @@
-
 import 'package:flutter/material.dart';
+
+import 'package:knockknock/features/booking_view.dart';
 import 'package:knockknock/features/main/profile/presentation/pages/profile_view.dart';
-import 'package:knockknock/features/orders/my_orders/presentation/pages/my_orders.dart';
 
 import '../../core/utils/app_colors.dart';
 import '../../core/utils/app_images.dart';
 import '../generated/l10n.dart';
 import 'main/credits/presentation/pages/credits_view.dart';
 import 'main/home/presentation/pages/home_view.dart';
+import 'orders/products/my_products_orders/presentation/pages/my_products_orders.dart';
 
 class BottomNavBarView extends StatefulWidget {
   final int index;
@@ -19,19 +20,22 @@ class BottomNavBarView extends StatefulWidget {
 
 class _BottomNavBarViewState extends State<BottomNavBarView> {
   int selectedIndex = 0;
-  final List body = [
-    const HomeView(),
-    const MyOrdersView(),
-    const CreditsView(),
-    const ProfileView(),
-  ];
+
   @override
   void initState() {
-    selectedIndex=widget.index;
+    selectedIndex = widget.index;
     super.initState();
   }
+
   @override
   Widget build(BuildContext context) {
+    final List body = [
+      const HomeView(),
+      const BookingView(),
+
+      const CreditsView(),
+      const ProfileView(),
+    ];
     return Scaffold(
       bottomNavigationBar: BottomNavigationBar(
         backgroundColor: AppColors.primary,
@@ -49,37 +53,30 @@ class _BottomNavBarViewState extends State<BottomNavBarView> {
                 AppImages.home,
               ),
               label: S.of(context).home,
-              backgroundColor: AppColors.primary
-          ),
+              backgroundColor: AppColors.primary),
           BottomNavigationBarItem(
               icon: Image.asset(
                 AppImages.booking,
               ),
               label: S.of(context).booking,
-              backgroundColor: AppColors.primary
-
-          ),
+              backgroundColor: AppColors.primary),
           BottomNavigationBarItem(
               icon: Image.asset(
                 AppImages.credits,
               ),
               label: S.of(context).credits,
-              backgroundColor: AppColors.primary
-
-          ),
+              backgroundColor: AppColors.primary),
           BottomNavigationBarItem(
               icon: Image.asset(
                 AppImages.profile,
               ),
               label: S.of(context).profile,
-              backgroundColor: AppColors.primary
-
-          ),
+              backgroundColor: AppColors.primary),
         ],
         mouseCursor: MouseCursor.defer,
         selectedLabelStyle: const TextStyle(color: Colors.black),
         unselectedLabelStyle: const TextStyle(color: Colors.black),
-        unselectedItemColor:Colors.black,
+        unselectedItemColor: Colors.black,
         selectedItemColor: Colors.black,
       ),
       body: body.elementAt(selectedIndex),
@@ -87,12 +84,12 @@ class _BottomNavBarViewState extends State<BottomNavBarView> {
   }
 }
 
-
 class BottomNavForAllScreenView extends StatefulWidget {
   const BottomNavForAllScreenView({super.key});
 
   @override
-  State<BottomNavForAllScreenView> createState() => _BottomNavForAllScreenViewState();
+  State<BottomNavForAllScreenView> createState() =>
+      _BottomNavForAllScreenViewState();
 }
 
 class _BottomNavForAllScreenViewState extends State<BottomNavForAllScreenView> {
@@ -104,7 +101,6 @@ class _BottomNavForAllScreenViewState extends State<BottomNavForAllScreenView> {
     const ProfileView(),
   ];
 
-
   @override
   Widget build(BuildContext context) {
     return BottomNavigationBar(
@@ -115,9 +111,12 @@ class _BottomNavForAllScreenViewState extends State<BottomNavForAllScreenView> {
       onTap: (index) {
         setState(() {
           selectedIndex = index;
-          Navigator.push(context, MaterialPageRoute(
-            builder: (BuildContext context) =>  BottomNavBarView(index: selectedIndex),
-          ));
+          Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (BuildContext context) =>
+                    BottomNavBarView(index: selectedIndex),
+              ));
         });
       },
       items: [
@@ -126,37 +125,30 @@ class _BottomNavForAllScreenViewState extends State<BottomNavForAllScreenView> {
               AppImages.home,
             ),
             label: S.of(context).home,
-            backgroundColor: AppColors.primary
-        ),
+            backgroundColor: AppColors.primary),
         BottomNavigationBarItem(
             icon: Image.asset(
               AppImages.booking,
             ),
             label: S.of(context).booking,
-            backgroundColor: AppColors.primary
-
-        ),
+            backgroundColor: AppColors.primary),
         BottomNavigationBarItem(
             icon: Image.asset(
               AppImages.credits,
             ),
             label: S.of(context).credits,
-            backgroundColor: AppColors.primary
-
-        ),
+            backgroundColor: AppColors.primary),
         BottomNavigationBarItem(
             icon: Image.asset(
               AppImages.profile,
             ),
             label: S.of(context).profile,
-            backgroundColor: AppColors.primary
-
-        ),
+            backgroundColor: AppColors.primary),
       ],
       mouseCursor: MouseCursor.defer,
       selectedLabelStyle: const TextStyle(color: Colors.black),
       unselectedLabelStyle: const TextStyle(color: Colors.black),
-      unselectedItemColor:Colors.black,
+      unselectedItemColor: Colors.black,
       selectedItemColor: Colors.black,
     );
   }

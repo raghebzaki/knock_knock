@@ -34,6 +34,9 @@ const String editProfilePageRoute = '/editProfile';
 const String myOrdersPageRoute = '/myOrders';
 const String orderDetailsPageRoute = '/orderDetails';
 const String trackOrderPageRoute = '/trackOrder';
+const String myServicesOrdersPageRoute = '/myServicesOrders';
+const String servicesOrderDetailsPageRoute = '/servicesOrderDetails';
+const String trackServicesOrderPageRoute = '/trackServicesOrder';
 
 ///payment
 const String productsPaymentSummeryPageRoute = '/productsPaymentSummery';

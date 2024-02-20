@@ -15,8 +15,6 @@ import 'package:knockknock/features/main/profile/presentation/pages/profile_view
 import 'package:knockknock/features/main/service_cart/presentation/pages/services_cart_view.dart';
 import 'package:knockknock/features/main/services/presentation/pages/services_view.dart';
 import 'package:knockknock/features/main/services_details/presentation/pages/services_details_view.dart';
-import 'package:knockknock/features/orders/my_orders/presentation/pages/my_orders.dart';
-import 'package:knockknock/features/orders/track_order/presentation/pages/track_order_view.dart';
 import 'package:knockknock/features/payment/products_payment_summary/presentation/pages/products_payment_summary_view.dart';
 import 'package:knockknock/features/payment/services_payment_summary/presentation/pages/services_payment_summary_view.dart';
 import 'package:knockknock/features/profile/contact_us/presentation/pages/contact_us_view.dart';
@@ -32,7 +30,12 @@ import '../../features/auth/verify_account/presentation/pages/verify_account_vie
 import '../../features/bottom_nav_bar.dart';
 import '../../features/credits/gift_card/presentation/pages/gift_card.dart';
 import '../../features/main/products_cart/presentation/pages/products_cart_view.dart';
-import '../../features/orders/order_details/presentation/pages/order_details_view.dart';
+import '../../features/orders/products/my_products_orders/presentation/pages/my_products_orders.dart';
+import '../../features/orders/products/order_details/presentation/pages/order_details_view.dart';
+import '../../features/orders/products/track_order/presentation/pages/track_order_view.dart';
+import '../../features/orders/services/my_services_orders/presentation/pages/my_services_orders.dart';
+import '../../features/orders/services/order_details/presentation/pages/order_details_view.dart';
+import '../../features/orders/services/track_order/presentation/pages/track_order_view.dart';
 import '../../features/payment/gift_payment_summary/presentation/pages/payment_summary_view.dart';
 import '../../main_view.dart';
 import '../dependency_injection/di.dart' as di;
@@ -182,6 +185,22 @@ class AppRouters {
         return MaterialPageRoute(
           builder: (BuildContext context) =>
               TrackOrderView(orderDetails: args.orderDetails),
+        );
+        case myServicesOrdersPageRoute:
+        return MaterialPageRoute(
+          builder: (BuildContext context) => const MyServicesOrdersView(),
+        );
+      case servicesOrderDetailsPageRoute:
+        final args = settings.arguments as ServicesOrderDetailArgs;
+        return MaterialPageRoute(
+          builder: (BuildContext context) =>
+              ServicesOrderDetailsView(orderDetails: args.orderDetails),
+        );
+        case trackServicesOrderPageRoute:
+        final args = settings.arguments as ServicesOrderDetailArgs;
+        return MaterialPageRoute(
+          builder: (BuildContext context) =>
+              TrackServicesOrderView(orderDetails: args.orderDetails),
         );
         case productsPaymentSummeryPageRoute:
         return MaterialPageRoute(

@@ -307,7 +307,6 @@ class _ServicesPaymentSummaryViewState
                         onPressed: () async {
                           servicesPlaceOrderCubit
                               .placeOrder(widget.servicesPlaceOrderEntity[0]);
-                          print(widget.servicesPlaceOrderEntity.toString());
                         },
                       ),
                     ),

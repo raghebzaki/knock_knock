@@ -5,7 +5,8 @@ import 'package:knockknock/core/shared/entities/product_entity.dart';
 import 'package:knockknock/core/shared/entities/service_entity.dart';
 import 'package:knockknock/features/payment/services_payment_summary/domain/entities/services_place_order_entity.dart';
 
-import 'entities/order_entity.dart';
+import '../../features/orders/products/my_products_orders/domain/entities/products_order_entity.dart';
+import '../../features/orders/services/my_services_orders/domain/entities/services_order_entity.dart';
 
 class VerifyAccountArgs {
   final String email;
@@ -27,9 +28,15 @@ class ChangePasAedgs {
 
 
 class OrderDetailAedgs {
-  final OrderEntity orderDetails;
+  final ProductsOrderEntity orderDetails;
 
   OrderDetailAedgs({required this.orderDetails});
+
+}
+class ServicesOrderDetailArgs {
+  final ServicesOrderEntity orderDetails;
+
+  ServicesOrderDetailArgs({required this.orderDetails});
 
 }
 
