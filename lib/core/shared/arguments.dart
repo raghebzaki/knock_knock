@@ -3,6 +3,7 @@ import 'package:geocoding/geocoding.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:knockknock/core/shared/entities/product_entity.dart';
 import 'package:knockknock/core/shared/entities/service_entity.dart';
+import 'package:knockknock/features/payment/services_payment_summary/domain/entities/services_place_order_entity.dart';
 
 import 'entities/order_entity.dart';
 
@@ -52,4 +53,10 @@ class ProductArgs {
   final ProductEntity productEntity;
 
   ProductArgs({required this.productEntity});
+}
+
+class ServicesSummaryArgs {
+  final List<ServicesPlaceOrderEntity> servicesPlaceOrderEntity;
+
+  ServicesSummaryArgs({required this.servicesPlaceOrderEntity});
 }

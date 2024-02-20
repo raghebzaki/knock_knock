@@ -188,8 +188,9 @@ class AppRouters {
           builder: (BuildContext context) => const ProductsPaymentSummaryView(),
         );
         case servicesPaymentSummeryPageRoute:
+          final args = settings.arguments as ServicesSummaryArgs;
         return MaterialPageRoute(
-          builder: (BuildContext context) => const ServicesPaymentSummaryView(),
+          builder: (BuildContext context) => ServicesPaymentSummaryView(servicesPlaceOrderEntity:args.servicesPlaceOrderEntity ),
         );
         case giftPaymentSummeryPageRoute:
         return MaterialPageRoute(

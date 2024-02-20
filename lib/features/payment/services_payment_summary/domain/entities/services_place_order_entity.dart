@@ -1,55 +1,60 @@
 import 'package:equatable/equatable.dart';
+import 'package:knockknock/core/shared/entities/service_entity.dart';
+
 
 class ServicesPlaceOrderEntity extends Equatable {
   final num? userId;
-  final String? name;
-  final String? phone;
+  final String? latitude;
+  final String? longitude;
   final String? address;
   final String? buildingNo;
   final String? flatNo;
   final String? city;
   final String? state;
-  final String? postCode;
-  final Map? productIds;
-  final Map? colorIds;
-  final Map? sizeIds;
-  final String? coupon;
+  final String? note;
+  final num? serviceId;
+  final num? selectedDayId;
+  final String? selectedTime;
+  final String? paymentMethod;
   final num? status;
   final String? msg;
+  final ServicesEntity? servicesEntity;
 
   const ServicesPlaceOrderEntity({
     this.userId,
-    this.name,
-    this.phone,
+    this.latitude,
+    this.longitude,
     this.address,
     this.buildingNo,
     this.flatNo,
     this.city,
     this.state,
-    this.postCode,
-    this.productIds,
-    this.colorIds,
-    this.sizeIds,
-    this.coupon,
+    this.note,
+    this.serviceId,
+    this.selectedDayId,
+    this.selectedTime,
+    this.paymentMethod,
     this.status,
     this.msg,
+    this.servicesEntity,
   });
 
   @override
-  List<Object?> get props => [
+  List<Object?> get props =>
+      [
         userId,
-        name,
-        phone,
+        latitude,
+        longitude,
         address,
         buildingNo,
         flatNo,
         city,
         state,
-        postCode,
-        productIds,
-        colorIds,
-        sizeIds,
-        coupon,
+        note,
+        serviceId,
+        selectedDayId,
+        selectedTime,
+        paymentMethod,
         status,
         msg,
       ];

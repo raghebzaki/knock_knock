@@ -19,29 +19,38 @@ mixin _$ServiceCartStates {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
-    required TResult Function(List<ServicesEntity> service) addedServiceToCart,
-    required TResult Function(List<ServicesEntity> service) serviceAlreadyAdded,
-    required TResult Function(List<ServicesEntity> service)
+    required TResult Function(List<ServicesPlaceOrderEntity> service)
+        addedServiceToCart,
+    required TResult Function(List<ServicesPlaceOrderEntity> service)
+        serviceAlreadyAdded,
+    required TResult Function(List<ServicesPlaceOrderEntity> service)
         removedServiceFromCart,
-    required TResult Function(List<ServicesEntity> service) serviceCartItems,
+    required TResult Function(List<ServicesPlaceOrderEntity> service)
+        serviceCartItems,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
-    TResult? Function(List<ServicesEntity> service)? addedServiceToCart,
-    TResult? Function(List<ServicesEntity> service)? serviceAlreadyAdded,
-    TResult? Function(List<ServicesEntity> service)? removedServiceFromCart,
-    TResult? Function(List<ServicesEntity> service)? serviceCartItems,
+    TResult? Function(List<ServicesPlaceOrderEntity> service)?
+        addedServiceToCart,
+    TResult? Function(List<ServicesPlaceOrderEntity> service)?
+        serviceAlreadyAdded,
+    TResult? Function(List<ServicesPlaceOrderEntity> service)?
+        removedServiceFromCart,
+    TResult? Function(List<ServicesPlaceOrderEntity> service)? serviceCartItems,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function(List<ServicesEntity> service)? addedServiceToCart,
-    TResult Function(List<ServicesEntity> service)? serviceAlreadyAdded,
-    TResult Function(List<ServicesEntity> service)? removedServiceFromCart,
-    TResult Function(List<ServicesEntity> service)? serviceCartItems,
+    TResult Function(List<ServicesPlaceOrderEntity> service)?
+        addedServiceToCart,
+    TResult Function(List<ServicesPlaceOrderEntity> service)?
+        serviceAlreadyAdded,
+    TResult Function(List<ServicesPlaceOrderEntity> service)?
+        removedServiceFromCart,
+    TResult Function(List<ServicesPlaceOrderEntity> service)? serviceCartItems,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -133,11 +142,14 @@ class _$InitialImpl implements _Initial {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
-    required TResult Function(List<ServicesEntity> service) addedServiceToCart,
-    required TResult Function(List<ServicesEntity> service) serviceAlreadyAdded,
-    required TResult Function(List<ServicesEntity> service)
+    required TResult Function(List<ServicesPlaceOrderEntity> service)
+        addedServiceToCart,
+    required TResult Function(List<ServicesPlaceOrderEntity> service)
+        serviceAlreadyAdded,
+    required TResult Function(List<ServicesPlaceOrderEntity> service)
         removedServiceFromCart,
-    required TResult Function(List<ServicesEntity> service) serviceCartItems,
+    required TResult Function(List<ServicesPlaceOrderEntity> service)
+        serviceCartItems,
   }) {
     return initial();
   }
@@ -146,10 +158,13 @@ class _$InitialImpl implements _Initial {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
-    TResult? Function(List<ServicesEntity> service)? addedServiceToCart,
-    TResult? Function(List<ServicesEntity> service)? serviceAlreadyAdded,
-    TResult? Function(List<ServicesEntity> service)? removedServiceFromCart,
-    TResult? Function(List<ServicesEntity> service)? serviceCartItems,
+    TResult? Function(List<ServicesPlaceOrderEntity> service)?
+        addedServiceToCart,
+    TResult? Function(List<ServicesPlaceOrderEntity> service)?
+        serviceAlreadyAdded,
+    TResult? Function(List<ServicesPlaceOrderEntity> service)?
+        removedServiceFromCart,
+    TResult? Function(List<ServicesPlaceOrderEntity> service)? serviceCartItems,
   }) {
     return initial?.call();
   }
@@ -158,10 +173,13 @@ class _$InitialImpl implements _Initial {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function(List<ServicesEntity> service)? addedServiceToCart,
-    TResult Function(List<ServicesEntity> service)? serviceAlreadyAdded,
-    TResult Function(List<ServicesEntity> service)? removedServiceFromCart,
-    TResult Function(List<ServicesEntity> service)? serviceCartItems,
+    TResult Function(List<ServicesPlaceOrderEntity> service)?
+        addedServiceToCart,
+    TResult Function(List<ServicesPlaceOrderEntity> service)?
+        serviceAlreadyAdded,
+    TResult Function(List<ServicesPlaceOrderEntity> service)?
+        removedServiceFromCart,
+    TResult Function(List<ServicesPlaceOrderEntity> service)? serviceCartItems,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -222,7 +240,7 @@ abstract class _$$AddedServiceToCartImplCopyWith<$Res> {
           $Res Function(_$AddedServiceToCartImpl) then) =
       __$$AddedServiceToCartImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({List<ServicesEntity> service});
+  $Res call({List<ServicesPlaceOrderEntity> service});
 }
 
 /// @nodoc
@@ -242,7 +260,7 @@ class __$$AddedServiceToCartImplCopyWithImpl<$Res>
       null == service
           ? _value._service
           : service // ignore: cast_nullable_to_non_nullable
-              as List<ServicesEntity>,
+              as List<ServicesPlaceOrderEntity>,
     ));
   }
 }
@@ -250,12 +268,12 @@ class __$$AddedServiceToCartImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$AddedServiceToCartImpl implements AddedServiceToCart {
-  const _$AddedServiceToCartImpl(final List<ServicesEntity> service)
+  const _$AddedServiceToCartImpl(final List<ServicesPlaceOrderEntity> service)
       : _service = service;
 
-  final List<ServicesEntity> _service;
+  final List<ServicesPlaceOrderEntity> _service;
   @override
-  List<ServicesEntity> get service {
+  List<ServicesPlaceOrderEntity> get service {
     if (_service is EqualUnmodifiableListView) return _service;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_service);
@@ -289,11 +307,14 @@ class _$AddedServiceToCartImpl implements AddedServiceToCart {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
-    required TResult Function(List<ServicesEntity> service) addedServiceToCart,
-    required TResult Function(List<ServicesEntity> service) serviceAlreadyAdded,
-    required TResult Function(List<ServicesEntity> service)
+    required TResult Function(List<ServicesPlaceOrderEntity> service)
+        addedServiceToCart,
+    required TResult Function(List<ServicesPlaceOrderEntity> service)
+        serviceAlreadyAdded,
+    required TResult Function(List<ServicesPlaceOrderEntity> service)
         removedServiceFromCart,
-    required TResult Function(List<ServicesEntity> service) serviceCartItems,
+    required TResult Function(List<ServicesPlaceOrderEntity> service)
+        serviceCartItems,
   }) {
     return addedServiceToCart(service);
   }
@@ -302,10 +323,13 @@ class _$AddedServiceToCartImpl implements AddedServiceToCart {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
-    TResult? Function(List<ServicesEntity> service)? addedServiceToCart,
-    TResult? Function(List<ServicesEntity> service)? serviceAlreadyAdded,
-    TResult? Function(List<ServicesEntity> service)? removedServiceFromCart,
-    TResult? Function(List<ServicesEntity> service)? serviceCartItems,
+    TResult? Function(List<ServicesPlaceOrderEntity> service)?
+        addedServiceToCart,
+    TResult? Function(List<ServicesPlaceOrderEntity> service)?
+        serviceAlreadyAdded,
+    TResult? Function(List<ServicesPlaceOrderEntity> service)?
+        removedServiceFromCart,
+    TResult? Function(List<ServicesPlaceOrderEntity> service)? serviceCartItems,
   }) {
     return addedServiceToCart?.call(service);
   }
@@ -314,10 +338,13 @@ class _$AddedServiceToCartImpl implements AddedServiceToCart {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function(List<ServicesEntity> service)? addedServiceToCart,
-    TResult Function(List<ServicesEntity> service)? serviceAlreadyAdded,
-    TResult Function(List<ServicesEntity> service)? removedServiceFromCart,
-    TResult Function(List<ServicesEntity> service)? serviceCartItems,
+    TResult Function(List<ServicesPlaceOrderEntity> service)?
+        addedServiceToCart,
+    TResult Function(List<ServicesPlaceOrderEntity> service)?
+        serviceAlreadyAdded,
+    TResult Function(List<ServicesPlaceOrderEntity> service)?
+        removedServiceFromCart,
+    TResult Function(List<ServicesPlaceOrderEntity> service)? serviceCartItems,
     required TResult orElse(),
   }) {
     if (addedServiceToCart != null) {
@@ -369,10 +396,10 @@ class _$AddedServiceToCartImpl implements AddedServiceToCart {
 }
 
 abstract class AddedServiceToCart implements ServiceCartStates {
-  const factory AddedServiceToCart(final List<ServicesEntity> service) =
-      _$AddedServiceToCartImpl;
+  const factory AddedServiceToCart(
+      final List<ServicesPlaceOrderEntity> service) = _$AddedServiceToCartImpl;
 
-  List<ServicesEntity> get service;
+  List<ServicesPlaceOrderEntity> get service;
   @JsonKey(ignore: true)
   _$$AddedServiceToCartImplCopyWith<_$AddedServiceToCartImpl> get copyWith =>
       throw _privateConstructorUsedError;
@@ -384,7 +411,7 @@ abstract class _$$ServiceAlreadyAddedImplCopyWith<$Res> {
           $Res Function(_$ServiceAlreadyAddedImpl) then) =
       __$$ServiceAlreadyAddedImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({List<ServicesEntity> service});
+  $Res call({List<ServicesPlaceOrderEntity> service});
 }
 
 /// @nodoc
@@ -404,7 +431,7 @@ class __$$ServiceAlreadyAddedImplCopyWithImpl<$Res>
       null == service
           ? _value._service
           : service // ignore: cast_nullable_to_non_nullable
-              as List<ServicesEntity>,
+              as List<ServicesPlaceOrderEntity>,
     ));
   }
 }
@@ -412,12 +439,12 @@ class __$$ServiceAlreadyAddedImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$ServiceAlreadyAddedImpl implements ServiceAlreadyAdded {
-  const _$ServiceAlreadyAddedImpl(final List<ServicesEntity> service)
+  const _$ServiceAlreadyAddedImpl(final List<ServicesPlaceOrderEntity> service)
       : _service = service;
 
-  final List<ServicesEntity> _service;
+  final List<ServicesPlaceOrderEntity> _service;
   @override
-  List<ServicesEntity> get service {
+  List<ServicesPlaceOrderEntity> get service {
     if (_service is EqualUnmodifiableListView) return _service;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_service);
@@ -451,11 +478,14 @@ class _$ServiceAlreadyAddedImpl implements ServiceAlreadyAdded {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
-    required TResult Function(List<ServicesEntity> service) addedServiceToCart,
-    required TResult Function(List<ServicesEntity> service) serviceAlreadyAdded,
-    required TResult Function(List<ServicesEntity> service)
+    required TResult Function(List<ServicesPlaceOrderEntity> service)
+        addedServiceToCart,
+    required TResult Function(List<ServicesPlaceOrderEntity> service)
+        serviceAlreadyAdded,
+    required TResult Function(List<ServicesPlaceOrderEntity> service)
         removedServiceFromCart,
-    required TResult Function(List<ServicesEntity> service) serviceCartItems,
+    required TResult Function(List<ServicesPlaceOrderEntity> service)
+        serviceCartItems,
   }) {
     return serviceAlreadyAdded(service);
   }
@@ -464,10 +494,13 @@ class _$ServiceAlreadyAddedImpl implements ServiceAlreadyAdded {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
-    TResult? Function(List<ServicesEntity> service)? addedServiceToCart,
-    TResult? Function(List<ServicesEntity> service)? serviceAlreadyAdded,
-    TResult? Function(List<ServicesEntity> service)? removedServiceFromCart,
-    TResult? Function(List<ServicesEntity> service)? serviceCartItems,
+    TResult? Function(List<ServicesPlaceOrderEntity> service)?
+        addedServiceToCart,
+    TResult? Function(List<ServicesPlaceOrderEntity> service)?
+        serviceAlreadyAdded,
+    TResult? Function(List<ServicesPlaceOrderEntity> service)?
+        removedServiceFromCart,
+    TResult? Function(List<ServicesPlaceOrderEntity> service)? serviceCartItems,
   }) {
     return serviceAlreadyAdded?.call(service);
   }
@@ -476,10 +509,13 @@ class _$ServiceAlreadyAddedImpl implements ServiceAlreadyAdded {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function(List<ServicesEntity> service)? addedServiceToCart,
-    TResult Function(List<ServicesEntity> service)? serviceAlreadyAdded,
-    TResult Function(List<ServicesEntity> service)? removedServiceFromCart,
-    TResult Function(List<ServicesEntity> service)? serviceCartItems,
+    TResult Function(List<ServicesPlaceOrderEntity> service)?
+        addedServiceToCart,
+    TResult Function(List<ServicesPlaceOrderEntity> service)?
+        serviceAlreadyAdded,
+    TResult Function(List<ServicesPlaceOrderEntity> service)?
+        removedServiceFromCart,
+    TResult Function(List<ServicesPlaceOrderEntity> service)? serviceCartItems,
     required TResult orElse(),
   }) {
     if (serviceAlreadyAdded != null) {
@@ -531,10 +567,10 @@ class _$ServiceAlreadyAddedImpl implements ServiceAlreadyAdded {
 }
 
 abstract class ServiceAlreadyAdded implements ServiceCartStates {
-  const factory ServiceAlreadyAdded(final List<ServicesEntity> service) =
-      _$ServiceAlreadyAddedImpl;
+  const factory ServiceAlreadyAdded(
+      final List<ServicesPlaceOrderEntity> service) = _$ServiceAlreadyAddedImpl;
 
-  List<ServicesEntity> get service;
+  List<ServicesPlaceOrderEntity> get service;
   @JsonKey(ignore: true)
   _$$ServiceAlreadyAddedImplCopyWith<_$ServiceAlreadyAddedImpl> get copyWith =>
       throw _privateConstructorUsedError;
@@ -547,7 +583,7 @@ abstract class _$$RemovedServiceFromCartImplCopyWith<$Res> {
           $Res Function(_$RemovedServiceFromCartImpl) then) =
       __$$RemovedServiceFromCartImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({List<ServicesEntity> service});
+  $Res call({List<ServicesPlaceOrderEntity> service});
 }
 
 /// @nodoc
@@ -568,7 +604,7 @@ class __$$RemovedServiceFromCartImplCopyWithImpl<$Res>
       null == service
           ? _value._service
           : service // ignore: cast_nullable_to_non_nullable
-              as List<ServicesEntity>,
+              as List<ServicesPlaceOrderEntity>,
     ));
   }
 }
@@ -576,12 +612,13 @@ class __$$RemovedServiceFromCartImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$RemovedServiceFromCartImpl implements RemovedServiceFromCart {
-  const _$RemovedServiceFromCartImpl(final List<ServicesEntity> service)
+  const _$RemovedServiceFromCartImpl(
+      final List<ServicesPlaceOrderEntity> service)
       : _service = service;
 
-  final List<ServicesEntity> _service;
+  final List<ServicesPlaceOrderEntity> _service;
   @override
-  List<ServicesEntity> get service {
+  List<ServicesPlaceOrderEntity> get service {
     if (_service is EqualUnmodifiableListView) return _service;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_service);
@@ -615,11 +652,14 @@ class _$RemovedServiceFromCartImpl implements RemovedServiceFromCart {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
-    required TResult Function(List<ServicesEntity> service) addedServiceToCart,
-    required TResult Function(List<ServicesEntity> service) serviceAlreadyAdded,
-    required TResult Function(List<ServicesEntity> service)
+    required TResult Function(List<ServicesPlaceOrderEntity> service)
+        addedServiceToCart,
+    required TResult Function(List<ServicesPlaceOrderEntity> service)
+        serviceAlreadyAdded,
+    required TResult Function(List<ServicesPlaceOrderEntity> service)
         removedServiceFromCart,
-    required TResult Function(List<ServicesEntity> service) serviceCartItems,
+    required TResult Function(List<ServicesPlaceOrderEntity> service)
+        serviceCartItems,
   }) {
     return removedServiceFromCart(service);
   }
@@ -628,10 +668,13 @@ class _$RemovedServiceFromCartImpl implements RemovedServiceFromCart {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
-    TResult? Function(List<ServicesEntity> service)? addedServiceToCart,
-    TResult? Function(List<ServicesEntity> service)? serviceAlreadyAdded,
-    TResult? Function(List<ServicesEntity> service)? removedServiceFromCart,
-    TResult? Function(List<ServicesEntity> service)? serviceCartItems,
+    TResult? Function(List<ServicesPlaceOrderEntity> service)?
+        addedServiceToCart,
+    TResult? Function(List<ServicesPlaceOrderEntity> service)?
+        serviceAlreadyAdded,
+    TResult? Function(List<ServicesPlaceOrderEntity> service)?
+        removedServiceFromCart,
+    TResult? Function(List<ServicesPlaceOrderEntity> service)? serviceCartItems,
   }) {
     return removedServiceFromCart?.call(service);
   }
@@ -640,10 +683,13 @@ class _$RemovedServiceFromCartImpl implements RemovedServiceFromCart {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function(List<ServicesEntity> service)? addedServiceToCart,
-    TResult Function(List<ServicesEntity> service)? serviceAlreadyAdded,
-    TResult Function(List<ServicesEntity> service)? removedServiceFromCart,
-    TResult Function(List<ServicesEntity> service)? serviceCartItems,
+    TResult Function(List<ServicesPlaceOrderEntity> service)?
+        addedServiceToCart,
+    TResult Function(List<ServicesPlaceOrderEntity> service)?
+        serviceAlreadyAdded,
+    TResult Function(List<ServicesPlaceOrderEntity> service)?
+        removedServiceFromCart,
+    TResult Function(List<ServicesPlaceOrderEntity> service)? serviceCartItems,
     required TResult orElse(),
   }) {
     if (removedServiceFromCart != null) {
@@ -695,10 +741,11 @@ class _$RemovedServiceFromCartImpl implements RemovedServiceFromCart {
 }
 
 abstract class RemovedServiceFromCart implements ServiceCartStates {
-  const factory RemovedServiceFromCart(final List<ServicesEntity> service) =
+  const factory RemovedServiceFromCart(
+          final List<ServicesPlaceOrderEntity> service) =
       _$RemovedServiceFromCartImpl;
 
-  List<ServicesEntity> get service;
+  List<ServicesPlaceOrderEntity> get service;
   @JsonKey(ignore: true)
   _$$RemovedServiceFromCartImplCopyWith<_$RemovedServiceFromCartImpl>
       get copyWith => throw _privateConstructorUsedError;
@@ -710,7 +757,7 @@ abstract class _$$ServiceCartItemsImplCopyWith<$Res> {
           $Res Function(_$ServiceCartItemsImpl) then) =
       __$$ServiceCartItemsImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({List<ServicesEntity> service});
+  $Res call({List<ServicesPlaceOrderEntity> service});
 }
 
 /// @nodoc
@@ -730,7 +777,7 @@ class __$$ServiceCartItemsImplCopyWithImpl<$Res>
       null == service
           ? _value._service
           : service // ignore: cast_nullable_to_non_nullable
-              as List<ServicesEntity>,
+              as List<ServicesPlaceOrderEntity>,
     ));
   }
 }
@@ -738,12 +785,12 @@ class __$$ServiceCartItemsImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$ServiceCartItemsImpl implements ServiceCartItems {
-  const _$ServiceCartItemsImpl(final List<ServicesEntity> service)
+  const _$ServiceCartItemsImpl(final List<ServicesPlaceOrderEntity> service)
       : _service = service;
 
-  final List<ServicesEntity> _service;
+  final List<ServicesPlaceOrderEntity> _service;
   @override
-  List<ServicesEntity> get service {
+  List<ServicesPlaceOrderEntity> get service {
     if (_service is EqualUnmodifiableListView) return _service;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_service);
@@ -777,11 +824,14 @@ class _$ServiceCartItemsImpl implements ServiceCartItems {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
-    required TResult Function(List<ServicesEntity> service) addedServiceToCart,
-    required TResult Function(List<ServicesEntity> service) serviceAlreadyAdded,
-    required TResult Function(List<ServicesEntity> service)
+    required TResult Function(List<ServicesPlaceOrderEntity> service)
+        addedServiceToCart,
+    required TResult Function(List<ServicesPlaceOrderEntity> service)
+        serviceAlreadyAdded,
+    required TResult Function(List<ServicesPlaceOrderEntity> service)
         removedServiceFromCart,
-    required TResult Function(List<ServicesEntity> service) serviceCartItems,
+    required TResult Function(List<ServicesPlaceOrderEntity> service)
+        serviceCartItems,
   }) {
     return serviceCartItems(service);
   }
@@ -790,10 +840,13 @@ class _$ServiceCartItemsImpl implements ServiceCartItems {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
-    TResult? Function(List<ServicesEntity> service)? addedServiceToCart,
-    TResult? Function(List<ServicesEntity> service)? serviceAlreadyAdded,
-    TResult? Function(List<ServicesEntity> service)? removedServiceFromCart,
-    TResult? Function(List<ServicesEntity> service)? serviceCartItems,
+    TResult? Function(List<ServicesPlaceOrderEntity> service)?
+        addedServiceToCart,
+    TResult? Function(List<ServicesPlaceOrderEntity> service)?
+        serviceAlreadyAdded,
+    TResult? Function(List<ServicesPlaceOrderEntity> service)?
+        removedServiceFromCart,
+    TResult? Function(List<ServicesPlaceOrderEntity> service)? serviceCartItems,
   }) {
     return serviceCartItems?.call(service);
   }
@@ -802,10 +855,13 @@ class _$ServiceCartItemsImpl implements ServiceCartItems {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function(List<ServicesEntity> service)? addedServiceToCart,
-    TResult Function(List<ServicesEntity> service)? serviceAlreadyAdded,
-    TResult Function(List<ServicesEntity> service)? removedServiceFromCart,
-    TResult Function(List<ServicesEntity> service)? serviceCartItems,
+    TResult Function(List<ServicesPlaceOrderEntity> service)?
+        addedServiceToCart,
+    TResult Function(List<ServicesPlaceOrderEntity> service)?
+        serviceAlreadyAdded,
+    TResult Function(List<ServicesPlaceOrderEntity> service)?
+        removedServiceFromCart,
+    TResult Function(List<ServicesPlaceOrderEntity> service)? serviceCartItems,
     required TResult orElse(),
   }) {
     if (serviceCartItems != null) {
@@ -857,10 +913,10 @@ class _$ServiceCartItemsImpl implements ServiceCartItems {
 }
 
 abstract class ServiceCartItems implements ServiceCartStates {
-  const factory ServiceCartItems(final List<ServicesEntity> service) =
+  const factory ServiceCartItems(final List<ServicesPlaceOrderEntity> service) =
       _$ServiceCartItemsImpl;
 
-  List<ServicesEntity> get service;
+  List<ServicesPlaceOrderEntity> get service;
   @JsonKey(ignore: true)
   _$$ServiceCartItemsImplCopyWith<_$ServiceCartItemsImpl> get copyWith =>
       throw _privateConstructorUsedError;

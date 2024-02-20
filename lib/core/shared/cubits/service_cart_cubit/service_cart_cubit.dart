@@ -3,8 +3,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:knockknock/core/utils/extensions.dart';
 
+import '../../../../features/payment/services_payment_summary/domain/entities/services_place_order_entity.dart';
 import '../../../../generated/l10n.dart';
-import '../../entities/service_entity.dart';
 
 part 'service_cart_state.dart';
 
@@ -15,14 +15,14 @@ class ServiceCartCubit extends Cubit<ServiceCartStates> {
 
   static ServiceCartCubit get(BuildContext context) => BlocProvider.of(context);
 
-  List<ServicesEntity> cartServices = [];
+  List<ServicesPlaceOrderEntity> cartServices = [];
 
-  addServiceToCart(ServicesEntity servicesEntity,BuildContext context) {
-    if (cartServices.any((item) => item.id == servicesEntity.id)) {
+  addServiceToCart(ServicesPlaceOrderEntity servicesPlaceOrderEntity,BuildContext context) {
+    if (cartServices.any((item) => item.servicesEntity!.id == servicesPlaceOrderEntity.servicesEntity!.id)) {
       context.defaultSnackBar(S.of(context).youAlreadyAddThisService);
       emit(ServiceCartStates.serviceAlreadyAdded(cartServices));
     } else {
-      cartServices.add(servicesEntity);
+      cartServices.add(servicesPlaceOrderEntity);
       emit(ServiceCartStates.addedServiceToCart(cartServices));
     }
   }

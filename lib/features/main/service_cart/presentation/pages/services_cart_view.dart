@@ -14,6 +14,7 @@ import '../../../../../../core/shared/widgets/custom_button.dart';
 import '../../../../../../core/utils/app_colors.dart';
 import '../../../../../../core/utils/dimensions.dart';
 import '../../../../../../generated/l10n.dart';
+import '../../../../../core/shared/arguments.dart';
 
 class ServicesCartView extends StatefulWidget {
   const ServicesCartView({super.key});
@@ -28,9 +29,7 @@ class _ServicesCartViewState extends State<ServicesCartView> {
   @override
   Widget build(BuildContext context) {
     var totalPrice = context.watch<ServiceCartCubit>().cartServices;
-    for (var i = 0; i < totalPrice.length; i++) {
-      finalPrice += double.parse(totalPrice[i].price!);
-    }
+
 
     return PopScope(
       canPop: false,
@@ -73,7 +72,7 @@ class _ServicesCartViewState extends State<ServicesCartView> {
                                       AppConstants.imageUrl +
                                           context
                                               .watch<ServiceCartCubit>()
-                                              .cartServices[index]
+                                              .cartServices[index].servicesEntity!
                                               .image!,
                                     ),
                                   ),
@@ -81,18 +80,18 @@ class _ServicesCartViewState extends State<ServicesCartView> {
                                     CacheHelper.isEnglish()
                                         ? context
                                             .watch<ServiceCartCubit>()
-                                            .cartServices[index]
+                                            .cartServices[index].servicesEntity!
                                             .nameEn!
                                         : context
                                             .watch<ServiceCartCubit>()
-                                            .cartServices[index]
+                                            .cartServices[index].servicesEntity!
                                             .nameAr!,
                                     style: CustomTextStyle.kTextStyleF12,
                                   ),
                                   description: Row(
                                     children: [
                                       Text(
-                                        "${context.watch<ServiceCartCubit>().cartServices[index].price} ${S.current.Aed}",
+                                        "${context.watch<ServiceCartCubit>().cartServices[index].servicesEntity!.price} ${S.current.Aed}",
                                         style: CustomTextStyle.kTextStyleF14
                                             .copyWith(
                                                 color: AppColors.textColor),
@@ -127,7 +126,7 @@ class _ServicesCartViewState extends State<ServicesCartView> {
                                 const Spacer(),
                                 Text(
 
-                                  "${totalPrice.map((e) =>  int.parse(e.price!) ).reduce((value, element) => value + element) + AppConstants.deliveryFee} ${S.current.Aed}",
+                                  "${totalPrice.map((e) =>  int.parse(e.servicesEntity!.price!) ).reduce((value, element) => value + element) + AppConstants.deliveryFee} ${S.current.Aed}",
                                   style: CustomTextStyle.kTextStyleF14
                                       .copyWith(color: AppColors.textColor),
                                 ),
@@ -156,7 +155,7 @@ class _ServicesCartViewState extends State<ServicesCartView> {
                                 ),
                                 const Spacer(),
                                 Text(
-                                  "${totalPrice.map((e) =>  int.parse(e.price!) ).reduce((value, element) => value + element)} ${S.current.Aed}",
+                                  "${totalPrice.map((e) =>  int.parse(e.servicesEntity!.price!) ).reduce((value, element) => value + element)} ${S.current.Aed}",
                                   // "${totalPrice.map((e) => e.discountPercent == 0 ? int.parse(e.price!) * e.userQuantity! : int.parse(e.priceAfterDiscount!) * e.userQuantity!).reduce((value, element) => value + element)} ${S.current.Aed}",
                                   style: CustomTextStyle.kTextStyleF14.copyWith(
                                       color: AppColors.textColorSecondary),
@@ -193,6 +192,7 @@ class _ServicesCartViewState extends State<ServicesCartView> {
                           onPressed: () {
                             context.pushNamed(
                               servicesPaymentSummeryPageRoute,
+                              arguments: ServicesSummaryArgs(servicesPlaceOrderEntity: totalPrice)
                             );
                           },
                         ),

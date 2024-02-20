@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gap/gap.dart';
 import 'package:get/get.dart';
@@ -9,15 +10,15 @@ import '../../../../../../core/utils/app_colors.dart';
 import '../../../../../../core/utils/app_images.dart';
 import '../../../../../../core/utils/dimensions.dart';
 import '../../../../../../generated/l10n.dart';
+import '../../../../../core/shared/cubits/service_cart_cubit/service_cart_cubit.dart';
 import '../../../../../core/shared/widgets/custom_form_field.dart';
 import '../../../../../core/utils/app_constants.dart';
+import '../../domain/entities/services_place_order_entity.dart';
 
 class ServicesPaymentSummaryView extends StatefulWidget {
+  final List<ServicesPlaceOrderEntity> servicesPlaceOrderEntity;
 
-
-
-
-  const ServicesPaymentSummaryView({super.key,});
+  const ServicesPaymentSummaryView({super.key, required this.servicesPlaceOrderEntity,});
 
   @override
   State<ServicesPaymentSummaryView> createState() => _ServicesPaymentSummaryViewState();
@@ -28,6 +29,8 @@ class _ServicesPaymentSummaryViewState extends State<ServicesPaymentSummaryView>
 
   @override
   Widget build(BuildContext context) {
+    var totalPrice = context.watch<ServiceCartCubit>().cartServices;
+
     return Scaffold(
       backgroundColor: AppColors.primary,
       appBar: AppBar(
@@ -152,7 +155,7 @@ class _ServicesPaymentSummaryViewState extends State<ServicesPaymentSummaryView>
                               ),
                               const Spacer(),
                               Text(
-                                "100 ${S.current.Aed}",
+                                  "${totalPrice.map((e) =>  int.parse(e.servicesEntity!.price!) ).reduce((value, element) => value + element) } ${S.current.Aed}",
                                 style: CustomTextStyle.kTextStyleF16BlackW300
                               ),
                             ],
@@ -185,7 +188,7 @@ class _ServicesPaymentSummaryViewState extends State<ServicesPaymentSummaryView>
                               ),
                               const Spacer(),
                               Text(
-                                "130 ${S.current.Aed}",
+                                  "${totalPrice.map((e) =>  int.parse(e.servicesEntity!.price!) ).reduce((value, element) => value + element) + AppConstants.deliveryFee} ${S.current.Aed}",
                                 style: CustomTextStyle.kTextStyleF16BlackW300
                               ),
                             ],

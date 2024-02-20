@@ -5,10 +5,13 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gap/gap.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
+import 'package:knockknock/core/shared/models/user_data_model.dart';
 import 'package:knockknock/core/shared/widgets/custom_form_field.dart';
 import 'package:knockknock/core/utils/extensions.dart';
 
 import '../../../../../config/themes/app_text_styles.dart';
+import '../../../../../core/database/address_class.dart';
+import '../../../../../core/database/database_hive.dart';
 import '../../../../../core/dependency_injection/di.dart' as di;
 import '../../../../../core/helpers/cache_helper.dart';
 import '../../../../../core/router/router.dart';
@@ -20,11 +23,12 @@ import '../../../../../core/shared/widgets/custom_button_small.dart';
 import '../../../../../core/shared/widgets/date_widget.dart';
 import '../../../../../core/shared/widgets/state_error_widget.dart';
 import '../../../../../core/shared/widgets/state_loading_widget.dart';
-import '../../../../../core/shared/widgets/time_widget.dart';
 import '../../../../../core/utils/app_colors.dart';
 import '../../../../../core/utils/app_constants.dart';
+import '../../../../../core/utils/dimensions.dart';
 import '../../../../../generated/l10n.dart';
 import '../../../../bottom_nav_bar.dart';
+import '../../../../payment/services_payment_summary/domain/entities/services_place_order_entity.dart';
 import '../manager/week_days_cubit.dart';
 
 class ServicesDetailsView extends StatefulWidget {
@@ -37,19 +41,32 @@ class ServicesDetailsView extends StatefulWidget {
 }
 
 class _ServicesDetailsViewState extends State<ServicesDetailsView> {
+  TimeOfDay currentTime = TimeOfDay.now();
+
+  TextEditingController noteCtrl=TextEditingController();
   int selectedOption = 1;
 
   int date = 0;
 
-  int time = 0;
 
+  HiveDatabase hiveDatabase = HiveDatabase();
+  List<Address> addresses = [];
+
+  getAddresses() async {
+    addresses = await hiveDatabase.getAllAddresses();
+    setState(() {});
+  }
+  @override
+  void initState() {
+    super.initState();
+    getAddresses();
+  }
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
       create: (context) => di.di<WeekDaysCubit>(),
       child: BlocConsumer<WeekDaysCubit, WeekDaysStates>(
-        listener: (context, state) {
-        },
+        listener: (context, state) {},
         builder: (context, state) {
           return Scaffold(
             appBar: const CustomAppBar(),
@@ -184,7 +201,36 @@ class _ServicesDetailsViewState extends State<ServicesDetailsView> {
                       style: CustomTextStyle.kTextStyleF16Black,
                     ),
                     const Divider(),
-                    const TimeWidget(),
+                    GestureDetector(
+                      onTap: () async {
+                        final TimeOfDay? startTime = await showTimePicker(
+                          context: context,
+                          initialTime: currentTime,
+                        );
+                        if (startTime != null && startTime != currentTime) {
+                          setState(() {
+                            currentTime = startTime;
+                          });
+                        }
+                      },
+                      child: Container(
+                        padding: const EdgeInsets.all(Dimensions.p16),
+                        clipBehavior: Clip.antiAlias,
+                        decoration: const ShapeDecoration(
+                          color: AppColors.secondary,
+                          shape: RoundedRectangleBorder(),
+                        ),
+                        child: Center(
+                          child: Text(
+                            currentTime.stringFormat(
+                                formatType: TimeFormatType.hoursMinutesPeriod),
+                            style: CustomTextStyle.kTextStyleF16.copyWith(
+                              color: Colors.white,
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
                     Gap(30.h),
                     Container(
                       padding: EdgeInsets.all(20.sp),
@@ -274,6 +320,7 @@ class _ServicesDetailsViewState extends State<ServicesDetailsView> {
                                       titleTextStyle:
                                           CustomTextStyle.kTextStyleF14SubBlack,
                                       content: CustomFormField(
+                                        ctrl: noteCtrl,
                                         hint: S.of(context).instructions,
                                         isObscure: false,
                                         maxLines: null,
@@ -318,7 +365,22 @@ class _ServicesDetailsViewState extends State<ServicesDetailsView> {
                                   .cartProducts
                                   .clear();
                               context.read<ServiceCartCubit>().addServiceToCart(
-                                  widget.servicesEntity, context);
+                                  ServicesPlaceOrderEntity(
+                                    servicesEntity: widget.servicesEntity,
+                                    userId: UserData.id,
+                                    address: addresses[AppConstants.addressIndex].address,
+                                    buildingNo:  addresses[AppConstants.addressIndex].building,
+                                    flatNo:  addresses[AppConstants.addressIndex].flat,
+                                    city:  addresses[AppConstants.addressIndex].city,
+                                    state:  addresses[AppConstants.addressIndex].country,
+                                    latitude:  addresses[AppConstants.addressIndex].latitude.toString(),
+                                    longitude:  addresses[AppConstants.addressIndex].longitude.toString(),
+                                    serviceId: widget.servicesEntity.id,
+                                    note: noteCtrl.text,
+                                    selectedDayId: date,
+                                    selectedTime: currentTime.stringFormat(formatType: TimeFormatType.hoursMinutesPeriod),
+                                  ), context);
+
                               context.pushNamed(servicesCartPageRoute);
                             },
                             label: S.of(context).next,
