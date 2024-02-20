@@ -33,7 +33,7 @@ class ServicesPlaceOrderModel extends ServicesPlaceOrderEntity {
       'longitude': placeOrderEntity.longitude,
       'address': placeOrderEntity.address,
       'building_number': placeOrderEntity.buildingNo,
-      'flot_number': placeOrderEntity.flatNo,
+      'flat_number': placeOrderEntity.flatNo,
       'city': placeOrderEntity.city,
       'state': placeOrderEntity.state,
       'note': placeOrderEntity.note,

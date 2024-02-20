@@ -208,6 +208,7 @@ class _ServicesPaymentSummaryViewState extends State<ServicesPaymentSummaryView>
                 child: CustomBtn(
                   label: S.of(context).confirmPayment,
                   onPressed: () async {
+                    print(widget.servicesPlaceOrderEntity.toString());
                   },
                 ),
               ),

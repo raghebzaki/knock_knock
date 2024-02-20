@@ -379,6 +379,7 @@ class _ServicesDetailsViewState extends State<ServicesDetailsView> {
                                     note: noteCtrl.text,
                                     selectedDayId: date,
                                     selectedTime: currentTime.stringFormat(formatType: TimeFormatType.hoursMinutesPeriod),
+                                    paymentMethod: "Cash",
                                   ), context);
 
                               context.pushNamed(servicesCartPageRoute);
