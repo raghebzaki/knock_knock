@@ -1,5 +1,6 @@
 import 'package:get_it/get_it.dart';
 import 'package:knockknock/features/main/home/presentation/manager/carousel_cubit.dart';
+import 'package:knockknock/features/orders/services/order_details/presentation/manager/service_cancel_order_cubit.dart';
 import 'package:knockknock/features/payment/services_payment_summary/presentation/manager/services_place_order_cubit.dart';
 import 'package:knockknock/features/profile/edit_profile/domain/use_cases/delete_account_use_case.dart';
 import 'package:knockknock/features/profile/edit_profile/domain/use_cases/edit_account_use_case.dart';
@@ -72,30 +73,21 @@ import '../../features/orders/products/my_products_orders/data/repositories/my_p
 import '../../features/orders/products/my_products_orders/domain/repositories/my_products_orders_repo.dart';
 import '../../features/orders/products/my_products_orders/domain/use_cases/my_products_orders_usecase.dart';
 import '../../features/orders/products/my_products_orders/presentation/manager/my_orders_cubit.dart';
-import '../../features/orders/products/track_order/data/data_sources/cancel_order_service.dart';
-import '../../features/orders/products/track_order/data/data_sources/track_order_service.dart';
-import '../../features/orders/products/track_order/data/repositories/cancel_order_repo_impl.dart';
-import '../../features/orders/products/track_order/data/repositories/track_order_repo_impl.dart';
-import '../../features/orders/products/track_order/domain/repositories/cancel_order_repo.dart';
-import '../../features/orders/products/track_order/domain/repositories/track_order_repo.dart';
-import '../../features/orders/products/track_order/domain/use_cases/cancel_order_usecase.dart';
-import '../../features/orders/products/track_order/domain/use_cases/track_order_usecase.dart';
-import '../../features/orders/products/track_order/presentation/manager/track_order_cubit.dart';
 
+import '../../features/orders/products/order_details/data/data_sources/cancel_order_service.dart';
+import '../../features/orders/products/order_details/data/repositories/cancel_order_repo_impl.dart';
+import '../../features/orders/products/order_details/domain/repositories/cancel_order_repo.dart';
+import '../../features/orders/products/order_details/domain/use_cases/cancel_order_usecase.dart';
+import '../../features/orders/products/order_details/presentation/manager/cancel_product_order_cubit.dart';
 import '../../features/orders/services/my_services_orders/data/data_sources/my_services_orders_service.dart';
 import '../../features/orders/services/my_services_orders/data/repositories/my_services_orders_repo_impl.dart';
 import '../../features/orders/services/my_services_orders/domain/repositories/my_services_orders_repo.dart';
 import '../../features/orders/services/my_services_orders/domain/use_cases/my_services_orders_usecase.dart';
 import '../../features/orders/services/my_services_orders/presentation/manager/my_services_orders_cubit.dart';
-import '../../features/orders/services/track_order/data/data_sources/cancel_order_service.dart';
-import '../../features/orders/services/track_order/data/data_sources/track_order_service.dart';
-import '../../features/orders/services/track_order/data/repositories/cancel_order_repo_impl.dart';
-import '../../features/orders/services/track_order/data/repositories/track_order_repo_impl.dart';
-import '../../features/orders/services/track_order/domain/repositories/cancel_order_repo.dart';
-import '../../features/orders/services/track_order/domain/repositories/track_order_repo.dart';
-import '../../features/orders/services/track_order/domain/use_cases/cancel_order_usecase.dart';
-import '../../features/orders/services/track_order/domain/use_cases/track_order_usecase.dart';
-import '../../features/orders/services/track_order/presentation/manager/track_order_cubit.dart';
+import '../../features/orders/services/order_details/data/data_sources/cancel_order_service.dart';
+import '../../features/orders/services/order_details/data/repositories/cancel_order_repo_impl.dart';
+import '../../features/orders/services/order_details/domain/repositories/cancel_order_repo.dart';
+import '../../features/orders/services/order_details/domain/use_cases/cancel_order_usecase.dart';
 import '../../features/payment/services_payment_summary/data/data_sources/services_place_order_service.dart';
 import '../../features/payment/services_payment_summary/data/repositories/services_place_order_repo_impl.dart';
 import '../../features/payment/services_payment_summary/domain/repositories/services_place_order_repo.dart';
@@ -210,34 +202,27 @@ Future<void> init() async {
   di.registerLazySingleton<ContactUsService>(() => ContactUsServiceImpl());
 
   /// order
-  /// my orders
+  /// my products orders
   di.registerFactory(() => MyOrdersCubit(myOrdersUseCase: di()));
   di.registerLazySingleton(() => MyOrdersUseCase(myOrdersRepo: di()));
   di.registerLazySingleton<MyProductsOrdersRepo>(() => MyProductsOrdersRepoImpl(myOrdersService: di(),));
   di.registerLazySingleton<MyProductsOrdersService>(() => MyProductsOrdersServiceImpl());
 
-  /// track order and cancel order
-  di.registerFactory(() => TrackOrderCubit(trackOrderUseCase: di(),cancelOrderUseCase: di()));
-  di.registerLazySingleton(() => TrackOrderUseCase(trackOrderRepo:  di()));
-  di.registerLazySingleton(() => CancelOrderUseCase(cancelOrderRepo: di()));
-  di.registerLazySingleton<TrackOrderRepo>(() => TrackOrderRepoImpl(trackOrderService: di(),));
-  di.registerLazySingleton<TrackOrderService>(() => TrackOrderServiceImpl());
-  di.registerLazySingleton<CancelOrderRepo>(() => CancelOrderRepoImpl(cancelOrderService: di(),));
-  di.registerLazySingleton<CancelOrderService>(() => CancelOrderServiceImpl());
+  ///  cancel product order
+  di.registerFactory(() => CancelProductOrderCubit(cancelOrderUseCase: di()));
+  di.registerLazySingleton(() => CancelProductOrderUseCase(cancelOrderRepo: di()));
+  di.registerLazySingleton<CancelProductOrderRepo>(() => CancelProductOrderRepoImpl(cancelOrderService: di(),));
+  di.registerLazySingleton<CancelProductOrderService>(() => CancelProductOrderServiceImpl());
   /// my Services orders
   di.registerFactory(() => MyServicesOrdersCubit(myOrdersUseCase: di()));
   di.registerLazySingleton(() => MyServicesOrdersUseCase(myOrdersRepo: di()));
   di.registerLazySingleton<MyServicesOrdersRepo>(() => MyServicesOrdersRepoImpl(myOrdersService: di(),));
   di.registerLazySingleton<MyServicesOrdersService>(() => MyServicesOrdersServiceImpl());
-
-  /// track order and cancel order
-  di.registerFactory(() => TrackServicesOrderCubit(trackOrderUseCase: di(),cancelOrderUseCase: di()));
-  di.registerLazySingleton(() => TrackServicesOrderUseCase(trackOrderRepo: di()));
-  di.registerLazySingleton(() => CancelServicesOrderUseCase(cancelOrderRepo: di()));
-  di.registerLazySingleton<TrackServicesOrderRepo>(() => TrackServicesOrderRepoImpl(trackOrderService:  di(),));
-  di.registerLazySingleton<TrackServicesOrderService>(() => TrackServicesOrderServiceImpl());
-  di.registerLazySingleton<CancelServicesOrderRepo>(() => CancelServicesOrderRepoImpl(cancelOrderService: di(),));
-  di.registerLazySingleton<CancelServicesOrderService>(() => CancelServicesOrderServiceImpl());
+  ///  cancel Service order
+  di.registerFactory(() => ServiceCancelOrderCubit(cancelOrderUseCase: di()));
+  di.registerLazySingleton(() => CancelServiceOrderUseCase(cancelOrderRepo: di()));
+  di.registerLazySingleton<CancelServiceOrderRepo>(() => CancelServiceOrderRepoImpl(cancelOrderService: di(),));
+  di.registerLazySingleton<CancelServiceOrderService>(() => CancelServiceOrderServiceImpl());
 
   /// payment
   /// service payment

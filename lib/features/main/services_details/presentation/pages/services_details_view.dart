@@ -54,6 +54,7 @@ class _ServicesDetailsViewState extends State<ServicesDetailsView> {
 
   getAddresses() async {
     addresses = await hiveDatabase.getAllAddresses();
+
     setState(() {});
   }
   @override
@@ -360,29 +361,34 @@ class _ServicesDetailsViewState extends State<ServicesDetailsView> {
                               BoxConstraints(maxWidth: context.width / 2),
                           child: CustomBtnSmall(
                             onPressed: () {
-                              context
-                                  .read<ProductCartCubit>()
-                                  .cartProducts
-                                  .clear();
-                              context.read<ServiceCartCubit>().addServiceToCart(
-                                  ServicesPlaceOrderEntity(
-                                    servicesEntity: widget.servicesEntity,
-                                    userId: UserData.id,
-                                    address: addresses[AppConstants.addressIndex].address,
-                                    buildingNo:  addresses[AppConstants.addressIndex].building,
-                                    flatNo:  addresses[AppConstants.addressIndex].flat,
-                                    city:  addresses[AppConstants.addressIndex].city,
-                                    state:  addresses[AppConstants.addressIndex].country,
-                                    latitude:  addresses[AppConstants.addressIndex].latitude.toString(),
-                                    longitude:  addresses[AppConstants.addressIndex].longitude.toString(),
-                                    serviceId: widget.servicesEntity.id,
-                                    note: noteCtrl.text,
-                                    selectedDayId: date,
-                                    selectedTime: currentTime.stringFormat(formatType: TimeFormatType.hoursMinutesPeriod),
-                                    paymentMethod: "Cash",
-                                  ), context);
+                              if(addresses.isNotEmpty){
+                                context
+                                    .read<ProductCartCubit>()
+                                    .cartProducts
+                                    .clear();
+                                context.read<ServiceCartCubit>().addServiceToCart(
+                                    ServicesPlaceOrderEntity(
+                                      servicesEntity: widget.servicesEntity,
+                                      userId: UserData.id,
+                                      address: addresses[AppConstants.addressIndex].address,
+                                      buildingNo:  addresses[AppConstants.addressIndex].building,
+                                      flatNo:  addresses[AppConstants.addressIndex].flat,
+                                      city:  addresses[AppConstants.addressIndex].city,
+                                      state:  addresses[AppConstants.addressIndex].country,
+                                      latitude:  addresses[AppConstants.addressIndex].latitude.toString(),
+                                      longitude:  addresses[AppConstants.addressIndex].longitude.toString(),
+                                      serviceId: widget.servicesEntity.id,
+                                      note: noteCtrl.text,
+                                      selectedDayId: date,
+                                      selectedTime: currentTime.stringFormat(formatType: TimeFormatType.hoursMinutesPeriod),
+                                      paymentMethod: "Cash",
+                                    ), context);
 
-                              context.pushNamed(servicesCartPageRoute);
+                                context.pushNamed(servicesCartPageRoute);
+                              }else{
+                                context.defaultSnackBar("you must add address first");
+                              }
+
                             },
                             label: S.of(context).next,
                           ),

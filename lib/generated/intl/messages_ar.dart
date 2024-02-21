@@ -167,6 +167,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "my_orders": MessageLookupByLibrary.simpleMessage("طلباتي"),
         "newAddress": MessageLookupByLibrary.simpleMessage("عنوان جديد"),
         "next": MessageLookupByLibrary.simpleMessage("التالي"),
+        "no": MessageLookupByLibrary.simpleMessage("لا يوجد طلبات"),
         "noInternetConnection":
             MessageLookupByLibrary.simpleMessage("لا يوجد اتصال بالإنترنت"),
         "no_content": MessageLookupByLibrary.simpleMessage("نجاح بدون محتوى"),
@@ -181,6 +182,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "orderPreparation": MessageLookupByLibrary.simpleMessage("إعداد الطلب"),
         "orderSuccessfullyDelivered":
             MessageLookupByLibrary.simpleMessage("تم توصيل الطلب بنجاح"),
+        "orders": MessageLookupByLibrary.simpleMessage(""),
         "otpIsCorrect": MessageLookupByLibrary.simpleMessage("رمز التحقق صحيح"),
         "otpSentTo":
             MessageLookupByLibrary.simpleMessage("تم إرسال رمز التحقق إلى"),

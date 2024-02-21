@@ -1380,6 +1380,26 @@ class S {
     );
   }
 
+  /// `No`
+  String get no {
+    return Intl.message(
+      'No',
+      name: 'no',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `orders`
+  String get orders {
+    return Intl.message(
+      'orders',
+      name: 'orders',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `order number `
   String get orderNumber {
     return Intl.message(

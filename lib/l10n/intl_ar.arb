@@ -164,6 +164,8 @@
   "shipped_status": "تم الشحن",
   "done_status": "تم الاكتمال",
   "cancelled_status": "تم الإلغاء",
+  "no":"لا يوجد طلبات",
+  "orders":"",
 
   "@orderDetails": {},
   "orderNumber": "رقم الطلب",

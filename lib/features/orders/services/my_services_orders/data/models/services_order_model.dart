@@ -1,4 +1,6 @@
 
+import 'package:knockknock/core/shared/models/services_model.dart';
+
 import '../../domain/entities/services_order_entity.dart';
 
 class ServicesOrderModel extends ServicesOrderEntity {
@@ -22,6 +24,7 @@ class ServicesOrderModel extends ServicesOrderEntity {
     super.flatNo,
     super.state,
     super.city,
+    super.service,
   });
 
   factory ServicesOrderModel.fromJson(Map<String, dynamic> json) {
@@ -31,13 +34,7 @@ class ServicesOrderModel extends ServicesOrderEntity {
       orderNumber: json["order_number"],
       totalPrice: json["total_amount"],
       date: json["created_at"],
-      // products: json["products"] == null
-      //     ? []
-      //     : List<ProductModel>.from(
-      //         json["products"]!.map(
-      //           (x) => ProductModel.fromJson(x),
-      //         ),
-      //       ),
+
     );
   }
 
@@ -60,13 +57,9 @@ class ServicesOrderModel extends ServicesOrderEntity {
       flatNo: json["flat_number"],
       state: json["country"],
       city: json["city"],
-      // products: json["products"] == null
-      //     ? []
-      //     : List<ProductModel>.from(
-      //         json["products"]!.map(
-      //           (x) => ProductModel.fromJson(x),
-      //         ),
-      //       ),
+      service: json["service"]==null
+          ?null
+          : ServicesModel.fromJson(json["service"]),
     );
   }
 
@@ -77,11 +70,11 @@ class ServicesOrderModel extends ServicesOrderEntity {
     };
   }
 
-  // static Map<String, dynamic> queryToJson(ServicesOrderEntity orderEntity) {
-  //   return {
-  //     "filters[status][\$eq]": orderEntity.orderFilter,
-  //   };
-  // }
+  static Map<String, dynamic> queryToJson(int? nextPage) {
+    return {
+      "page": nextPage,
+    };
+  }
 
   factory ServicesOrderModel.addOrderFromJson(Map<String, dynamic> json) {
     return ServicesOrderModel(

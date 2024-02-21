@@ -32,14 +32,15 @@ import '../../features/credits/gift_card/presentation/pages/gift_card.dart';
 import '../../features/main/products_cart/presentation/pages/products_cart_view.dart';
 import '../../features/orders/products/my_products_orders/presentation/pages/my_products_orders.dart';
 import '../../features/orders/products/order_details/presentation/pages/order_details_view.dart';
-import '../../features/orders/products/track_order/presentation/pages/track_order_view.dart';
+import '../../features/orders/services/my_services_orders/domain/entities/services_order_entity.dart';
+import '../../features/orders/services/my_services_orders/presentation/manager/my_services_orders_cubit.dart';
 import '../../features/orders/services/my_services_orders/presentation/pages/my_services_orders.dart';
 import '../../features/orders/services/order_details/presentation/pages/order_details_view.dart';
-import '../../features/orders/services/track_order/presentation/pages/track_order_view.dart';
 import '../../features/payment/gift_payment_summary/presentation/pages/payment_summary_view.dart';
 import '../../main_view.dart';
 import '../dependency_injection/di.dart' as di;
 import '../shared/arguments.dart';
+import '../shared/models/user_data_model.dart';
 
 class AppRouters {
   static Route routeGenerator(RouteSettings settings) {
@@ -180,15 +181,12 @@ class AppRouters {
           builder: (BuildContext context) =>
               OrderDetailsView(orderDetails: args.orderDetails),
         );
-        case trackOrderPageRoute:
-        final args = settings.arguments as OrderDetailAedgs;
-        return MaterialPageRoute(
-          builder: (BuildContext context) =>
-              TrackOrderView(orderDetails: args.orderDetails),
-        );
         case myServicesOrdersPageRoute:
         return MaterialPageRoute(
-          builder: (BuildContext context) => const MyServicesOrdersView(),
+          builder: (BuildContext context) => BlocProvider(
+            create: (context) => di.di<MyServicesOrdersCubit>()..getMyOrders(ServicesOrderEntity(status: 0,userId: UserData.id),1),
+            child: const MyServicesOrdersView(),
+          ),
         );
       case servicesOrderDetailsPageRoute:
         final args = settings.arguments as ServicesOrderDetailArgs;
@@ -196,12 +194,7 @@ class AppRouters {
           builder: (BuildContext context) =>
               ServicesOrderDetailsView(orderDetails: args.orderDetails),
         );
-        case trackServicesOrderPageRoute:
-        final args = settings.arguments as ServicesOrderDetailArgs;
-        return MaterialPageRoute(
-          builder: (BuildContext context) =>
-              TrackServicesOrderView(orderDetails: args.orderDetails),
-        );
+
         case productsPaymentSummeryPageRoute:
         return MaterialPageRoute(
           builder: (BuildContext context) => const ProductsPaymentSummaryView(),

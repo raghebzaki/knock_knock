@@ -1,4 +1,5 @@
 import 'package:equatable/equatable.dart';
+import 'package:knockknock/core/shared/entities/service_entity.dart';
 
 class ServicesOrderEntity extends Equatable {
   final num? id;
@@ -20,7 +21,7 @@ class ServicesOrderEntity extends Equatable {
   final String? flatNo;
   final String? state;
   final String? city;
-  // final List<ProductEntity>? products;
+  final ServicesEntity? service;
 
   const ServicesOrderEntity({
     this.id,
@@ -42,7 +43,7 @@ class ServicesOrderEntity extends Equatable {
     this.flatNo,
     this.state,
     this.city,
-    // this.products,
+    this.service,
   });
 
   @override

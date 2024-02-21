@@ -1,6 +1,8 @@
 
 // ignore_for_file: must_be_immutable
 
+import 'package:knockknock/core/shared/models/products_images_model.dart';
+
 import '../entities/product_entity.dart';
 
 class ProductModel extends ProductEntity {
@@ -15,6 +17,7 @@ class ProductModel extends ProductEntity {
     super.discountPercent,
     super.code,
     super.image,
+    super.images,
     super.priceAfterDiscount,
     super.quantity,
     super.userQuantity,
@@ -36,10 +39,10 @@ class ProductModel extends ProductEntity {
       priceAfterDiscount: json["price_after_discount"]??"",
       image: json["image"],
       quantity: json["quantity"],
-      // images: json["product_images"] == null
-      //     ? []
-      //     : List<ProductsImagesModel>.from(json["product_images"]!
-      //         .map((x) => ProductsImagesModel.fromJson(x))),
+      images: json["product_images"] == null
+          ? []
+          : List<ProductsImagesModel>.from(json["product_images"]!
+              .map((x) => ProductsImagesModel.fromJson(x))),
     );
   }
 

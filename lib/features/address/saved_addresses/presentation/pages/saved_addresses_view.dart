@@ -29,72 +29,78 @@ class _SavedAddressesViewState extends State<SavedAddressesView> {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) =>
-          SavedAddressesCubit(hiveDatabase: hiveDatabase)..getAddresses(),
+      create: (context) => SavedAddressesCubit(hiveDatabase: hiveDatabase)..getAddresses(),
       child: BlocConsumer<SavedAddressesCubit, SavedAddressesStates>(
         listener: (context, state) {},
         builder: (context, state) {
-          return Scaffold(
-            backgroundColor: AppColors.primary,
-            appBar: AppBar(title: Text(S.of(context).savedAddresses)),
-            body: SafeArea(
-              child: state.maybeWhen(
-                loading: () {
-                  return const StateLoadingWidget();
-                },
-                success: (state) {
-                  return Padding(
-                    padding: const EdgeInsets.all(Dimensions.p16),
-                    child: Stack(
-                      children: [
-                        SingleChildScrollView(
-                          child: Column(
-                            children: [
-                              Gap(35.h),
-                              ListView.builder(
-                                physics: const NeverScrollableScrollPhysics(),
-                                scrollDirection: Axis.vertical,
-                                shrinkWrap: true,
-                                itemCount: state.length,
-                                itemBuilder: (ctx, index) {
-                                  return Padding(
-                                    padding: const EdgeInsets.only(
-                                        bottom: Dimensions.p16),
-                                    child: SavedAddressItem(
-                                      address: state[index],
-                                    ),
-                                  );
-                                },
-                              ),
-                              Gap(50.h),
-                            ],
-                          ),
-                        ),
-                        Align(
-                          alignment: Alignment.bottomCenter,
-                          child: Container(
-                            color: Colors.white,
-                            child: CustomBtn(
-                              label: S.of(context).addNewAddress,
-                              onPressed: () async {
-                                context.pushNamed(mapPageRoute);
-                              },
+          return PopScope(
+            canPop: false,
+            onPopInvoked: (bool didPop) async {
+              if (didPop) return;
+              context.pushNamed(bottomNavBarPageRoute);
+            },
+            child: Scaffold(
+              backgroundColor: AppColors.primary,
+              appBar: AppBar(title: Text(S.of(context).savedAddresses)),
+              body: SafeArea(
+                child: state.maybeWhen(
+                  loading: () {
+                    return const StateLoadingWidget();
+                  },
+                  success: (state) {
+                    return Padding(
+                      padding: const EdgeInsets.all(Dimensions.p16),
+                      child: Stack(
+                        children: [
+                          SingleChildScrollView(
+                            child: Column(
+                              children: [
+                                Gap(35.h),
+                                ListView.builder(
+                                  physics: const NeverScrollableScrollPhysics(),
+                                  scrollDirection: Axis.vertical,
+                                  shrinkWrap: true,
+                                  itemCount: state.length,
+                                  itemBuilder: (ctx, index) {
+                                    return Padding(
+                                      padding: const EdgeInsets.only(
+                                          bottom: Dimensions.p16),
+                                      child: SavedAddressItem(
+                                        address: state[index],
+                                      ),
+                                    );
+                                  },
+                                ),
+                                Gap(50.h),
+                              ],
                             ),
                           ),
-                        )
-                      ],
-                    ),
-                  );
-                },
-                error: (err) {
-                  return StateErrorWidget(
-                    errCode: AppConstants.unknownNumValue.toString(),
-                    err: err,
-                  );
-                },
-                orElse: () {
-                  return const SizedBox.shrink();
-                },
+                          Align(
+                            alignment: Alignment.bottomCenter,
+                            child: Container(
+                              color: Colors.white,
+                              child: CustomBtn(
+                                label: S.of(context).addNewAddress,
+                                onPressed: () async {
+                                  context.pushNamed(mapPageRoute);
+                                },
+                              ),
+                            ),
+                          )
+                        ],
+                      ),
+                    );
+                  },
+                  error: (err) {
+                    return StateErrorWidget(
+                      errCode: AppConstants.unknownNumValue.toString(),
+                      err: err,
+                    );
+                  },
+                  orElse: () {
+                    return const SizedBox.shrink();
+                  },
+                ),
               ),
             ),
           );

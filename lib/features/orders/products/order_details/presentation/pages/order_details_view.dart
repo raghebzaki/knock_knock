@@ -12,8 +12,7 @@ import 'package:knockknock/core/utils/extensions.dart';
 import '../../../my_products_orders/domain/entities/products_order_entity.dart';
 import '../../../../../../core/utils/app_colors.dart';
 import '../../../../../../generated/l10n.dart';
-import '../../../../../../core/router/router.dart';
-import '../../../../../../core/shared/arguments.dart';
+
 
 class OrderDetailsView extends StatefulWidget {
   final ProductsOrderEntity orderDetails;
@@ -66,22 +65,134 @@ class _OrderDetailsViewState extends State<OrderDetailsView> {
                             S.of(context).pendingAccessTo,
                             style: CustomTextStyle.kTextStyleF16,
                           ),
-                          TextButton(
-                            onPressed: () {
-                              context.pushNamed(
-                                trackOrderPageRoute,
-                                arguments: OrderDetailAedgs(
-                                  orderDetails: widget.orderDetails,
-                                ),
-                              );
+                          widget.orderDetails.status == 0
+                              ? GestureDetector(
+                            onTap: () {
+                              showModalBottomSheet(
+                                  context: context,
+                                  builder: (ctx) {
+                                    return Padding(
+                                      padding: const EdgeInsets
+                                          .symmetric(
+                                          horizontal:
+                                          Dimensions.p16,
+                                          vertical: Dimensions.p25),
+                                      child: Column(
+                                        mainAxisSize:
+                                        MainAxisSize.min,
+                                        crossAxisAlignment:
+                                        CrossAxisAlignment
+                                            .start,
+                                        children: [
+                                          Text(
+                                            S
+                                                .of(context)
+                                                .cancelAlert,
+                                            style: CustomTextStyle
+                                                .kTextStyleF16,
+                                          ),
+                                          Gap(24.h),
+                                          GestureDetector(
+                                            onTap: () {
+                                              // CancelOrderCubit.cancelOrder(
+                                              //   CancelProductOrderEntity(
+                                              //     orderId: widget
+                                              //         .orderDetails
+                                              //         .id,
+                                              //   ),
+                                              // );
+                                            },
+                                            child: Container(
+                                              padding:
+                                              const EdgeInsets
+                                                  .all(
+                                                  Dimensions
+                                                      .p20),
+                                              decoration:
+                                              BoxDecoration(
+                                                color: AppColors
+                                                    .statusRedContainer,
+                                                borderRadius:
+                                                BorderRadius
+                                                    .circular(
+                                                  Dimensions.r10,
+                                                ),
+                                              ),
+                                              child: Center(
+                                                child: Text(
+                                                  S.of(context).yes,
+                                                  style: CustomTextStyle
+                                                      .kTextStyleF16
+                                                      .copyWith(
+                                                    color: AppColors
+                                                        .statusRed,
+                                                  ),
+                                                ),
+                                              ),
+                                            ),
+                                          ),
+                                          Gap(10.h),
+                                          GestureDetector(
+                                            onTap: () {
+                                              context.pop();
+                                            },
+                                            child: Container(
+                                              padding:
+                                              const EdgeInsets
+                                                  .all(
+                                                  Dimensions
+                                                      .p20),
+                                              decoration:
+                                              BoxDecoration(
+                                                // color: AppColors.statusRedContainer,
+                                                borderRadius:
+                                                BorderRadius
+                                                    .circular(
+                                                    Dimensions
+                                                        .r10),
+                                              ),
+                                              child: Center(
+                                                child: Text(
+                                                  S
+                                                      .of(context)
+                                                      .close,
+                                                  style: CustomTextStyle
+                                                      .kTextStyleF16
+                                                      .copyWith(
+                                                    color: AppColors
+                                                        .textColorGrey,
+                                                  ),
+                                                ),
+                                              ),
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                    );
+                                  });
                             },
-                            child: Text(
-                              S.of(context).trackOrder,
-                              style: CustomTextStyle.kTextStyleF16.copyWith(
-                                color: AppColors.secondary,
+                            child: Container(
+                              padding: const EdgeInsets.symmetric(
+                                  vertical: Dimensions.p4,
+                                  horizontal: Dimensions.p8),
+                              decoration: BoxDecoration(
+                                  borderRadius:
+                                  BorderRadius.circular(
+                                      Dimensions.r25),
+                                  border: Border.all(
+                                    color: AppColors.errorColor,
+                                    width: 2,
+                                  )),
+                              child: Text(
+                                S.of(context).cancelOrder,
+                                style: CustomTextStyle.kTextStyleF14
+                                    .copyWith(
+                                  color: AppColors.errorColor,
+                                ),
                               ),
                             ),
-                          ),
+                          )
+                              : const SizedBox.shrink(),
                         ],
                       ),
                       Gap(10.h),

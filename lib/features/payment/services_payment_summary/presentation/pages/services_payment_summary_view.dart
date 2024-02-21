@@ -147,27 +147,9 @@ class _ServicesPaymentSummaryViewState
                         ],
                       ),
                       Gap(10.h),
-                      TextButton(
-                        onPressed: () {
-                          showDialog(
-                            context: context,
-                            builder: (ctx) {
-                              return AlertDialog.adaptive(
-                                title:
-                                    Text(S.of(context).preferredPaymentMethod),
-                                titleTextStyle: CustomTextStyle.kTextStyleF16,
-                                content: CustomFormField(
-                                  ctrl: voucherCtrl,
-                                  label: S.current.addVoucherCode,
-                                ),
-                              );
-                            },
-                          );
-                        },
-                        child: Text(
-                          S.of(context).addVoucherCode,
-                          style: CustomTextStyle.kTextStyleF16Black,
-                        ),
+                      Text(
+                        S.of(context).addVoucherCode,
+                        style: CustomTextStyle.kTextStyleF16Black,
                       ),
                       Gap(10.h),
                       Container(
@@ -195,6 +177,23 @@ class _ServicesPaymentSummaryViewState
                             SizedBox(
                               // width: context.width/3,
                               child: GestureDetector(
+                                onTap: (){
+                                    showDialog(
+                                      context: context,
+                                      builder: (ctx) {
+                                        return AlertDialog.adaptive(
+                                          title:
+                                          Text(S.of(context).preferredPaymentMethod),
+                                          titleTextStyle: CustomTextStyle.kTextStyleF16,
+                                          content: CustomFormField(
+                                            ctrl: voucherCtrl,
+                                            label: S.current.addVoucherCode,
+                                          ),
+                                        );
+                                      },
+                                    );
+
+                                },
                                 child: Container(
                                   padding: EdgeInsets.symmetric(
                                       horizontal: 16.sp, vertical: 2.sp),
@@ -289,7 +288,7 @@ class _ServicesPaymentSummaryViewState
                     if (state.status == 1) {
                       context.defaultSnackBar(
                           S.of(context).orderCreatedSuccessfully);
-                      context.pushNamed(myOrdersPageRoute);
+                      context.pushNamed(myServicesOrdersPageRoute);
                     }
                   }, orElse: () {
                     return null;

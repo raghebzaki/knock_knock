@@ -6,4 +6,6 @@ class MyServicesOrdersState with _$MyServicesOrdersState {
   const factory MyServicesOrdersState.loading() = Loading;
   const factory MyServicesOrdersState.success(final List<ServicesOrderEntity> myOrders) = Success;
   const factory MyServicesOrdersState.error(final String errCode, final String err) = Error;
+  const factory MyServicesOrdersState.paginationLoading() = PaginationLoading;
+  const factory MyServicesOrdersState.paginationError(final String? errCode, final String? err) = PaginationSuccess;
 }

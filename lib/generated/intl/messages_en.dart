@@ -169,6 +169,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "my_orders": MessageLookupByLibrary.simpleMessage("My Orders"),
         "newAddress": MessageLookupByLibrary.simpleMessage("New Address"),
         "next": MessageLookupByLibrary.simpleMessage("Next"),
+        "no": MessageLookupByLibrary.simpleMessage("No"),
         "noInternetConnection":
             MessageLookupByLibrary.simpleMessage("no internet connection"),
         "no_content":
@@ -195,6 +196,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Order preparation"),
         "orderSuccessfullyDelivered": MessageLookupByLibrary.simpleMessage(
             "Order successfully delivered"),
+        "orders": MessageLookupByLibrary.simpleMessage("orders"),
         "otpIsCorrect": MessageLookupByLibrary.simpleMessage("otp is correct"),
         "otpSentTo": MessageLookupByLibrary.simpleMessage("OTP sent to"),
         "pass": MessageLookupByLibrary.simpleMessage("Password"),

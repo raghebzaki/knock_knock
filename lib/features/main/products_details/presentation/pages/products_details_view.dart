@@ -4,7 +4,6 @@ import 'package:flutter_html/flutter_html.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gap/gap.dart';
 import 'package:get/get.dart';
-import 'package:intl/intl.dart';
 import 'package:knockknock/core/utils/extensions.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 
@@ -16,11 +15,8 @@ import '../../../../../core/shared/cubits/service_cart_cubit/service_cart_cubit.
 import '../../../../../core/shared/entities/product_entity.dart';
 import '../../../../../core/shared/widgets/custom_app_bar.dart';
 import '../../../../../core/shared/widgets/custom_button_small.dart';
-import '../../../../../core/shared/widgets/date_widget.dart';
-import '../../../../../core/shared/widgets/time_widget.dart';
 import '../../../../../core/utils/app_colors.dart';
 import '../../../../../core/utils/app_constants.dart';
-import '../../../../../core/utils/app_images.dart';
 import '../../../../../generated/l10n.dart';
 import '../../../../bottom_nav_bar.dart';
 
@@ -60,11 +56,12 @@ class _ProductsDetailsViewState extends State<ProductsDetailsView> {
                 child: Row(
                   children: [
                     ...List.generate(
-                        5,
+                        widget.productEntity.images!.length,
                             (index) => Row(
                           children: [
                             Image.network(
-                              "${AppImages.placeholder}70",
+                              AppConstants.imageUrl + widget.productEntity.images![index].image!,
+                              height: 70.h,
                               fit: BoxFit.cover,
                             ),
                             Gap(10.w),
@@ -93,6 +90,7 @@ class _ProductsDetailsViewState extends State<ProductsDetailsView> {
                     S.of(context).availability,
                     style: CustomTextStyle.kTextStyleF16Black,
                   ),
+                  Gap(5.w),
                   Text(
                     widget.productEntity.quantity!,
                     style: CustomTextStyle.kTextStyleF16BlackW300,
@@ -105,6 +103,7 @@ class _ProductsDetailsViewState extends State<ProductsDetailsView> {
                     S.of(context).sku,
                     style: CustomTextStyle.kTextStyleF16Black,
                   ),
+                  Gap(5.w),
                   Text(
                     widget.productEntity.code.toString(),
                     style: CustomTextStyle.kTextStyleF16BlackW300,
@@ -112,86 +111,6 @@ class _ProductsDetailsViewState extends State<ProductsDetailsView> {
                 ],
               ),
               const Divider(),
-              Row(
-                children: [
-                  Radio(
-                    value: 1,
-                    groupValue: selectedOption,
-                    onChanged: (value) {
-                      setState(() {
-                        selectedOption = value!;
-                      });
-                    },
-                    activeColor: Colors.black,
-                  ),
-                  Expanded(
-                    child: Text(
-                      S.of(context).selectDateAndTimeOfDelivery,
-                      style: CustomTextStyle.kTextStyleF16BlackW300,
-                    ),
-                  ),
-                ],
-              ),
-              const Divider(),
-              Text(
-                S.of(context).deliveryDate,
-                style: CustomTextStyle.kTextStyleF16Black,
-              ),
-              const Divider(),
-              SingleChildScrollView(
-                scrollDirection: Axis.horizontal,
-                child: Row(
-                  children: [
-                    ...List.generate(
-                        5,
-                            (index) => Row(
-                          children: [
-                            GestureDetector(
-                              onTap: () {
-                                setState(() {
-                                  date = index;
-                                });
-                              },
-                              child: DateWidget(
-                                  dayName: Intl.getCurrentLocale() == "ar"
-                                      ? "اليوم"
-                                      : "Today",
-                                  isSelected: index == date ? true : false),
-                            ),
-                            Gap(10.w),
-                          ],
-                        )),
-                  ],
-                ),
-              ),
-              Gap(10.h),
-              Text(
-                S.of(context).deliveryTime,
-                style: CustomTextStyle.kTextStyleF16Black,
-              ),
-              const Divider(),
-              SingleChildScrollView(
-                scrollDirection: Axis.horizontal,
-                child: Row(
-                  children: [
-                    ...List.generate(
-                        5,
-                            (index) => Row(
-                          children: [
-                            GestureDetector(
-                              onTap: () {
-                                setState(() {
-                                  time = index;
-                                });
-                              },
-                              child: const TimeWidget(),
-                            ),
-                            Gap(10.w),
-                          ],
-                        )),
-                  ],
-                ),
-              ),
               Gap(10.h),
               Row(
                 children: [

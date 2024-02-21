@@ -1,6 +1,7 @@
 // ignore_for_file: must_be_immutable
 
 import 'package:equatable/equatable.dart';
+import 'package:knockknock/core/shared/entities/products_images_entity.dart';
 
 class ProductEntity extends Equatable {
   final num? id;
@@ -16,7 +17,7 @@ class ProductEntity extends Equatable {
   final String? image;
   final String? quantity;
   late  num? userQuantity;
-  // final List<ProductsImagesEntity>? images;
+  final List<ProductsImagesEntity>? images;
   final String? status;
   final String? message;
 
@@ -28,6 +29,7 @@ class ProductEntity extends Equatable {
     this.code,
     this.priceAfterDiscount,
     this.image,
+    this.images,
     this.quantity,
     this.userQuantity = 1,
     this.id,
@@ -51,6 +53,7 @@ class ProductEntity extends Equatable {
         discountPercent,
         priceAfterDiscount,
         image,
+        images,
         quantity,
         userQuantity,
         status,

@@ -33,7 +33,7 @@ class _ServicesViewState extends State<ServicesView> {
       if (!isLoading) {
         isLoading = true;
         await BlocProvider.of<ServicesCubit>(context)
-            .getAllServices(nextPage);
+            .getAllServices(++nextPage);
         isLoading = false;
       }
     }

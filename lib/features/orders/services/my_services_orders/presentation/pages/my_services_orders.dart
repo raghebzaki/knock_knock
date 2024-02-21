@@ -2,10 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gap/gap.dart';
+import 'package:knockknock/core/utils/extensions.dart';
 import 'package:knockknock/features/orders/services/my_services_orders/presentation/manager/my_services_orders_cubit.dart';
 
 import '../../../../../../config/themes/app_text_styles.dart';
-import '../../../../../../core/dependency_injection/di.dart' as di;
+import '../../../../../../core/router/router.dart';
 import '../../../../../../core/shared/models/user_data_model.dart';
 import '../../../../../../core/shared/widgets/state_error_widget.dart';
 import '../../../../../../core/shared/widgets/state_loading_widget.dart';
@@ -23,7 +24,36 @@ class MyServicesOrdersView extends StatefulWidget {
 }
 
 class _MyServicesOrdersViewState extends State<MyServicesOrdersView> {
+  ScrollController scrollController = ScrollController();
+  int nextPage = 1;
+  bool isLoading = false;
 
+  void scrollListener() async {
+    var currentPositions = scrollController.position.pixels;
+    var maxScrollLength = scrollController.position.maxScrollExtent;
+    if (currentPositions >= 0.7 * maxScrollLength) {
+      if (!isLoading) {
+        isLoading = true;
+        await BlocProvider.of<MyServicesOrdersCubit>(context)
+            .getMyOrders(ServicesOrderEntity(status: 0,userId: UserData.id),++nextPage);
+        isLoading = false;
+      }
+    }
+  }
+
+  List<ServicesOrderEntity> ordersList = [];
+
+  @override
+  void initState() {
+    super.initState();
+    scrollController.addListener(scrollListener);
+  }
+
+  @override
+  void dispose() {
+    ordersList.clear();
+    super.dispose();
+  }
   int status = 0;
   List<String> statusList = [
     S.current.pending,
@@ -34,15 +64,29 @@ class _MyServicesOrdersViewState extends State<MyServicesOrdersView> {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) => di.di<MyServicesOrdersCubit>()..getMyOrders(ServicesOrderEntity(status: 0,userId: UserData.id)),
-      child: BlocConsumer<MyServicesOrdersCubit, MyServicesOrdersState>(
-        listener: (context, state) {},
-        builder: (context, state) {
-          MyServicesOrdersCubit ordersCubit = MyServicesOrdersCubit.get(context);
-          return Scaffold(
+    return BlocConsumer<MyServicesOrdersCubit, MyServicesOrdersState>(
+      listener: (context, state) {
+        state.maybeWhen(
+          success: (state) {
+            ordersList.addAll(state);
+          },
+          orElse: () {
+            return null;
+          },
+        );
+      },
+      builder: (context, state) {
+        MyServicesOrdersCubit ordersCubit = MyServicesOrdersCubit.get(context);
+        return PopScope(
+          canPop: false,
+          onPopInvoked: (bool didPop) async {
+            if (didPop) return;
+            context.pushNamed(bottomNavBarPageRoute);
+          },
+          child: Scaffold(
             backgroundColor: AppColors.primary,
             appBar: AppBar(
+              backgroundColor: AppColors.primary,
               title: Text(S.of(context).my_orders),
             ),
             body: SafeArea(
@@ -63,12 +107,13 @@ class _MyServicesOrdersViewState extends State<MyServicesOrdersView> {
                               setState(() {
                                 status = 0;
                               });
+                              ordersList.clear();
+                              nextPage=1;
                               ordersCubit.getMyOrders(
                                 ServicesOrderEntity(
                                   userId: UserData.id,
                                   status: status,
-
-                                ) ,
+                                ) ,nextPage
                               );
                             },
                             child: Container(
@@ -105,12 +150,14 @@ class _MyServicesOrdersViewState extends State<MyServicesOrdersView> {
                               setState(() {
                                 status = 1;
                               });
+                              ordersList.clear();
+                              nextPage=1;
                               ordersCubit.getMyOrders(
                                 ServicesOrderEntity(
                                   userId: UserData.id,
                                   status: status,
 
-                                ),
+                                ),nextPage
                               );
                             },
                             child: Container(
@@ -148,11 +195,13 @@ class _MyServicesOrdersViewState extends State<MyServicesOrdersView> {
                               setState(() {
                                 status = 2;
                               });
+                              ordersList.clear();
+                              nextPage=1;
                               ordersCubit.getMyOrders(
                                 ServicesOrderEntity(
                                   userId: UserData.id,
                                   status: status,
-                                ),
+                                ),nextPage
                               );
                             },
                             child: Container(
@@ -189,11 +238,13 @@ class _MyServicesOrdersViewState extends State<MyServicesOrdersView> {
                               setState(() {
                                 status = 3;
                               });
+                              ordersList.clear();
+                              nextPage=1;
                               ordersCubit.getMyOrders(
                                 ServicesOrderEntity(
                                   userId: UserData.id,
                                   status: status,
-                                ),
+                                ),nextPage
                               );
                             },
                             child: Container(
@@ -231,25 +282,64 @@ class _MyServicesOrdersViewState extends State<MyServicesOrdersView> {
                   Gap(20.h),
                   state.maybeWhen(
                     loading: (){
-                      return const StateLoadingWidget();
+                      return const Expanded(child: StateLoadingWidget());
                     },
                     success: (state){
-                      return Expanded(
+                      return ordersList.isNotEmpty?Expanded(
                         child: ListView.builder(
+                          controller: scrollController,
                           scrollDirection: Axis.vertical,
                           shrinkWrap: true,
                           physics: const BouncingScrollPhysics(),
-                          itemCount: state.length,
+                          itemCount: ordersList.length,
                           itemBuilder: (ctx, index) {
                             return  Container(
                                 margin:
                                 const EdgeInsets.symmetric(vertical: Dimensions.p8,horizontal: Dimensions.p16),
                                 child:  OrderContainer(
-                                  orderEntity:state[index],
+                                  orderEntity:ordersList[index],
                                 ));
                           },
                         ),
-                      );
+                      ):Expanded(child: Center(child: Text("${S.of(context).no} ${statusList[status]} ${S.of(context).orders}",style: CustomTextStyle.kTextStyleF20,),));
+                    },
+                    paginationLoading: (){
+                      return ordersList.isNotEmpty?Expanded(
+                        child: ListView.builder(
+                          controller: scrollController,
+                          scrollDirection: Axis.vertical,
+                          shrinkWrap: true,
+                          physics: const BouncingScrollPhysics(),
+                          itemCount: ordersList.length,
+                          itemBuilder: (ctx, index) {
+                            return  Container(
+                                margin:
+                                const EdgeInsets.symmetric(vertical: Dimensions.p8,horizontal: Dimensions.p16),
+                                child:  OrderContainer(
+                                  orderEntity:ordersList[index],
+                                ));
+                          },
+                        ),
+                      ):Expanded(child: Center(child: Text("${S.of(context).no} ${statusList[status]} ${S.of(context).orders}",style: CustomTextStyle.kTextStyleF20,),));
+                    },
+                    paginationError: (err,errCode){
+                      return ordersList.isNotEmpty?Expanded(
+                        child: ListView.builder(
+                          controller: scrollController,
+                          scrollDirection: Axis.vertical,
+                          shrinkWrap: true,
+                          physics: const BouncingScrollPhysics(),
+                          itemCount: ordersList.length,
+                          itemBuilder: (ctx, index) {
+                            return  Container(
+                                margin:
+                                const EdgeInsets.symmetric(vertical: Dimensions.p8,horizontal: Dimensions.p16),
+                                child:  OrderContainer(
+                                  orderEntity:ordersList[index],
+                                ));
+                          },
+                        ),
+                      ):Expanded(child: Center(child: Text("${S.of(context).no} ${statusList[status]} ${S.of(context).orders}",style: CustomTextStyle.kTextStyleF20,),));
                     },
                     error: (err,errCode) {
                       return StateErrorWidget(
@@ -257,16 +347,16 @@ class _MyServicesOrdersViewState extends State<MyServicesOrdersView> {
                         err: err,
                       );
                     },
-                      orElse: (){
+                    orElse: (){
                         return const SizedBox.shrink();
                       },
                   ),
                 ],
               ),
             ),
-          );
-        },
-      ),
+          ),
+        );
+      },
     );
   }
 
