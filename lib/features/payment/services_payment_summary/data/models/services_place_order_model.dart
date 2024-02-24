@@ -15,6 +15,11 @@ class ServicesPlaceOrderModel extends ServicesPlaceOrderEntity {
     super.selectedDayId,
     super.selectedTime,
     super.paymentMethod,
+    super.serviceCouponId,
+    super.discountPercentage,
+    super.discountAmount,
+    super.priceAfterDiscount,
+    super.grantTotal,
     super.status,
     super.msg,
   });
@@ -41,6 +46,11 @@ class ServicesPlaceOrderModel extends ServicesPlaceOrderEntity {
       "selected_day_id": placeOrderEntity.selectedDayId,
       "selected_time": placeOrderEntity.selectedTime,
       'payment_method': placeOrderEntity.paymentMethod,
+      'service_coupon_id': placeOrderEntity.serviceCouponId,
+      'discount_percentage': placeOrderEntity.discountPercentage,
+      "discount_amount": placeOrderEntity.discountAmount,
+      "price_after_discount": placeOrderEntity.priceAfterDiscount,
+      'grant_total': placeOrderEntity.grantTotal,
     };
   }
 }

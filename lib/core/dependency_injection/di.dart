@@ -88,10 +88,15 @@ import '../../features/orders/services/order_details/data/data_sources/cancel_or
 import '../../features/orders/services/order_details/data/repositories/cancel_order_repo_impl.dart';
 import '../../features/orders/services/order_details/domain/repositories/cancel_order_repo.dart';
 import '../../features/orders/services/order_details/domain/use_cases/cancel_order_usecase.dart';
+import '../../features/payment/services_payment_summary/data/data_sources/services_coupon_service.dart';
 import '../../features/payment/services_payment_summary/data/data_sources/services_place_order_service.dart';
+import '../../features/payment/services_payment_summary/data/repositories/services_coupon_repo_impl.dart';
 import '../../features/payment/services_payment_summary/data/repositories/services_place_order_repo_impl.dart';
+import '../../features/payment/services_payment_summary/domain/repositories/services_coupon_repo.dart';
 import '../../features/payment/services_payment_summary/domain/repositories/services_place_order_repo.dart';
+import '../../features/payment/services_payment_summary/domain/use_cases/services_coupon_use_case.dart';
 import '../../features/payment/services_payment_summary/domain/use_cases/services_place_order_use_case.dart';
+import '../../features/payment/services_payment_summary/presentation/manager/services_coupon_cubit.dart';
 import '../../features/profile/contact_us/data/data_sources/contact_us_service.dart';
 import '../../features/profile/contact_us/data/repositories/contact_us_repo_impl.dart';
 import '../../features/profile/contact_us/domain/repositories/contact_us_repo.dart';
@@ -230,6 +235,11 @@ Future<void> init() async {
   di.registerLazySingleton(() => ServicesPlaceOrderUseCase(placeOrderRepo: di()));
   di.registerLazySingleton<ServicesPlaceOrderRepo>(() => ServicesPlaceOrderRepoImpl(placeOrderService: di(),));
   di.registerLazySingleton<ServicesPlaceOrderService>(() => ServicesPlaceOrderServiceImpl());
+  /// apply coupon
+  di.registerFactory(() => ServicesCouponCubit(couponUseCase: di()));
+  di.registerLazySingleton(() => ServicesCouponUseCase( couponRepo: di()));
+  di.registerLazySingleton<ServicesCouponRepo>(() => ServicesCouponRepoImpl(couponService: di(),));
+  di.registerLazySingleton<ServicesCouponService>(() => ServicesCouponServiceImpl());
   /// external
   final sharedPrefs = await SharedPreferences.getInstance();
   di.registerLazySingleton(() => sharedPrefs);

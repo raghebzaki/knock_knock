@@ -18,7 +18,7 @@ class AppConstants {
   static const subFontFamily = "Abhaya Libre";
   static const unknownStringValue = "UNKNOWN STRING VALUE";
   static const unknownNumValue = 2077;
-  static const deliveryFee = 20;
+  static const deliveryFee = 25;
   static  int addressIndex = 0;
 
   //! API headers
@@ -53,6 +53,7 @@ class AppConstants {
   static const productsCategoryUri = "v1/categories/get-product-categories";
   static const getServicesMyOrdersUri = "v1/service_orders/my-orders";
   static const cancelServicesOrdersUri = "v1/service_orders/cancel-orders";
+  static const servicesCouponUri = "v1/service_orders/apply-coupon";
   static const getProductsMyOrdersUri = "";
   static const cancelProductOrdersUri = "";
   static const getMyOrdersUri = "";

@@ -350,7 +350,7 @@ class _ServicesOrderDetailsViewState extends State<ServicesOrderDetailsView> {
                                   style: CustomTextStyle.kTextStyleF14,
                                 ),
                                 Text(
-                                    "${int.parse(widget.orderDetails.totalPrice!) + AppConstants.deliveryFee} ${S.current.Aed}",
+                                    "${widget.orderDetails.totalPrice!} ${S.current.Aed}",
                                     style: CustomTextStyle.kTextStyleF14),
                               ],
                             ),

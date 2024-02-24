@@ -46,6 +46,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "amount": MessageLookupByLibrary.simpleMessage("Amount"),
         "anySpecificInstructions":
             MessageLookupByLibrary.simpleMessage("Any Specific instructions?"),
+        "apply": MessageLookupByLibrary.simpleMessage("apply"),
         "availability": MessageLookupByLibrary.simpleMessage("Availability:"),
         "availableCredits":
             MessageLookupByLibrary.simpleMessage("Available Credits"),
@@ -318,6 +319,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "verify": MessageLookupByLibrary.simpleMessage("verify"),
         "verifyAccount": MessageLookupByLibrary.simpleMessage("Verify Account"),
         "voucherCode": MessageLookupByLibrary.simpleMessage("Voucher Code"),
+        "voucherDiscount":
+            MessageLookupByLibrary.simpleMessage("voucher discount"),
         "whatDateWouldYouLikeUsToStart": MessageLookupByLibrary.simpleMessage(
             "What Date would you like us to start?"),
         "whatTimeWouldYouLikeUsToStart": MessageLookupByLibrary.simpleMessage(

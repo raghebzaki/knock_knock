@@ -43,7 +43,7 @@ class ServicesOrderModel extends ServicesOrderEntity {
       id: json["id"],
       status: json["status"],
       orderNumber: json["order_number"],
-      totalPrice: json["total_amount"],
+      totalPrice: json["grand_total"],
       price: json["amount"],
       userName: json["name"],
       phone: json["phone"],

@@ -16,6 +16,11 @@ class ServicesPlaceOrderEntity extends Equatable {
   final num? selectedDayId;
   final String? selectedTime;
   final String? paymentMethod;
+  final num? serviceCouponId;
+  final num? discountPercentage;
+  final num? discountAmount;
+  final num? priceAfterDiscount;
+  final num? grantTotal;
   final num? status;
   final String? msg;
   final ServicesEntity? servicesEntity;
@@ -34,6 +39,11 @@ class ServicesPlaceOrderEntity extends Equatable {
     this.selectedDayId,
     this.selectedTime,
     this.paymentMethod,
+    this.serviceCouponId,
+    this.discountPercentage,
+    this.discountAmount,
+    this.priceAfterDiscount,
+    this.grantTotal,
     this.status,
     this.msg,
     this.servicesEntity,

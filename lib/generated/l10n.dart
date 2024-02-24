@@ -2109,6 +2109,26 @@ class S {
       args: [],
     );
   }
+
+  /// `apply`
+  String get apply {
+    return Intl.message(
+      'apply',
+      name: 'apply',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `voucher discount`
+  String get voucherDiscount {
+    return Intl.message(
+      'voucher discount',
+      name: 'voucherDiscount',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

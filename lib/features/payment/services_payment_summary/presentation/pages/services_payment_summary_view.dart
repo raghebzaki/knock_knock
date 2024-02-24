@@ -5,6 +5,8 @@ import 'package:gap/gap.dart';
 import 'package:get/get.dart';
 import 'package:knockknock/core/router/router.dart';
 import 'package:knockknock/core/utils/extensions.dart';
+import 'package:knockknock/features/payment/services_payment_summary/domain/entities/coupon_entity.dart';
+import 'package:knockknock/features/payment/services_payment_summary/presentation/manager/services_coupon_cubit.dart';
 import 'package:knockknock/features/payment/services_payment_summary/presentation/manager/services_place_order_cubit.dart';
 
 import '../../../../../../config/themes/app_text_styles.dart';
@@ -36,13 +38,20 @@ class _ServicesPaymentSummaryViewState
     extends State<ServicesPaymentSummaryView> {
   String paymentMethod = "cash";
   TextEditingController voucherCtrl = TextEditingController();
-
+  ServicesCouponEntity servicesCouponEntity=const ServicesCouponEntity();
   @override
   Widget build(BuildContext context) {
     var totalPrice = context.watch<ServiceCartCubit>().cartServices;
 
-    return BlocProvider(
-      create: (context) => di.di<ServicesPlaceOrderCubit>(),
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(
+          create: (context) => di.di<ServicesPlaceOrderCubit>(),
+        ),
+        BlocProvider(
+          create: (context) => di.di<ServicesCouponCubit>(),
+        ),
+      ],
       child: Scaffold(
         backgroundColor: AppColors.primary,
         appBar: AppBar(
@@ -152,130 +161,386 @@ class _ServicesPaymentSummaryViewState
                         style: CustomTextStyle.kTextStyleF16Black,
                       ),
                       Gap(10.h),
-                      Container(
-                        width: context.width,
-                        padding: EdgeInsets.all(Dimensions.p20.sp),
-                        decoration: BoxDecoration(
-                          border: Border.all(
-                            color: AppColors.secondary,
-                          ),
-                          color: AppColors.primary,
-                          borderRadius: BorderRadius.all(
-                            Radius.circular(
-                              Dimensions.r12.sp,
-                            ),
-                          ),
-                        ),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              S.of(context).voucherCode,
-                              style: CustomTextStyle.kTextStyleF16BlackW300,
-                            ),
-                            Gap(15.h),
-                            SizedBox(
-                              // width: context.width/3,
-                              child: GestureDetector(
-                                onTap: (){
-                                    showDialog(
-                                      context: context,
-                                      builder: (ctx) {
-                                        return AlertDialog.adaptive(
-                                          title:
-                                          Text(S.of(context).preferredPaymentMethod),
-                                          titleTextStyle: CustomTextStyle.kTextStyleF16,
-                                          content: CustomFormField(
-                                            ctrl: voucherCtrl,
-                                            label: S.current.addVoucherCode,
-                                          ),
-                                        );
-                                      },
-                                    );
-
-                                },
-                                child: Container(
-                                  padding: EdgeInsets.symmetric(
-                                      horizontal: 16.sp, vertical: 2.sp),
-                                  decoration: BoxDecoration(
+                      BlocConsumer<ServicesCouponCubit, ServicesCouponState>(
+                        listener: (context, state) {
+                          state.maybeWhen(
+                            success: (state) {
+                              context.pop();
+                              context.defaultSnackBar(state.msg!);
+                            },
+                            orElse: () {},
+                          );
+                        },
+                        builder: (context, state) {
+                          ServicesCouponCubit servicesCouponCubit =
+                              ServicesCouponCubit.get(context);
+                          return Column(
+                            children: [
+                              Container(
+                                width: context.width,
+                                padding: EdgeInsets.all(Dimensions.p20.sp),
+                                decoration: BoxDecoration(
+                                  border: Border.all(
                                     color: AppColors.secondary,
-                                    borderRadius: BorderRadius.circular(
-                                      12,
+                                  ),
+                                  color: AppColors.primary,
+                                  borderRadius: BorderRadius.all(
+                                    Radius.circular(
+                                      Dimensions.r12.sp,
                                     ),
                                   ),
-                                  child: Text(
-                                    S.of(context).add,
-                                    style: CustomTextStyle.kTextStyleF16White,
-                                  ),
+                                ),
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Text(
+                                      S.of(context).voucherCode,
+                                      style: CustomTextStyle
+                                          .kTextStyleF16BlackW300,
+                                    ),
+                                    Gap(15.h),
+                                    SizedBox(
+                                      child: GestureDetector(
+                                        onTap: () {
+                                          showDialog(
+                                            context: context,
+                                            builder: (ctx) {
+                                              return AlertDialog.adaptive(
+                                                title: Text(S
+                                                    .of(context)
+                                                    .preferredPaymentMethod),
+                                                titleTextStyle: CustomTextStyle
+                                                    .kTextStyleF16,
+                                                content: Column(
+                                                  mainAxisSize:
+                                                      MainAxisSize.min,
+                                                  children: [
+                                                    CustomFormField(
+                                                      ctrl: voucherCtrl,
+                                                      label: S.current
+                                                          .addVoucherCode,
+                                                    ),
+                                                    GestureDetector(
+                                                      onTap: () {
+                                                        servicesCouponCubit.applyCoupon(
+                                                            ServicesCouponEntity(
+                                                                serviceId: widget
+                                                                    .servicesPlaceOrderEntity[
+                                                                        0]
+                                                                    .serviceId,
+                                                                couponName:
+                                                                    voucherCtrl
+                                                                        .text));
+                                                      },
+                                                      child: Container(
+                                                        padding: EdgeInsets
+                                                            .symmetric(
+                                                                horizontal:
+                                                                    16.sp,
+                                                                vertical: 2.sp),
+                                                        decoration:
+                                                            BoxDecoration(
+                                                          color: AppColors
+                                                              .secondary,
+                                                          borderRadius:
+                                                              BorderRadius
+                                                                  .circular(
+                                                            12,
+                                                          ),
+                                                        ),
+                                                        child: Text(
+                                                          S.of(context).apply,
+                                                          style: CustomTextStyle
+                                                              .kTextStyleF16White,
+                                                        ),
+                                                      ),
+                                                    ),
+                                                  ],
+                                                ),
+                                              );
+                                            },
+                                          );
+                                        },
+                                        child: Container(
+                                          padding: EdgeInsets.symmetric(
+                                              horizontal: 16.sp,
+                                              vertical: 2.sp),
+                                          decoration: BoxDecoration(
+                                            color: AppColors.secondary,
+                                            borderRadius: BorderRadius.circular(
+                                              12,
+                                            ),
+                                          ),
+                                          child: Text(
+                                            S.of(context).add,
+                                            style: CustomTextStyle
+                                                .kTextStyleF16White,
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                  ],
                                 ),
                               ),
-                            )
-                          ],
-                        ),
-                      ),
-                      const Gap(20),
-                      Container(
-                        width: context.width,
-                        padding: EdgeInsets.all(20.sp),
-                        decoration: BoxDecoration(
-                            color: AppColors.bg,
-                            borderRadius:
-                                BorderRadius.all(Radius.circular(12.sp))),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              S.of(context).paymentSummary,
-                              style: CustomTextStyle.kTextStyleF16Black,
-                            ),
-                            Gap(15.h),
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Text(S.current.subTotal,
-                                    style:
-                                        CustomTextStyle.kTextStyleF16BlackW300),
-                                const Spacer(),
-                                Text(
-                                    "${totalPrice.map((e) => int.parse(e.servicesEntity!.price!)).reduce((value, element) => value + element)} ${S.current.Aed}",
-                                    style:
-                                        CustomTextStyle.kTextStyleF16BlackW300),
-                              ],
-                            ),
-                            Gap(15.h),
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Text(S.current.deliveryFee,
-                                    style:
-                                        CustomTextStyle.kTextStyleF16BlackW300),
-                                const Spacer(),
-                                Text(
-                                    '${AppConstants.deliveryFee} ${S.current.Aed}',
-                                    style:
-                                        CustomTextStyle.kTextStyleF16BlackW300),
-                              ],
-                            ),
-                            Gap(15.h),
-                            Row(
-                              mainAxisSize: MainAxisSize.min,
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              children: [
-                                Text(
-                                  S.current.total,
-                                  style: CustomTextStyle.kTextStyleF16BlackW300
-                                      .copyWith(color: AppColors.textColor),
-                                ),
-                                const Spacer(),
-                                Text(
-                                    "${totalPrice.map((e) => int.parse(e.servicesEntity!.price!)).reduce((value, element) => value + element) + AppConstants.deliveryFee} ${S.current.Aed}",
-                                    style:
-                                        CustomTextStyle.kTextStyleF16BlackW300),
-                              ],
-                            ),
-                          ],
-                        ),
+                              const Gap(20),
+                              state.maybeWhen(
+                                initial: () {
+                                  return Container(
+                                    width: context.width,
+                                    padding: EdgeInsets.all(20.sp),
+                                    decoration: BoxDecoration(
+                                        color: AppColors.bg,
+                                        borderRadius: BorderRadius.all(
+                                            Radius.circular(12.sp))),
+                                    child: Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        Text(
+                                          S.of(context).paymentSummary,
+                                          style: CustomTextStyle
+                                              .kTextStyleF16Black,
+                                        ),
+                                        Gap(15.h),
+                                        Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.spaceBetween,
+                                          children: [
+                                            Text(S.current.subTotal,
+                                                style: CustomTextStyle
+                                                    .kTextStyleF16BlackW300),
+                                            const Spacer(),
+                                            Text(
+                                                "${totalPrice.map((e) => int.parse(e.servicesEntity!.price!)).reduce((value, element) => value + element)} ${S.current.Aed}",
+                                                style: CustomTextStyle
+                                                    .kTextStyleF16BlackW300),
+                                          ],
+                                        ),
+                                        Gap(15.h),
+                                        Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.spaceBetween,
+                                          children: [
+                                            Text(S.current.deliveryFee,
+                                                style: CustomTextStyle
+                                                    .kTextStyleF16BlackW300),
+                                            const Spacer(),
+                                            Text(
+                                                '${AppConstants.deliveryFee} ${S.current.Aed}',
+                                                style: CustomTextStyle
+                                                    .kTextStyleF16BlackW300),
+                                          ],
+                                        ),
+                                        Gap(15.h),
+                                        Row(
+                                          mainAxisSize: MainAxisSize.min,
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.spaceBetween,
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.center,
+                                          children: [
+                                            Text(
+                                              S.current.total,
+                                              style: CustomTextStyle
+                                                  .kTextStyleF16BlackW300
+                                                  .copyWith(
+                                                      color:
+                                                          AppColors.textColor),
+                                            ),
+                                            const Spacer(),
+                                            Text(
+                                                "${totalPrice.map((e) => int.parse(e.servicesEntity!.price!)).reduce((value, element) => value + element) + AppConstants.deliveryFee} ${S.current.Aed}",
+                                                style: CustomTextStyle
+                                                    .kTextStyleF16BlackW300),
+                                          ],
+                                        ),
+                                      ],
+                                    ),
+                                  );
+                                },
+                                loading: () {
+                                  return Container(
+                                    width: context.width,
+                                    padding: EdgeInsets.all(20.sp),
+                                    decoration: BoxDecoration(
+                                        color: AppColors.bg,
+                                        borderRadius: BorderRadius.all(
+                                            Radius.circular(12.sp))),
+                                    child: Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        Text(
+                                          S.of(context).paymentSummary,
+                                          style: CustomTextStyle
+                                              .kTextStyleF16Black,
+                                        ),
+                                        Gap(15.h),
+                                        Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.spaceBetween,
+                                          children: [
+                                            Text(S.current.subTotal,
+                                                style: CustomTextStyle
+                                                    .kTextStyleF16BlackW300),
+                                            const Spacer(),
+                                            Text(
+                                                "${totalPrice.map((e) => int.parse(e.servicesEntity!.price!)).reduce((value, element) => value + element)} ${S.current.Aed}",
+                                                style: CustomTextStyle
+                                                    .kTextStyleF16BlackW300),
+                                          ],
+                                        ),
+                                        Gap(15.h),
+                                        Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.spaceBetween,
+                                          children: [
+                                            Text(S.current.deliveryFee,
+                                                style: CustomTextStyle
+                                                    .kTextStyleF16BlackW300),
+                                            const Spacer(),
+                                            Text(
+                                                '${AppConstants.deliveryFee} ${S.current.Aed}',
+                                                style: CustomTextStyle
+                                                    .kTextStyleF16BlackW300),
+                                          ],
+                                        ),
+                                        Gap(15.h),
+                                        Row(
+                                          mainAxisSize: MainAxisSize.min,
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.spaceBetween,
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.center,
+                                          children: [
+                                            Text(
+                                              S.current.total,
+                                              style: CustomTextStyle
+                                                  .kTextStyleF16BlackW300
+                                                  .copyWith(
+                                                      color:
+                                                          AppColors.textColor),
+                                            ),
+                                            const Spacer(),
+                                            Text(
+                                                "${totalPrice.map((e) => int.parse(e.servicesEntity!.price!)).reduce((value, element) => value + element) + AppConstants.deliveryFee} ${S.current.Aed}",
+                                                style: CustomTextStyle
+                                                    .kTextStyleF16BlackW300),
+                                          ],
+                                        ),
+                                      ],
+                                    ),
+                                  );
+                                },
+                                success: (state) {
+                                  servicesCouponEntity=state;
+                                  return Container(
+                                    width: context.width,
+                                    padding: EdgeInsets.all(20.sp),
+                                    decoration: BoxDecoration(
+                                        color: AppColors.bg,
+                                        borderRadius: BorderRadius.all(
+                                            Radius.circular(12.sp))),
+                                    child: Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        Text(
+                                          S.of(context).paymentSummary,
+                                          style: CustomTextStyle
+                                              .kTextStyleF16Black,
+                                        ),
+                                        Gap(15.h),
+                                        Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.spaceBetween,
+                                          children: [
+                                            Text(S.current.subTotal,
+                                                style: CustomTextStyle
+                                                    .kTextStyleF16BlackW300),
+                                            const Spacer(),
+                                            Text(
+                                                "${totalPrice.map((e) => int.parse(e.servicesEntity!.price!)).reduce((value, element) => value + element)} ${S.current.Aed}",
+                                                style: CustomTextStyle
+                                                    .kTextStyleF16BlackW300),
+                                          ],
+                                        ),
+                                        Gap(15.h),
+                                        Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.spaceBetween,
+                                          children: [
+                                            Text(S.current.deliveryFee,
+                                                style: CustomTextStyle
+                                                    .kTextStyleF16BlackW300),
+                                            const Spacer(),
+                                            Text(
+                                                '${AppConstants.deliveryFee} ${S.current.Aed}',
+                                                style: CustomTextStyle
+                                                    .kTextStyleF16BlackW300),
+                                          ],
+                                        ),
+                                        state.status == 1
+                                            ? Gap(15.h)
+                                            : const SizedBox.shrink(),
+                                        state.status == 1
+                                            ? Row(
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment
+                                                        .spaceBetween,
+                                                children: [
+                                                  Text(
+                                                      S
+                                                          .of(context)
+                                                          .voucherDiscount,
+                                                      style: CustomTextStyle
+                                                          .kTextStyleF16BlackW300),
+                                                  const Spacer(),
+                                                  Text(
+                                                      '-${state.information!.discountAmount} ${S.current.Aed}',
+                                                      style: CustomTextStyle
+                                                          .kTextStyleF16BlackW300),
+                                                ],
+                                              )
+                                            : const SizedBox.shrink(),
+                                        Gap(15.h),
+                                        Row(
+                                          mainAxisSize: MainAxisSize.min,
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.spaceBetween,
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.center,
+                                          children: [
+                                            Text(
+                                              S.current.total,
+                                              style: CustomTextStyle
+                                                  .kTextStyleF16BlackW300
+                                                  .copyWith(
+                                                      color:
+                                                          AppColors.textColor),
+                                            ),
+                                            const Spacer(),
+                                            state.status == 1
+                                                ? Text(
+                                                    "${state.information!.grantTotal} ${S.current.Aed}",
+                                                    style: CustomTextStyle.kTextStyleF16BlackW300)
+                                                : Text(
+                                                    "${totalPrice.map((e) => int.parse(e.servicesEntity!.price!)).reduce((value, element) => value + element) + AppConstants.deliveryFee} ${S.current.Aed}",
+                                                    style: CustomTextStyle
+                                                        .kTextStyleF16BlackW300),
+                                          ],
+                                        ),
+                                      ],
+                                    ),
+                                  );
+                                },
+                                orElse: () {
+                                  return const SizedBox.shrink();
+                                },
+                              ),
+                            ],
+                          );
+                        },
                       ),
                       Gap(100.h),
                     ],
@@ -305,7 +570,26 @@ class _ServicesPaymentSummaryViewState
                         label: S.of(context).confirmPayment,
                         onPressed: () async {
                           servicesPlaceOrderCubit
-                              .placeOrder(widget.servicesPlaceOrderEntity[0]);
+                              .placeOrder(ServicesPlaceOrderEntity(
+                            serviceId: widget.servicesPlaceOrderEntity[0].serviceId,
+                            userId: widget.servicesPlaceOrderEntity[0].userId,
+                            selectedDayId: widget.servicesPlaceOrderEntity[0].selectedDayId,
+                            selectedTime: widget.servicesPlaceOrderEntity[0].selectedTime,
+                            paymentMethod: widget.servicesPlaceOrderEntity[0].paymentMethod,
+                            note: widget.servicesPlaceOrderEntity[0].note,
+                            address: widget.servicesPlaceOrderEntity[0].address,
+                            buildingNo: widget.servicesPlaceOrderEntity[0].buildingNo,
+                            flatNo: widget.servicesPlaceOrderEntity[0].flatNo,
+                            city: widget.servicesPlaceOrderEntity[0].city,
+                            state: widget.servicesPlaceOrderEntity[0].state,
+                            longitude: widget.servicesPlaceOrderEntity[0].longitude,
+                            latitude: widget.servicesPlaceOrderEntity[0].latitude,
+                            serviceCouponId: servicesCouponEntity.information!.serviceCouponId,
+                            discountPercentage:servicesCouponEntity.information!.discountPercentage,
+                            discountAmount: servicesCouponEntity.information!.discountAmount,
+                            priceAfterDiscount: servicesCouponEntity.information!.priceAfterDiscount,
+                            grantTotal: servicesCouponEntity.information!.grantTotal,
+                          ));
                         },
                       ),
                     ),

@@ -271,6 +271,7 @@
   "booking": "Booking",
   "credits": "Credits",
   "noInternetConnection": "no internet connection",
-  "orderCreatedSuccessfully": "Order created successfully"
-
+  "orderCreatedSuccessfully": "Order created successfully",
+  "apply": "apply",
+  "voucherDiscount": "voucher discount"
 }

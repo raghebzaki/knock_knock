@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gap/gap.dart';
 import 'package:knockknock/core/shared/arguments.dart';
-import 'package:knockknock/core/utils/app_constants.dart';
 
 
 import '../../../../../../config/themes/app_text_styles.dart';
@@ -88,7 +87,7 @@ class OrderContainer extends StatelessWidget {
                       ),
                     ),
                     Text(
-                      "${int.parse(orderEntity!.totalPrice!)+AppConstants.deliveryFee} ${S.current.Aed}",
+                      "${orderEntity!.totalPrice} ${S.current.Aed}",
                       style: CustomTextStyle.kTextStyleF12,
                     ),
                   ],
