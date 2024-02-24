@@ -5,6 +5,7 @@ import 'core/dependency_injection/di.dart' as di;
 import 'core/helpers/cache_helper.dart';
 import 'core/resources/api/data_sources.dart';
 import 'core/router/router.dart';
+import 'core/service/delivery_cost.dart';
 import 'core/shared/arguments.dart';
 import 'core/shared/cubits/internet_checker_cubit.dart';
 import 'core/shared/widgets/state_error_widget.dart';
@@ -74,7 +75,7 @@ class _MainViewState extends State<MainView> {
                       if (context.mounted) {
                         context.pushNamed(bottomNavBarPageRoute);
                       }
-                   
+                    DeliveryCostService.deleteUserAccount();
                     // UpdateFcmTokenService.updateUserToken(UserData.id!);
                   } else if (state.status == 0) {
                     if (state.msg ==

@@ -21,7 +21,6 @@ class OrderContainer extends StatelessWidget {
     this.orderEntity,
   });
 
-
   @override
   Widget build(BuildContext context) {
     List<String> statusList = [

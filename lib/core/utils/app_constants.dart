@@ -18,7 +18,7 @@ class AppConstants {
   static const subFontFamily = "Abhaya Libre";
   static const unknownStringValue = "UNKNOWN STRING VALUE";
   static const unknownNumValue = 2077;
-  static const deliveryFee = 25;
+  static num deliveryFee = 0;
   static  int addressIndex = 0;
 
   //! API headers
@@ -42,15 +42,11 @@ class AppConstants {
   ///main
   static const productsUri = "v1/products/get-products-by-category";
   static const servicesUri = "v1/services/get-all";
-  static const favoriteProductsUri = "";
-  static const addFavoriteProductsUri = "";
-  static const checkIfFavoriteProductsUri = "";
-  static const categoryDetailsUri = "";
-  static const servicesPlaceOrderUri = "v1/service_orders/save";
   static const placeOrderUri = "";
   static const addPromoCodeUri = "";
   static const carouselUri = "v1/sliders";
   static const productsCategoryUri = "v1/categories/get-product-categories";
+  static const servicesPlaceOrderUri = "v1/service_orders/save";
   static const getServicesMyOrdersUri = "v1/service_orders/my-orders";
   static const cancelServicesOrdersUri = "v1/service_orders/cancel-orders";
   static const servicesCouponUri = "v1/service_orders/apply-coupon";
@@ -62,5 +58,6 @@ class AppConstants {
   static const editUserProfileUri = "";
   static const deleteUserAccountUri = "";
   static const getWeekDaysUri = "v1/days/get-all";
+  static const getDeliveryUri = "v1/settings/get-all";
 
 }
