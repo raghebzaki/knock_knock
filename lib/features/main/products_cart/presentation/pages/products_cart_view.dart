@@ -4,6 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gap/gap.dart';
 import 'package:getwidget/getwidget.dart';
 import 'package:knockknock/core/helpers/cache_helper.dart';
+import 'package:knockknock/core/shared/arguments.dart';
 import 'package:knockknock/core/utils/app_constants.dart';
 import 'package:knockknock/core/utils/extensions.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
@@ -14,6 +15,8 @@ import '../../../../../../core/shared/widgets/custom_button.dart';
 import '../../../../../../core/utils/app_colors.dart';
 import '../../../../../../core/utils/dimensions.dart';
 import '../../../../../../generated/l10n.dart';
+import '../../../../../core/database/address_class.dart';
+import '../../../../../core/database/database_hive.dart';
 import '../../../../../core/shared/cubits/product_cart_cubit/product_cart_cubit.dart';
 
 class ProductsCartView extends StatefulWidget {
@@ -24,19 +27,23 @@ class ProductsCartView extends StatefulWidget {
 }
 
 class _ProductsCartViewState extends State<ProductsCartView> {
+
+  HiveDatabase hiveDatabase = HiveDatabase();
+  List<Address> addresses = [];
+
+  getAddresses() async {
+    addresses = await hiveDatabase.getAllAddresses();
+
+    setState(() {});
+  }
+  @override
+  void initState() {
+    super.initState();
+    getAddresses();
+  }
   double finalPrice = 0;
   @override
   Widget build(BuildContext context) {
-    var totalPrice = context.watch<ProductCartCubit>().cartProducts;
-    for (var i = 0; i < totalPrice.length; i++) {
-      if (totalPrice[i].discountPercent == 0) {
-        finalPrice +=
-            double.parse(totalPrice[i].price!) * totalPrice[i].userQuantity!;
-      } else {
-        finalPrice += double.parse(totalPrice[i].priceAfterDiscount!) *
-            totalPrice[i].userQuantity!;
-      }
-    }
     var product = context.read<ProductCartCubit>().cartProducts;
 
     return PopScope(
@@ -151,7 +158,7 @@ class _ProductsCartViewState extends State<ProductsCartView> {
                                 const Spacer(),
                                 Text(
 
-                                  "${totalPrice.map((e) => e.discountPercent == 0 ? int.parse(e.price!) * e.userQuantity! : int.parse(e.priceAfterDiscount!) * e.userQuantity! ).reduce((value, element) => value + element) + AppConstants.deliveryFee} ${S.current.Aed}",
+                                  "${product.map((e) => e.discountPercent == 0 ? int.parse(e.price!) * e.userQuantity! : int.parse(e.priceAfterDiscount!) * e.userQuantity! ).reduce((value, element) => value + element) + AppConstants.deliveryFee} ${S.current.Aed}",
                                   style: CustomTextStyle.kTextStyleF14
                                       .copyWith(color: AppColors.textColor),
                                 ),
@@ -181,7 +188,7 @@ class _ProductsCartViewState extends State<ProductsCartView> {
                                 const Spacer(),
                                 Text(
 
-                                  "${totalPrice.map((e) => e.discountPercent == 0 ? int.parse(e.price!) * e.userQuantity! : int.parse(e.priceAfterDiscount!) * e.userQuantity!).reduce((value, element) => value + element)} ${S.current.Aed}",
+                                  "${product.map((e) => e.discountPercent == 0 ? int.parse(e.price!) * e.userQuantity! : int.parse(e.priceAfterDiscount!) * e.userQuantity!).reduce((value, element) => value + element)} ${S.current.Aed}",
                                   style: CustomTextStyle.kTextStyleF14.copyWith(
                                       color: AppColors.textColorSecondary),
                                 ),
@@ -218,6 +225,7 @@ class _ProductsCartViewState extends State<ProductsCartView> {
                           onPressed: () {
                             context.pushNamed(
                               productsPaymentSummeryPageRoute,
+                              arguments: ProductAddressArgs(address: addresses[AppConstants.addressIndex])
                             );
                           },
                         ),

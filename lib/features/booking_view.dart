@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:knockknock/core/shared/widgets/custom_button_small.dart';
 import 'package:knockknock/core/utils/extensions.dart';
 
 import '../core/router/router.dart';
-import '../core/shared/widgets/custom_button.dart';
 import '../generated/l10n.dart';
 
 class BookingView extends StatefulWidget {
@@ -24,11 +24,11 @@ class _BookingViewState extends State<BookingView> {
           return AlertDialog(
 
             shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
-            title: const Text("what orders do you want"),
+            title:  Text(S.of(context).whatOrdersDoYouWant),
             content: Row(
               children: [
                 Expanded(
-                  child: CustomBtn(
+                  child: CustomBtnSmall(
                     label: S.current.products,
                     onPressed: () {
                       Navigator.pop(context);
@@ -37,7 +37,7 @@ class _BookingViewState extends State<BookingView> {
                   ),
                 ),
                 Expanded(
-                  child: CustomBtn(
+                  child: CustomBtnSmall(
                     label: S.current.services,
                     onPressed: () {
                       Navigator.pop(context);

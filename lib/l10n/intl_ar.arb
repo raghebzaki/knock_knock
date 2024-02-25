@@ -166,6 +166,8 @@
   "cancelled_status": "تم الإلغاء",
   "no":"لا يوجد طلبات",
   "orders":"",
+  "whatOrdersDoYouWant": "ما الطلبات التي تريدها",
+
 
   "@orderDetails": {},
   "orderNumber": "رقم الطلب",
@@ -235,6 +237,9 @@
   "preferredPaymentMethod": "اختر طريقة الدفع المفضلة لديك",
   "cash": "نقداً",
   "creditCard": "بطاقة الائتمان",
+  "orderCreatedSuccessfully": "تم إنشاء الطلب بنجاح",
+  "apply": "تطبيق",
+  "voucherDiscount": "خصم القسيمة",
 
 
   "@buyCredit": {},
@@ -258,4 +263,6 @@
   "booking": "الحجز",
   "credits": "الرصيد",
   "noInternetConnection": "لا يوجد اتصال بالإنترنت"
+
+
 }

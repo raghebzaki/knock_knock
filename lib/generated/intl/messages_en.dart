@@ -323,6 +323,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("voucher discount"),
         "whatDateWouldYouLikeUsToStart": MessageLookupByLibrary.simpleMessage(
             "What Date would you like us to start?"),
+        "whatOrdersDoYouWant":
+            MessageLookupByLibrary.simpleMessage("what orders do you want"),
         "whatTimeWouldYouLikeUsToStart": MessageLookupByLibrary.simpleMessage(
             "What time would you like us to start?"),
         "wrongPhoneCheckAgain": MessageLookupByLibrary.simpleMessage(

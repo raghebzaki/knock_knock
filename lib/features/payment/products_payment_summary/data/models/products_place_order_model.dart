@@ -1,18 +1,27 @@
+import 'dart:convert';
+
 import '../../domain/entities/products_place_order_entity.dart';
 
 class ProductsPlaceOrderModel extends ProductsPlaceOrderEntity {
   const ProductsPlaceOrderModel({
     super.userId,
-    super.name,
-    super.phone,
+    super.latitude,
+    super.longitude,
     super.address,
     super.buildingNo,
     super.flatNo,
     super.city,
     super.state,
-    super.postCode,
-    super.productIds,
-    super.coupon,
+    super.note,
+    super.productsId,
+    super.productQuantities,
+    super.selectedTime,
+    super.paymentMethod,
+    super.productCouponId,
+    super.discountPercentage,
+    super.discountAmount,
+    super.priceAfterDiscount,
+    super.grantTotal,
     super.status,
     super.msg,
   });
@@ -27,34 +36,21 @@ class ProductsPlaceOrderModel extends ProductsPlaceOrderEntity {
   static Map<String, dynamic> toJson(ProductsPlaceOrderEntity placeOrderEntity) {
     return {
       'user_id': placeOrderEntity.userId,
-      'name': placeOrderEntity.name,
-      'phone': placeOrderEntity.phone,
+      'latitude': placeOrderEntity.latitude,
+      'longitude': placeOrderEntity.longitude,
       'address': placeOrderEntity.address,
       'building_number': placeOrderEntity.buildingNo,
-      'flot_number': placeOrderEntity.flatNo,
+      'flat_number': placeOrderEntity.flatNo,
       'city': placeOrderEntity.city,
-      'state': placeOrderEntity.state,
-      'post_code': placeOrderEntity.postCode,
-      'productInfo': placeOrderEntity.productIds,
-      "sizeInfo": placeOrderEntity.sizeIds,
-      "colorInfo": placeOrderEntity.colorIds,
-      // 'coupon': placeOrderEntity.coupon,
-    };
-  }
-
-  static Map<String, dynamic> toJsonIncludingCoupon(ProductsPlaceOrderEntity placeOrderEntity) {
-    return {
-      'user_id': placeOrderEntity.userId,
-      'name': placeOrderEntity.name,
-      'phone': placeOrderEntity.phone,
-      'address': placeOrderEntity.address,
-      'building_number': placeOrderEntity.buildingNo,
-      'flot_number': placeOrderEntity.flatNo,
-      'city': placeOrderEntity.city,
-      'state': placeOrderEntity.state,
-      'post_code': placeOrderEntity.postCode,
-      'productInfo': placeOrderEntity.productIds,
-      'coupon': placeOrderEntity.coupon,
+      'country': placeOrderEntity.state,
+      'product_ids': jsonEncode(placeOrderEntity.productsId),
+      "product_quantities": jsonEncode(placeOrderEntity.productQuantities),
+      'payment_method': placeOrderEntity.paymentMethod,
+      'service_coupon_id': placeOrderEntity.productCouponId,
+      'discount_percentage': placeOrderEntity.discountPercentage,
+      "discount_amount": placeOrderEntity.discountAmount,
+      "price_after_discount": placeOrderEntity.priceAfterDiscount,
+      'grant_total': placeOrderEntity.grantTotal,
     };
   }
 

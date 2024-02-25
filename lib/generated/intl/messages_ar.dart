@@ -46,6 +46,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "amount": MessageLookupByLibrary.simpleMessage("الكمية"),
         "anySpecificInstructions":
             MessageLookupByLibrary.simpleMessage("هل هناك تعليمات محددة؟"),
+        "apply": MessageLookupByLibrary.simpleMessage("تطبيق"),
         "availability": MessageLookupByLibrary.simpleMessage("التوفر:"),
         "availableCredits":
             MessageLookupByLibrary.simpleMessage("الرصيد المتاح"),
@@ -178,6 +179,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "onboard_1": MessageLookupByLibrary.simpleMessage("معرض الملابس"),
         "onboard_1_des": MessageLookupByLibrary.simpleMessage(
             "نقدم مجموعة متنوعة من المقاسات والأنماط، مم"),
+        "orderCreatedSuccessfully":
+            MessageLookupByLibrary.simpleMessage("تم إنشاء الطلب بنجاح"),
         "orderNumber": MessageLookupByLibrary.simpleMessage("رقم الطلب"),
         "orderPreparation": MessageLookupByLibrary.simpleMessage("إعداد الطلب"),
         "orderSuccessfullyDelivered":
@@ -299,8 +302,11 @@ class MessageLookup extends MessageLookupByLibrary {
         "verify": MessageLookupByLibrary.simpleMessage("تحقق"),
         "verifyAccount": MessageLookupByLibrary.simpleMessage("تحقق من الحساب"),
         "voucherCode": MessageLookupByLibrary.simpleMessage("رمز القسيمة"),
+        "voucherDiscount": MessageLookupByLibrary.simpleMessage("خصم القسيمة"),
         "whatDateWouldYouLikeUsToStart":
             MessageLookupByLibrary.simpleMessage("أي تاريخ تفضل أن نبدأ؟"),
+        "whatOrdersDoYouWant":
+            MessageLookupByLibrary.simpleMessage("ما الطلبات التي تريدها"),
         "whatTimeWouldYouLikeUsToStart":
             MessageLookupByLibrary.simpleMessage("أي وقت تفضل أن نبدأ؟"),
         "wrongPhoneCheckAgain": MessageLookupByLibrary.simpleMessage(

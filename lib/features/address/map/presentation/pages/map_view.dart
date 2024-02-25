@@ -80,7 +80,7 @@ class _MapViewState extends State<MapView> {
                         onPressed: () async {
                           context.pushNamed(
                             addNewAddressPageRoute,
-                            arguments: AddresAedgs(
+                            arguments: AddressArgs(
                               address: newAddress!,
                               latLng: saveLatLng!,
 

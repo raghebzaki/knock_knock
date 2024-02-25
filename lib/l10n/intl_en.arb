@@ -178,7 +178,7 @@
   "cancelled_status": "cancelled",
   "no":"No",
   "orders":"orders",
-
+  "whatOrdersDoYouWant": "what orders do you want",
 
   "@orderDetails": {},
   "orderNumber":"order number ",
@@ -248,6 +248,9 @@
   "preferredPaymentMethod": "Choose your preferred payment method",
   "cash": "Cash",
   "creditCard": "Credit Card",
+  "orderCreatedSuccessfully": "Order created successfully",
+  "apply": "apply",
+  "voucherDiscount": "voucher discount",
 
 
   "@buyCredit": {},
@@ -270,8 +273,5 @@
   "home": "Home",
   "booking": "Booking",
   "credits": "Credits",
-  "noInternetConnection": "no internet connection",
-  "orderCreatedSuccessfully": "Order created successfully",
-  "apply": "apply",
-  "voucherDiscount": "voucher discount"
+  "noInternetConnection": "no internet connection"
 }

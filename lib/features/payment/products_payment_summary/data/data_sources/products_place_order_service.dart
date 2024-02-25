@@ -9,15 +9,15 @@ abstract class ProductsPlaceOrderService {
   Future<ProductsPlaceOrderModel> placeOrder(ProductsPlaceOrderEntity placeOrderEntity);
 }
 
-class PlaceOrderServiceImpl implements ProductsPlaceOrderService {
+class ProductsPlaceOrderServiceImpl implements ProductsPlaceOrderService {
   @override
   Future<ProductsPlaceOrderModel> placeOrder(ProductsPlaceOrderEntity placeOrderEntity) async {
     Dio dio = await DioFactory.getDio();
     ProductsPlaceOrderModel placeOrderModel = const ProductsPlaceOrderModel();
 
     final order = await dio.post(
-      AppConstants.apiBaseUrl + AppConstants.placeOrderUri,
-      data: placeOrderEntity.coupon == "" ? ProductsPlaceOrderModel.toJson(placeOrderEntity) : ProductsPlaceOrderModel.toJsonIncludingCoupon(placeOrderEntity),
+      AppConstants.apiBaseUrl + AppConstants.productsPlaceOrderUri,
+      data: ProductsPlaceOrderModel.toJson(placeOrderEntity),
     );
 
     if (order.statusCode == 200) {

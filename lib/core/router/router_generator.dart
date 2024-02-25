@@ -135,7 +135,7 @@ class AppRouters {
           builder: (BuildContext context) => const SavedAddressesView(),
         );
         case addNewAddressPageRoute:
-          final args = settings.arguments as AddresAedgs;
+          final args = settings.arguments as AddressArgs;
         return MaterialPageRoute(
           builder: (BuildContext context) => AddNewAddressView(address: args.address,latLng: args.latLng),
         );
@@ -196,8 +196,9 @@ class AppRouters {
         );
 
         case productsPaymentSummeryPageRoute:
-        return MaterialPageRoute(
-          builder: (BuildContext context) => const ProductsPaymentSummaryView(),
+          final args = settings.arguments as ProductAddressArgs;
+          return MaterialPageRoute(
+          builder: (BuildContext context) =>  ProductsPaymentSummaryView(address: args.address),
         );
         case servicesPaymentSummeryPageRoute:
           final args = settings.arguments as ServicesSummaryArgs;

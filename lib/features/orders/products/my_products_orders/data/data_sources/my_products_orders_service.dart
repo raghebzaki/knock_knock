@@ -17,7 +17,7 @@ class MyProductsOrdersServiceImpl implements MyProductsOrdersService {
     List<ProductsOrderModel> ordersList = [];
 
     final orders = await dio.post(
-      AppConstants.apiBaseUrl + AppConstants.getMyOrdersUri,
+      AppConstants.apiBaseUrl + AppConstants.getProductsMyOrdersUri,
       queryParameters: ProductsOrderModel.queryToJson(myOrdersEntity),
       data: ProductsOrderModel.dataToJson(myOrdersEntity),
     );

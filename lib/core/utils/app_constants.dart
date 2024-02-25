@@ -42,17 +42,18 @@ class AppConstants {
   ///main
   static const productsUri = "v1/products/get-products-by-category";
   static const servicesUri = "v1/services/get-all";
-  static const placeOrderUri = "";
-  static const addPromoCodeUri = "";
   static const carouselUri = "v1/sliders";
   static const productsCategoryUri = "v1/categories/get-product-categories";
   static const servicesPlaceOrderUri = "v1/service_orders/save";
   static const getServicesMyOrdersUri = "v1/service_orders/my-orders";
   static const cancelServicesOrdersUri = "v1/service_orders/cancel-orders";
   static const servicesCouponUri = "v1/service_orders/apply-coupon";
-  static const getProductsMyOrdersUri = "";
-  static const cancelProductOrdersUri = "";
-  static const getMyOrdersUri = "";
+  static const productsPlaceOrderUri = "v1/product_orders/save";
+  static const getProductsMyOrdersUri = "v1/product_orders/my-orders";
+  static const cancelProductsOrdersUri = "v1/product_orders/cancel-orders";
+  static const productsCouponUri = "v1/product_orders/apply-coupon";
+  static const giftPlaceOrderUri = "";
+
   static const contactUsUri = "";
   static const deleteProfileUri = "";
   static const editUserProfileUri = "";

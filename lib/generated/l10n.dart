@@ -1400,6 +1400,16 @@ class S {
     );
   }
 
+  /// `what orders do you want`
+  String get whatOrdersDoYouWant {
+    return Intl.message(
+      'what orders do you want',
+      name: 'whatOrdersDoYouWant',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `order number `
   String get orderNumber {
     return Intl.message(
@@ -1940,6 +1950,36 @@ class S {
     );
   }
 
+  /// `Order created successfully`
+  String get orderCreatedSuccessfully {
+    return Intl.message(
+      'Order created successfully',
+      name: 'orderCreatedSuccessfully',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `apply`
+  String get apply {
+    return Intl.message(
+      'apply',
+      name: 'apply',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `voucher discount`
+  String get voucherDiscount {
+    return Intl.message(
+      'voucher discount',
+      name: 'voucherDiscount',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Pay Less & Get More`
   String get payLessGetMore {
     return Intl.message(
@@ -2095,36 +2135,6 @@ class S {
     return Intl.message(
       'no internet connection',
       name: 'noInternetConnection',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `Order created successfully`
-  String get orderCreatedSuccessfully {
-    return Intl.message(
-      'Order created successfully',
-      name: 'orderCreatedSuccessfully',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `apply`
-  String get apply {
-    return Intl.message(
-      'apply',
-      name: 'apply',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `voucher discount`
-  String get voucherDiscount {
-    return Intl.message(
-      'voucher discount',
-      name: 'voucherDiscount',
       desc: '',
       args: [],
     );

@@ -16,7 +16,7 @@ class GiftPlaceOrderServiceImpl implements GiftPlaceOrderService {
     GiftPlaceOrderModel placeOrderModel = const GiftPlaceOrderModel();
 
     final order = await dio.post(
-      AppConstants.apiBaseUrl + AppConstants.placeOrderUri,
+      AppConstants.apiBaseUrl + AppConstants.giftPlaceOrderUri,
       data: placeOrderEntity.coupon == "" ? GiftPlaceOrderModel.toJson(placeOrderEntity) : GiftPlaceOrderModel.toJsonIncludingCoupon(placeOrderEntity),
     );
 
