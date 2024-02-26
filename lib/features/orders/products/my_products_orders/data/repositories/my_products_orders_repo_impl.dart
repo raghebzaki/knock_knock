@@ -15,13 +15,13 @@ class MyProductsOrdersRepoImpl implements MyProductsOrdersRepo {
   MyProductsOrdersRepoImpl({required this.myOrdersService});
 
   @override
-  Future<Either<Failure, List<ProductsOrderEntity>>> myOrders(ProductsOrderEntity myOrdersEntity) async {
+  Future<Either<Failure, List<ProductsOrderEntity>>> myOrders(ProductsOrderEntity myOrdersEntity,num? nextPage) async {
     final result = await Connectivity().checkConnectivity();
 
     if (result == ConnectivityResult.mobile ||
         result == ConnectivityResult.wifi) {
       try {
-        final orders = await myOrdersService.getOrders(myOrdersEntity);
+        final orders = await myOrdersService.getOrders(myOrdersEntity,nextPage);
         return right(orders);
       } on DioException catch (error) {
         return left(ErrorHandler.handle(error).failure);

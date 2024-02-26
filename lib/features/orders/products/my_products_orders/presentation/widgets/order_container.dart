@@ -27,7 +27,6 @@ class OrderContainer extends StatelessWidget {
     List<String> statusList = [
       S.current.pending,
       S.current.processing,
-      S.current.shipped_status,
       S.current.done_status,
       S.current.cancelled_status,
     ];
@@ -66,10 +65,10 @@ class OrderContainer extends StatelessWidget {
                 ),
                  StatusIndicator(
                   statusText: statusList[orderEntity!.status!],
-                  textColor: orderEntity!.status==4?AppColors.statusRed
-                                :orderEntity!.status==3?AppColors.statusGreen:AppColors.statusCarrot,
-                  containerColor: orderEntity!.status==4?AppColors.statusRedContainer
-                      :orderEntity!.status==3?AppColors.statusGreenContainer:AppColors.statusYellowContainer,
+                  textColor: orderEntity!.status==3?AppColors.statusRed
+                                :orderEntity!.status==2?AppColors.statusGreen:AppColors.statusCarrot,
+                  containerColor: orderEntity!.status==3?AppColors.statusRedContainer
+                      :orderEntity!.status==2?AppColors.statusGreenContainer:AppColors.statusYellowContainer,
                 )
               ],
             ),

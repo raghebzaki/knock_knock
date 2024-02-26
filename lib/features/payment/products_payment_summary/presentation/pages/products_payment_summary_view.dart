@@ -256,7 +256,7 @@ class _ProductsPaymentSummaryViewState
                                                     .kTextStyleF16BlackW300),
                                             const Spacer(),
                                             Text(
-                                                "${product.map((e) => e.discountPercent == 0 ? int.parse(e.price!) * e.userQuantity! : int.parse(e.priceAfterDiscount!) * e.userQuantity!).reduce((value, element) => value + element)} ${S.current.Aed} ${S.current.Aed}",
+                                                "${product.map((e) => e.discountPercent == 0 ? int.parse(e.price!) * e.userQuantity! : int.parse(e.priceAfterDiscount!) * e.userQuantity!).reduce((value, element) => value + element)} ${S.current.Aed}",
                                                 style: CustomTextStyle
                                                     .kTextStyleF16BlackW300),
                                           ],
@@ -327,7 +327,7 @@ class _ProductsPaymentSummaryViewState
                                                     .kTextStyleF16BlackW300),
                                             const Spacer(),
                                             Text(
-                                                "${product.map((e) => e.discountPercent == 0 ? int.parse(e.price!) * e.userQuantity! : int.parse(e.priceAfterDiscount!) * e.userQuantity!).reduce((value, element) => value + element)} ${S.current.Aed} ${S.current.Aed}",
+                                                "${product.map((e) => e.discountPercent == 0 ? int.parse(e.price!) * e.userQuantity! : int.parse(e.priceAfterDiscount!) * e.userQuantity!).reduce((value, element) => value + element)} ${S.current.Aed}",
                                                 style: CustomTextStyle
                                                     .kTextStyleF16BlackW300),
                                           ],
@@ -414,7 +414,7 @@ class _ProductsPaymentSummaryViewState
                                                     .kTextStyleF16BlackW300),
                                             const Spacer(),
                                             Text(
-                                                '${AppConstants.deliveryFee} ${S.current.Aed}',
+                                                '${AppConstants.shippingFee} ${S.current.Aed}',
                                                 style: CustomTextStyle
                                                     .kTextStyleF16BlackW300),
                                           ],
@@ -511,7 +511,6 @@ class _ProductsPaymentSummaryViewState
                           for (var item in product) {
                             productsId.add(item.id!);
                             productsQuantities.add(item.userQuantity!);
-
                           }
                           productsPlaceOrderCubit
                               .placeOrder(ProductsPlaceOrderEntity(

@@ -39,7 +39,7 @@ class _ServicesOrderDetailsViewState extends State<ServicesOrderDetailsView> {
           state.maybeWhen(
             success: (state){
               if(state.status==1){
-                context.defaultSnackBar("order cancel successfully");
+                context.defaultSnackBar(S.of(context).orderCancelSuccessfully);
                 context.pushNamed(myServicesOrdersPageRoute);
               }
             },

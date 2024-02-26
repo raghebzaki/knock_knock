@@ -15,6 +15,7 @@ import 'package:knockknock/features/main/profile/presentation/pages/profile_view
 import 'package:knockknock/features/main/service_cart/presentation/pages/services_cart_view.dart';
 import 'package:knockknock/features/main/services/presentation/pages/services_view.dart';
 import 'package:knockknock/features/main/services_details/presentation/pages/services_details_view.dart';
+import 'package:knockknock/features/orders/products/my_products_orders/domain/entities/products_order_entity.dart';
 import 'package:knockknock/features/payment/products_payment_summary/presentation/pages/products_payment_summary_view.dart';
 import 'package:knockknock/features/payment/services_payment_summary/presentation/pages/services_payment_summary_view.dart';
 import 'package:knockknock/features/profile/contact_us/presentation/pages/contact_us_view.dart';
@@ -30,6 +31,7 @@ import '../../features/auth/verify_account/presentation/pages/verify_account_vie
 import '../../features/bottom_nav_bar.dart';
 import '../../features/credits/gift_card/presentation/pages/gift_card.dart';
 import '../../features/main/products_cart/presentation/pages/products_cart_view.dart';
+import '../../features/orders/products/my_products_orders/presentation/manager/my_orders_cubit.dart';
 import '../../features/orders/products/my_products_orders/presentation/pages/my_products_orders.dart';
 import '../../features/orders/products/order_details/presentation/pages/order_details_view.dart';
 import '../../features/orders/services/my_services_orders/domain/entities/services_order_entity.dart';
@@ -173,7 +175,10 @@ class AppRouters {
         ///orders
       case myOrdersPageRoute:
         return MaterialPageRoute(
-          builder: (BuildContext context) => const MyOrdersView(),
+          builder: (BuildContext context) => BlocProvider(
+            create: (context) => di.di<MyOrdersCubit>()..getMyOrders(ProductsOrderEntity(status: 0,userId: UserData.id),1),
+            child: const MyOrdersView(),
+          ),
         );
       case orderDetailsPageRoute:
         final args = settings.arguments as OrderDetailAedgs;

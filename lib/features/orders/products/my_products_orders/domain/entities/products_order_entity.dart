@@ -1,5 +1,7 @@
 import 'package:equatable/equatable.dart';
 
+import '../../../../../../core/shared/entities/product_entity.dart';
+
 class ProductsOrderEntity extends Equatable {
   final num? id;
   final num? userId;
@@ -7,23 +9,22 @@ class ProductsOrderEntity extends Equatable {
   final String? orderNumber;
   final String? userName;
   final String? phone;
-  final num? totalPrice;
-  final num? price;
+  final String? totalPrice;
+  final String? price;
   final num? tax;
   final String? date;
   final int? status;
   final String? message;
-  final String? acceptanceDate;
-  final String? preparingDate;
-  final String? availabilityDate;
-  final String? receivedDate;
+  final String? discountPercentage;
+  final String? discountAmount;
+  final String? priceAfterDiscount;
+  final String? shippingCost;
   final String? address;
   final String? buildingNo;
   final String? flatNo;
   final String? state;
   final String? city;
-  final String? zipCode;
-  // final List<ProductEntity>? products;
+   final List<ProductEntity>? products;
 
   const ProductsOrderEntity({
     this.id,
@@ -38,17 +39,16 @@ class ProductsOrderEntity extends Equatable {
     this.date,
     this.status,
     this.message,
-    this.acceptanceDate,
-    this.preparingDate,
-    this.availabilityDate,
-    this.receivedDate,
+    this.discountPercentage,
+    this.discountAmount,
+    this.priceAfterDiscount,
+    this.shippingCost,
     this.address,
     this.buildingNo,
     this.flatNo,
     this.state,
     this.city,
-    this.zipCode,
-    // this.products,
+    this.products,
   });
 
   @override
@@ -66,16 +66,15 @@ class ProductsOrderEntity extends Equatable {
         date,
         status,
         message,
-        acceptanceDate,
-        preparingDate,
-        availabilityDate,
-        receivedDate,
+        discountPercentage,
+        discountAmount,
+        priceAfterDiscount,
+        shippingCost,
         address,
         buildingNo,
         flatNo,
         state,
         city,
-        zipCode,
 
       ];
 }

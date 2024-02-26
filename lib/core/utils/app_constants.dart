@@ -19,6 +19,7 @@ class AppConstants {
   static const unknownStringValue = "UNKNOWN STRING VALUE";
   static const unknownNumValue = 2077;
   static num deliveryFee = 0;
+  static num shippingFee = 0;
   static  int addressIndex = 0;
 
   //! API headers

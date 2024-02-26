@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gap/gap.dart';
 import 'package:getwidget/components/avatar/gf_avatar.dart';
@@ -9,9 +10,14 @@ import 'package:knockknock/config/themes/app_text_styles.dart';
 import 'package:knockknock/core/utils/app_images.dart';
 import 'package:knockknock/core/utils/dimensions.dart';
 import 'package:knockknock/core/utils/extensions.dart';
+import 'package:knockknock/features/orders/products/order_details/presentation/manager/cancel_product_order_cubit.dart';
+import '../../../../../../core/dependency_injection/di.dart' as di;
+import '../../../../../../core/router/router.dart';
+import '../../../../../../core/shared/models/user_data_model.dart';
 import '../../../my_products_orders/domain/entities/products_order_entity.dart';
 import '../../../../../../core/utils/app_colors.dart';
 import '../../../../../../generated/l10n.dart';
+import '../../domain/entities/cancel_order_entity.dart';
 
 
 class OrderDetailsView extends StatefulWidget {
@@ -25,6 +31,25 @@ class OrderDetailsView extends StatefulWidget {
 class _OrderDetailsViewState extends State<OrderDetailsView> {
   @override
   Widget build(BuildContext context) {
+    return BlocProvider(
+  create: (context) => di.di<CancelProductOrderCubit>(),
+  child: BlocConsumer<CancelProductOrderCubit, CancelProductOrderState>(
+  listener: (context, state) {
+    state.maybeWhen(
+      success: (state){
+        if(state.status==1){
+          context.defaultSnackBar(S.of(context).orderCancelSuccessfully);
+          context.pushNamed(myOrdersPageRoute);
+        }
+      },
+      orElse: () {
+        return null;
+      },
+    );
+  },
+  builder: (context, state) {
+    CancelProductOrderCubit cancelProductOrderCubit=CancelProductOrderCubit.get(context);
+
     return Scaffold(
       backgroundColor: AppColors.primary,
       appBar: AppBar(
@@ -94,13 +119,13 @@ class _OrderDetailsViewState extends State<OrderDetailsView> {
                                           Gap(24.h),
                                           GestureDetector(
                                             onTap: () {
-                                              // CancelOrderCubit.cancelOrder(
-                                              //   CancelProductOrderEntity(
-                                              //     orderId: widget
-                                              //         .orderDetails
-                                              //         .id,
-                                              //   ),
-                                              // );
+                                              cancelProductOrderCubit.cancelOrder(
+                                                CancelProductOrderEntity(
+                                                  orderId: widget
+                                                      .orderDetails
+                                                      .id,
+                                                ),
+                                              );
                                             },
                                             child: Container(
                                               padding:
@@ -216,7 +241,7 @@ class _OrderDetailsViewState extends State<OrderDetailsView> {
                                 Gap(8.w),
                                 Expanded(
                                   child: Text(
-                                    "${widget.orderDetails.buildingNo}, ${widget.orderDetails.address}, ${widget.orderDetails.zipCode}, ${widget.orderDetails.city}, ${widget.orderDetails.state}",
+                                    "${widget.orderDetails.address}, ${widget.orderDetails.city}, ${widget.orderDetails.state}",
                                     style: CustomTextStyle.kTextStyleF12,
                                     // overflow: TextOverflow.ellipsis,
                                   ),
@@ -233,7 +258,7 @@ class _OrderDetailsViewState extends State<OrderDetailsView> {
                                 ),
                                 Gap(8.w),
                                 Text(
-                                  "${widget.orderDetails.userName}",
+                                  "${UserData.firstName} ${UserData.lastName}",
                                   style: CustomTextStyle.kTextStyleF12,
                                 ),
                               ],
@@ -248,7 +273,7 @@ class _OrderDetailsViewState extends State<OrderDetailsView> {
                                 ),
                                 Gap(8.w),
                                 Text(
-                                  "${widget.orderDetails.phone}",
+                                  "${UserData.phone}",
                                   style: CustomTextStyle.kTextStyleF12,
                                 ),
                               ],
@@ -364,32 +389,23 @@ class _OrderDetailsViewState extends State<OrderDetailsView> {
                               color: AppColors.textColorGrey,
                             ),
                           ),
-                          Text("40 ${S.current.Aed}",
+                          Text("${widget.orderDetails.shippingCost} ${S.current.Aed}",
                               style: CustomTextStyle.kTextStyleF14),
                         ],
                       ),
-                      Gap(15.h),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Text(
-                            S.of(context).tax,
-                            style: CustomTextStyle.kTextStyleF14.copyWith(
-                              color: AppColors.textColorGrey,
-                            ),
-                          ),
-                          Text("${widget.orderDetails.tax} ${S.current.Aed}",
-                              style: CustomTextStyle.kTextStyleF14),
-                        ],
-                      ),
+
                     ],
                   ),
-                )
+                ),
+                Gap(15.h),
               ],
             ),
           ),
         ),
       ),
     );
+  },
+),
+);
   }
 }

@@ -15,5 +15,6 @@ class DeliveryCostService {
 
     DeliveryCost.fromJson(userAccount.data['data']);
     AppConstants.deliveryFee=int.parse(DeliveryCost.deliveryCost!);
+    AppConstants.shippingFee=int.parse(DeliveryCost.shippingCost!);
   }
 }

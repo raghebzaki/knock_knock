@@ -1,4 +1,5 @@
 
+import '../../../../../../core/shared/models/product_model.dart';
 import '../../domain/entities/products_order_entity.dart';
 
 class ProductsOrderModel extends ProductsOrderEntity {
@@ -15,16 +16,16 @@ class ProductsOrderModel extends ProductsOrderEntity {
     super.date,
     super.status,
     super.message,
-    super.acceptanceDate,
-    super.preparingDate,
-    super.availabilityDate,
-    super.receivedDate,
+    super.discountPercentage,
+    super.discountAmount,
+    super.priceAfterDiscount,
+    super.shippingCost,
     super.address,
     super.buildingNo,
     super.flatNo,
     super.state,
     super.city,
-    super.zipCode,
+    super.products,
   });
 
   factory ProductsOrderModel.fromJson(Map<String, dynamic> json) {
@@ -49,57 +50,41 @@ class ProductsOrderModel extends ProductsOrderEntity {
       id: json["id"],
       status: json["status"],
       orderNumber: json["order_number"],
-      totalPrice: json["total_amount"],
+      totalPrice: json["grand_total"],
       price: json["amount"],
-      tax: json["tax"],
       userName: json["name"],
       phone: json["phone"],
-      date: json["created_at"],
-      acceptanceDate: json["acceptance_date"]??'',
-      preparingDate: json["preparing_date"]??'',
-      availabilityDate: json["availability_date"]??'',
-      receivedDate: json["received_date"]??'',
+      date: json["order_date"],
+      discountPercentage: json["discount_percentage"]??'',
+      discountAmount: json["discount_amount"]??'',
+      priceAfterDiscount: json["price_after_discount"]??'',
+      shippingCost: json["shipping_cost"]??'',
       address: json["address"],
       buildingNo: json["building_number"],
-      flatNo: json["flot_number"],
-      state: json["state"],
+      flatNo: json["flat_number"],
+      state: json["country"],
       city: json["city"],
-      zipCode: json["post_code"],
-      // products: json["products"] == null
-      //     ? []
-      //     : List<ProductModel>.from(
-      //         json["products"]!.map(
-      //           (x) => ProductModel.fromJson(x),
-      //         ),
-      //       ),
+      products: json["product"] == null
+          ? []
+          : List<ProductModel>.from(
+              json["product"]!.map(
+                (x) => ProductModel.fromJson(x),
+              ),
+            ),
     );
   }
 
   static Map<String, dynamic> dataToJson(ProductsOrderEntity orderEntity) {
     return {
       "user_id": orderEntity.userId,
+      "order_status":orderEntity.status
     };
   }
 
-  static Map<String, dynamic> queryToJson(ProductsOrderEntity orderEntity) {
+  static Map<String, dynamic> queryToJson(num? nextPage) {
     return {
-      "filters[status][\$eq]": orderEntity.orderFilter,
+      "page": nextPage,
     };
   }
 
-  factory ProductsOrderModel.addOrderFromJson(Map<String, dynamic> json) {
-    return ProductsOrderModel(
-      status: json["status"],
-      message: json["message"],
-    );
-  }
-
-  static Map<String, dynamic> addOrderToJson(ProductsOrderEntity orderEntity) {
-    return {
-      'id': orderEntity.id,
-      'address': orderEntity.address,
-      'phone': orderEntity.phone,
-      'userName': orderEntity.userName,
-    };
-  }
 }

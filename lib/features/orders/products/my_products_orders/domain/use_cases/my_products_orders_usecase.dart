@@ -10,7 +10,7 @@ class MyOrdersUseCase {
   MyOrdersUseCase({required this.myOrdersRepo});
 
   Future<Either<Failure, List<ProductsOrderEntity>>> call(
-      ProductsOrderEntity myOrdersEntity) async {
-    return await myOrdersRepo.myOrders(myOrdersEntity);
+      ProductsOrderEntity myOrdersEntity,num? nextPage) async {
+    return await myOrdersRepo.myOrders(myOrdersEntity,nextPage);
   }
 }

@@ -17,9 +17,9 @@ class MyOrdersCubit extends Cubit<MyOrdersStates> {
 
   final MyOrdersUseCase myOrdersUseCase;
 
-  getMyOrders(ProductsOrderEntity myOrdersEntity) async {
+  getMyOrders(ProductsOrderEntity myOrdersEntity,num? nextPage) async {
     emit(const MyOrdersStates.loading());
-    final login = await myOrdersUseCase(myOrdersEntity);
+    final login = await myOrdersUseCase(myOrdersEntity,nextPage);
 
     login.fold(
       (l) {

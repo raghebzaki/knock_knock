@@ -158,7 +158,7 @@ class _ProductsCartViewState extends State<ProductsCartView> {
                                 const Spacer(),
                                 Text(
 
-                                  "${product.map((e) => e.discountPercent == 0 ? int.parse(e.price!) * e.userQuantity! : int.parse(e.priceAfterDiscount!) * e.userQuantity! ).reduce((value, element) => value + element) + AppConstants.deliveryFee} ${S.current.Aed}",
+                                  "${product.map((e) => e.discountPercent == 0 ? int.parse(e.price!) * e.userQuantity! : int.parse(e.priceAfterDiscount!) * e.userQuantity! ).reduce((value, element) => value + element) + AppConstants.shippingFee} ${S.current.Aed}",
                                   style: CustomTextStyle.kTextStyleF14
                                       .copyWith(color: AppColors.textColor),
                                 ),
@@ -205,7 +205,7 @@ class _ProductsCartViewState extends State<ProductsCartView> {
                                 ),
                                 const Spacer(),
                                 Text(
-                                  '${AppConstants.deliveryFee} ${S.current.Aed}',
+                                  '${AppConstants.shippingFee} ${S.current.Aed}',
                                   style: CustomTextStyle.kTextStyleF14.copyWith(
                                       color: AppColors.textColorSecondary),
                                 ),
