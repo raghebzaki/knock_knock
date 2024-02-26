@@ -1,4 +1,5 @@
 import 'package:equatable/equatable.dart';
+import 'package:knockknock/core/shared/models/product_model.dart';
 
 import '../../../../../../core/shared/entities/product_entity.dart';
 
@@ -24,7 +25,7 @@ class ProductsOrderEntity extends Equatable {
   final String? flatNo;
   final String? state;
   final String? city;
-   final List<ProductEntity>? products;
+   final List<Items>? items;
 
   const ProductsOrderEntity({
     this.id,
@@ -48,7 +49,7 @@ class ProductsOrderEntity extends Equatable {
     this.flatNo,
     this.state,
     this.city,
-    this.products,
+    this.items,
   });
 
   @override
@@ -77,4 +78,36 @@ class ProductsOrderEntity extends Equatable {
         city,
 
       ];
+}
+
+class Items {
+  int? id;
+  int? productOrderId;
+  int? productId;
+  String? pricePerUnit;
+  int? quantity;
+  int? totalPrice;
+  String? createdAt;
+  String? updatedAt;
+  ProductEntity? product;
+
+  Items({this.id,
+    this.productOrderId,
+    this.productId,
+    this.pricePerUnit,
+    this.quantity,
+    this.totalPrice,
+    this.createdAt,
+    this.updatedAt,
+    this.product});
+
+  Items.fromJson(Map<String, dynamic> json) {
+    id = json['id'];
+    productOrderId = json['product_order_id'];
+    productId = json['product_id'];
+    pricePerUnit = json['price_per_unit'];
+    quantity = json['quantity'];
+    totalPrice = json['total_price'];
+    product = json['product'] != null ?  ProductModel.fromJson(json['product']) : null;
+  }
 }

@@ -101,7 +101,7 @@ class OrderContainer extends StatelessWidget {
                       ),
                     ),
                     Text(
-                      "2",
+                      "${orderEntity!.items!.length}",
                       style: CustomTextStyle.kTextStyleF12,
                     ),
                   ],

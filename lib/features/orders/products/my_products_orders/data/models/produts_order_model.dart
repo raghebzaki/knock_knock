@@ -1,5 +1,4 @@
 
-import '../../../../../../core/shared/models/product_model.dart';
 import '../../domain/entities/products_order_entity.dart';
 
 class ProductsOrderModel extends ProductsOrderEntity {
@@ -25,7 +24,7 @@ class ProductsOrderModel extends ProductsOrderEntity {
     super.flatNo,
     super.state,
     super.city,
-    super.products,
+    super.items,
   });
 
   factory ProductsOrderModel.fromJson(Map<String, dynamic> json) {
@@ -64,11 +63,11 @@ class ProductsOrderModel extends ProductsOrderEntity {
       flatNo: json["flat_number"],
       state: json["country"],
       city: json["city"],
-      products: json["product"] == null
+      items: json["items"] == null
           ? []
-          : List<ProductModel>.from(
-              json["product"]!.map(
-                (x) => ProductModel.fromJson(x),
+          : List<Items>.from(
+              json["items"]!.map(
+                (x) => Items.fromJson(x),
               ),
             ),
     );

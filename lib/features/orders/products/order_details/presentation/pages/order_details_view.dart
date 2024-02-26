@@ -7,6 +7,7 @@ import 'package:getwidget/components/list_tile/gf_list_tile.dart';
 import 'package:getwidget/shape/gf_avatar_shape.dart';
 import 'package:intl/intl.dart';
 import 'package:knockknock/config/themes/app_text_styles.dart';
+import 'package:knockknock/core/utils/app_constants.dart';
 import 'package:knockknock/core/utils/app_images.dart';
 import 'package:knockknock/core/utils/dimensions.dart';
 import 'package:knockknock/core/utils/extensions.dart';
@@ -290,7 +291,7 @@ class _OrderDetailsViewState extends State<OrderDetailsView> {
                       ListView.builder(
                           shrinkWrap: true,
                           physics: const NeverScrollableScrollPhysics(),
-                          itemCount: 4,
+                          itemCount: widget.orderDetails.items!.length,
                           itemBuilder: (ctx, index) {
                             return GFListTile(
                               padding: EdgeInsets.symmetric(vertical: 5.h,horizontal: 0),
@@ -299,18 +300,16 @@ class _OrderDetailsViewState extends State<OrderDetailsView> {
                                 size: 50.h,
                                 shape: GFAvatarShape.square,
                                 child:Image.network(
-                                  "${AppImages.placeholder}250",
+                                  AppConstants.imageUrl+widget.orderDetails.items![index].product!.image!,
                                   fit: BoxFit.contain,
                                 ),
                               ),
                               title: Intl.getCurrentLocale() == "en"
                                   ? Text(
-                                  "${widget.orderDetails.orderNumber}")
-                                  : Text(
-                                  "${widget.orderDetails.orderNumber}"),
-                              subTitle: Text(
-                                  "${widget.orderDetails.price} ${S.current.Aed}"),
-                              description: Text("${S.current.quantity}: 2"),
+                                  widget.orderDetails.items![index].product!.nameEn!)
+                                  : Text("${widget..orderDetails.items![index].product!.nameEn!}"),
+                              // subTitle: Text("${widget.orderDetails.price} ${S.current.Aed}"),
+                              description: Text("${S.current.quantity}: ${ widget.orderDetails.items![index].quantity!}"),
                             );
                           }),
                     ],
