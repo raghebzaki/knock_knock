@@ -116,19 +116,6 @@ class _AddNewAddressViewState extends State<AddNewAddressView> {
                                 ),
                                 Gap(10.h),
                                 CustomFormField(
-                                  ctrl: phoneCtrl,
-                                  label: S.current.phone,
-                                  validator: (value) {
-                                    if (phoneCtrl.text.isEmpty) {
-                                      log(value.toString());
-                                      return S.of(context).phoneNoCantBeEmpty;
-                                    } else {
-                                      return null;
-                                    }
-                                  },
-                                ),
-                                Gap(10.h),
-                                CustomFormField(
                                   ctrl: stateCtrl,
                                   label: S.of(context).state,
                                   readOnly: true,
