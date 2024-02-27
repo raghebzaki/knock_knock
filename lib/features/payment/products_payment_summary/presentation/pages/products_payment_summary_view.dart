@@ -158,32 +158,15 @@ class _ProductsPaymentSummaryViewState
                         ],
                       ),
                       Gap(10.h),
-                      TextButton(
-                        onPressed: () {
-                          showDialog(
-                            context: context,
-                            builder: (ctx) {
-                              return AlertDialog.adaptive(
-                                title:
-                                    Text(S.of(context).preferredPaymentMethod),
-                                titleTextStyle: CustomTextStyle.kTextStyleF16,
-                                content: CustomFormField(
-                                  ctrl: voucherCtrl,
-                                  label: S.current.addVoucherCode,
-                                ),
-                              );
-                            },
-                          );
-                        },
-                        child: Text(
-                          S.of(context).addVoucherCode,
-                          style: CustomTextStyle.kTextStyleF16Black,
-                        ),
+                      Text(
+                        S.of(context).addVoucherCode,
+                        style: CustomTextStyle.kTextStyleF16Black,
                       ),
                       Gap(10.h),
                       BlocConsumer<ProductsCouponCubit, ProductsCouponState>(
                         listener: (context, state) {},
                         builder: (context, state) {
+                          ProductsCouponCubit productsCouponCubit=ProductsCouponCubit.get(context);
                           return Column(
                             children: [
                               Container(
@@ -208,6 +191,71 @@ class _ProductsPaymentSummaryViewState
                                     SizedBox(
                                       // width: context.width/3,
                                       child: GestureDetector(
+                                        onTap: () {
+                                          showDialog(
+                                            context: context,
+                                            builder: (ctx) {
+                                              return AlertDialog.adaptive(
+                                                title: Text(S
+                                                    .of(context)
+                                                    .preferredPaymentMethod),
+                                                titleTextStyle: CustomTextStyle
+                                                    .kTextStyleF16,
+                                                content: Column(
+                                                  mainAxisSize:
+                                                  MainAxisSize.min,
+                                                  children: [
+                                                    CustomFormField(
+                                                      ctrl: voucherCtrl,
+                                                      label: S.current
+                                                          .addVoucherCode,
+                                                    ),
+                                                    GestureDetector(
+                                                      onTap: () {
+                                                        productsId.clear();
+                                                        productsQuantities.clear();
+                                                        for (var item in product) {
+                                                          productsId.add(item.id!);
+                                                          productsQuantities.add(item.userQuantity!);
+                                                        }
+                                                        productsCouponCubit.applyCoupon(
+                                                            ProductsCouponEntity(
+                                                                productsId: productsId,
+                                                                productsQuantities: productsQuantities,
+                                                                couponName: voucherCtrl.text
+                                                            ),
+                                                        );
+                                                        context.pop();
+                                                      },
+                                                      child: Container(
+                                                        padding: EdgeInsets
+                                                            .symmetric(
+                                                            horizontal:
+                                                            16.sp,
+                                                            vertical: 2.sp),
+                                                        decoration:
+                                                        BoxDecoration(
+                                                          color: AppColors
+                                                              .secondary,
+                                                          borderRadius:
+                                                          BorderRadius
+                                                              .circular(
+                                                            12,
+                                                          ),
+                                                        ),
+                                                        child: Text(
+                                                          S.of(context).apply,
+                                                          style: CustomTextStyle
+                                                              .kTextStyleF16White,
+                                                        ),
+                                                      ),
+                                                    ),
+                                                  ],
+                                                ),
+                                              );
+                                            },
+                                          );
+                                        },
                                         child: Container(
                                           padding: EdgeInsets.symmetric(
                                               horizontal: 16.sp,
@@ -256,7 +304,7 @@ class _ProductsPaymentSummaryViewState
                                                     .kTextStyleF16BlackW300),
                                             const Spacer(),
                                             Text(
-                                                "${product.map((e) => e.discountPercent == 0 ? int.parse(e.price!) * e.userQuantity! : int.parse(e.priceAfterDiscount!) * e.userQuantity!).reduce((value, element) => value + element)} ${S.current.Aed}",
+                                                "${product.map((e) => e.discountPercent == 0 ? int.parse(e.price!) * e.userQuantity! : double.parse(e.priceAfterDiscount!) * e.userQuantity!).reduce((value, element) => value + element)} ${S.current.Aed}",
                                                 style: CustomTextStyle
                                                     .kTextStyleF16BlackW300),
                                           ],
@@ -293,7 +341,7 @@ class _ProductsPaymentSummaryViewState
                                             ),
                                             const Spacer(),
                                             Text(
-                                                "${product.map((e) => e.discountPercent == 0 ? int.parse(e.price!) * e.userQuantity! : int.parse(e.priceAfterDiscount!) * e.userQuantity!).reduce((value, element) => value + element) + AppConstants.deliveryFee} ${S.current.Aed}",
+                                                "${product.map((e) => e.discountPercent == 0 ? int.parse(e.price!) * e.userQuantity! : double.parse(e.priceAfterDiscount!) * e.userQuantity!).reduce((value, element) => value + element) + AppConstants.deliveryFee} ${S.current.Aed}",
                                                 style: CustomTextStyle
                                                     .kTextStyleF16BlackW300),
                                           ],
@@ -327,7 +375,7 @@ class _ProductsPaymentSummaryViewState
                                                     .kTextStyleF16BlackW300),
                                             const Spacer(),
                                             Text(
-                                                "${product.map((e) => e.discountPercent == 0 ? int.parse(e.price!) * e.userQuantity! : int.parse(e.priceAfterDiscount!) * e.userQuantity!).reduce((value, element) => value + element)} ${S.current.Aed}",
+                                                "${product.map((e) => e.discountPercent == 0 ? int.parse(e.price!) * e.userQuantity! : double.parse(e.priceAfterDiscount!) * e.userQuantity!).reduce((value, element) => value + element)} ${S.current.Aed}",
                                                 style: CustomTextStyle
                                                     .kTextStyleF16BlackW300),
                                           ],
@@ -364,7 +412,7 @@ class _ProductsPaymentSummaryViewState
                                             ),
                                             const Spacer(),
                                             Text(
-                                                "${product.map((e) => e.discountPercent == 0 ? int.parse(e.price!) * e.userQuantity! : int.parse(e.priceAfterDiscount!) * e.userQuantity!).reduce((value, element) => value + element) + AppConstants.deliveryFee} ${S.current.Aed}",
+                                                "${product.map((e) => e.discountPercent == 0 ? int.parse(e.price!) * e.userQuantity! : double.parse(e.priceAfterDiscount!) * e.userQuantity!).reduce((value, element) => value + element) + AppConstants.deliveryFee} ${S.current.Aed}",
                                                 style: CustomTextStyle
                                                     .kTextStyleF16BlackW300),
                                           ],
@@ -399,7 +447,7 @@ class _ProductsPaymentSummaryViewState
                                                     .kTextStyleF16BlackW300),
                                             const Spacer(),
                                             Text(
-                                                "${product.map((e) => e.discountPercent == 0 ? int.parse(e.price!) * e.userQuantity! : int.parse(e.priceAfterDiscount!) * e.userQuantity!).reduce((value, element) => value + element)} ${S.current.Aed}",
+                                                "${product.map((e) => e.discountPercent == 0 ? int.parse(e.price!) * e.userQuantity! : double.parse(e.priceAfterDiscount!) * e.userQuantity!).reduce((value, element) => value + element)} ${S.current.Aed}",
                                                 style: CustomTextStyle
                                                     .kTextStyleF16BlackW300),
                                           ],
@@ -463,7 +511,7 @@ class _ProductsPaymentSummaryViewState
                                                 "${state.information!.grantTotal} ${S.current.Aed}",
                                                 style: CustomTextStyle.kTextStyleF16BlackW300)
                                                 :Text(
-                                                "${product.map((e) => e.discountPercent == 0 ? int.parse(e.price!) * e.userQuantity! : int.parse(e.priceAfterDiscount!) * e.userQuantity!).reduce((value, element) => value + element) + AppConstants.deliveryFee} ${S.current.Aed}",
+                                                "${product.map((e) => e.discountPercent == 0 ? int.parse(e.price!) * e.userQuantity! : double.parse(e.priceAfterDiscount!) * e.userQuantity!).reduce((value, element) => value + element) + AppConstants.deliveryFee} ${S.current.Aed}",
                                                 style: CustomTextStyle
                                                     .kTextStyleF16BlackW300),
                                           ],
@@ -508,6 +556,8 @@ class _ProductsPaymentSummaryViewState
                       child: CustomBtn(
                         label: S.of(context).confirmPayment,
                         onPressed: () async {
+                          productsId.clear();
+                          productsQuantities.clear();
                           for (var item in product) {
                             productsId.add(item.id!);
                             productsQuantities.add(item.userQuantity!);
@@ -527,7 +577,7 @@ class _ProductsPaymentSummaryViewState
                             discountAmount: productsCouponEntity.information!.discountAmount,
                             priceAfterDiscount: productsCouponEntity.information!.priceAfterDiscount,
                             grantTotal: productsCouponEntity.information!.grantTotal,
-                            productCouponId: productsCouponEntity.information!.serviceCouponId,
+                            productCouponId: productsCouponEntity.information!.productCouponId,
                             productsId: productsId,
                             productQuantities:productsQuantities ,
 

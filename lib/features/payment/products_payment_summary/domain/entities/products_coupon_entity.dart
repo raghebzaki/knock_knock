@@ -4,8 +4,9 @@ import 'package:equatable/equatable.dart';
 class ProductsCouponEntity extends Equatable {
   final num? id;
   final String? couponName;
-  final num? serviceId;
-  final num? serviceCouponId;
+  final List<num>? productsId;
+  final List<num>? productsQuantities;
+  final num? productCouponId;
   final num? discountPercentage;
   final num? discountAmount;
   final num? priceAfterDiscount;
@@ -17,12 +18,13 @@ class ProductsCouponEntity extends Equatable {
   const ProductsCouponEntity({
     this.id,
     this.couponName,
-    this.serviceCouponId,
+    this.productCouponId,
     this.discountPercentage,
     this.discountAmount,
     this.priceAfterDiscount,
     this.grantTotal,
-    this.serviceId,
+    this.productsId,
+    this.productsQuantities,
     this.status,
     this.msg,
     this.information
@@ -33,8 +35,9 @@ class ProductsCouponEntity extends Equatable {
       [
         id,
         couponName,
-        serviceId,
-        serviceCouponId,
+        productsId,
+        productsQuantities,
+        productCouponId,
         discountPercentage,
         discountAmount,
         priceAfterDiscount,

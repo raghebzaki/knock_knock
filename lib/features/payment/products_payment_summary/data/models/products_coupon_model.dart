@@ -1,4 +1,6 @@
 
+import 'dart:convert';
+
 import '../../domain/entities/products_coupon_entity.dart';
 
 
@@ -6,12 +8,13 @@ class ProductsCouponModel extends ProductsCouponEntity {
   const ProductsCouponModel({
     super.id,
     super.couponName,
-    super.serviceCouponId,
+    super.productCouponId,
     super.discountPercentage,
     super.discountAmount,
     super.priceAfterDiscount,
     super.grantTotal,
-    super.serviceId,
+    super.productsId,
+    super.productsQuantities,
     super.status,
     super.msg,
     super.information,
@@ -19,7 +22,7 @@ class ProductsCouponModel extends ProductsCouponEntity {
 
   factory ProductsCouponModel.fromJson(Map<String, dynamic> json) {
     return ProductsCouponModel(
-      serviceCouponId: json['service_coupon_id']??0,
+      productCouponId: json['product_coupon_id']??0,
       information: json["information_after_coupon_applied"]==null
           ? null
           : ProductsCouponModel.fromJsonInformation(json["information_after_coupon_applied"]),
@@ -29,7 +32,7 @@ class ProductsCouponModel extends ProductsCouponEntity {
   }
   factory ProductsCouponModel.fromJsonInformation(Map<String, dynamic> json) {
     return ProductsCouponModel(
-      serviceCouponId: json['service_coupon_id']??0,
+      productCouponId: json['product_coupon_id']??0,
       discountPercentage: json['discount_percentage']??0,
       discountAmount: json['discount_amount']??0,
       priceAfterDiscount: json['price_after_discount']??0,
@@ -40,7 +43,8 @@ class ProductsCouponModel extends ProductsCouponEntity {
 
   static Map<String, dynamic> toJson(ProductsCouponEntity couponEntity) {
     return {
-      'service_id': couponEntity.serviceId,
+      'product_ids': jsonEncode(couponEntity.productsId),
+      'product_quantities': jsonEncode(couponEntity.productsQuantities),
       'coupon_name': couponEntity.couponName,
     };
   }
