@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gap/gap.dart';
 import 'package:knockknock/config/themes/app_text_styles.dart';
+import 'package:knockknock/core/shared/models/user_data_model.dart';
 import 'package:knockknock/core/shared/widgets/custom_button.dart';
 import 'package:knockknock/core/utils/app_colors.dart';
 import 'package:knockknock/core/utils/extensions.dart';
@@ -167,6 +168,7 @@ class _ContactUsViewState extends State<ContactUsView> {
                       contactUsCubit.sendMessage(
                         ContactUsEntity(
                           message: msgCtrl.text,
+                          userId: UserData.id
                         ),
                       );
                     },

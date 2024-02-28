@@ -2,7 +2,7 @@ import 'package:equatable/equatable.dart';
 
 class ContactUsEntity extends Equatable {
   final int? id;
-  final int? userId;
+  final num? userId;
   final int? status;
   final String? message;
 

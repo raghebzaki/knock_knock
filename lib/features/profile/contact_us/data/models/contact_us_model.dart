@@ -20,6 +20,7 @@ class ContactUsModel extends ContactUsEntity{
   static Map<String, dynamic> toJson(ContactUsEntity contactUsEntity) {
     return {
       'message': contactUsEntity.message,
+      'user_id': contactUsEntity.userId,
     };
   }
 }

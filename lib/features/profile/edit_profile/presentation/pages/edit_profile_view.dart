@@ -117,6 +117,7 @@ class _EditProfileViewState extends State<EditProfileView> {
                         Gap(10.w),
                         TextButton(
                           onPressed: () {
+
                             editProfileCubit.deleteAccount(
                               EditProfileEntity(
                                 userId: UserData.id,
@@ -140,7 +141,9 @@ class _EditProfileViewState extends State<EditProfileView> {
                               userId: UserData.id,
                               firstName: firstNameCtrl.text,
                               lastName: lastNameCtrl.text,
-                              phone: phoneCtrl.text),
+                              phone: phoneCtrl.text,
+                              email: UserData.email
+                          ),
                         );
                       },
                     )
