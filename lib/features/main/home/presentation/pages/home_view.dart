@@ -48,7 +48,7 @@ class _HomeViewState extends State<HomeView> {
       ],
       child: Scaffold(
         backgroundColor: AppColors.primary,
-        appBar: const CustomAppBar(),
+        appBar: const CustomAppBar(searchBar: false),
         body: SafeArea(
           child: SingleChildScrollView(
             child: Column(

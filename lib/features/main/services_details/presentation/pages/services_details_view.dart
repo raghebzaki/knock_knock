@@ -70,7 +70,7 @@ class _ServicesDetailsViewState extends State<ServicesDetailsView> {
         listener: (context, state) {},
         builder: (context, state) {
           return Scaffold(
-            appBar: const CustomAppBar(),
+            appBar: const CustomAppBar(searchBar: false),
             bottomNavigationBar: const BottomNavForAllScreenView(),
             body: Padding(
               padding: EdgeInsets.symmetric(horizontal: 16.0.w, vertical: 10.h),

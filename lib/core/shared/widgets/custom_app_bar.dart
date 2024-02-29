@@ -11,7 +11,6 @@ import 'package:knockknock/core/shared/cubits/product_cart_cubit/product_cart_cu
 import 'package:knockknock/core/shared/models/user_data_model.dart';
 import 'package:knockknock/core/utils/app_constants.dart';
 import 'package:knockknock/core/utils/extensions.dart';
-import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import 'package:badges/badges.dart' as badges;
 
 import '../../../config/themes/app_text_styles.dart';
@@ -22,18 +21,21 @@ import '../../utils/dimensions.dart';
 import '../cubits/service_cart_cubit/service_cart_cubit.dart';
 
 class CustomAppBar extends StatefulWidget implements PreferredSizeWidget {
+  final bool searchBar;
+
   const CustomAppBar({
-    super.key,
+    super.key, required this.searchBar,
   });
 
   @override
   State<CustomAppBar> createState() => _CustomAppBarState();
 
   @override
-  Size get preferredSize => Size(double.infinity.w, 200.h);
+  Size get preferredSize => Size(double.infinity.w, searchBar?200.h:150.h);
 }
 
 class _CustomAppBarState extends State<CustomAppBar> {
+  TextEditingController searchCtrl = TextEditingController();
   HiveDatabase hiveDatabase = HiveDatabase();
   List<Address> addresses = [];
 
@@ -52,7 +54,7 @@ class _CustomAppBarState extends State<CustomAppBar> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: PreferredSize(
-        preferredSize: Size.fromHeight(200.h), // here the desired height
+        preferredSize: Size.fromHeight(widget.searchBar?200.h:150.h), // here the desired height
         child: Container(
           decoration: const BoxDecoration(
             color: AppColors.primary,
@@ -122,7 +124,8 @@ class _CustomAppBarState extends State<CustomAppBar> {
                                             },
                                             child: Row(
                                               children: [
-                                                Text(addresses[index].address!,
+                                                Text(
+                                                    addresses[index].address!,
                                                     style: CustomTextStyle
                                                         .kTextStyleF14),
                                                 const Spacer(),
@@ -131,8 +134,8 @@ class _CustomAppBarState extends State<CustomAppBar> {
                                                     ? Icon(
                                                         Icons.check,
                                                         size: 16.sp,
-                                                        color:
-                                                            AppColors.lightBlue,
+                                                        color: AppColors
+                                                            .lightBlue,
                                                       )
                                                     : const SizedBox.shrink(),
                                               ],
@@ -151,8 +154,8 @@ class _CustomAppBarState extends State<CustomAppBar> {
                                     child: Row(
                                       children: [
                                         Text(S.of(context).addNewAddress,
-                                            style:
-                                                CustomTextStyle.kTextStyleF14),
+                                            style: CustomTextStyle
+                                                .kTextStyleF14),
                                         const Spacer(),
 
                                         // Icon(Icons.check,size: 16.sp,color: AppColors.lightBlue,)
@@ -210,7 +213,10 @@ class _CustomAppBarState extends State<CustomAppBar> {
                       backgroundColor: AppColors.secondary,
                       child: badges.Badge(
                         badgeContent: Text(
-                          context.read<ProductCartCubit>().cartProducts.isEmpty
+                          context
+                                  .read<ProductCartCubit>()
+                                  .cartProducts
+                                  .isEmpty
                               ? '${context.read<ServiceCartCubit>().cartServices.length}'
                               : '${context.read<ProductCartCubit>().cartProducts.length}',
                           style: CustomTextStyle.kTextStyleF14,
@@ -226,31 +232,26 @@ class _CustomAppBarState extends State<CustomAppBar> {
                 ],
               ),
               Gap(20.h),
-              Container(
-                padding: const EdgeInsets.all(Dimensions.p12),
-                decoration: BoxDecoration(
-                  border: Border.all(
-                    color: AppColors.secondary,
-                  ),
-                  borderRadius: BorderRadius.circular(
-                    Dimensions.r12,
-                  ),
-                ),
-                child: Row(
-                  children: [
-                    Icon(
-                      MdiIcons.magnify,
-                      color: AppColors.secondary,
+              widget.searchBar?TextFormField(
+                controller: searchCtrl,
+                decoration: InputDecoration(
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(8),
+                      borderSide: const BorderSide(
+                          color: AppColors.secondaryLight, width: 5),
                     ),
-                    Text(
-                      S.of(context).searchFor,
-                      style: CustomTextStyle.kTextStyleF12.copyWith(
-                        fontWeight: FontWeight.w300,
-                      ),
+                    hintText: S.current.searchFor,
+                    counter: const Offstage(),
+                    isDense: true,
+                    prefixIcon: const Icon(Icons.search,
+                        color: AppColors.secondary),
+                    contentPadding: EdgeInsets.symmetric(
+                      horizontal: Dimensions.p10.w,
+                      vertical: Dimensions.p10.h,
                     ),
-                  ],
-                ),
-              )
+                    labelStyle: CustomTextStyle.kFormFieldTextStyle,
+                    hintStyle: CustomTextStyle.kFormFieldTextStyle),
+              ):const SizedBox.shrink(),
             ],
           ).paddingSymmetric(
               horizontal: Dimensions.p24, vertical: Dimensions.p10),

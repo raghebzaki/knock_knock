@@ -67,7 +67,7 @@ class _ServicesViewState extends State<ServicesView> {
       },
       builder: (context, state) {
         return Scaffold(
-          appBar: const CustomAppBar(),
+          appBar: const CustomAppBar(searchBar: true),
           bottomNavigationBar: const BottomNavForAllScreenView(),
           body: SingleChildScrollView(
             child: Column(

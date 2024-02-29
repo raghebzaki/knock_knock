@@ -43,6 +43,8 @@ class AppConstants {
   ///main
   static const productsUri = "v1/products/get-products-by-category";
   static const servicesUri = "v1/services/get-all";
+  static const productsSearchUri = "v1/search/products";
+  static const servicesSearchUri = "v1/search/services";
   static const carouselUri = "v1/sliders";
   static const productsCategoryUri = "v1/categories/get-product-categories";
   static const servicesPlaceOrderUri = "v1/service_orders/save";

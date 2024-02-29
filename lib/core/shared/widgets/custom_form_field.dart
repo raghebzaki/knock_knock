@@ -70,6 +70,7 @@ class CustomFormField extends StatelessWidget {
       style: CustomTextStyle.kFormFieldTextStyle,
 
       decoration: InputDecoration(
+
           labelText: label,
           hintText: hint,
           isDense: true,

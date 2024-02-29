@@ -1,5 +1,6 @@
 import 'package:get_it/get_it.dart';
 import 'package:knockknock/features/main/home/presentation/manager/carousel_cubit.dart';
+import 'package:knockknock/features/main/search/presentation/manager/search_cubit.dart';
 import 'package:knockknock/features/orders/services/order_details/presentation/manager/service_cancel_order_cubit.dart';
 import 'package:knockknock/features/payment/services_payment_summary/presentation/manager/services_place_order_cubit.dart';
 import 'package:knockknock/features/profile/edit_profile/domain/use_cases/delete_account_use_case.dart';
@@ -62,6 +63,14 @@ import '../../features/main/products/data/repositories/products_repo_impl.dart';
 import '../../features/main/products/domain/repositories/products_repo.dart';
 import '../../features/main/products/domain/use_cases/products_use_case.dart';
 import '../../features/main/products/presentation/manager/products_cubit.dart';
+import '../../features/main/search/data/data_sources/products_service.dart';
+import '../../features/main/search/data/data_sources/services_service.dart';
+import '../../features/main/search/data/repositories/products_repo_impl.dart';
+import '../../features/main/search/data/repositories/services_repo_impl.dart';
+import '../../features/main/search/domain/repositories/products_repo.dart';
+import '../../features/main/search/domain/repositories/services_repo.dart';
+import '../../features/main/search/domain/use_cases/products_use_case.dart';
+import '../../features/main/search/domain/use_cases/services_use_case.dart';
 import '../../features/main/services_details/data/data_sources/week_days_service.dart';
 import '../../features/main/services_details/data/repositories/week_days_repo_impl.dart';
 import '../../features/main/services_details/domain/repositories/week_days_repo.dart';
@@ -129,8 +138,7 @@ Future<void> init() async {
   /// Forgot Password
   di.registerFactory(() => ForgotPassCubit(forgotPassUseCase: di()));
   di.registerLazySingleton(() => ForgotPassUseCase(forgotPassRepo: di()));
-  di.registerLazySingleton<ForgotPassRepo>(
-      () => ForgotPassRepoImpl(forgotPassService: di()));
+  di.registerLazySingleton<ForgotPassRepo>(() => ForgotPassRepoImpl(forgotPassService: di()));
   di.registerLazySingleton<ForgotPassService>(() => ForgotPassServiceImpl());
 
   /// Reset Password
@@ -260,6 +268,14 @@ Future<void> init() async {
   di.registerLazySingleton(() => ProductsCouponUseCase( couponRepo: di()));
   di.registerLazySingleton<ProductsCouponRepo>(() => ProductsCouponRepoImpl(couponService: di(),));
   di.registerLazySingleton<ProductsCouponService>(() => ProductsCouponServiceImpl());
+  /// search
+  di.registerFactory(() => SearchCubit(servicesUseCase: di(),productsUseCase: di()));
+  di.registerLazySingleton(() => ProductsSearchUseCase(  di()));
+  di.registerLazySingleton<ProductsSearchRepo>(() => ProductsSearchRepoImpl( di(),));
+  di.registerLazySingleton<ProductsSearchService>(() => ProductsSearchServiceImpl());
+  di.registerLazySingleton(() => ServicesSearchUseCase( di()));
+  di.registerLazySingleton<ServicesSearchRepo>(() => ServicesSearchRepoImpl( di(),));
+  di.registerLazySingleton<ServicesSearchService>(() => ServicesSearchServiceImpl());
   /// external
   final sharedPrefs = await SharedPreferences.getInstance();
   di.registerLazySingleton(() => sharedPrefs);

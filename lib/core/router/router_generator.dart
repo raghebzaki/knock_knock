@@ -12,7 +12,6 @@ import 'package:knockknock/features/main/products/presentation/manager/products_
 import 'package:knockknock/features/main/products/presentation/pages/products_view.dart';
 import 'package:knockknock/features/main/products_details/presentation/pages/products_details_view.dart';
 import 'package:knockknock/features/main/profile/presentation/pages/profile_view.dart';
-import 'package:knockknock/features/main/service_cart/presentation/pages/services_cart_view.dart';
 import 'package:knockknock/features/main/services/presentation/pages/services_view.dart';
 import 'package:knockknock/features/main/services_details/presentation/pages/services_details_view.dart';
 import 'package:knockknock/features/orders/products/my_products_orders/domain/entities/products_order_entity.dart';
@@ -31,6 +30,7 @@ import '../../features/auth/verify_account/presentation/pages/verify_account_vie
 import '../../features/bottom_nav_bar.dart';
 import '../../features/credits/gift_card/presentation/pages/gift_card.dart';
 import '../../features/main/products_cart/presentation/pages/products_cart_view.dart';
+import '../../features/main/services_cart/presentation/pages/services_cart_view.dart';
 import '../../features/orders/products/my_products_orders/presentation/manager/my_orders_cubit.dart';
 import '../../features/orders/products/my_products_orders/presentation/pages/my_products_orders.dart';
 import '../../features/orders/products/order_details/presentation/pages/order_details_view.dart';

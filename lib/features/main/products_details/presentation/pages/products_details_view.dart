@@ -37,7 +37,7 @@ class _ProductsDetailsViewState extends State<ProductsDetailsView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: const CustomAppBar(),
+      appBar: const CustomAppBar(searchBar: false),
       bottomNavigationBar: const BottomNavForAllScreenView(),
       body: Padding(
         padding: EdgeInsets.symmetric(horizontal: 16.0.w, vertical: 10.h),
