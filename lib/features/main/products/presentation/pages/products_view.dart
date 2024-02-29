@@ -36,7 +36,7 @@ class _ProductsViewState extends State<ProductsView> {
       if (!isLoading) {
         isLoading = true;
         await BlocProvider.of<ProductsCubit>(context)
-            .getAllProducts(nextPage,widget.categoryId);
+            .getAllProducts(nextPage, widget.categoryId);
         isLoading = false;
       }
     }
@@ -55,6 +55,9 @@ class _ProductsViewState extends State<ProductsView> {
     productsList.clear();
     super.dispose();
   }
+
+  TextEditingController searchCtrl = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return BlocConsumer<ProductsCubit, ProductsState>(
@@ -69,8 +72,15 @@ class _ProductsViewState extends State<ProductsView> {
         );
       },
       builder: (context, state) {
+        ProductsCubit productsCubit = ProductsCubit.get(context);
         return Scaffold(
-          appBar: const CustomAppBar(searchBar: true),
+          appBar: CustomAppBar(
+            searchBar: true,
+            searchCtrl: searchCtrl,
+            onSubmitted: (value) {
+              productsCubit.searchInProducts(nextPage, searchCtrl.text);
+            },
+          ),
           bottomNavigationBar: const BottomNavForAllScreenView(),
           body: SingleChildScrollView(
             child: Column(
@@ -87,8 +97,10 @@ class _ProductsViewState extends State<ProductsView> {
                             horizontal: 12.0.w, vertical: 10.h),
                         child: Row(
                           children: [
-                            Text(S.current.products,
-                              style: CustomTextStyle.kTextStyleF20Black,),
+                            Text(
+                              S.current.products,
+                              style: CustomTextStyle.kTextStyleF20Black,
+                            ),
                           ],
                         ),
                       ),
@@ -145,6 +157,32 @@ class _ProductsViewState extends State<ProductsView> {
                                 productEntity: productsList[index],
                               );
                             },
+                          );
+                        },
+                        searchLoading: () {
+                          return const StateLoadingWidget();
+                        },
+                        searchSuccess: (state) {
+                          return AutoHeightGridView(
+                            controller: scrollController,
+                            itemCount: productsList.length,
+                            crossAxisCount: 2,
+                            mainAxisSpacing: 10,
+                            crossAxisSpacing: 10,
+                            physics: const BouncingScrollPhysics(),
+                            padding: const EdgeInsets.all(12),
+                            shrinkWrap: true,
+                            builder: (context, index) {
+                              return ProductItem(
+                                productEntity: productsList[index],
+                              );
+                            },
+                          );
+                        },
+                        searchError: (errCode, err) {
+                          return StateErrorWidget(
+                            errCode: errCode!,
+                            err: err!,
                           );
                         },
                         error: (errCode, err) {

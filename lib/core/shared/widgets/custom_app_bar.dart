@@ -22,9 +22,11 @@ import '../cubits/service_cart_cubit/service_cart_cubit.dart';
 
 class CustomAppBar extends StatefulWidget implements PreferredSizeWidget {
   final bool searchBar;
+  final Function(String)? onSubmitted;
+  final TextEditingController? searchCtrl;
 
   const CustomAppBar({
-    super.key, required this.searchBar,
+    super.key, required this.searchBar, this.onSubmitted, this.searchCtrl,
   });
 
   @override
@@ -35,7 +37,6 @@ class CustomAppBar extends StatefulWidget implements PreferredSizeWidget {
 }
 
 class _CustomAppBarState extends State<CustomAppBar> {
-  TextEditingController searchCtrl = TextEditingController();
   HiveDatabase hiveDatabase = HiveDatabase();
   List<Address> addresses = [];
 
@@ -232,8 +233,9 @@ class _CustomAppBarState extends State<CustomAppBar> {
                 ],
               ),
               Gap(20.h),
-              widget.searchBar?TextFormField(
-                controller: searchCtrl,
+              widget.searchBar ? TextFormField(
+                controller: widget.searchCtrl,
+                onFieldSubmitted: widget.onSubmitted,
                 decoration: InputDecoration(
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(8),

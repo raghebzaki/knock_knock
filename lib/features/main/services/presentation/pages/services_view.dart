@@ -144,6 +144,32 @@ class _ServicesViewState extends State<ServicesView> {
                             },
                           );
                         },
+                        searchLoading: () {
+                          return const StateLoadingWidget();
+                        },
+                        searchSuccess: (state) {
+                          return AutoHeightGridView(
+                            controller: scrollController,
+                            itemCount: servicesList.length,
+                            crossAxisCount: 2,
+                            mainAxisSpacing: 10,
+                            crossAxisSpacing: 10,
+                            physics: const BouncingScrollPhysics(),
+                            padding: const EdgeInsets.all(12),
+                            shrinkWrap: true,
+                            builder: (context, index) {
+                              return ServiceItem(
+                                servicesEntity: servicesList[index],
+                              );
+                            },
+                          );
+                        },
+                        searchError: (errCode, err) {
+                          return StateErrorWidget(
+                            errCode: errCode!,
+                            err: err!,
+                          );
+                        },
                         error: (errCode, err) {
                           return StateErrorWidget(
                             errCode: errCode!,

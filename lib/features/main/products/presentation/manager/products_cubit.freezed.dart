@@ -24,6 +24,9 @@ mixin _$ProductsState {
     required TResult Function(String? errCode, String? err) error,
     required TResult Function() paginationLoading,
     required TResult Function(String? errCode, String? err) paginationError,
+    required TResult Function() searchLoading,
+    required TResult Function(List<ProductEntity>? productEntity) searchSuccess,
+    required TResult Function(String? errCode, String? err) searchError,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -34,6 +37,9 @@ mixin _$ProductsState {
     TResult? Function(String? errCode, String? err)? error,
     TResult? Function()? paginationLoading,
     TResult? Function(String? errCode, String? err)? paginationError,
+    TResult? Function()? searchLoading,
+    TResult? Function(List<ProductEntity>? productEntity)? searchSuccess,
+    TResult? Function(String? errCode, String? err)? searchError,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -44,6 +50,9 @@ mixin _$ProductsState {
     TResult Function(String? errCode, String? err)? error,
     TResult Function()? paginationLoading,
     TResult Function(String? errCode, String? err)? paginationError,
+    TResult Function()? searchLoading,
+    TResult Function(List<ProductEntity>? productEntity)? searchSuccess,
+    TResult Function(String? errCode, String? err)? searchError,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -55,6 +64,9 @@ mixin _$ProductsState {
     required TResult Function(Error value) error,
     required TResult Function(PaginationLoading value) paginationLoading,
     required TResult Function(PaginationSuccess value) paginationError,
+    required TResult Function(SearchLoading value) searchLoading,
+    required TResult Function(SearchSuccess value) searchSuccess,
+    required TResult Function(SearchError value) searchError,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -65,6 +77,9 @@ mixin _$ProductsState {
     TResult? Function(Error value)? error,
     TResult? Function(PaginationLoading value)? paginationLoading,
     TResult? Function(PaginationSuccess value)? paginationError,
+    TResult? Function(SearchLoading value)? searchLoading,
+    TResult? Function(SearchSuccess value)? searchSuccess,
+    TResult? Function(SearchError value)? searchError,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -75,6 +90,9 @@ mixin _$ProductsState {
     TResult Function(Error value)? error,
     TResult Function(PaginationLoading value)? paginationLoading,
     TResult Function(PaginationSuccess value)? paginationError,
+    TResult Function(SearchLoading value)? searchLoading,
+    TResult Function(SearchSuccess value)? searchSuccess,
+    TResult Function(SearchError value)? searchError,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -142,6 +160,9 @@ class _$InitialImpl implements _Initial {
     required TResult Function(String? errCode, String? err) error,
     required TResult Function() paginationLoading,
     required TResult Function(String? errCode, String? err) paginationError,
+    required TResult Function() searchLoading,
+    required TResult Function(List<ProductEntity>? productEntity) searchSuccess,
+    required TResult Function(String? errCode, String? err) searchError,
   }) {
     return initial();
   }
@@ -155,6 +176,9 @@ class _$InitialImpl implements _Initial {
     TResult? Function(String? errCode, String? err)? error,
     TResult? Function()? paginationLoading,
     TResult? Function(String? errCode, String? err)? paginationError,
+    TResult? Function()? searchLoading,
+    TResult? Function(List<ProductEntity>? productEntity)? searchSuccess,
+    TResult? Function(String? errCode, String? err)? searchError,
   }) {
     return initial?.call();
   }
@@ -168,6 +192,9 @@ class _$InitialImpl implements _Initial {
     TResult Function(String? errCode, String? err)? error,
     TResult Function()? paginationLoading,
     TResult Function(String? errCode, String? err)? paginationError,
+    TResult Function()? searchLoading,
+    TResult Function(List<ProductEntity>? productEntity)? searchSuccess,
+    TResult Function(String? errCode, String? err)? searchError,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -185,6 +212,9 @@ class _$InitialImpl implements _Initial {
     required TResult Function(Error value) error,
     required TResult Function(PaginationLoading value) paginationLoading,
     required TResult Function(PaginationSuccess value) paginationError,
+    required TResult Function(SearchLoading value) searchLoading,
+    required TResult Function(SearchSuccess value) searchSuccess,
+    required TResult Function(SearchError value) searchError,
   }) {
     return initial(this);
   }
@@ -198,6 +228,9 @@ class _$InitialImpl implements _Initial {
     TResult? Function(Error value)? error,
     TResult? Function(PaginationLoading value)? paginationLoading,
     TResult? Function(PaginationSuccess value)? paginationError,
+    TResult? Function(SearchLoading value)? searchLoading,
+    TResult? Function(SearchSuccess value)? searchSuccess,
+    TResult? Function(SearchError value)? searchError,
   }) {
     return initial?.call(this);
   }
@@ -211,6 +244,9 @@ class _$InitialImpl implements _Initial {
     TResult Function(Error value)? error,
     TResult Function(PaginationLoading value)? paginationLoading,
     TResult Function(PaginationSuccess value)? paginationError,
+    TResult Function(SearchLoading value)? searchLoading,
+    TResult Function(SearchSuccess value)? searchSuccess,
+    TResult Function(SearchError value)? searchError,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -268,6 +304,9 @@ class _$LoadingImpl implements Loading {
     required TResult Function(String? errCode, String? err) error,
     required TResult Function() paginationLoading,
     required TResult Function(String? errCode, String? err) paginationError,
+    required TResult Function() searchLoading,
+    required TResult Function(List<ProductEntity>? productEntity) searchSuccess,
+    required TResult Function(String? errCode, String? err) searchError,
   }) {
     return loading();
   }
@@ -281,6 +320,9 @@ class _$LoadingImpl implements Loading {
     TResult? Function(String? errCode, String? err)? error,
     TResult? Function()? paginationLoading,
     TResult? Function(String? errCode, String? err)? paginationError,
+    TResult? Function()? searchLoading,
+    TResult? Function(List<ProductEntity>? productEntity)? searchSuccess,
+    TResult? Function(String? errCode, String? err)? searchError,
   }) {
     return loading?.call();
   }
@@ -294,6 +336,9 @@ class _$LoadingImpl implements Loading {
     TResult Function(String? errCode, String? err)? error,
     TResult Function()? paginationLoading,
     TResult Function(String? errCode, String? err)? paginationError,
+    TResult Function()? searchLoading,
+    TResult Function(List<ProductEntity>? productEntity)? searchSuccess,
+    TResult Function(String? errCode, String? err)? searchError,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -311,6 +356,9 @@ class _$LoadingImpl implements Loading {
     required TResult Function(Error value) error,
     required TResult Function(PaginationLoading value) paginationLoading,
     required TResult Function(PaginationSuccess value) paginationError,
+    required TResult Function(SearchLoading value) searchLoading,
+    required TResult Function(SearchSuccess value) searchSuccess,
+    required TResult Function(SearchError value) searchError,
   }) {
     return loading(this);
   }
@@ -324,6 +372,9 @@ class _$LoadingImpl implements Loading {
     TResult? Function(Error value)? error,
     TResult? Function(PaginationLoading value)? paginationLoading,
     TResult? Function(PaginationSuccess value)? paginationError,
+    TResult? Function(SearchLoading value)? searchLoading,
+    TResult? Function(SearchSuccess value)? searchSuccess,
+    TResult? Function(SearchError value)? searchError,
   }) {
     return loading?.call(this);
   }
@@ -337,6 +388,9 @@ class _$LoadingImpl implements Loading {
     TResult Function(Error value)? error,
     TResult Function(PaginationLoading value)? paginationLoading,
     TResult Function(PaginationSuccess value)? paginationError,
+    TResult Function(SearchLoading value)? searchLoading,
+    TResult Function(SearchSuccess value)? searchSuccess,
+    TResult Function(SearchError value)? searchError,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -430,6 +484,9 @@ class _$SuccessImpl implements Success {
     required TResult Function(String? errCode, String? err) error,
     required TResult Function() paginationLoading,
     required TResult Function(String? errCode, String? err) paginationError,
+    required TResult Function() searchLoading,
+    required TResult Function(List<ProductEntity>? productEntity) searchSuccess,
+    required TResult Function(String? errCode, String? err) searchError,
   }) {
     return success(productEntity);
   }
@@ -443,6 +500,9 @@ class _$SuccessImpl implements Success {
     TResult? Function(String? errCode, String? err)? error,
     TResult? Function()? paginationLoading,
     TResult? Function(String? errCode, String? err)? paginationError,
+    TResult? Function()? searchLoading,
+    TResult? Function(List<ProductEntity>? productEntity)? searchSuccess,
+    TResult? Function(String? errCode, String? err)? searchError,
   }) {
     return success?.call(productEntity);
   }
@@ -456,6 +516,9 @@ class _$SuccessImpl implements Success {
     TResult Function(String? errCode, String? err)? error,
     TResult Function()? paginationLoading,
     TResult Function(String? errCode, String? err)? paginationError,
+    TResult Function()? searchLoading,
+    TResult Function(List<ProductEntity>? productEntity)? searchSuccess,
+    TResult Function(String? errCode, String? err)? searchError,
     required TResult orElse(),
   }) {
     if (success != null) {
@@ -473,6 +536,9 @@ class _$SuccessImpl implements Success {
     required TResult Function(Error value) error,
     required TResult Function(PaginationLoading value) paginationLoading,
     required TResult Function(PaginationSuccess value) paginationError,
+    required TResult Function(SearchLoading value) searchLoading,
+    required TResult Function(SearchSuccess value) searchSuccess,
+    required TResult Function(SearchError value) searchError,
   }) {
     return success(this);
   }
@@ -486,6 +552,9 @@ class _$SuccessImpl implements Success {
     TResult? Function(Error value)? error,
     TResult? Function(PaginationLoading value)? paginationLoading,
     TResult? Function(PaginationSuccess value)? paginationError,
+    TResult? Function(SearchLoading value)? searchLoading,
+    TResult? Function(SearchSuccess value)? searchSuccess,
+    TResult? Function(SearchError value)? searchError,
   }) {
     return success?.call(this);
   }
@@ -499,6 +568,9 @@ class _$SuccessImpl implements Success {
     TResult Function(Error value)? error,
     TResult Function(PaginationLoading value)? paginationLoading,
     TResult Function(PaginationSuccess value)? paginationError,
+    TResult Function(SearchLoading value)? searchLoading,
+    TResult Function(SearchSuccess value)? searchSuccess,
+    TResult Function(SearchError value)? searchError,
     required TResult orElse(),
   }) {
     if (success != null) {
@@ -596,6 +668,9 @@ class _$ErrorImpl implements Error {
     required TResult Function(String? errCode, String? err) error,
     required TResult Function() paginationLoading,
     required TResult Function(String? errCode, String? err) paginationError,
+    required TResult Function() searchLoading,
+    required TResult Function(List<ProductEntity>? productEntity) searchSuccess,
+    required TResult Function(String? errCode, String? err) searchError,
   }) {
     return error(errCode, err);
   }
@@ -609,6 +684,9 @@ class _$ErrorImpl implements Error {
     TResult? Function(String? errCode, String? err)? error,
     TResult? Function()? paginationLoading,
     TResult? Function(String? errCode, String? err)? paginationError,
+    TResult? Function()? searchLoading,
+    TResult? Function(List<ProductEntity>? productEntity)? searchSuccess,
+    TResult? Function(String? errCode, String? err)? searchError,
   }) {
     return error?.call(errCode, err);
   }
@@ -622,6 +700,9 @@ class _$ErrorImpl implements Error {
     TResult Function(String? errCode, String? err)? error,
     TResult Function()? paginationLoading,
     TResult Function(String? errCode, String? err)? paginationError,
+    TResult Function()? searchLoading,
+    TResult Function(List<ProductEntity>? productEntity)? searchSuccess,
+    TResult Function(String? errCode, String? err)? searchError,
     required TResult orElse(),
   }) {
     if (error != null) {
@@ -639,6 +720,9 @@ class _$ErrorImpl implements Error {
     required TResult Function(Error value) error,
     required TResult Function(PaginationLoading value) paginationLoading,
     required TResult Function(PaginationSuccess value) paginationError,
+    required TResult Function(SearchLoading value) searchLoading,
+    required TResult Function(SearchSuccess value) searchSuccess,
+    required TResult Function(SearchError value) searchError,
   }) {
     return error(this);
   }
@@ -652,6 +736,9 @@ class _$ErrorImpl implements Error {
     TResult? Function(Error value)? error,
     TResult? Function(PaginationLoading value)? paginationLoading,
     TResult? Function(PaginationSuccess value)? paginationError,
+    TResult? Function(SearchLoading value)? searchLoading,
+    TResult? Function(SearchSuccess value)? searchSuccess,
+    TResult? Function(SearchError value)? searchError,
   }) {
     return error?.call(this);
   }
@@ -665,6 +752,9 @@ class _$ErrorImpl implements Error {
     TResult Function(Error value)? error,
     TResult Function(PaginationLoading value)? paginationLoading,
     TResult Function(PaginationSuccess value)? paginationError,
+    TResult Function(SearchLoading value)? searchLoading,
+    TResult Function(SearchSuccess value)? searchSuccess,
+    TResult Function(SearchError value)? searchError,
     required TResult orElse(),
   }) {
     if (error != null) {
@@ -728,6 +818,9 @@ class _$PaginationLoadingImpl implements PaginationLoading {
     required TResult Function(String? errCode, String? err) error,
     required TResult Function() paginationLoading,
     required TResult Function(String? errCode, String? err) paginationError,
+    required TResult Function() searchLoading,
+    required TResult Function(List<ProductEntity>? productEntity) searchSuccess,
+    required TResult Function(String? errCode, String? err) searchError,
   }) {
     return paginationLoading();
   }
@@ -741,6 +834,9 @@ class _$PaginationLoadingImpl implements PaginationLoading {
     TResult? Function(String? errCode, String? err)? error,
     TResult? Function()? paginationLoading,
     TResult? Function(String? errCode, String? err)? paginationError,
+    TResult? Function()? searchLoading,
+    TResult? Function(List<ProductEntity>? productEntity)? searchSuccess,
+    TResult? Function(String? errCode, String? err)? searchError,
   }) {
     return paginationLoading?.call();
   }
@@ -754,6 +850,9 @@ class _$PaginationLoadingImpl implements PaginationLoading {
     TResult Function(String? errCode, String? err)? error,
     TResult Function()? paginationLoading,
     TResult Function(String? errCode, String? err)? paginationError,
+    TResult Function()? searchLoading,
+    TResult Function(List<ProductEntity>? productEntity)? searchSuccess,
+    TResult Function(String? errCode, String? err)? searchError,
     required TResult orElse(),
   }) {
     if (paginationLoading != null) {
@@ -771,6 +870,9 @@ class _$PaginationLoadingImpl implements PaginationLoading {
     required TResult Function(Error value) error,
     required TResult Function(PaginationLoading value) paginationLoading,
     required TResult Function(PaginationSuccess value) paginationError,
+    required TResult Function(SearchLoading value) searchLoading,
+    required TResult Function(SearchSuccess value) searchSuccess,
+    required TResult Function(SearchError value) searchError,
   }) {
     return paginationLoading(this);
   }
@@ -784,6 +886,9 @@ class _$PaginationLoadingImpl implements PaginationLoading {
     TResult? Function(Error value)? error,
     TResult? Function(PaginationLoading value)? paginationLoading,
     TResult? Function(PaginationSuccess value)? paginationError,
+    TResult? Function(SearchLoading value)? searchLoading,
+    TResult? Function(SearchSuccess value)? searchSuccess,
+    TResult? Function(SearchError value)? searchError,
   }) {
     return paginationLoading?.call(this);
   }
@@ -797,6 +902,9 @@ class _$PaginationLoadingImpl implements PaginationLoading {
     TResult Function(Error value)? error,
     TResult Function(PaginationLoading value)? paginationLoading,
     TResult Function(PaginationSuccess value)? paginationError,
+    TResult Function(SearchLoading value)? searchLoading,
+    TResult Function(SearchSuccess value)? searchSuccess,
+    TResult Function(SearchError value)? searchError,
     required TResult orElse(),
   }) {
     if (paginationLoading != null) {
@@ -889,6 +997,9 @@ class _$PaginationSuccessImpl implements PaginationSuccess {
     required TResult Function(String? errCode, String? err) error,
     required TResult Function() paginationLoading,
     required TResult Function(String? errCode, String? err) paginationError,
+    required TResult Function() searchLoading,
+    required TResult Function(List<ProductEntity>? productEntity) searchSuccess,
+    required TResult Function(String? errCode, String? err) searchError,
   }) {
     return paginationError(errCode, err);
   }
@@ -902,6 +1013,9 @@ class _$PaginationSuccessImpl implements PaginationSuccess {
     TResult? Function(String? errCode, String? err)? error,
     TResult? Function()? paginationLoading,
     TResult? Function(String? errCode, String? err)? paginationError,
+    TResult? Function()? searchLoading,
+    TResult? Function(List<ProductEntity>? productEntity)? searchSuccess,
+    TResult? Function(String? errCode, String? err)? searchError,
   }) {
     return paginationError?.call(errCode, err);
   }
@@ -915,6 +1029,9 @@ class _$PaginationSuccessImpl implements PaginationSuccess {
     TResult Function(String? errCode, String? err)? error,
     TResult Function()? paginationLoading,
     TResult Function(String? errCode, String? err)? paginationError,
+    TResult Function()? searchLoading,
+    TResult Function(List<ProductEntity>? productEntity)? searchSuccess,
+    TResult Function(String? errCode, String? err)? searchError,
     required TResult orElse(),
   }) {
     if (paginationError != null) {
@@ -932,6 +1049,9 @@ class _$PaginationSuccessImpl implements PaginationSuccess {
     required TResult Function(Error value) error,
     required TResult Function(PaginationLoading value) paginationLoading,
     required TResult Function(PaginationSuccess value) paginationError,
+    required TResult Function(SearchLoading value) searchLoading,
+    required TResult Function(SearchSuccess value) searchSuccess,
+    required TResult Function(SearchError value) searchError,
   }) {
     return paginationError(this);
   }
@@ -945,6 +1065,9 @@ class _$PaginationSuccessImpl implements PaginationSuccess {
     TResult? Function(Error value)? error,
     TResult? Function(PaginationLoading value)? paginationLoading,
     TResult? Function(PaginationSuccess value)? paginationError,
+    TResult? Function(SearchLoading value)? searchLoading,
+    TResult? Function(SearchSuccess value)? searchSuccess,
+    TResult? Function(SearchError value)? searchError,
   }) {
     return paginationError?.call(this);
   }
@@ -958,6 +1081,9 @@ class _$PaginationSuccessImpl implements PaginationSuccess {
     TResult Function(Error value)? error,
     TResult Function(PaginationLoading value)? paginationLoading,
     TResult Function(PaginationSuccess value)? paginationError,
+    TResult Function(SearchLoading value)? searchLoading,
+    TResult Function(SearchSuccess value)? searchSuccess,
+    TResult Function(SearchError value)? searchError,
     required TResult orElse(),
   }) {
     if (paginationError != null) {
@@ -975,5 +1101,520 @@ abstract class PaginationSuccess implements ProductsState {
   String? get err;
   @JsonKey(ignore: true)
   _$$PaginationSuccessImplCopyWith<_$PaginationSuccessImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$SearchLoadingImplCopyWith<$Res> {
+  factory _$$SearchLoadingImplCopyWith(
+          _$SearchLoadingImpl value, $Res Function(_$SearchLoadingImpl) then) =
+      __$$SearchLoadingImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$SearchLoadingImplCopyWithImpl<$Res>
+    extends _$ProductsStateCopyWithImpl<$Res, _$SearchLoadingImpl>
+    implements _$$SearchLoadingImplCopyWith<$Res> {
+  __$$SearchLoadingImplCopyWithImpl(
+      _$SearchLoadingImpl _value, $Res Function(_$SearchLoadingImpl) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$SearchLoadingImpl implements SearchLoading {
+  const _$SearchLoadingImpl();
+
+  @override
+  String toString() {
+    return 'ProductsState.searchLoading()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$SearchLoadingImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loading,
+    required TResult Function(List<ProductEntity>? productEntity) success,
+    required TResult Function(String? errCode, String? err) error,
+    required TResult Function() paginationLoading,
+    required TResult Function(String? errCode, String? err) paginationError,
+    required TResult Function() searchLoading,
+    required TResult Function(List<ProductEntity>? productEntity) searchSuccess,
+    required TResult Function(String? errCode, String? err) searchError,
+  }) {
+    return searchLoading();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function(List<ProductEntity>? productEntity)? success,
+    TResult? Function(String? errCode, String? err)? error,
+    TResult? Function()? paginationLoading,
+    TResult? Function(String? errCode, String? err)? paginationError,
+    TResult? Function()? searchLoading,
+    TResult? Function(List<ProductEntity>? productEntity)? searchSuccess,
+    TResult? Function(String? errCode, String? err)? searchError,
+  }) {
+    return searchLoading?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loading,
+    TResult Function(List<ProductEntity>? productEntity)? success,
+    TResult Function(String? errCode, String? err)? error,
+    TResult Function()? paginationLoading,
+    TResult Function(String? errCode, String? err)? paginationError,
+    TResult Function()? searchLoading,
+    TResult Function(List<ProductEntity>? productEntity)? searchSuccess,
+    TResult Function(String? errCode, String? err)? searchError,
+    required TResult orElse(),
+  }) {
+    if (searchLoading != null) {
+      return searchLoading();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(Loading value) loading,
+    required TResult Function(Success value) success,
+    required TResult Function(Error value) error,
+    required TResult Function(PaginationLoading value) paginationLoading,
+    required TResult Function(PaginationSuccess value) paginationError,
+    required TResult Function(SearchLoading value) searchLoading,
+    required TResult Function(SearchSuccess value) searchSuccess,
+    required TResult Function(SearchError value) searchError,
+  }) {
+    return searchLoading(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(Loading value)? loading,
+    TResult? Function(Success value)? success,
+    TResult? Function(Error value)? error,
+    TResult? Function(PaginationLoading value)? paginationLoading,
+    TResult? Function(PaginationSuccess value)? paginationError,
+    TResult? Function(SearchLoading value)? searchLoading,
+    TResult? Function(SearchSuccess value)? searchSuccess,
+    TResult? Function(SearchError value)? searchError,
+  }) {
+    return searchLoading?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(Loading value)? loading,
+    TResult Function(Success value)? success,
+    TResult Function(Error value)? error,
+    TResult Function(PaginationLoading value)? paginationLoading,
+    TResult Function(PaginationSuccess value)? paginationError,
+    TResult Function(SearchLoading value)? searchLoading,
+    TResult Function(SearchSuccess value)? searchSuccess,
+    TResult Function(SearchError value)? searchError,
+    required TResult orElse(),
+  }) {
+    if (searchLoading != null) {
+      return searchLoading(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class SearchLoading implements ProductsState {
+  const factory SearchLoading() = _$SearchLoadingImpl;
+}
+
+/// @nodoc
+abstract class _$$SearchSuccessImplCopyWith<$Res> {
+  factory _$$SearchSuccessImplCopyWith(
+          _$SearchSuccessImpl value, $Res Function(_$SearchSuccessImpl) then) =
+      __$$SearchSuccessImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({List<ProductEntity>? productEntity});
+}
+
+/// @nodoc
+class __$$SearchSuccessImplCopyWithImpl<$Res>
+    extends _$ProductsStateCopyWithImpl<$Res, _$SearchSuccessImpl>
+    implements _$$SearchSuccessImplCopyWith<$Res> {
+  __$$SearchSuccessImplCopyWithImpl(
+      _$SearchSuccessImpl _value, $Res Function(_$SearchSuccessImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? productEntity = freezed,
+  }) {
+    return _then(_$SearchSuccessImpl(
+      freezed == productEntity
+          ? _value._productEntity
+          : productEntity // ignore: cast_nullable_to_non_nullable
+              as List<ProductEntity>?,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$SearchSuccessImpl implements SearchSuccess {
+  const _$SearchSuccessImpl(final List<ProductEntity>? productEntity)
+      : _productEntity = productEntity;
+
+  final List<ProductEntity>? _productEntity;
+  @override
+  List<ProductEntity>? get productEntity {
+    final value = _productEntity;
+    if (value == null) return null;
+    if (_productEntity is EqualUnmodifiableListView) return _productEntity;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(value);
+  }
+
+  @override
+  String toString() {
+    return 'ProductsState.searchSuccess(productEntity: $productEntity)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$SearchSuccessImpl &&
+            const DeepCollectionEquality()
+                .equals(other._productEntity, _productEntity));
+  }
+
+  @override
+  int get hashCode => Object.hash(
+      runtimeType, const DeepCollectionEquality().hash(_productEntity));
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$SearchSuccessImplCopyWith<_$SearchSuccessImpl> get copyWith =>
+      __$$SearchSuccessImplCopyWithImpl<_$SearchSuccessImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loading,
+    required TResult Function(List<ProductEntity>? productEntity) success,
+    required TResult Function(String? errCode, String? err) error,
+    required TResult Function() paginationLoading,
+    required TResult Function(String? errCode, String? err) paginationError,
+    required TResult Function() searchLoading,
+    required TResult Function(List<ProductEntity>? productEntity) searchSuccess,
+    required TResult Function(String? errCode, String? err) searchError,
+  }) {
+    return searchSuccess(productEntity);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function(List<ProductEntity>? productEntity)? success,
+    TResult? Function(String? errCode, String? err)? error,
+    TResult? Function()? paginationLoading,
+    TResult? Function(String? errCode, String? err)? paginationError,
+    TResult? Function()? searchLoading,
+    TResult? Function(List<ProductEntity>? productEntity)? searchSuccess,
+    TResult? Function(String? errCode, String? err)? searchError,
+  }) {
+    return searchSuccess?.call(productEntity);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loading,
+    TResult Function(List<ProductEntity>? productEntity)? success,
+    TResult Function(String? errCode, String? err)? error,
+    TResult Function()? paginationLoading,
+    TResult Function(String? errCode, String? err)? paginationError,
+    TResult Function()? searchLoading,
+    TResult Function(List<ProductEntity>? productEntity)? searchSuccess,
+    TResult Function(String? errCode, String? err)? searchError,
+    required TResult orElse(),
+  }) {
+    if (searchSuccess != null) {
+      return searchSuccess(productEntity);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(Loading value) loading,
+    required TResult Function(Success value) success,
+    required TResult Function(Error value) error,
+    required TResult Function(PaginationLoading value) paginationLoading,
+    required TResult Function(PaginationSuccess value) paginationError,
+    required TResult Function(SearchLoading value) searchLoading,
+    required TResult Function(SearchSuccess value) searchSuccess,
+    required TResult Function(SearchError value) searchError,
+  }) {
+    return searchSuccess(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(Loading value)? loading,
+    TResult? Function(Success value)? success,
+    TResult? Function(Error value)? error,
+    TResult? Function(PaginationLoading value)? paginationLoading,
+    TResult? Function(PaginationSuccess value)? paginationError,
+    TResult? Function(SearchLoading value)? searchLoading,
+    TResult? Function(SearchSuccess value)? searchSuccess,
+    TResult? Function(SearchError value)? searchError,
+  }) {
+    return searchSuccess?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(Loading value)? loading,
+    TResult Function(Success value)? success,
+    TResult Function(Error value)? error,
+    TResult Function(PaginationLoading value)? paginationLoading,
+    TResult Function(PaginationSuccess value)? paginationError,
+    TResult Function(SearchLoading value)? searchLoading,
+    TResult Function(SearchSuccess value)? searchSuccess,
+    TResult Function(SearchError value)? searchError,
+    required TResult orElse(),
+  }) {
+    if (searchSuccess != null) {
+      return searchSuccess(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class SearchSuccess implements ProductsState {
+  const factory SearchSuccess(final List<ProductEntity>? productEntity) =
+      _$SearchSuccessImpl;
+
+  List<ProductEntity>? get productEntity;
+  @JsonKey(ignore: true)
+  _$$SearchSuccessImplCopyWith<_$SearchSuccessImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$SearchErrorImplCopyWith<$Res> {
+  factory _$$SearchErrorImplCopyWith(
+          _$SearchErrorImpl value, $Res Function(_$SearchErrorImpl) then) =
+      __$$SearchErrorImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String? errCode, String? err});
+}
+
+/// @nodoc
+class __$$SearchErrorImplCopyWithImpl<$Res>
+    extends _$ProductsStateCopyWithImpl<$Res, _$SearchErrorImpl>
+    implements _$$SearchErrorImplCopyWith<$Res> {
+  __$$SearchErrorImplCopyWithImpl(
+      _$SearchErrorImpl _value, $Res Function(_$SearchErrorImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? errCode = freezed,
+    Object? err = freezed,
+  }) {
+    return _then(_$SearchErrorImpl(
+      freezed == errCode
+          ? _value.errCode
+          : errCode // ignore: cast_nullable_to_non_nullable
+              as String?,
+      freezed == err
+          ? _value.err
+          : err // ignore: cast_nullable_to_non_nullable
+              as String?,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$SearchErrorImpl implements SearchError {
+  const _$SearchErrorImpl(this.errCode, this.err);
+
+  @override
+  final String? errCode;
+  @override
+  final String? err;
+
+  @override
+  String toString() {
+    return 'ProductsState.searchError(errCode: $errCode, err: $err)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$SearchErrorImpl &&
+            (identical(other.errCode, errCode) || other.errCode == errCode) &&
+            (identical(other.err, err) || other.err == err));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, errCode, err);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$SearchErrorImplCopyWith<_$SearchErrorImpl> get copyWith =>
+      __$$SearchErrorImplCopyWithImpl<_$SearchErrorImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loading,
+    required TResult Function(List<ProductEntity>? productEntity) success,
+    required TResult Function(String? errCode, String? err) error,
+    required TResult Function() paginationLoading,
+    required TResult Function(String? errCode, String? err) paginationError,
+    required TResult Function() searchLoading,
+    required TResult Function(List<ProductEntity>? productEntity) searchSuccess,
+    required TResult Function(String? errCode, String? err) searchError,
+  }) {
+    return searchError(errCode, err);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function(List<ProductEntity>? productEntity)? success,
+    TResult? Function(String? errCode, String? err)? error,
+    TResult? Function()? paginationLoading,
+    TResult? Function(String? errCode, String? err)? paginationError,
+    TResult? Function()? searchLoading,
+    TResult? Function(List<ProductEntity>? productEntity)? searchSuccess,
+    TResult? Function(String? errCode, String? err)? searchError,
+  }) {
+    return searchError?.call(errCode, err);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loading,
+    TResult Function(List<ProductEntity>? productEntity)? success,
+    TResult Function(String? errCode, String? err)? error,
+    TResult Function()? paginationLoading,
+    TResult Function(String? errCode, String? err)? paginationError,
+    TResult Function()? searchLoading,
+    TResult Function(List<ProductEntity>? productEntity)? searchSuccess,
+    TResult Function(String? errCode, String? err)? searchError,
+    required TResult orElse(),
+  }) {
+    if (searchError != null) {
+      return searchError(errCode, err);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(Loading value) loading,
+    required TResult Function(Success value) success,
+    required TResult Function(Error value) error,
+    required TResult Function(PaginationLoading value) paginationLoading,
+    required TResult Function(PaginationSuccess value) paginationError,
+    required TResult Function(SearchLoading value) searchLoading,
+    required TResult Function(SearchSuccess value) searchSuccess,
+    required TResult Function(SearchError value) searchError,
+  }) {
+    return searchError(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(Loading value)? loading,
+    TResult? Function(Success value)? success,
+    TResult? Function(Error value)? error,
+    TResult? Function(PaginationLoading value)? paginationLoading,
+    TResult? Function(PaginationSuccess value)? paginationError,
+    TResult? Function(SearchLoading value)? searchLoading,
+    TResult? Function(SearchSuccess value)? searchSuccess,
+    TResult? Function(SearchError value)? searchError,
+  }) {
+    return searchError?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(Loading value)? loading,
+    TResult Function(Success value)? success,
+    TResult Function(Error value)? error,
+    TResult Function(PaginationLoading value)? paginationLoading,
+    TResult Function(PaginationSuccess value)? paginationError,
+    TResult Function(SearchLoading value)? searchLoading,
+    TResult Function(SearchSuccess value)? searchSuccess,
+    TResult Function(SearchError value)? searchError,
+    required TResult orElse(),
+  }) {
+    if (searchError != null) {
+      return searchError(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class SearchError implements ProductsState {
+  const factory SearchError(final String? errCode, final String? err) =
+      _$SearchErrorImpl;
+
+  String? get errCode;
+  String? get err;
+  @JsonKey(ignore: true)
+  _$$SearchErrorImplCopyWith<_$SearchErrorImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

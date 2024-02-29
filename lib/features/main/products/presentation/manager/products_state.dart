@@ -8,5 +8,8 @@ class ProductsState with _$ProductsState {
   const factory ProductsState.error(final String? errCode, final String? err) = Error;
   const factory ProductsState.paginationLoading() = PaginationLoading;
   const factory ProductsState.paginationError(final String? errCode, final String? err) = PaginationSuccess;
+  const factory ProductsState.searchLoading() = SearchLoading;
+  const factory ProductsState.searchSuccess(final List<ProductEntity>? productEntity) = SearchSuccess;
+  const factory ProductsState.searchError(final String? errCode, final String? err) = SearchError;
 
 }

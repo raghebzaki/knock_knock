@@ -138,7 +138,8 @@ Future<void> init() async {
   /// Forgot Password
   di.registerFactory(() => ForgotPassCubit(forgotPassUseCase: di()));
   di.registerLazySingleton(() => ForgotPassUseCase(forgotPassRepo: di()));
-  di.registerLazySingleton<ForgotPassRepo>(() => ForgotPassRepoImpl(forgotPassService: di()));
+  di.registerLazySingleton<ForgotPassRepo>(
+      () => ForgotPassRepoImpl(forgotPassService: di()));
   di.registerLazySingleton<ForgotPassService>(() => ForgotPassServiceImpl());
 
   /// Reset Password
@@ -186,96 +187,161 @@ Future<void> init() async {
   /// carousel
   di.registerFactory(() => CarouselCubit(carouselUseCase: di()));
   di.registerLazySingleton(() => CarouselUseCase(di()));
-  di.registerLazySingleton<CarouselRepo>(() => CarouselRepoImpl(di(),));
+  di.registerLazySingleton<CarouselRepo>(() => CarouselRepoImpl(
+        di(),
+      ));
   di.registerLazySingleton<CarouselService>(() => CarouselServiceImpl());
+
   /// Services
-  di.registerFactory(() => ServicesCubit( di()));
+  di.registerFactory(() => ServicesCubit(di(), di()));
   di.registerLazySingleton(() => ServicesUseCase(di()));
-  di.registerLazySingleton<ServicesRepo>(() => ServicesRepoImpl(di(),));
+  di.registerLazySingleton<ServicesRepo>(() => ServicesRepoImpl(
+        di(),
+      ));
   di.registerLazySingleton<ServicesService>(() => ServicesServiceImpl());
+
   /// Products Category
-  di.registerFactory(() => ProductsCategoryCubit( di()));
+  di.registerFactory(() => ProductsCategoryCubit(di()));
   di.registerLazySingleton(() => ProductsCategoryUseCase(di()));
-  di.registerLazySingleton<ProductsCategoryRepo>(() => ProductsCategoryRepoImpl(di(),));
-  di.registerLazySingleton<ProductsCategoryService>(() => ProductsCategoryServiceImpl());
- /// Products Category
-  di.registerFactory(() => ProductsCubit( di()));
+  di.registerLazySingleton<ProductsCategoryRepo>(() => ProductsCategoryRepoImpl(
+        di(),
+      ));
+  di.registerLazySingleton<ProductsCategoryService>(
+      () => ProductsCategoryServiceImpl());
+
+  /// Products Category
+  di.registerFactory(() => ProductsCubit(di(), di()));
   di.registerLazySingleton(() => ProductsUseCase(di()));
-  di.registerLazySingleton<ProductsRepo>(() => ProductsRepoImpl(di(),));
+  di.registerLazySingleton<ProductsRepo>(() => ProductsRepoImpl(
+        di(),
+      ));
   di.registerLazySingleton<ProductsService>(() => ProductsServiceImpl());
 
   /// Products Details
-  di.registerFactory(() => WeekDaysCubit( daysUseCase: di()));
+  di.registerFactory(() => WeekDaysCubit(daysUseCase: di()));
   di.registerLazySingleton(() => WeekDaysUseCase(weekDaysRepo: di()));
-  di.registerLazySingleton<WeekDaysRepo>(() => WeekDaysRepoImpl(weekDayService: di(),));
+  di.registerLazySingleton<WeekDaysRepo>(() => WeekDaysRepoImpl(
+        weekDayService: di(),
+      ));
   di.registerLazySingleton<WeekDayService>(() => WeekDayServiceImpl());
 
   ///profile
   /// Edit profile
   di.registerFactory(() =>
-      EditProfileCubit(editProfileUseCase: di(),deleteAccountUseCase: di()));
+      EditProfileCubit(editProfileUseCase: di(), deleteAccountUseCase: di()));
   di.registerLazySingleton(() => EditProfileUseCase(di()));
-  di.registerLazySingleton(() => DeleteAccountUseCase( di()));
-  di.registerLazySingleton<EditProfileRepo>(() => EditProfileRepoImpl(di(),));
+  di.registerLazySingleton(() => DeleteAccountUseCase(di()));
+  di.registerLazySingleton<EditProfileRepo>(() => EditProfileRepoImpl(
+        di(),
+      ));
   di.registerLazySingleton<EditProfileService>(() => EditProfileServiceImpl());
+
   /// contact us
   di.registerFactory(() => ContactUsCubit(contactUsUseCase: di()));
   di.registerLazySingleton(() => ContactUsUseCase(di()));
-  di.registerLazySingleton<ContactUsRepo>(() => ContactUsRepoImpl(di(),));
+  di.registerLazySingleton<ContactUsRepo>(() => ContactUsRepoImpl(
+        di(),
+      ));
   di.registerLazySingleton<ContactUsService>(() => ContactUsServiceImpl());
 
   /// order
   /// my products orders
   di.registerFactory(() => MyOrdersCubit(myOrdersUseCase: di()));
   di.registerLazySingleton(() => MyOrdersUseCase(myOrdersRepo: di()));
-  di.registerLazySingleton<MyProductsOrdersRepo>(() => MyProductsOrdersRepoImpl(myOrdersService: di(),));
-  di.registerLazySingleton<MyProductsOrdersService>(() => MyProductsOrdersServiceImpl());
+  di.registerLazySingleton<MyProductsOrdersRepo>(() => MyProductsOrdersRepoImpl(
+        myOrdersService: di(),
+      ));
+  di.registerLazySingleton<MyProductsOrdersService>(
+      () => MyProductsOrdersServiceImpl());
 
   ///  cancel product order
   di.registerFactory(() => CancelProductOrderCubit(cancelOrderUseCase: di()));
-  di.registerLazySingleton(() => CancelProductOrderUseCase(cancelOrderRepo: di()));
-  di.registerLazySingleton<CancelProductOrderRepo>(() => CancelProductOrderRepoImpl(cancelOrderService: di(),));
-  di.registerLazySingleton<CancelProductOrderService>(() => CancelProductOrderServiceImpl());
+  di.registerLazySingleton(
+      () => CancelProductOrderUseCase(cancelOrderRepo: di()));
+  di.registerLazySingleton<CancelProductOrderRepo>(
+      () => CancelProductOrderRepoImpl(
+            cancelOrderService: di(),
+          ));
+  di.registerLazySingleton<CancelProductOrderService>(
+      () => CancelProductOrderServiceImpl());
+
   /// my Services orders
   di.registerFactory(() => MyServicesOrdersCubit(myOrdersUseCase: di()));
   di.registerLazySingleton(() => MyServicesOrdersUseCase(myOrdersRepo: di()));
-  di.registerLazySingleton<MyServicesOrdersRepo>(() => MyServicesOrdersRepoImpl(myOrdersService: di(),));
-  di.registerLazySingleton<MyServicesOrdersService>(() => MyServicesOrdersServiceImpl());
+  di.registerLazySingleton<MyServicesOrdersRepo>(() => MyServicesOrdersRepoImpl(
+        myOrdersService: di(),
+      ));
+  di.registerLazySingleton<MyServicesOrdersService>(
+      () => MyServicesOrdersServiceImpl());
+
   ///  cancel Service order
   di.registerFactory(() => ServiceCancelOrderCubit(cancelOrderUseCase: di()));
-  di.registerLazySingleton(() => CancelServiceOrderUseCase(cancelOrderRepo: di()));
-  di.registerLazySingleton<CancelServiceOrderRepo>(() => CancelServiceOrderRepoImpl(cancelOrderService: di(),));
-  di.registerLazySingleton<CancelServiceOrderService>(() => CancelServiceOrderServiceImpl());
+  di.registerLazySingleton(
+      () => CancelServiceOrderUseCase(cancelOrderRepo: di()));
+  di.registerLazySingleton<CancelServiceOrderRepo>(
+      () => CancelServiceOrderRepoImpl(
+            cancelOrderService: di(),
+          ));
+  di.registerLazySingleton<CancelServiceOrderService>(
+      () => CancelServiceOrderServiceImpl());
 
   /// payment
   /// service payment
   di.registerFactory(() => ServicesPlaceOrderCubit(placeOrderUseCase: di()));
-  di.registerLazySingleton(() => ServicesPlaceOrderUseCase(placeOrderRepo: di()));
-  di.registerLazySingleton<ServicesPlaceOrderRepo>(() => ServicesPlaceOrderRepoImpl(placeOrderService: di(),));
-  di.registerLazySingleton<ServicesPlaceOrderService>(() => ServicesPlaceOrderServiceImpl());
+  di.registerLazySingleton(
+      () => ServicesPlaceOrderUseCase(placeOrderRepo: di()));
+  di.registerLazySingleton<ServicesPlaceOrderRepo>(
+      () => ServicesPlaceOrderRepoImpl(
+            placeOrderService: di(),
+          ));
+  di.registerLazySingleton<ServicesPlaceOrderService>(
+      () => ServicesPlaceOrderServiceImpl());
+
   /// apply coupon
   di.registerFactory(() => ServicesCouponCubit(couponUseCase: di()));
-  di.registerLazySingleton(() => ServicesCouponUseCase( couponRepo: di()));
-  di.registerLazySingleton<ServicesCouponRepo>(() => ServicesCouponRepoImpl(couponService: di(),));
-  di.registerLazySingleton<ServicesCouponService>(() => ServicesCouponServiceImpl());
+  di.registerLazySingleton(() => ServicesCouponUseCase(couponRepo: di()));
+  di.registerLazySingleton<ServicesCouponRepo>(() => ServicesCouponRepoImpl(
+        couponService: di(),
+      ));
+  di.registerLazySingleton<ServicesCouponService>(
+      () => ServicesCouponServiceImpl());
+
   /// products payment
   di.registerFactory(() => ProductsPlaceOrderCubit(placeOrderUseCase: di()));
-  di.registerLazySingleton(() => ProductsPlaceOrderUseCase(placeOrderRepo: di()));
-  di.registerLazySingleton<ProductsPlaceOrderRepo>(() => ProductsPlaceOrderRepoImpl(placeOrderService: di(),));
-  di.registerLazySingleton<ProductsPlaceOrderService>(() => ProductsPlaceOrderServiceImpl());
+  di.registerLazySingleton(
+      () => ProductsPlaceOrderUseCase(placeOrderRepo: di()));
+  di.registerLazySingleton<ProductsPlaceOrderRepo>(
+      () => ProductsPlaceOrderRepoImpl(
+            placeOrderService: di(),
+          ));
+  di.registerLazySingleton<ProductsPlaceOrderService>(
+      () => ProductsPlaceOrderServiceImpl());
+
   /// apply coupon
   di.registerFactory(() => ProductsCouponCubit(couponUseCase: di()));
-  di.registerLazySingleton(() => ProductsCouponUseCase( couponRepo: di()));
-  di.registerLazySingleton<ProductsCouponRepo>(() => ProductsCouponRepoImpl(couponService: di(),));
-  di.registerLazySingleton<ProductsCouponService>(() => ProductsCouponServiceImpl());
+  di.registerLazySingleton(() => ProductsCouponUseCase(couponRepo: di()));
+  di.registerLazySingleton<ProductsCouponRepo>(() => ProductsCouponRepoImpl(
+        couponService: di(),
+      ));
+  di.registerLazySingleton<ProductsCouponService>(
+      () => ProductsCouponServiceImpl());
+
   /// search
-  di.registerFactory(() => SearchCubit(servicesUseCase: di(),productsUseCase: di()));
-  di.registerLazySingleton(() => ProductsSearchUseCase(  di()));
-  di.registerLazySingleton<ProductsSearchRepo>(() => ProductsSearchRepoImpl( di(),));
-  di.registerLazySingleton<ProductsSearchService>(() => ProductsSearchServiceImpl());
-  di.registerLazySingleton(() => ServicesSearchUseCase( di()));
-  di.registerLazySingleton<ServicesSearchRepo>(() => ServicesSearchRepoImpl( di(),));
-  di.registerLazySingleton<ServicesSearchService>(() => ServicesSearchServiceImpl());
+  di.registerFactory(
+      () => SearchCubit(servicesUseCase: di(), productsUseCase: di()));
+  di.registerLazySingleton(() => ProductsSearchUseCase(di()));
+  di.registerLazySingleton<ProductsSearchRepo>(() => ProductsSearchRepoImpl(
+        di(),
+      ));
+  di.registerLazySingleton<ProductsSearchService>(
+      () => ProductsSearchServiceImpl());
+  di.registerLazySingleton(() => ServicesSearchUseCase(di()));
+  di.registerLazySingleton<ServicesSearchRepo>(() => ServicesSearchRepoImpl(
+        di(),
+      ));
+  di.registerLazySingleton<ServicesSearchService>(
+      () => ServicesSearchServiceImpl());
+
   /// external
   final sharedPrefs = await SharedPreferences.getInstance();
   di.registerLazySingleton(() => sharedPrefs);
