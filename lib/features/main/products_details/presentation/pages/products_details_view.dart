@@ -8,6 +8,8 @@ import 'package:knockknock/core/utils/extensions.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 
 import '../../../../../config/themes/app_text_styles.dart';
+import '../../../../../core/database/address_class.dart';
+import '../../../../../core/database/database_hive.dart';
 import '../../../../../core/helpers/cache_helper.dart';
 import '../../../../../core/router/router.dart';
 import '../../../../../core/shared/cubits/product_cart_cubit/product_cart_cubit.dart';
@@ -34,6 +36,19 @@ class _ProductsDetailsViewState extends State<ProductsDetailsView> {
   int date = 0;
   int time = 0;
 
+  HiveDatabase hiveDatabase = HiveDatabase();
+  List<Address> addresses = [];
+
+  getAddresses() async {
+    addresses = await hiveDatabase.getAllAddresses();
+
+    setState(() {});
+  }
+  @override
+  void initState() {
+    super.initState();
+    getAddresses();
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -205,14 +220,18 @@ class _ProductsDetailsViewState extends State<ProductsDetailsView> {
                     BoxConstraints(maxWidth: context.width / 2),
                     child: CustomBtnSmall(
                       onPressed: () {
-                        context
-                            .read<ServiceCartCubit>()
-                            .cartServices
-                            .clear();
-                        context
-                            .read<ProductCartCubit>()
-                            .addProductToCart(widget.productEntity);
-                        context.pushNamed(productsCartPageRoute);
+                        if(addresses.isNotEmpty){
+                          context
+                              .read<ServiceCartCubit>()
+                              .cartServices
+                              .clear();
+                          context
+                              .read<ProductCartCubit>()
+                              .addProductToCart(widget.productEntity);
+                          context.pushNamed(productsCartPageRoute);
+                        }else{
+                          context.defaultSnackBar(S.of(context).youMustAddAddressFirst);
+                        }
                       },
                       label: S.of(context).addToCart,
                     ),

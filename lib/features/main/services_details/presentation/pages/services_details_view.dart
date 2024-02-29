@@ -386,7 +386,7 @@ class _ServicesDetailsViewState extends State<ServicesDetailsView> {
 
                                 context.pushNamed(servicesCartPageRoute);
                               }else{
-                                context.defaultSnackBar("you must add address first");
+                                context.defaultSnackBar(S.of(context).youMustAddAddressFirst);
                               }
 
                             },

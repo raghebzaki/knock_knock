@@ -221,7 +221,7 @@ class _MyServicesOrdersViewState extends State<MyServicesOrdersView> {
                               ),
                               child: Center(
                                 child: Text(
-                                  "done",
+                                  S.current.done_status,
                                   style:
                                   CustomTextStyle.kTextStyleF14.copyWith(
                                     color: status == 2

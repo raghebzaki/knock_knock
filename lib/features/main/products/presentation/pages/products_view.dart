@@ -66,6 +66,10 @@ class _ProductsViewState extends State<ProductsView> {
           success: (state) {
             productsList.addAll(state!);
           },
+          searchSuccess: (state) {
+            productsList.clear();
+            productsList.addAll(state!);
+          },
           orElse: () {
             return null;
           },
@@ -74,11 +78,18 @@ class _ProductsViewState extends State<ProductsView> {
       builder: (context, state) {
         ProductsCubit productsCubit = ProductsCubit.get(context);
         return Scaffold(
+          backgroundColor: AppColors.primary,
           appBar: CustomAppBar(
             searchBar: true,
             searchCtrl: searchCtrl,
-            onSubmitted: (value) {
-              productsCubit.searchInProducts(nextPage, searchCtrl.text);
+            onChange: (value) {
+              if(searchCtrl.text.isNotEmpty){
+                productsCubit.searchInProducts(nextPage, searchCtrl.text);
+              }else{
+                productsList.clear();
+                nextPage=1;
+                productsCubit.getAllProducts(nextPage,widget.categoryId);
+              }
             },
           ),
           bottomNavigationBar: const BottomNavForAllScreenView(),

@@ -67,7 +67,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "cancelAlert": MessageLookupByLibrary.simpleMessage(
             "هل أنت متأكد أنك تريد حذف الطلب"),
         "cancelOrder": MessageLookupByLibrary.simpleMessage("إلغاء الطلب"),
-        "cancelled_status": MessageLookupByLibrary.simpleMessage("تم الإلغاء"),
+        "cancelled_status": MessageLookupByLibrary.simpleMessage("ملغاه"),
         "cardDate": MessageLookupByLibrary.simpleMessage("تاريخ البطاقة"),
         "cardHolderName":
             MessageLookupByLibrary.simpleMessage("اسم حامل البطاقة"),
@@ -106,7 +106,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "details": MessageLookupByLibrary.simpleMessage("تفاصيل"),
         "doNotHaveAccount":
             MessageLookupByLibrary.simpleMessage("ليس لديك حساب؟"),
-        "done_status": MessageLookupByLibrary.simpleMessage("تم الاكتمال"),
+        "done_status": MessageLookupByLibrary.simpleMessage("مكتملة"),
         "earn8More": MessageLookupByLibrary.simpleMessage("اربح 8% أكثر"),
         "editProfile":
             MessageLookupByLibrary.simpleMessage("تعديل الملف الشخصي"),
@@ -179,6 +179,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "onboard_1": MessageLookupByLibrary.simpleMessage("معرض الملابس"),
         "onboard_1_des": MessageLookupByLibrary.simpleMessage(
             "نقدم مجموعة متنوعة من المقاسات والأنماط، مم"),
+        "orderCancelSuccessfully":
+            MessageLookupByLibrary.simpleMessage("تم إلغاء الطلب بنجاح"),
         "orderCreatedSuccessfully":
             MessageLookupByLibrary.simpleMessage("تم إنشاء الطلب بنجاح"),
         "orderNumber": MessageLookupByLibrary.simpleMessage("رقم الطلب"),
@@ -314,6 +316,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "yes": MessageLookupByLibrary.simpleMessage("نعم"),
         "youAlreadyAddOneService": MessageLookupByLibrary.simpleMessage(
             "قمت بالفعل بإضافة خدمة واحدة"),
+        "youMustAddAddressFirst":
+            MessageLookupByLibrary.simpleMessage("يجب عليك إضافة عنوان أولا"),
         "yourCartIsEmpty":
             MessageLookupByLibrary.simpleMessage("Your cart is empty"),
         "yourMessage": MessageLookupByLibrary.simpleMessage("رسالتك"),

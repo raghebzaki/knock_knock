@@ -38,6 +38,7 @@ class _ServicesViewState extends State<ServicesView> {
       }
     }
   }
+  TextEditingController searchCtrl = TextEditingController();
 
   List<ServicesEntity> servicesList = [];
 
@@ -60,14 +61,29 @@ class _ServicesViewState extends State<ServicesView> {
           success: (state) {
             servicesList.addAll(state!);
           },
+          searchSuccess:(state) {
+            servicesList.clear();
+            servicesList.addAll(state!);
+          } ,
           orElse: () {
             return null;
           },
         );
       },
       builder: (context, state) {
+        ServicesCubit servicesCubit=ServicesCubit.get(context);
         return Scaffold(
-          appBar: const CustomAppBar(searchBar: true),
+          appBar: CustomAppBar(searchBar: true,
+            searchCtrl: searchCtrl,
+            onChange: (value) {
+            if(searchCtrl.text.isNotEmpty){
+              servicesCubit.searchInServices(searchCtrl.text, 1);
+            }else{
+              servicesList.clear();
+              nextPage=1;
+              servicesCubit.getAllServices(nextPage);
+            }
+            },),
           bottomNavigationBar: const BottomNavForAllScreenView(),
           body: SingleChildScrollView(
             child: Column(

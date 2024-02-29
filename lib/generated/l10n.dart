@@ -1410,6 +1410,26 @@ class S {
     );
   }
 
+  /// `order cancel successfully`
+  String get orderCancelSuccessfully {
+    return Intl.message(
+      'order cancel successfully',
+      name: 'orderCancelSuccessfully',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `you must add address first`
+  String get youMustAddAddressFirst {
+    return Intl.message(
+      'you must add address first',
+      name: 'youMustAddAddressFirst',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `order number `
   String get orderNumber {
     return Intl.message(
@@ -2135,16 +2155,6 @@ class S {
     return Intl.message(
       'no internet connection',
       name: 'noInternetConnection',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `order cancel successfully`
-  String get orderCancelSuccessfully {
-    return Intl.message(
-      'order cancel successfully',
-      name: 'orderCancelSuccessfully',
       desc: '',
       args: [],
     );

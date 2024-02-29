@@ -334,6 +334,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "yes": MessageLookupByLibrary.simpleMessage("yes"),
         "youAlreadyAddOneService":
             MessageLookupByLibrary.simpleMessage("you Already Add one Service"),
+        "youMustAddAddressFirst":
+            MessageLookupByLibrary.simpleMessage("you must add address first"),
         "yourCartIsEmpty":
             MessageLookupByLibrary.simpleMessage("Your cart is empty"),
         "yourMessage": MessageLookupByLibrary.simpleMessage("Your Message"),

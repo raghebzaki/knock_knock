@@ -22,11 +22,11 @@ import '../cubits/service_cart_cubit/service_cart_cubit.dart';
 
 class CustomAppBar extends StatefulWidget implements PreferredSizeWidget {
   final bool searchBar;
-  final Function(String)? onSubmitted;
+  final Function(String)? onChange;
   final TextEditingController? searchCtrl;
 
   const CustomAppBar({
-    super.key, required this.searchBar, this.onSubmitted, this.searchCtrl,
+    super.key, required this.searchBar, this.onChange, this.searchCtrl,
   });
 
   @override
@@ -235,7 +235,7 @@ class _CustomAppBarState extends State<CustomAppBar> {
               Gap(20.h),
               widget.searchBar ? TextFormField(
                 controller: widget.searchCtrl,
-                onFieldSubmitted: widget.onSubmitted,
+                onChanged: widget.onChange,
                 decoration: InputDecoration(
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(8),

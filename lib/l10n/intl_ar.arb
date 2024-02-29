@@ -162,11 +162,14 @@
   "shipped": "تم الشحن",
   "processing": "قيد المعالجة",
   "shipped_status": "تم الشحن",
-  "done_status": "تم الاكتمال",
-  "cancelled_status": "تم الإلغاء",
+  "done_status": "مكتملة",
+  "done": "مكتملة",
+  "cancelled_status": "ملغاه",
   "no":"لا يوجد طلبات",
   "orders":"",
   "whatOrdersDoYouWant": "ما الطلبات التي تريدها",
+  "orderCancelSuccessfully": "تم إلغاء الطلب بنجاح",
+  "youMustAddAddressFirst": "يجب عليك إضافة عنوان أولا",
 
 
   "@orderDetails": {},
