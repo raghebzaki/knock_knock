@@ -304,7 +304,7 @@ class _ServicesOrderDetailsViewState extends State<ServicesOrderDetailsView> {
                                   ? Text(
                                       "${widget.orderDetails.service!.nameEn}")
                                   : Text(
-                                      "${widget.orderDetails..service!.nameAr}"),
+                                      "${widget.orderDetails..service!.nameEn}"),
                               subTitle: Text(
                                   "${widget.orderDetails.price} ${S.current.Aed}"),
                             ),

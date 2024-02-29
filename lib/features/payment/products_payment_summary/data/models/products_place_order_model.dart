@@ -46,7 +46,7 @@ class ProductsPlaceOrderModel extends ProductsPlaceOrderEntity {
       'product_ids': jsonEncode(placeOrderEntity.productsId),
       "product_quantities": jsonEncode(placeOrderEntity.productQuantities),
       'payment_method': placeOrderEntity.paymentMethod,
-      'service_coupon_id': placeOrderEntity.productCouponId,
+      'product_coupon_id': placeOrderEntity.productCouponId,
       'discount_percentage': placeOrderEntity.discountPercentage,
       "discount_amount": placeOrderEntity.discountAmount,
       "price_after_discount": placeOrderEntity.priceAfterDiscount,

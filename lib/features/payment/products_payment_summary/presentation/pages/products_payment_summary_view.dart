@@ -164,7 +164,15 @@ class _ProductsPaymentSummaryViewState
                       ),
                       Gap(10.h),
                       BlocConsumer<ProductsCouponCubit, ProductsCouponState>(
-                        listener: (context, state) {},
+                        listener: (context, state) {
+                          state.maybeWhen(
+                            success: (state) {
+                              context.pop();
+                              context.defaultSnackBar(state.msg!);
+                            },
+                            orElse: () {},
+                          );
+                        },
                         builder: (context, state) {
                           ProductsCouponCubit productsCouponCubit=ProductsCouponCubit.get(context);
                           return Column(
@@ -225,7 +233,6 @@ class _ProductsPaymentSummaryViewState
                                                                 couponName: voucherCtrl.text
                                                             ),
                                                         );
-                                                        context.pop();
                                                       },
                                                       child: Container(
                                                         padding: EdgeInsets
@@ -319,7 +326,7 @@ class _ProductsPaymentSummaryViewState
                                                     .kTextStyleF16BlackW300),
                                             const Spacer(),
                                             Text(
-                                                '${AppConstants.deliveryFee} ${S.current.Aed}',
+                                                '${AppConstants.shippingFee} ${S.current.Aed}',
                                                 style: CustomTextStyle
                                                     .kTextStyleF16BlackW300),
                                           ],
@@ -341,7 +348,7 @@ class _ProductsPaymentSummaryViewState
                                             ),
                                             const Spacer(),
                                             Text(
-                                                "${product.map((e) => e.discountPercent == 0 ? int.parse(e.price!) * e.userQuantity! : double.parse(e.priceAfterDiscount!) * e.userQuantity!).reduce((value, element) => value + element) + AppConstants.deliveryFee} ${S.current.Aed}",
+                                                "${product.map((e) => e.discountPercent == 0 ? int.parse(e.price!) * e.userQuantity! : double.parse(e.priceAfterDiscount!) * e.userQuantity!).reduce((value, element) => value + element) + AppConstants.shippingFee} ${S.current.Aed}",
                                                 style: CustomTextStyle
                                                     .kTextStyleF16BlackW300),
                                           ],
@@ -390,7 +397,7 @@ class _ProductsPaymentSummaryViewState
                                                     .kTextStyleF16BlackW300),
                                             const Spacer(),
                                             Text(
-                                                '${AppConstants.deliveryFee} ${S.current.Aed}',
+                                                '${AppConstants.shippingFee} ${S.current.Aed}',
                                                 style: CustomTextStyle
                                                     .kTextStyleF16BlackW300),
                                           ],
@@ -412,7 +419,7 @@ class _ProductsPaymentSummaryViewState
                                             ),
                                             const Spacer(),
                                             Text(
-                                                "${product.map((e) => e.discountPercent == 0 ? int.parse(e.price!) * e.userQuantity! : double.parse(e.priceAfterDiscount!) * e.userQuantity!).reduce((value, element) => value + element) + AppConstants.deliveryFee} ${S.current.Aed}",
+                                                "${product.map((e) => e.discountPercent == 0 ? int.parse(e.price!) * e.userQuantity! : double.parse(e.priceAfterDiscount!) * e.userQuantity!).reduce((value, element) => value + element) + AppConstants.shippingFee} ${S.current.Aed}",
                                                 style: CustomTextStyle
                                                     .kTextStyleF16BlackW300),
                                           ],
@@ -511,7 +518,7 @@ class _ProductsPaymentSummaryViewState
                                                 "${state.information!.grantTotal} ${S.current.Aed}",
                                                 style: CustomTextStyle.kTextStyleF16BlackW300)
                                                 :Text(
-                                                "${product.map((e) => e.discountPercent == 0 ? int.parse(e.price!) * e.userQuantity! : double.parse(e.priceAfterDiscount!) * e.userQuantity!).reduce((value, element) => value + element) + AppConstants.deliveryFee} ${S.current.Aed}",
+                                                "${product.map((e) => e.discountPercent == 0 ? int.parse(e.price!) * e.userQuantity! : double.parse(e.priceAfterDiscount!) * e.userQuantity!).reduce((value, element) => value + element) + AppConstants.shippingFee} ${S.current.Aed}",
                                                 style: CustomTextStyle
                                                     .kTextStyleF16BlackW300),
                                           ],

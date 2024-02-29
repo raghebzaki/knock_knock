@@ -379,7 +379,7 @@ class _OrderDetailsViewState extends State<OrderDetailsView> {
                                   ),
                                 ),
                                 Text(
-                                  "${widget.orderDetails.price} ${S.current.Aed}",
+                                  widget.orderDetails.priceAfterDiscount==''?"${widget.orderDetails.price} ${S.current.Aed}":"${widget.orderDetails.priceAfterDiscount} ${S.current.Aed}",
                                   style: CustomTextStyle.kTextStyleF14,
                                 ),
                               ],

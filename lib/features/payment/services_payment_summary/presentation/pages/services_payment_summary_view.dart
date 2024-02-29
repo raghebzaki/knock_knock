@@ -38,7 +38,7 @@ class _ServicesPaymentSummaryViewState
     extends State<ServicesPaymentSummaryView> {
   String paymentMethod = "cash";
   TextEditingController voucherCtrl = TextEditingController();
-  ServicesCouponEntity servicesCouponEntity=const ServicesCouponEntity();
+  ServicesCouponEntity servicesCouponEntity=const ServicesCouponEntity(information:ServicesCouponEntity() );
   @override
   Widget build(BuildContext context) {
     var totalPrice = context.watch<ServiceCartCubit>().cartServices;
