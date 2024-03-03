@@ -42,3 +42,4 @@ const String trackServicesOrderPageRoute = '/trackServicesOrder';
 const String productsPaymentSummeryPageRoute = '/productsPaymentSummery';
 const String servicesPaymentSummeryPageRoute = '/servicesPaymentSummery';
 const String giftPaymentSummeryPageRoute = '/giftPaymentSummery';
+const String creditPaymentSummeryPageRoute = '/creditPaymentSummery';

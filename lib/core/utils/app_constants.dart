@@ -56,6 +56,8 @@ class AppConstants {
   static const cancelProductsOrdersUri = "v1/product_orders/cancel-orders";
   static const productsCouponUri = "v1/product_orders/apply-coupon";
   static const giftPlaceOrderUri = "";
+  static const buyCreditPlaceOrderUri = "v1/packages/buy";
+  static const getPackagesUri = "v1/packages/get-all";
 
   static const contactUsUri = "v1/contacts/send";
   static const deleteProfileUri = "auth/delete_my_account";

@@ -44,6 +44,16 @@ import '../../features/auth/verify_account/domain/repositories/verify_account_re
 import '../../features/auth/verify_account/domain/use_cases/resend_code_usecase.dart';
 import '../../features/auth/verify_account/domain/use_cases/verify_account_usecase.dart';
 import '../../features/auth/verify_account/presentation/manager/verify_account_cubit.dart';
+import '../../features/credits/buy_credits/data/data_sources/buy_credit_place_order_service.dart';
+import '../../features/credits/buy_credits/data/data_sources/package_service.dart';
+import '../../features/credits/buy_credits/data/repositories/buy_credit_place_order_repo_impl.dart';
+import '../../features/credits/buy_credits/data/repositories/package_repo_impl.dart';
+import '../../features/credits/buy_credits/domain/repositories/buy_credit_place_order_repo.dart';
+import '../../features/credits/buy_credits/domain/repositories/package_repo.dart';
+import '../../features/credits/buy_credits/domain/use_cases/buy_credit_place_order_use_case.dart';
+import '../../features/credits/buy_credits/domain/use_cases/package_use_case.dart';
+import '../../features/credits/buy_credits/presentation/manager/buy_credit_cubit.dart';
+import '../../features/credits/buy_credits/presentation/manager/package_cubit.dart';
 import '../../features/main/home/data/data_sources/carousel_service.dart';
 import '../../features/main/home/data/data_sources/products_category_service.dart';
 import '../../features/main/home/data/data_sources/services_service.dart';
@@ -320,11 +330,19 @@ Future<void> init() async {
   /// apply coupon
   di.registerFactory(() => ProductsCouponCubit(couponUseCase: di()));
   di.registerLazySingleton(() => ProductsCouponUseCase(couponRepo: di()));
-  di.registerLazySingleton<ProductsCouponRepo>(() => ProductsCouponRepoImpl(
-        couponService: di(),
-      ));
-  di.registerLazySingleton<ProductsCouponService>(
-      () => ProductsCouponServiceImpl());
+  di.registerLazySingleton<ProductsCouponRepo>(() => ProductsCouponRepoImpl(couponService: di(),));
+  di.registerLazySingleton<ProductsCouponService>(() => ProductsCouponServiceImpl());
+
+  /// get packages
+  di.registerFactory(() => PackageCubit(packageUseCase: di()));
+  di.registerLazySingleton(() => PackageUseCase( di()));
+  di.registerLazySingleton<PackageRepo>(() => PackageRepoImpl( di(),));
+  di.registerLazySingleton<PackageService>(() => PackageServiceImpl());
+  /// buy credit
+  di.registerFactory(() => BuyCreditCubit(placeOrderUseCase: di()));
+  di.registerLazySingleton(() => BuyCreditPlaceOrderUseCase(buyCreditRepo:  di()));
+  di.registerLazySingleton<BuyCreditPlaceOrderRepo>(() => BuyCreditPlaceOrderRepoImpl(placeOrderService:  di(),));
+  di.registerLazySingleton<BuyCreditPlaceOrderService>(() => BuyCreditPlaceOrderServiceImpl());
 
   /// search
   di.registerFactory(
