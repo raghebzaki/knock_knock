@@ -4,20 +4,24 @@ import '../../domain/entities/package_entity.dart';
 class PackageModel extends PackageEntity {
   const PackageModel({
     super.id,
-    super.name,
+    super.nameAr,
+    super.nameEn,
     super.price,
     super.discountPrice,
-    super.notes,
+    super.notesAr,
+    super.notesEn,
     super.expireDate,
   });
 
   factory PackageModel.fromJson(Map<String, dynamic> json) {
     return PackageModel(
       id: json["id"] ,
-      name: json["name"] ,
+      nameEn: json["name_en"] ,
+      nameAr: json["name_ar"] ,
       price: json["price"] ,
       discountPrice: json["discount_price"],
-      notes: json["notes"] ,
+      notesEn: json["notes_en"] ,
+      notesAr: json["notes_ar"] ,
       expireDate: json["expire_date"],
     );
   }

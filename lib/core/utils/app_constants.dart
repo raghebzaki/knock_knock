@@ -20,6 +20,7 @@ class AppConstants {
   static const unknownNumValue = 2077;
   static num deliveryFee = 0;
   static num shippingFee = 0;
+  static String userBalance = "0";
   static  int addressIndex = 0;
 
   //! API headers
@@ -65,5 +66,6 @@ class AppConstants {
   static const deleteUserAccountUri = "";
   static const getWeekDaysUri = "v1/days/get-all";
   static const getDeliveryUri = "v1/settings/get-all";
+  static const getBalanceUri = "v1/packages/my-balance";
 
 }

@@ -43,7 +43,7 @@ class _CreditsViewState extends State<CreditsView> {
                         children: [
                           Text(AppConstants.appName,style: CustomTextStyle.kTextStyleF24White,),
                           Gap(10.h),
-                          Text("${S.of(context).Aed} 0.00",style: CustomTextStyle.kTextStyleF24White,),
+                          Text("${S.of(context).Aed} ${AppConstants.userBalance}",style: CustomTextStyle.kTextStyleF24White,),
                           Gap(10.h),
                           Text(S.of(context).seeTransaction,style: CustomTextStyle.kTextStyleF12.copyWith(color: AppColors.primary),),
                         ],
