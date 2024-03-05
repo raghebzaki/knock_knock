@@ -5,12 +5,15 @@ class BuyCreditPlaceOrderEntity extends Equatable {
   final num? packageId;
   final num? status;
   final String? msg;
+  final String? paymentLink;
+
 
   const BuyCreditPlaceOrderEntity({
     this.userId,
     this.packageId,
     this.status,
     this.msg,
+    this.paymentLink
   });
 
   @override

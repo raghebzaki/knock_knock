@@ -6,12 +6,12 @@ class BuyCreditPlaceOrderModel extends BuyCreditPlaceOrderEntity {
     super.packageId,
     super.status,
     super.msg,
+    super.paymentLink
   });
 
   factory BuyCreditPlaceOrderModel.fromJson(Map<String, dynamic> json) {
     return BuyCreditPlaceOrderModel(
-      status: json['status'],
-      msg: json['message'],
+      paymentLink: json['payment_link'],
     );
   }
 

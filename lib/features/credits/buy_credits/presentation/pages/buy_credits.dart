@@ -4,7 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gap/gap.dart';
 import 'package:knockknock/config/themes/app_text_styles.dart';
 import 'package:knockknock/core/helpers/cache_helper.dart';
-import 'package:knockknock/core/router/router.dart';
+import 'package:url_launcher/url_launcher.dart';
 import 'package:knockknock/core/shared/models/user_data_model.dart';
 import 'package:knockknock/core/shared/widgets/custom_button_small.dart';
 import 'package:knockknock/core/utils/app_colors.dart';
@@ -18,6 +18,10 @@ import '../../../../../core/service/get_balance.dart';
 import '../../../../../core/shared/widgets/state_error_widget.dart';
 import '../../../../../core/shared/widgets/state_loading_widget.dart';
 import '../../../../../generated/l10n.dart';
+import 'package:http/http.dart' as http;
+
+import '../../../../main/credits/presentation/pages/web_view.dart';
+
 
 class BuyCreditsView extends StatefulWidget {
   const BuyCreditsView({super.key});
@@ -27,6 +31,7 @@ class BuyCreditsView extends StatefulWidget {
 }
 
 class _BuyCreditsViewState extends State<BuyCreditsView> {
+
   @override
   Widget build(BuildContext context) {
     return MultiBlocProvider(
@@ -88,7 +93,9 @@ class _BuyCreditsViewState extends State<BuyCreditsView> {
                                   crossAxisAlignment: CrossAxisAlignment.center,
                                   children: [
                                     Text(
-                                      CacheHelper.isEnglish()?state[index].nameEn!:state[index].nameAr!,
+                                      CacheHelper.isEnglish()
+                                          ? state[index].nameEn!
+                                          : state[index].nameAr!,
                                       style: CustomTextStyle.kTextStyleF16w600,
                                       textAlign: TextAlign.center,
                                     ),
@@ -111,7 +118,9 @@ class _BuyCreditsViewState extends State<BuyCreditsView> {
                                     ),
                                     Gap(10.h),
                                     Text(
-                                      CacheHelper.isEnglish()?state[index].notesEn!:state[index].notesAr!,
+                                      CacheHelper.isEnglish()
+                                          ? state[index].notesEn!
+                                          : state[index].notesAr!,
                                       style: CustomTextStyle.kTextStyleF12,
                                       textAlign: TextAlign.center,
                                     ),
@@ -135,17 +144,23 @@ class _BuyCreditsViewState extends State<BuyCreditsView> {
                                         BuyCreditState>(
                                       listener: (context, buyState) {
                                         UserBalanceService.getBalance();
-                                        buyState.maybeWhen(success: (state) {
-                                         context.pushNamed(creditsViewPageRoute);
-                                        },
+                                        buyState.maybeWhen(
+                                          success: (state) async {
+                                            Navigator.of(context).push(
+                                              MaterialPageRoute(
+                                                builder: (context) =>  WebViewPayment(url: state.paymentLink!),
+                                              ),
+                                            );
+
+                                          },
                                           error: (errCode, err) {
-                                            context.defaultSnackBar("${S.current.err_code}: $errCode, $err");
+                                            context.defaultSnackBar(
+                                                "${S.current.err_code}: $errCode, $err");
                                           },
                                           orElse: () {
                                             return null;
-                                          },);
-
-
+                                          },
+                                        );
                                       },
                                       builder: (context, buyState) {
                                         BuyCreditCubit buyCreditCubit =
@@ -156,8 +171,7 @@ class _BuyCreditsViewState extends State<BuyCreditsView> {
                                             buyCreditCubit.buyCredits(
                                               BuyCreditPlaceOrderEntity(
                                                   userId: UserData.id,
-                                                  packageId: state[index].id
-                                              ),
+                                                  packageId: state[index].id),
                                             );
                                           },
                                         );
