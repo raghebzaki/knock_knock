@@ -58,6 +58,7 @@ class AppConstants {
   static const productsCouponUri = "v1/product_orders/apply-coupon";
   static const giftPlaceOrderUri = "";
   static const buyCreditPlaceOrderUri = "v1/packages/buy";
+  static const addCreditPlaceOrderUri = "v1/packages/add-balance-after-payment";
   static const getPackagesUri = "v1/packages/get-all";
 
   static const contactUsUri = "v1/contacts/send";

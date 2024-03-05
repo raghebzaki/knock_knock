@@ -14,6 +14,12 @@ class BuyCreditPlaceOrderModel extends BuyCreditPlaceOrderEntity {
       paymentLink: json['payment_link'],
     );
   }
+  factory BuyCreditPlaceOrderModel.addBalanceFromJson(Map<String, dynamic> json) {
+    return BuyCreditPlaceOrderModel(
+      status: json['status'],
+      msg: json['message'],
+    );
+  }
 
   static Map<String, dynamic> toJson(BuyCreditPlaceOrderEntity placeOrderEntity) {
     return {

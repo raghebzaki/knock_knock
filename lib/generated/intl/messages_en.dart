@@ -217,9 +217,12 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Passwords doesn\'t match"),
         "payLessGetMore":
             MessageLookupByLibrary.simpleMessage("Pay Less & Get More"),
+        "paymentFailed": MessageLookupByLibrary.simpleMessage("payment failed"),
         "paymentMethod": MessageLookupByLibrary.simpleMessage("Payment Method"),
         "paymentMethods":
             MessageLookupByLibrary.simpleMessage("Payment Methods"),
+        "paymentSuccess":
+            MessageLookupByLibrary.simpleMessage("payment success"),
         "paymentSummary":
             MessageLookupByLibrary.simpleMessage("Payment summary"),
         "payment_required":

@@ -30,4 +30,20 @@ class BuyCreditPlaceOrderRepoImpl implements BuyCreditPlaceOrderRepo {
       return left(DataSource.noInternetConnection.getFailure());
     }
   }
+  @override
+  Future<Either<Failure, BuyCreditPlaceOrderEntity>> addCredit(BuyCreditPlaceOrderEntity placeOrderEntity) async {
+    final result = await Connectivity().checkConnectivity();
+
+    if (result == ConnectivityResult.mobile ||
+        result == ConnectivityResult.wifi) {
+      try {
+        final order = await placeOrderService.addCredit(placeOrderEntity);
+        return right(order);
+      } on DioException catch (error) {
+        return left(ErrorHandler.handle(error).failure);
+      }
+    } else {
+      return left(DataSource.noInternetConnection.getFailure());
+    }
+  }
 }

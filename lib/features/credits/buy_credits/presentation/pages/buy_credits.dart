@@ -4,7 +4,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gap/gap.dart';
 import 'package:knockknock/config/themes/app_text_styles.dart';
 import 'package:knockknock/core/helpers/cache_helper.dart';
-import 'package:url_launcher/url_launcher.dart';
 import 'package:knockknock/core/shared/models/user_data_model.dart';
 import 'package:knockknock/core/shared/widgets/custom_button_small.dart';
 import 'package:knockknock/core/utils/app_colors.dart';
@@ -18,7 +17,6 @@ import '../../../../../core/service/get_balance.dart';
 import '../../../../../core/shared/widgets/state_error_widget.dart';
 import '../../../../../core/shared/widgets/state_loading_widget.dart';
 import '../../../../../generated/l10n.dart';
-import 'package:http/http.dart' as http;
 
 import '../../../../main/credits/presentation/pages/web_view.dart';
 
@@ -145,10 +143,10 @@ class _BuyCreditsViewState extends State<BuyCreditsView> {
                                       listener: (context, buyState) {
                                         UserBalanceService.getBalance();
                                         buyState.maybeWhen(
-                                          success: (state) async {
+                                          success: (buyState) async {
                                             Navigator.of(context).push(
                                               MaterialPageRoute(
-                                                builder: (context) =>  WebViewPayment(url: state.paymentLink!),
+                                                builder: (context) =>  WebViewPayment(url: buyState.paymentLink!,packageId: state[index].id!),
                                               ),
                                             );
 

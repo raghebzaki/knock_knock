@@ -311,7 +311,7 @@ class _ServicesPaymentSummaryViewState
                                                     .kTextStyleF16BlackW300),
                                             const Spacer(),
                                             Text(
-                                                "${totalPrice.map((e) => int.parse(e.servicesEntity!.price!)).reduce((value, element) => value + element)} ${S.current.Aed}",
+                                                "${totalPrice.map((e) => double.parse(e.servicesEntity!.price!)).reduce((value, element) => value + element)} ${S.current.Aed}",
                                                 style: CustomTextStyle
                                                     .kTextStyleF16BlackW300),
                                           ],
@@ -385,7 +385,7 @@ class _ServicesPaymentSummaryViewState
                                                     .kTextStyleF16BlackW300),
                                             const Spacer(),
                                             Text(
-                                                "${totalPrice.map((e) => int.parse(e.servicesEntity!.price!)).reduce((value, element) => value + element)} ${S.current.Aed}",
+                                                "${totalPrice.map((e) => double.parse(e.servicesEntity!.price!)).reduce((value, element) => value + element)} ${S.current.Aed}",
                                                 style: CustomTextStyle
                                                     .kTextStyleF16BlackW300),
                                           ],
@@ -423,7 +423,7 @@ class _ServicesPaymentSummaryViewState
                                             ),
                                             const Spacer(),
                                             Text(
-                                                "${totalPrice.map((e) => int.parse(e.servicesEntity!.price!)).reduce((value, element) => value + element) + AppConstants.deliveryFee} ${S.current.Aed}",
+                                                "${totalPrice.map((e) => double.parse(e.servicesEntity!.price!)).reduce((value, element) => value + element) + AppConstants.deliveryFee} ${S.current.Aed}",
                                                 style: CustomTextStyle
                                                     .kTextStyleF16BlackW300),
                                           ],
@@ -460,7 +460,7 @@ class _ServicesPaymentSummaryViewState
                                                     .kTextStyleF16BlackW300),
                                             const Spacer(),
                                             Text(
-                                                "${totalPrice.map((e) => int.parse(e.servicesEntity!.price!)).reduce((value, element) => value + element)} ${S.current.Aed}",
+                                                "${totalPrice.map((e) => double.parse(e.servicesEntity!.price!)).reduce((value, element) => value + element)} ${S.current.Aed}",
                                                 style: CustomTextStyle
                                                     .kTextStyleF16BlackW300),
                                           ],
@@ -525,7 +525,7 @@ class _ServicesPaymentSummaryViewState
                                                     "${state.information!.grantTotal} ${S.current.Aed}",
                                                     style: CustomTextStyle.kTextStyleF16BlackW300)
                                                 : Text(
-                                                    "${totalPrice.map((e) => int.parse(e.servicesEntity!.price!)).reduce((value, element) => value + element) + AppConstants.deliveryFee} ${S.current.Aed}",
+                                                    "${totalPrice.map((e) => double.parse(e.servicesEntity!.price!)).reduce((value, element) => value + element) + AppConstants.deliveryFee} ${S.current.Aed}",
                                                     style: CustomTextStyle
                                                         .kTextStyleF16BlackW300),
                                           ],

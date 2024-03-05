@@ -2159,6 +2159,26 @@ class S {
       args: [],
     );
   }
+
+  /// `payment success`
+  String get paymentSuccess {
+    return Intl.message(
+      'payment success',
+      name: 'paymentSuccess',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `payment failed`
+  String get paymentFailed {
+    return Intl.message(
+      'payment failed',
+      name: 'paymentFailed',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

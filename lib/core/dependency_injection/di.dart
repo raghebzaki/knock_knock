@@ -50,6 +50,7 @@ import '../../features/credits/buy_credits/data/repositories/buy_credit_place_or
 import '../../features/credits/buy_credits/data/repositories/package_repo_impl.dart';
 import '../../features/credits/buy_credits/domain/repositories/buy_credit_place_order_repo.dart';
 import '../../features/credits/buy_credits/domain/repositories/package_repo.dart';
+import '../../features/credits/buy_credits/domain/use_cases/add_credit_place_order_use_case.dart';
 import '../../features/credits/buy_credits/domain/use_cases/buy_credit_place_order_use_case.dart';
 import '../../features/credits/buy_credits/domain/use_cases/package_use_case.dart';
 import '../../features/credits/buy_credits/presentation/manager/buy_credit_cubit.dart';
@@ -339,8 +340,9 @@ Future<void> init() async {
   di.registerLazySingleton<PackageRepo>(() => PackageRepoImpl( di(),));
   di.registerLazySingleton<PackageService>(() => PackageServiceImpl());
   /// buy credit
-  di.registerFactory(() => BuyCreditCubit(placeOrderUseCase: di()));
+  di.registerFactory(() => BuyCreditCubit(placeOrderUseCase: di(),addCreditPlaceOrderUseCase: di()));
   di.registerLazySingleton(() => BuyCreditPlaceOrderUseCase(buyCreditRepo:  di()));
+  di.registerLazySingleton(() => AddCreditPlaceOrderUseCase(addCreditRepo:  di()));
   di.registerLazySingleton<BuyCreditPlaceOrderRepo>(() => BuyCreditPlaceOrderRepoImpl(placeOrderService:  di(),));
   di.registerLazySingleton<BuyCreditPlaceOrderService>(() => BuyCreditPlaceOrderServiceImpl());
 
