@@ -277,5 +277,7 @@
   "credits": "Credits",
   "noInternetConnection": "no internet connection",
   "paymentSuccess": "payment success",
-  "paymentFailed": "payment failed"
+  "paymentFailed": "payment failed",
+  "yourBalanceIsLessThanTotal": "Your Balance is less than total",
+  "myBalance": "My Balance"
 }

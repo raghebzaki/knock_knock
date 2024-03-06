@@ -22,12 +22,20 @@ class ServicesPlaceOrderModel extends ServicesPlaceOrderEntity {
     super.grantTotal,
     super.status,
     super.msg,
+    super.paymentLink,
   });
 
   factory ServicesPlaceOrderModel.fromJson(Map<String, dynamic> json) {
     return ServicesPlaceOrderModel(
       status: json['status'],
       msg: json['message'],
+    );
+  }
+  factory ServicesPlaceOrderModel.visaFromJson(Map<String, dynamic> json) {
+    return ServicesPlaceOrderModel(
+      paymentLink: json['payment_link'],
+      status: json['status']??0,
+      msg: json['message']??'',
     );
   }
 

@@ -1,6 +1,5 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:knockknock/core/utils/extensions.dart';
 
@@ -26,24 +25,18 @@ class AdsItem extends StatelessWidget {
           borderRadius: BorderRadius.circular(Dimensions.p12),
         ),
         shadows: const [
-          BoxShadow(
-            color: Color(0x26000000),
-            blurRadius: 10,
-            offset: Offset(2, 2),
-            spreadRadius: 0,
-          )
+
         ],
       ),
       child: Stack(
         children: [
           Container(
-            width: context.queryWidth * 0.65.w,
-            height: 165.h,
+            width: context.queryWidth ,
             decoration: ShapeDecoration(
               image: DecorationImage(
                 image: CachedNetworkImageProvider(
                     AppConstants.imageUrl + carousel.image!),
-                fit: BoxFit.cover,
+                fit: BoxFit.fill,
               ),
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(Dimensions.r12),

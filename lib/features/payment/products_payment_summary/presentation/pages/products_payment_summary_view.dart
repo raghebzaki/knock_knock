@@ -18,6 +18,7 @@ import '../../../../../../core/utils/app_images.dart';
 import '../../../../../../core/utils/dimensions.dart';
 import '../../../../../../generated/l10n.dart';
 import '../../../../../core/dependency_injection/di.dart' as di;
+import '../../../../../core/service/get_balance.dart';
 import '../../../../../core/shared/cubits/product_cart_cubit/product_cart_cubit.dart';
 import '../../../../../core/shared/widgets/custom_form_field.dart';
 import '../../../../../core/utils/app_constants.dart';
@@ -36,7 +37,7 @@ class ProductsPaymentSummaryView extends StatefulWidget {
 
 class _ProductsPaymentSummaryViewState
     extends State<ProductsPaymentSummaryView> {
-
+  num grandTotal=0;
   List<num> productsId=[];
   List<num> productsQuantities=[];
   String paymentMethod = "cash";
@@ -87,29 +88,38 @@ class _ProductsPaymentSummaryViewState
                                     title: Text(
                                         S.of(context).preferredPaymentMethod),
                                     titleTextStyle:
-                                        CustomTextStyle.kTextStyleF16,
+                                    CustomTextStyle.kTextStyleF16,
                                     content: Column(
+                                      mainAxisSize: MainAxisSize.min,
                                       children: [
-                                        Expanded(
-                                          child: CustomBtn(
-                                            label: S.of(context).cash,
-                                            onPressed: () {
-                                              setState(() {
-                                                paymentMethod = "cash";
-                                              });
-                                            },
-                                          ),
+                                        CustomBtn(
+                                          label: S.of(context).cash,
+                                          onPressed: () {
+                                            setState(() {
+                                              paymentMethod = "cash";
+                                              context.pop();
+                                            });
+                                          },
                                         ),
-                                        Gap(10.h),
-                                        Expanded(
-                                          child: CustomBtn(
-                                            label: S.of(context).creditCard,
-                                            onPressed: () {
-                                              setState(() {
-                                                paymentMethod = "credit";
-                                              });
-                                            },
-                                          ),
+                                        Gap(5.h),
+                                        CustomBtn(
+                                          label: S.of(context).creditCard,
+                                          onPressed: () {
+                                            setState(() {
+                                              paymentMethod = "visa";
+                                              context.pop();
+                                            });
+                                          },
+                                        ),
+                                        Gap(5.h),
+                                        CustomBtn(
+                                          label: S.of(context).myBalance,
+                                          onPressed: () {
+                                            setState(() {
+                                              paymentMethod = "credit";
+                                              context.pop();
+                                            });
+                                          },
                                         ),
                                       ],
                                     ),
@@ -125,39 +135,21 @@ class _ProductsPaymentSummaryViewState
                         ],
                       ),
                       Gap(10.h),
-                      Image.asset(
-                        paymentMethod == "credit"
-                            ? AppImages.cardImg
-                            : AppImages.cashImg,
+                      paymentMethod == "visa"?Image.asset(AppImages.cardImg,
                         width: context.width,
-                      ),
-                      Gap(10.h),
-                      Column(
-                        children: [
-                          CustomFormField(
-                            hint: S.of(context).cardHolderName,
+                      ):paymentMethod == "cash"?Image.asset( AppImages.cashImg,
+                        width: context.width,
+                      ):Container(
+                          margin: EdgeInsets.symmetric(horizontal: 10.sp),
+                          padding: EdgeInsets.all( 10.sp),
+                          decoration: BoxDecoration(
+                            color: AppColors.secondaryWithOpacity,
+                            borderRadius: BorderRadius.circular(15.sp),
                           ),
-                          CustomFormField(
-                            hint: S.of(context).cardNumber,
-                          ),
-                          Row(
-                            children: [
-                              Flexible(
-                                child: CustomFormField(
-                                  hint: S.of(context).cardDate,
-                                ),
-                              ),
-                              Gap(5.w),
-                              Flexible(
-                                child: CustomFormField(
-                                  hint: S.of(context).cvv,
-                                ),
-                              ),
-                            ],
-                          )
-                        ],
-                      ),
+                          child: Center(child: Text("${S.current.myBalance} ${AppConstants.userBalance} ${S.current.Aed}",style: CustomTextStyle.kTextStyleF16Black,))),
+
                       Gap(10.h),
+
                       Text(
                         S.of(context).addVoucherCode,
                         style: CustomTextStyle.kTextStyleF16Black,
@@ -430,6 +422,7 @@ class _ProductsPaymentSummaryViewState
                                 },
                                 success: (state) {
                                   productsCouponEntity=state;
+                                  grandTotal=productsCouponEntity.information!.grantTotal??0;
                                   return Container(
                                     width: context.width,
                                     padding: EdgeInsets.all(20.sp),
@@ -545,13 +538,14 @@ class _ProductsPaymentSummaryViewState
                 listener: (context, state) {
                   state.maybeWhen(success: (state) {
                     if (state.status == 1) {
-                      context.defaultSnackBar(
-                          S.of(context).orderCreatedSuccessfully);
+                      UserBalanceService.getBalance();
+                      context.defaultSnackBar(S.of(context).orderCreatedSuccessfully);
                       context.pushNamed(myOrdersPageRoute);
                     }
-                  }, orElse: () {
-                    return null;
-                  });
+                    }, orElse: () {
+                      return null;
+                    },
+                  );
                 },
                 builder: (context, state) {
                   ProductsPlaceOrderCubit productsPlaceOrderCubit =
@@ -563,32 +557,61 @@ class _ProductsPaymentSummaryViewState
                       child: CustomBtn(
                         label: S.of(context).confirmPayment,
                         onPressed: () async {
+                          var total=product.map((e) => e.discountPercent == 0 ? double.parse(e.price!) * e.userQuantity! : double.parse(e.priceAfterDiscount!) * e.userQuantity!).reduce((value, element) => value + element) + AppConstants.shippingFee;
                           productsId.clear();
                           productsQuantities.clear();
                           for (var item in product) {
                             productsId.add(item.id!);
                             productsQuantities.add(item.userQuantity!);
                           }
-                          productsPlaceOrderCubit
-                              .placeOrder(ProductsPlaceOrderEntity(
-                            userId:UserData.id,
-                            paymentMethod: "Cash",
-                            address: widget.address.address,
-                            buildingNo: widget.address.building,
-                            flatNo: widget.address.flat,
-                            city: widget.address.city,
-                            state: widget.address.country,
-                            longitude: widget.address.longitude.toString(),
-                            latitude: widget.address.latitude.toString(),
-                            discountPercentage:productsCouponEntity.information!.discountPercentage,
-                            discountAmount: productsCouponEntity.information!.discountAmount,
-                            priceAfterDiscount: productsCouponEntity.information!.priceAfterDiscount,
-                            grantTotal: productsCouponEntity.information!.grantTotal,
-                            productCouponId: productsCouponEntity.information!.productCouponId,
-                            productsId: productsId,
-                            productQuantities:productsQuantities ,
+                          if(paymentMethod=="credit"){
+                            if(total<=double.parse(AppConstants.userBalance)||(grandTotal!=0&&grandTotal<=double.parse(AppConstants.userBalance)))
+                            {
+                              productsPlaceOrderCubit.placeOrder(ProductsPlaceOrderEntity(
+                                userId:UserData.id,
+                                paymentMethod: paymentMethod,
+                                address: widget.address.address,
+                                buildingNo: widget.address.building,
+                                flatNo: widget.address.flat,
+                                city: widget.address.city,
+                                state: widget.address.country,
+                                longitude: widget.address.longitude.toString(),
+                                latitude: widget.address.latitude.toString(),
+                                discountPercentage:productsCouponEntity.information!.discountPercentage,
+                                discountAmount: productsCouponEntity.information!.discountAmount,
+                                priceAfterDiscount: productsCouponEntity.information!.priceAfterDiscount,
+                                grantTotal: productsCouponEntity.information!.grantTotal,
+                                productCouponId: productsCouponEntity.information!.productCouponId,
+                                productsId: productsId,
+                                productQuantities:productsQuantities ,
 
-                          ));
+                              ));
+
+                            }else{
+                              context.defaultSnackBar(S.of(context).yourBalanceIsLessThanTotal);
+                            }
+                          }else{
+                            productsPlaceOrderCubit.placeOrder(ProductsPlaceOrderEntity(
+                              userId:UserData.id,
+                              paymentMethod: paymentMethod,
+                              address: widget.address.address,
+                              buildingNo: widget.address.building,
+                              flatNo: widget.address.flat,
+                              city: widget.address.city,
+                              state: widget.address.country,
+                              longitude: widget.address.longitude.toString(),
+                              latitude: widget.address.latitude.toString(),
+                              discountPercentage:productsCouponEntity.information!.discountPercentage,
+                              discountAmount: productsCouponEntity.information!.discountAmount,
+                              priceAfterDiscount: productsCouponEntity.information!.priceAfterDiscount,
+                              grantTotal: productsCouponEntity.information!.grantTotal,
+                              productCouponId: productsCouponEntity.information!.productCouponId,
+                              productsId: productsId,
+                              productQuantities:productsQuantities ,
+
+                            ));
+                          }
+
                         },
                       ),
                     ),

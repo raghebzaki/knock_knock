@@ -21,7 +21,7 @@ class ServicesPlaceOrderServiceImpl implements ServicesPlaceOrderService {
     );
 
     if (order.statusCode == 200) {
-      placeOrderModel = ServicesPlaceOrderModel.fromJson(order.data);
+      placeOrderModel = placeOrderEntity.paymentMethod=="visa"?ServicesPlaceOrderModel.visaFromJson(order.data):ServicesPlaceOrderModel.fromJson(order.data);
     }
 
     return placeOrderModel;

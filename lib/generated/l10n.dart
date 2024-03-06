@@ -2179,6 +2179,26 @@ class S {
       args: [],
     );
   }
+
+  /// `Your Balance is less than total`
+  String get yourBalanceIsLessThanTotal {
+    return Intl.message(
+      'Your Balance is less than total',
+      name: 'yourBalanceIsLessThanTotal',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `My Balance`
+  String get myBalance {
+    return Intl.message(
+      'My Balance',
+      name: 'myBalance',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

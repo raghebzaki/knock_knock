@@ -8,6 +8,7 @@ import 'package:knockknock/core/utils/extensions.dart';
 import 'package:knockknock/features/payment/services_payment_summary/domain/entities/coupon_entity.dart';
 import 'package:knockknock/features/payment/services_payment_summary/presentation/manager/services_coupon_cubit.dart';
 import 'package:knockknock/features/payment/services_payment_summary/presentation/manager/services_place_order_cubit.dart';
+import 'package:knockknock/features/payment/services_payment_summary/presentation/pages/service_web_view.dart';
 
 import '../../../../../../config/themes/app_text_styles.dart';
 import '../../../../../../core/shared/widgets/custom_button.dart';
@@ -16,6 +17,7 @@ import '../../../../../../core/utils/app_images.dart';
 import '../../../../../../core/utils/dimensions.dart';
 import '../../../../../../generated/l10n.dart';
 import '../../../../../core/dependency_injection/di.dart' as di;
+import '../../../../../core/service/get_balance.dart';
 import '../../../../../core/shared/cubits/service_cart_cubit/service_cart_cubit.dart';
 import '../../../../../core/shared/widgets/custom_form_field.dart';
 import '../../../../../core/utils/app_constants.dart';
@@ -37,6 +39,7 @@ class ServicesPaymentSummaryView extends StatefulWidget {
 class _ServicesPaymentSummaryViewState
     extends State<ServicesPaymentSummaryView> {
   String paymentMethod = "cash";
+  num grandTotal=0;
   TextEditingController voucherCtrl = TextEditingController();
   ServicesCouponEntity servicesCouponEntity=const ServicesCouponEntity(information:ServicesCouponEntity() );
   @override
@@ -87,27 +90,36 @@ class _ServicesPaymentSummaryViewState
                                     titleTextStyle:
                                         CustomTextStyle.kTextStyleF16,
                                     content: Column(
+                                      mainAxisSize: MainAxisSize.min,
                                       children: [
-                                        Expanded(
-                                          child: CustomBtn(
-                                            label: S.of(context).cash,
-                                            onPressed: () {
-                                              setState(() {
-                                                paymentMethod = "cash";
-                                              });
-                                            },
-                                          ),
+                                        CustomBtn(
+                                          label: S.of(context).cash,
+                                          onPressed: () {
+                                            setState(() {
+                                              paymentMethod = "cash";
+                                              context.pop();
+                                            });
+                                          },
                                         ),
-                                        Gap(10.h),
-                                        Expanded(
-                                          child: CustomBtn(
-                                            label: S.of(context).creditCard,
-                                            onPressed: () {
-                                              setState(() {
-                                                paymentMethod = "credit";
-                                              });
-                                            },
-                                          ),
+                                        Gap(5.h),
+                                        CustomBtn(
+                                          label: S.of(context).creditCard,
+                                          onPressed: () {
+                                            setState(() {
+                                              paymentMethod = "visa";
+                                              context.pop();
+                                            });
+                                          },
+                                        ),
+                                        Gap(5.h),
+                                        CustomBtn(
+                                          label: S.of(context).myBalance,
+                                          onPressed: () {
+                                            setState(() {
+                                              paymentMethod = "credit";
+                                              context.pop();
+                                            });
+                                          },
                                         ),
                                       ],
                                     ),
@@ -123,38 +135,18 @@ class _ServicesPaymentSummaryViewState
                         ],
                       ),
                       Gap(10.h),
-                      Image.asset(
-                        paymentMethod == "credit"
-                            ? AppImages.cardImg
-                            : AppImages.cashImg,
+                      paymentMethod == "visa"?Image.asset(AppImages.cardImg,
                         width: context.width,
-                      ),
-                      Gap(10.h),
-                      Column(
-                        children: [
-                          CustomFormField(
-                            hint: S.of(context).cardHolderName,
-                          ),
-                          CustomFormField(
-                            hint: S.of(context).cardNumber,
-                          ),
-                          Row(
-                            children: [
-                              Flexible(
-                                child: CustomFormField(
-                                  hint: S.of(context).cardDate,
-                                ),
-                              ),
-                              Gap(5.w),
-                              Flexible(
-                                child: CustomFormField(
-                                  hint: S.of(context).cvv,
-                                ),
-                              ),
-                            ],
-                          )
-                        ],
-                      ),
+                      ):paymentMethod == "cash"?Image.asset( AppImages.cashImg,
+                        width: context.width,
+                      ):Container(
+                        margin: EdgeInsets.symmetric(horizontal: 10.sp),
+                        padding: EdgeInsets.all( 10.sp),
+                        decoration: BoxDecoration(
+                          color: AppColors.secondaryWithOpacity,
+                          borderRadius: BorderRadius.circular(15.sp),
+                        ),
+                          child: Center(child: Text("${S.current.myBalance} ${AppConstants.userBalance} ${S.current.Aed}",style: CustomTextStyle.kTextStyleF16Black,))),
                       Gap(10.h),
                       Text(
                         S.of(context).addVoucherCode,
@@ -434,6 +426,7 @@ class _ServicesPaymentSummaryViewState
                                 },
                                 success: (state) {
                                   servicesCouponEntity=state;
+                                  grandTotal=servicesCouponEntity.information!.grantTotal??0;
                                   return Container(
                                     width: context.width,
                                     padding: EdgeInsets.all(20.sp),
@@ -550,10 +543,19 @@ class _ServicesPaymentSummaryViewState
               BlocConsumer<ServicesPlaceOrderCubit, ServicesPlaceOrderState>(
                 listener: (context, state) {
                   state.maybeWhen(success: (state) {
-                    if (state.status == 1) {
-                      context.defaultSnackBar(
-                          S.of(context).orderCreatedSuccessfully);
-                      context.pushNamed(myServicesOrdersPageRoute);
+                    if(paymentMethod=="visa"){
+                      Navigator.of(context).push(
+                        MaterialPageRoute(
+                          builder: (context) =>  ServiceWebView(url: state.paymentLink!),
+                        ),
+                      );
+                    }else{
+                      if (state.status == 1) {
+                        UserBalanceService.getBalance();
+                        context.defaultSnackBar(
+                            S.of(context).orderCreatedSuccessfully);
+                        context.pushNamed(myServicesOrdersPageRoute);
+                      }
                     }
                   }, orElse: () {
                     return null;
@@ -569,27 +571,57 @@ class _ServicesPaymentSummaryViewState
                       child: CustomBtn(
                         label: S.of(context).confirmPayment,
                         onPressed: () async {
-                          servicesPlaceOrderCubit
-                              .placeOrder(ServicesPlaceOrderEntity(
-                            serviceId: widget.servicesPlaceOrderEntity[0].serviceId,
-                            userId: widget.servicesPlaceOrderEntity[0].userId,
-                            selectedDayId: widget.servicesPlaceOrderEntity[0].selectedDayId,
-                            selectedTime: widget.servicesPlaceOrderEntity[0].selectedTime,
-                            paymentMethod: widget.servicesPlaceOrderEntity[0].paymentMethod,
-                            note: widget.servicesPlaceOrderEntity[0].note,
-                            address: widget.servicesPlaceOrderEntity[0].address,
-                            buildingNo: widget.servicesPlaceOrderEntity[0].buildingNo,
-                            flatNo: widget.servicesPlaceOrderEntity[0].flatNo,
-                            city: widget.servicesPlaceOrderEntity[0].city,
-                            state: widget.servicesPlaceOrderEntity[0].state,
-                            longitude: widget.servicesPlaceOrderEntity[0].longitude,
-                            latitude: widget.servicesPlaceOrderEntity[0].latitude,
-                            serviceCouponId: servicesCouponEntity.information!.serviceCouponId,
-                            discountPercentage:servicesCouponEntity.information!.discountPercentage,
-                            discountAmount: servicesCouponEntity.information!.discountAmount,
-                            priceAfterDiscount: servicesCouponEntity.information!.priceAfterDiscount,
-                            grantTotal: servicesCouponEntity.information!.grantTotal,
-                          ));
+                          var total=totalPrice.map((e) => double.parse(e.servicesEntity!.price!)).reduce((value, element) => value + element) + AppConstants.deliveryFee;
+                          if(paymentMethod=="credit"){
+                            if(total<=double.parse(AppConstants.userBalance)||(grandTotal!=0&&grandTotal<=double.parse(AppConstants.userBalance)))
+                              {
+                                servicesPlaceOrderCubit.placeOrder(ServicesPlaceOrderEntity(
+                                  serviceId: widget.servicesPlaceOrderEntity[0].serviceId,
+                                  userId: widget.servicesPlaceOrderEntity[0].userId,
+                                  selectedDayId: widget.servicesPlaceOrderEntity[0].selectedDayId,
+                                  selectedTime: widget.servicesPlaceOrderEntity[0].selectedTime,
+                                  paymentMethod: paymentMethod,
+                                  note: widget.servicesPlaceOrderEntity[0].note,
+                                  address: widget.servicesPlaceOrderEntity[0].address,
+                                  buildingNo: widget.servicesPlaceOrderEntity[0].buildingNo,
+                                  flatNo: widget.servicesPlaceOrderEntity[0].flatNo,
+                                  city: widget.servicesPlaceOrderEntity[0].city,
+                                  state: widget.servicesPlaceOrderEntity[0].state,
+                                  longitude: widget.servicesPlaceOrderEntity[0].longitude,
+                                  latitude: widget.servicesPlaceOrderEntity[0].latitude,
+                                  serviceCouponId: servicesCouponEntity.information!.serviceCouponId,
+                                  discountPercentage:servicesCouponEntity.information!.discountPercentage,
+                                  discountAmount: servicesCouponEntity.information!.discountAmount,
+                                  priceAfterDiscount: servicesCouponEntity.information!.priceAfterDiscount,
+                                  grantTotal: servicesCouponEntity.information!.grantTotal,
+                                ));
+
+                              }else{
+                              context.defaultSnackBar(S.of(context).yourBalanceIsLessThanTotal);
+                            }
+                          }else{
+                            servicesPlaceOrderCubit.placeOrder(ServicesPlaceOrderEntity(
+                              serviceId: widget.servicesPlaceOrderEntity[0].serviceId,
+                              userId: widget.servicesPlaceOrderEntity[0].userId,
+                              selectedDayId: widget.servicesPlaceOrderEntity[0].selectedDayId,
+                              selectedTime: widget.servicesPlaceOrderEntity[0].selectedTime,
+                              paymentMethod: paymentMethod,
+                              note: widget.servicesPlaceOrderEntity[0].note,
+                              address: widget.servicesPlaceOrderEntity[0].address,
+                              buildingNo: widget.servicesPlaceOrderEntity[0].buildingNo,
+                              flatNo: widget.servicesPlaceOrderEntity[0].flatNo,
+                              city: widget.servicesPlaceOrderEntity[0].city,
+                              state: widget.servicesPlaceOrderEntity[0].state,
+                              longitude: widget.servicesPlaceOrderEntity[0].longitude,
+                              latitude: widget.servicesPlaceOrderEntity[0].latitude,
+                              serviceCouponId: servicesCouponEntity.information!.serviceCouponId,
+                              discountPercentage:servicesCouponEntity.information!.discountPercentage,
+                              discountAmount: servicesCouponEntity.information!.discountAmount,
+                              priceAfterDiscount: servicesCouponEntity.information!.priceAfterDiscount,
+                              grantTotal: servicesCouponEntity.information!.grantTotal,
+                            ),
+                            );
+                          }
                         },
                       ),
                     ),

@@ -166,6 +166,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "This URL is no longer available"),
         "multiple_choices": MessageLookupByLibrary.simpleMessage(
             "Choose an option to continue"),
+        "myBalance": MessageLookupByLibrary.simpleMessage("My Balance"),
         "myOrders": MessageLookupByLibrary.simpleMessage("My orders"),
         "my_orders": MessageLookupByLibrary.simpleMessage("My Orders"),
         "newAddress": MessageLookupByLibrary.simpleMessage("New Address"),
@@ -339,6 +340,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("you Already Add one Service"),
         "youMustAddAddressFirst":
             MessageLookupByLibrary.simpleMessage("you must add address first"),
+        "yourBalanceIsLessThanTotal": MessageLookupByLibrary.simpleMessage(
+            "Your Balance is less than total"),
         "yourCartIsEmpty":
             MessageLookupByLibrary.simpleMessage("Your cart is empty"),
         "yourMessage": MessageLookupByLibrary.simpleMessage("Your Message"),

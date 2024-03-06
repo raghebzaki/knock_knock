@@ -53,7 +53,6 @@ class _HomeViewState extends State<HomeView> {
           child: SingleChildScrollView(
             child: Column(
               children: [
-                Gap(15.h),
                 BlocConsumer<CarouselCubit, CarouselState>(
                   listener: (context, state) {},
                   builder: (context, state) {
@@ -61,19 +60,20 @@ class _HomeViewState extends State<HomeView> {
                       success: (state) {
                         return CarouselSlider(
                           options: CarouselOptions(
+                            aspectRatio: 2,
                             autoPlay: true,
                             autoPlayInterval: const Duration(seconds: 10),
-                            autoPlayAnimationDuration:
-                                const Duration(milliseconds: 800),
+                            autoPlayAnimationDuration: const Duration(milliseconds: 800),
                             autoPlayCurve: Curves.fastOutSlowIn,
+                            viewportFraction: 1
                           ),
                           items: state!.map((i) {
                             return Builder(
                               builder: (BuildContext context) {
                                 return Container(
                                   padding: EdgeInsets.symmetric(
-                                    horizontal: Dimensions.p24.w,
-                                    vertical: Dimensions.p12.h,
+                                    horizontal: Dimensions.p16.w,
+                                    vertical: Dimensions.p5.h,
                                   ),
                                   color: Colors.white,
                                   child: AdsItem(
@@ -100,7 +100,6 @@ class _HomeViewState extends State<HomeView> {
                     );
                   },
                 ),
-                Gap(15.h),
                 BlocConsumer<ServicesCubit, ServicesState>(
                   listener: (context, state) {},
                   builder: (context, state) {

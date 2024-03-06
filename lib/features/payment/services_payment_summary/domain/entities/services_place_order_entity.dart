@@ -23,6 +23,7 @@ class ServicesPlaceOrderEntity extends Equatable {
   final num? grantTotal;
   final num? status;
   final String? msg;
+  final String? paymentLink;
   final ServicesEntity? servicesEntity;
 
   const ServicesPlaceOrderEntity({
@@ -46,6 +47,7 @@ class ServicesPlaceOrderEntity extends Equatable {
     this.grantTotal,
     this.status,
     this.msg,
+    this.paymentLink,
     this.servicesEntity,
   });
 
