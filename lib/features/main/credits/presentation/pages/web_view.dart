@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:knockknock/core/router/router.dart';
@@ -55,6 +57,8 @@ class _WebViewPaymentState extends State<WebViewPayment> {
 
                       buyCreditCubit.addCredits(BuyCreditPlaceOrderEntity(userId: UserData.id,packageId: widget.packageId));
                       context.pushNamed(creditsViewPageRoute);
+                    }else if(Platform.isIOS){
+
                     } else {
                       context.defaultSnackBar(
                           S.of(context).paymentFailed, color: Colors.red);

@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:knockknock/core/router/router.dart';
@@ -65,7 +67,9 @@ class _ProductWebViewState extends State<ProductWebView> {
                           color: Colors.green);
                       productsPlaceOrderCubit.placeOrderAfterPayment(
                           widget.productsPlaceOrderEntity);
-                    } else {
+                    } else if(Platform.isIOS){
+
+                    }else {
                       context.defaultSnackBar(S.of(context).paymentFailed,
                           color: Colors.red);
                       context.pushNamed(bottomNavBarPageRoute);

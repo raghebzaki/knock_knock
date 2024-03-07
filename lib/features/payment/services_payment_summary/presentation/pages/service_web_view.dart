@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:knockknock/core/router/router.dart';
@@ -59,20 +61,21 @@ class _ServiceWebViewState extends State<ServiceWebView> {
                   },
                   onWebResourceError: (WebResourceError error) {},
                   onNavigationRequest: (NavigationRequest request) {
-                    if (request.url ==
-                        '${AppConstants.apiBaseUrl}v1/service_orders/stripe-success') {
+                    if (request.url == '${AppConstants.apiBaseUrl}v1/service_orders/stripe-success') {
                       context.defaultSnackBar(S.of(context).paymentSuccess,
                           color: Colors.green);
                       servicesPlaceOrderCubit.placeOrderAfterPayment(
                           widget.servicesPlaceOrderEntity);
-                    } else {
+                    }else if(Platform.isIOS){
+
+                    }else{
                       context.defaultSnackBar(S.of(context).paymentFailed,
                           color: Colors.red);
                       context.pushNamed(bottomNavBarPageRoute);
                     }
-                    if (request.url.startsWith(widget.url)) {
-                      return NavigationDecision.prevent;
-                    }
+                    // if (request.url.startsWith(widget.url)) {
+                    //   return NavigationDecision.prevent;
+                    // }
                     return NavigationDecision.navigate;
                   },
                 ),

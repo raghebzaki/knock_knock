@@ -233,26 +233,28 @@ class _CustomAppBarState extends State<CustomAppBar> {
                 ],
               ),
               Gap(20.h),
-              widget.searchBar ? TextFormField(
-                controller: widget.searchCtrl,
-                onChanged: widget.onChange,
-                decoration: InputDecoration(
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(8),
-                      borderSide: const BorderSide(
-                          color: AppColors.secondaryLight, width: 5),
-                    ),
-                    hintText: S.current.searchFor,
-                    counter: const Offstage(),
-                    isDense: true,
-                    prefixIcon: const Icon(Icons.search,
-                        color: AppColors.secondary),
-                    contentPadding: EdgeInsets.symmetric(
-                      horizontal: Dimensions.p10.w,
-                      vertical: Dimensions.p10.h,
-                    ),
-                    labelStyle: CustomTextStyle.kFormFieldTextStyle,
-                    hintStyle: CustomTextStyle.kFormFieldTextStyle),
+              widget.searchBar ? Expanded(
+                child: TextFormField(
+                  controller: widget.searchCtrl,
+                  onChanged: widget.onChange,
+                  decoration: InputDecoration(
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(8),
+                        borderSide: const BorderSide(
+                            color: AppColors.secondaryLight, width: 5),
+                      ),
+                      hintText: S.current.searchFor,
+                      counter: const Offstage(),
+                      isDense: true,
+                      prefixIcon: const Icon(Icons.search,
+                          color: AppColors.secondary),
+                      contentPadding: EdgeInsets.symmetric(
+                        horizontal: Dimensions.p10.w,
+                        vertical: Dimensions.p10.h,
+                      ),
+                      labelStyle: CustomTextStyle.kFormFieldTextStyle,
+                      hintStyle: CustomTextStyle.kFormFieldTextStyle),
+                ),
               ):const SizedBox.shrink(),
             ],
           ).paddingSymmetric(
