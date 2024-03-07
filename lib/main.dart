@@ -1,5 +1,7 @@
 import 'dart:io';
 
+import 'package:firebase_core/firebase_core.dart';
+import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
@@ -11,6 +13,7 @@ import 'core/database/address_class.dart';
 import 'core/dependency_injection/di.dart' as di;
 import 'core/helpers/cache_helper.dart';
 import 'core/my_http.dart';
+import 'core/resources/firebase/firebase_resources.dart';
 import 'core/router/router_generator.dart';
 import 'core/shared/cubits/product_cart_cubit/product_cart_cubit.dart';
 import 'core/shared/widgets/custom_error_widget.dart';
@@ -39,14 +42,12 @@ void main() async {
   };
   HttpOverrides.global = MyHttpOverrides();
 
-  // await Firebase.initializeApp();
-  // if (Platform.isAndroid) {
-  //   FireBaseResources().android();
-  // } else if (Platform.isIOS) {
-  //   FireBaseResources().ios();
-  // }
-
-  // String currentLocale = await CacheHelper.getAppLang();
+  await Firebase.initializeApp();
+  if (Platform.isAndroid) {
+    FireBaseResources().android();
+  } else if (Platform.isIOS) {
+    FireBaseResources().ios();
+  }
   var currentLocale = await CacheHelper.getLocal();
 
   runApp(
@@ -55,6 +56,10 @@ void main() async {
     ),
   );
 }
+Future<void> _firebaseMessagingBackgroundHandler(RemoteMessage message) async {
+  await Firebase.initializeApp();
+}
+
 
 class MyApp extends StatefulWidget {
   final Locale currentLang;
@@ -78,11 +83,9 @@ class _MyAppState extends State<MyApp> {
     super.initState();
 
     locale = widget.currentLang;
-    // FirebaseMessaging.onMessage.listen(
-    //       (RemoteMessage message) {
-    //     context.defaultSnackBar(message.notification?.title ?? AppConstants.unknownStringValue);
-    //   },
-    // );
+    FirebaseMessaging.onMessage.listen(
+          (RemoteMessage message) {},
+    );
   }
 
   changeLanguage(Locale newLocale) {

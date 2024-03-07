@@ -7,6 +7,7 @@ import 'package:knockknock/features/credits/buy_credits/domain/entities/buy_cred
 import 'package:webview_flutter/webview_flutter.dart';
 
 import '../../../../../core/dependency_injection/di.dart' as di;
+import '../../../../../core/utils/app_constants.dart';
 import '../../../../../generated/l10n.dart';
 import '../../../../credits/buy_credits/presentation/manager/buy_credit_cubit.dart';
 
@@ -48,11 +49,12 @@ class _WebViewPaymentState extends State<WebViewPayment> {
                   onWebResourceError: (WebResourceError error) {},
                   onNavigationRequest: (NavigationRequest request) {
                     if (request.url ==
-                        'https://dashboard.knock-knock.ae/api/v1/packages/stripe-success') {
+                        '${AppConstants.apiBaseUrl}v1/packages/stripe-success') {
                       context.defaultSnackBar(
                           S.of(context).paymentSuccess, color: Colors.green);
-                      context.pushNamed(creditsViewPageRoute);
+
                       buyCreditCubit.addCredits(BuyCreditPlaceOrderEntity(userId: UserData.id,packageId: widget.packageId));
+                      context.pushNamed(creditsViewPageRoute);
                     } else {
                       context.defaultSnackBar(
                           S.of(context).paymentFailed, color: Colors.red);

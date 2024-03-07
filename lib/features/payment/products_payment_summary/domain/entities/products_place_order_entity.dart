@@ -21,6 +21,7 @@ class ProductsPlaceOrderEntity extends Equatable {
   final num? grantTotal;
   final num? status;
   final String? msg;
+  final String? paymentLink;
 
   const ProductsPlaceOrderEntity({
     this.userId,
@@ -43,6 +44,7 @@ class ProductsPlaceOrderEntity extends Equatable {
     this.grantTotal,
     this.status,
     this.msg,
+    this.paymentLink
   });
 
   @override

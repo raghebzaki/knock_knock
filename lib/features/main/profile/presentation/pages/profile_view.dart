@@ -173,40 +173,7 @@ class ProfileView extends StatelessWidget {
                 ),
               ),
               Gap(10.h), 
-              Container(
-                decoration: const BoxDecoration(
-                 border: BorderDirectional(
-                   bottom: BorderSide(
-                     color: AppColors.secondary,
-                     width: 1,
-                     style: BorderStyle.solid,
-                   ),
-                 ),
-                 color: Colors.white,
-               ),
 
-                margin: EdgeInsets.symmetric(horizontal: 16.0.sp),
-                child: ListTile(
-                  onTap: () {
-                    context.pushNamed(sendGiftPageRoute);
-                  },
-                  title: Opacity(
-                    opacity: 0.90,
-                    child: Text(
-                     S.of(context).giftCard,
-                      style: CustomTextStyle.kTextStyleF16,
-                    ),
-                  ),
-                  leading: Image.asset(AppImages.giftImg,color: AppColors.secondary,width: 30.w,),
-
-                  trailing: Icon(
-                    Icons.arrow_forward_ios_sharp,
-                    color: AppColors.lightBlue,
-                    size: 16.sp,
-                  ),
-                ),
-              ),
-              Gap(10.h),
               Container(
                 decoration: const BoxDecoration(
                  border: BorderDirectional(

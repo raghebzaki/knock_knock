@@ -10,6 +10,7 @@ import 'package:knockknock/core/utils/extensions.dart';
 import 'package:knockknock/features/payment/products_payment_summary/domain/entities/products_coupon_entity.dart';
 import 'package:knockknock/features/payment/products_payment_summary/presentation/manager/products_coupon_cubit.dart';
 import 'package:knockknock/features/payment/products_payment_summary/presentation/manager/products_place_order_cubit.dart';
+import 'package:knockknock/features/payment/products_payment_summary/presentation/pages/products_web_view.dart';
 
 import '../../../../../../config/themes/app_text_styles.dart';
 import '../../../../../../core/shared/widgets/custom_button.dart';
@@ -537,6 +538,39 @@ class _ProductsPaymentSummaryViewState
               BlocConsumer<ProductsPlaceOrderCubit, ProductsPlaceOrderState>(
                 listener: (context, state) {
                   state.maybeWhen(success: (state) {
+                    if(paymentMethod=="visa"){
+                      Navigator.of(context).push(
+                        MaterialPageRoute(
+                          builder: (context) =>  ProductWebView(url: state.paymentLink!,
+                              productsPlaceOrderEntity: ProductsPlaceOrderEntity(
+                                userId:UserData.id,
+                                paymentMethod: paymentMethod,
+                                address: widget.address.address,
+                                buildingNo: widget.address.building,
+                                flatNo: widget.address.flat,
+                                city: widget.address.city,
+                                state: widget.address.country,
+                                longitude: widget.address.longitude.toString(),
+                                latitude: widget.address.latitude.toString(),
+                                discountPercentage:productsCouponEntity.information!.discountPercentage,
+                                discountAmount: productsCouponEntity.information!.discountAmount,
+                                priceAfterDiscount: productsCouponEntity.information!.priceAfterDiscount,
+                                grantTotal: productsCouponEntity.information!.grantTotal,
+                                productCouponId: productsCouponEntity.information!.productCouponId,
+                                productsId: productsId,
+                                productQuantities:productsQuantities ,
+
+                              )),
+                        ),
+                      );
+                    }else{
+                      if (state.status == 1) {
+                        UserBalanceService.getBalance();
+                        context.defaultSnackBar(
+                            S.of(context).orderCreatedSuccessfully);
+                        context.pushNamed(myServicesOrdersPageRoute);
+                      }
+                    }
                     if (state.status == 1) {
                       UserBalanceService.getBalance();
                       context.defaultSnackBar(S.of(context).orderCreatedSuccessfully);

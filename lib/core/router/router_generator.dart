@@ -38,7 +38,6 @@ import '../../features/orders/services/my_services_orders/domain/entities/servic
 import '../../features/orders/services/my_services_orders/presentation/manager/my_services_orders_cubit.dart';
 import '../../features/orders/services/my_services_orders/presentation/pages/my_services_orders.dart';
 import '../../features/orders/services/order_details/presentation/pages/order_details_view.dart';
-import '../../features/payment/gift_payment_summary/presentation/pages/payment_summary_view.dart';
 import '../../main_view.dart';
 import '../dependency_injection/di.dart' as di;
 import '../shared/arguments.dart';
@@ -209,10 +208,6 @@ class AppRouters {
           final args = settings.arguments as ServicesSummaryArgs;
         return MaterialPageRoute(
           builder: (BuildContext context) => ServicesPaymentSummaryView(servicesPlaceOrderEntity:args.servicesPlaceOrderEntity ),
-        );
-        case giftPaymentSummeryPageRoute:
-        return MaterialPageRoute(
-          builder: (BuildContext context) => const PaymentSummaryView(),
         );
       default:
         return MaterialPageRoute(

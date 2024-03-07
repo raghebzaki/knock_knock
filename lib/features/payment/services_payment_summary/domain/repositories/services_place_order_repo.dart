@@ -6,4 +6,6 @@ import '../entities/services_place_order_entity.dart';
 abstract class ServicesPlaceOrderRepo {
   Future<Either<Failure, ServicesPlaceOrderEntity>> placeOrder(
       ServicesPlaceOrderEntity placeOrderEntity);
+  Future<Either<Failure, ServicesPlaceOrderEntity>> placeOrderAfterPayment(
+      ServicesPlaceOrderEntity placeOrderEntity);
 }

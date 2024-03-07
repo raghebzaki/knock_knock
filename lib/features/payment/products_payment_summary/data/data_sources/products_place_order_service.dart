@@ -7,6 +7,7 @@ import '../models/products_place_order_model.dart';
 
 abstract class ProductsPlaceOrderService {
   Future<ProductsPlaceOrderModel> placeOrder(ProductsPlaceOrderEntity placeOrderEntity);
+  Future<ProductsPlaceOrderModel> placeOrderAfterPayment(ProductsPlaceOrderEntity placeOrderEntity);
 }
 
 class ProductsPlaceOrderServiceImpl implements ProductsPlaceOrderService {
@@ -17,6 +18,22 @@ class ProductsPlaceOrderServiceImpl implements ProductsPlaceOrderService {
 
     final order = await dio.post(
       AppConstants.apiBaseUrl + AppConstants.productsPlaceOrderUri,
+      data: ProductsPlaceOrderModel.toJson(placeOrderEntity),
+    );
+
+    if (order.statusCode == 200) {
+      placeOrderModel = placeOrderEntity.paymentMethod=="visa"?ProductsPlaceOrderModel.visaFromJson(order.data):ProductsPlaceOrderModel.fromJson(order.data);
+    }
+
+    return placeOrderModel;
+  }
+  @override
+  Future<ProductsPlaceOrderModel> placeOrderAfterPayment(ProductsPlaceOrderEntity placeOrderEntity) async {
+    Dio dio = await DioFactory.getDio();
+    ProductsPlaceOrderModel placeOrderModel = const ProductsPlaceOrderModel();
+
+    final order = await dio.post(
+      AppConstants.apiBaseUrl + AppConstants.productsPlaceOrderAfterPaymentUri,
       data: ProductsPlaceOrderModel.toJson(placeOrderEntity),
     );
 

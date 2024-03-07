@@ -546,7 +546,27 @@ class _ServicesPaymentSummaryViewState
                     if(paymentMethod=="visa"){
                       Navigator.of(context).push(
                         MaterialPageRoute(
-                          builder: (context) =>  ServiceWebView(url: state.paymentLink!),
+                          builder: (context) =>  ServiceWebView(url: state.paymentLink!,
+                              servicesPlaceOrderEntity: ServicesPlaceOrderEntity(
+                                serviceId: widget.servicesPlaceOrderEntity[0].serviceId,
+                                userId: widget.servicesPlaceOrderEntity[0].userId,
+                                selectedDayId: widget.servicesPlaceOrderEntity[0].selectedDayId,
+                                selectedTime: widget.servicesPlaceOrderEntity[0].selectedTime,
+                                paymentMethod: paymentMethod,
+                                note: widget.servicesPlaceOrderEntity[0].note,
+                                address: widget.servicesPlaceOrderEntity[0].address,
+                                buildingNo: widget.servicesPlaceOrderEntity[0].buildingNo,
+                                flatNo: widget.servicesPlaceOrderEntity[0].flatNo,
+                                city: widget.servicesPlaceOrderEntity[0].city,
+                                state: widget.servicesPlaceOrderEntity[0].state,
+                                longitude: widget.servicesPlaceOrderEntity[0].longitude,
+                                latitude: widget.servicesPlaceOrderEntity[0].latitude,
+                                serviceCouponId: servicesCouponEntity.information!.serviceCouponId,
+                                discountPercentage:servicesCouponEntity.information!.discountPercentage,
+                                discountAmount: servicesCouponEntity.information!.discountAmount,
+                                priceAfterDiscount: servicesCouponEntity.information!.priceAfterDiscount,
+                                grantTotal: servicesCouponEntity.information!.grantTotal,
+                              )),
                         ),
                       );
                     }else{

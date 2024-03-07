@@ -24,12 +24,20 @@ class ProductsPlaceOrderModel extends ProductsPlaceOrderEntity {
     super.grantTotal,
     super.status,
     super.msg,
+    super.paymentLink
   });
 
   factory ProductsPlaceOrderModel.fromJson(Map<String, dynamic> json) {
     return ProductsPlaceOrderModel(
       status: json['status'],
       msg: json['message'],
+    );
+  }
+  factory ProductsPlaceOrderModel.visaFromJson(Map<String, dynamic> json) {
+    return ProductsPlaceOrderModel(
+      paymentLink: json['payment_link'],
+      status: json['status']??0,
+      msg: json['message']??'',
     );
   }
 

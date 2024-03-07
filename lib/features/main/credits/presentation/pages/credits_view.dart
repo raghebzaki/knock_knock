@@ -60,28 +60,7 @@ class _CreditsViewState extends State<CreditsView> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    GestureDetector(
-                      onTap:(){
-                        context.pushNamed(sendGiftPageRoute);
-                      },
-                      child: Container(
-                        width: context.width,
-                        padding: EdgeInsets.all( 10.sp),
-                        decoration: BoxDecoration(
-                          borderRadius: const BorderRadius.all(Radius.circular(12)),
-                          color: AppColors.secondaryWithOpacity,
-                        ),
-                        child:  Row(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Image.asset(AppImages.giftImg),
-                            Gap(10.h),
-                            Text(S.of(context).sendAGiftCard,style: CustomTextStyle.kTextStyleF12.copyWith(color: AppColors.primary),),
-                          ],
-                        ),
-                      ),
-                    ),
-                    Gap(20.h),
+
                     Text(S.of(context).availableCredits,style: CustomTextStyle.kTextStyleF16BlackW300,),
                     Gap(20.h),
                     Center(child: Image.asset(AppImages.bagImg)),

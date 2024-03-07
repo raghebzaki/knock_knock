@@ -30,4 +30,20 @@ class ProductsPlaceOrderRepoImpl implements ProductsPlaceOrderRepo {
       return left(DataSource.noInternetConnection.getFailure());
     }
   }
+  @override
+  Future<Either<Failure, ProductsPlaceOrderEntity>> placeOrderAfterPayment(ProductsPlaceOrderEntity placeOrderEntity) async {
+    final result = await Connectivity().checkConnectivity();
+
+    if (result == ConnectivityResult.mobile ||
+        result == ConnectivityResult.wifi) {
+      try {
+        final order = await placeOrderService.placeOrderAfterPayment(placeOrderEntity);
+        return right(order);
+      } on DioException catch (error) {
+        return left(ErrorHandler.handle(error).failure);
+      }
+    } else {
+      return left(DataSource.noInternetConnection.getFailure());
+    }
+  }
 }

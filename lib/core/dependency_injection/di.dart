@@ -2,6 +2,7 @@ import 'package:get_it/get_it.dart';
 import 'package:knockknock/features/main/home/presentation/manager/carousel_cubit.dart';
 import 'package:knockknock/features/main/search/presentation/manager/search_cubit.dart';
 import 'package:knockknock/features/orders/services/order_details/presentation/manager/service_cancel_order_cubit.dart';
+import 'package:knockknock/features/payment/services_payment_summary/domain/use_cases/services_place_order_after_payment_use_case.dart';
 import 'package:knockknock/features/payment/services_payment_summary/presentation/manager/services_place_order_cubit.dart';
 import 'package:knockknock/features/profile/edit_profile/domain/use_cases/delete_account_use_case.dart';
 import 'package:knockknock/features/profile/edit_profile/domain/use_cases/edit_account_use_case.dart';
@@ -115,6 +116,7 @@ import '../../features/payment/products_payment_summary/data/repositories/produc
 import '../../features/payment/products_payment_summary/domain/repositories/products_coupon_repo.dart';
 import '../../features/payment/products_payment_summary/domain/repositories/products_place_order_repo.dart';
 import '../../features/payment/products_payment_summary/domain/use_cases/products_coupon_use_case.dart';
+import '../../features/payment/products_payment_summary/domain/use_cases/products_place_order_after_payment_use_case.dart';
 import '../../features/payment/products_payment_summary/domain/use_cases/products_place_order_use_case.dart';
 import '../../features/payment/products_payment_summary/presentation/manager/products_coupon_cubit.dart';
 import '../../features/payment/products_payment_summary/presentation/manager/products_place_order_cubit.dart';
@@ -298,15 +300,11 @@ Future<void> init() async {
 
   /// payment
   /// service payment
-  di.registerFactory(() => ServicesPlaceOrderCubit(placeOrderUseCase: di()));
-  di.registerLazySingleton(
-      () => ServicesPlaceOrderUseCase(placeOrderRepo: di()));
-  di.registerLazySingleton<ServicesPlaceOrderRepo>(
-      () => ServicesPlaceOrderRepoImpl(
-            placeOrderService: di(),
-          ));
-  di.registerLazySingleton<ServicesPlaceOrderService>(
-      () => ServicesPlaceOrderServiceImpl());
+  di.registerFactory(() => ServicesPlaceOrderCubit(placeOrderUseCase: di(),placeOrderAfterPaymentUseCase: di(),));
+  di.registerLazySingleton(() => ServicesPlaceOrderUseCase(placeOrderRepo: di()));
+  di.registerLazySingleton(() => ServicesPlaceOrderAfterPaymentUseCase(placeOrderRepo: di()));
+  di.registerLazySingleton<ServicesPlaceOrderRepo>(() => ServicesPlaceOrderRepoImpl(placeOrderService: di(),));
+  di.registerLazySingleton<ServicesPlaceOrderService>(() => ServicesPlaceOrderServiceImpl());
 
   /// apply coupon
   di.registerFactory(() => ServicesCouponCubit(couponUseCase: di()));
@@ -318,9 +316,9 @@ Future<void> init() async {
       () => ServicesCouponServiceImpl());
 
   /// products payment
-  di.registerFactory(() => ProductsPlaceOrderCubit(placeOrderUseCase: di()));
-  di.registerLazySingleton(
-      () => ProductsPlaceOrderUseCase(placeOrderRepo: di()));
+  di.registerFactory(() => ProductsPlaceOrderCubit(placeOrderUseCase: di(),placeOrderAfterPaymentUseCase: di()));
+  di.registerLazySingleton(() => ProductsPlaceOrderUseCase(placeOrderRepo: di()));
+  di.registerLazySingleton(() => ProductsPlaceOrderAfterPaymentUseCase(placeOrderRepo: di()));
   di.registerLazySingleton<ProductsPlaceOrderRepo>(
       () => ProductsPlaceOrderRepoImpl(
             placeOrderService: di(),
