@@ -42,10 +42,18 @@ void main() async {
   };
   HttpOverrides.global = MyHttpOverrides();
 
-  await Firebase.initializeApp();
   if (Platform.isAndroid) {
+    await Firebase.initializeApp(
+      options: const FirebaseOptions(
+          apiKey: "AIzaSyBsoV6X4FafOmVa7VF7Xkp8w8jZslWoDVg",
+          appId: "1:1031782501963:android:9a51161b34d3010d3647ce",
+          messagingSenderId: "1031782501963",
+          projectId: "knock-knock-414709",
+      ),
+    );
     FireBaseResources().android();
   } else if (Platform.isIOS) {
+    await Firebase.initializeApp();
     FireBaseResources().ios();
   }
   var currentLocale = await CacheHelper.getLocal();
@@ -56,10 +64,6 @@ void main() async {
     ),
   );
 }
-Future<void> _firebaseMessagingBackgroundHandler(RemoteMessage message) async {
-  await Firebase.initializeApp();
-}
-
 
 class MyApp extends StatefulWidget {
   final Locale currentLang;
@@ -84,7 +88,7 @@ class _MyAppState extends State<MyApp> {
 
     locale = widget.currentLang;
     FirebaseMessaging.onMessage.listen(
-          (RemoteMessage message) {},
+      (RemoteMessage message) {},
     );
   }
 
