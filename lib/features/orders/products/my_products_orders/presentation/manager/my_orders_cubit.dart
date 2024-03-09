@@ -18,17 +18,30 @@ class MyOrdersCubit extends Cubit<MyOrdersStates> {
   final MyOrdersUseCase myOrdersUseCase;
 
   getMyOrders(ProductsOrderEntity myOrdersEntity,num? nextPage) async {
-    emit(const MyOrdersStates.loading());
+    if (nextPage == 1) {
+      emit(const MyOrdersStates.loading());
+    } else {
+      emit(const MyOrdersStates.paginationLoading());
+    }
     final login = await myOrdersUseCase(myOrdersEntity,nextPage);
 
     login.fold(
       (l) {
-        emit(
-          MyOrdersStates.error(
-            l.code.toString(),
-            l.message,
-          ),
-        );
+        if (nextPage == 1) {
+          emit(
+            MyOrdersStates.error(
+              l.code.toString(),
+              l.message,
+            ),
+          );
+        } else {
+          emit(
+            MyOrdersStates.paginationError(
+              l.code.toString(),
+              l.message,
+            ),
+          );
+        }
       },
       (r) async {
         emit(

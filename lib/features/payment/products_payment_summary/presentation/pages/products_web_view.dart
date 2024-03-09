@@ -62,7 +62,7 @@ class _ProductWebViewState extends State<ProductWebView> {
                   onWebResourceError: (WebResourceError error) {},
                   onNavigationRequest: (NavigationRequest request) {
                     if (request.url ==
-                        '${AppConstants.apiBaseUrl}v1/service_orders/stripe-success') {
+                        '${AppConstants.apiBaseUrl}v1/product_orders/stripe-success') {
                       context.defaultSnackBar(S.of(context).paymentSuccess,
                           color: Colors.green);
                       productsPlaceOrderCubit.placeOrderAfterPayment(
