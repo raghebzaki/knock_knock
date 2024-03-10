@@ -70,5 +70,6 @@ class AppConstants {
   static const getWeekDaysUri = "v1/days/get-all";
   static const getDeliveryUri = "v1/settings/get-all";
   static const getBalanceUri = "v1/packages/my-balance";
+  static const updateFcmTokenUri = "auth/update_fcm_token";
 
 }

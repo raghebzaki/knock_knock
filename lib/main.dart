@@ -1,7 +1,6 @@
 import 'dart:io';
 
 import 'package:firebase_core/firebase_core.dart';
-import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
@@ -42,20 +41,20 @@ void main() async {
   };
   HttpOverrides.global = MyHttpOverrides();
 
-  // if (Platform.isAndroid) {
-  //   await Firebase.initializeApp(
-  //     options: const FirebaseOptions(
-  //         apiKey: "AIzaSyBsoV6X4FafOmVa7VF7Xkp8w8jZslWoDVg",
-  //         appId: "1:1031782501963:android:9a51161b34d3010d3647ce",
-  //         messagingSenderId: "1031782501963",
-  //         projectId: "knock-knock-414709",
-  //     ),
-  //   );
-  //   FireBaseResources().android();
-  // } else if (Platform.isIOS) {
-  //   await Firebase.initializeApp();
-  //   FireBaseResources().ios();
-  // }
+  if (Platform.isAndroid) {
+    await Firebase.initializeApp(
+      options: const FirebaseOptions(
+          apiKey: "AIzaSyBsoV6X4FafOmVa7VF7Xkp8w8jZslWoDVg",
+          appId: "1:1031782501963:android:9a51161b34d3010d3647ce",
+          messagingSenderId: "1031782501963",
+          projectId: "knock-knock-414709",
+      ),
+    );
+    FireBaseResources().android();
+  } else if (Platform.isIOS) {
+    await Firebase.initializeApp();
+    FireBaseResources().ios();
+  }
   var currentLocale = await CacheHelper.getLocal();
 
   runApp(

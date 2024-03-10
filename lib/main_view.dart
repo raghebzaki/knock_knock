@@ -7,8 +7,10 @@ import 'core/resources/api/data_sources.dart';
 import 'core/router/router.dart';
 import 'core/service/delivery_cost.dart';
 import 'core/service/get_balance.dart';
+import 'core/service/update_token_fcm.dart';
 import 'core/shared/arguments.dart';
 import 'core/shared/cubits/internet_checker_cubit.dart';
+import 'core/shared/models/user_data_model.dart';
 import 'core/shared/widgets/state_error_widget.dart';
 import 'core/utils/app_colors.dart';
 import 'core/utils/app_images.dart';
@@ -79,7 +81,7 @@ class _MainViewState extends State<MainView> {
                     DeliveryCostService.deleteUserAccount();
                     UserBalanceService.getBalance();
 
-                    // UpdateFcmTokenService.updateUserToken(UserData.id!);
+                    UpdateFcmTokenService.updateUserToken(UserData.id!);
                   } else if (state.status == 0) {
                     if (state.msg ==
                         "Active your account first verification code sent to your email !") {

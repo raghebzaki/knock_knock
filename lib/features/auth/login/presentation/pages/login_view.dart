@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gap/gap.dart';
+import 'package:knockknock/core/shared/models/user_data_model.dart';
 import 'package:knockknock/core/utils/extensions.dart';
 import 'package:knockknock/features/auth/login/domain/entities/login_entity.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
@@ -13,6 +14,7 @@ import '../../../../../core/helpers/cache_helper.dart';
 import '../../../../../core/router/router.dart';
 import '../../../../../core/service/delivery_cost.dart';
 import '../../../../../core/service/get_balance.dart';
+import '../../../../../core/service/update_token_fcm.dart';
 import '../../../../../core/shared/arguments.dart';
 import '../../../../../core/shared/widgets/custom_button.dart';
 import '../../../../../core/shared/widgets/custom_form_field.dart';
@@ -54,7 +56,7 @@ class _LoginViewState extends State<LoginView> {
                 context.pushNamed(bottomNavBarPageRoute);
                 DeliveryCostService.deleteUserAccount();
                 UserBalanceService.getBalance();
-                // UpdateFcmTokenService.updateUserToken(UserData.id!);
+                UpdateFcmTokenService.updateUserToken(UserData.id!);
               } else if (state.status == 0) {
                 if (state.msg ==
                     "Active your account first verification code sent to your email !") {
