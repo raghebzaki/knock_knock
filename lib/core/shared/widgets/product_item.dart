@@ -1,13 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gap/gap.dart';
-import 'package:get/get.dart';
 import 'package:knockknock/core/router/router.dart';
 import 'package:knockknock/core/shared/arguments.dart';
 import 'package:knockknock/core/shared/entities/product_entity.dart';
 import 'package:knockknock/core/utils/app_constants.dart';
 import 'package:knockknock/core/utils/extensions.dart';
-import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 
 import '../../../config/themes/app_text_styles.dart';
 import '../../helpers/cache_helper.dart';
@@ -42,27 +40,13 @@ class ProductItem extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          Stack(
-            children: [
-              SizedBox(
-                width: context.queryWidth.w,
-                height: 140.h,
-                child: Image.network(
-                  AppConstants.imageUrl+productEntity.image!,
-                  fit: BoxFit.cover,
-                ),
-              ),
-              Align(
-                alignment: Alignment.topRight,
-                child: CircleAvatar(
-                  backgroundColor: AppColors.primary,
-                  child: Icon(
-                    MdiIcons.heartOutline,
-                    color: AppColors.errorColor,
-                  ),
-                ).paddingAll(Dimensions.p8,),
-              )
-            ],
+          SizedBox(
+            width: context.queryWidth.w,
+            height: 140.h,
+            child: Image.network(
+              AppConstants.imageUrl+productEntity.image!,
+              fit: BoxFit.cover,
+            ),
           ),
           Container(
             width: context.queryWidth.w,

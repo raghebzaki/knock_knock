@@ -63,6 +63,7 @@ class _ProductsDetailsViewState extends State<ProductsDetailsView> {
             children: [
               Image.network(
                 AppConstants.imageUrl + widget.productEntity.image!,
+                width: context.width,
                 fit: BoxFit.cover,
               ),
               Gap(10.h),
