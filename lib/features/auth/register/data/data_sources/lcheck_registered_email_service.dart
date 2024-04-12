@@ -26,7 +26,7 @@ class CheckRegisteredEmailServiceImpl implements CheckRegisteredEmailService {
       if (checkEmailRegister.data['status'] == 0) {
         return S.current.phoneAlreadyUsed;
       } else {
-        return null;
+        return "";
       }
     }
     return null;

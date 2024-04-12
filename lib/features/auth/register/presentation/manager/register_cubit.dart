@@ -57,6 +57,30 @@ class RegisterCubit extends Cubit<RegisterState> {
     );
   }
 
+  Future<String> checkEmail(String email) async {
+    emit(const RegisterState.loading());
+    final checkEmail = await checkRegisteredEmailUseCase(email);
+    var res;
+
+    checkEmail.fold(
+      (l) => {
+        emit(
+          RegisterState.error(
+            l.code.toString(),
+            l.message,
+          ),
+        ),
+      },
+      (r) => {
+        emit(
+          RegisterState.checkEmailSuccess(r!),
+        ),
+        res = r
+      },
+    );
+    return res;
+  }
+
   var firstNameCtrl = BehaviorSubject<String>();
   var lastNameCtrl = BehaviorSubject<String>();
   var phoneCtrl = BehaviorSubject<String>();
@@ -100,11 +124,14 @@ class RegisterCubit extends Cubit<RegisterState> {
       phoneCtrl.sink.add(phone);
     }
   }
+
   validateEmail(String email) async {
     if (email.isEmpty) {
       emailCtrl.sink.addError(S.current.plzEnterYourEmail);
     } else if (!email.isEmail()) {
       emailCtrl.sink.addError(S.current.plzEnterValidEmail);
+    } else if (await checkEmail(email) != "") {
+      emailCtrl.sink.addError(await checkEmail(email));
     } else {
       emailCtrl.sink.add(email);
     }
